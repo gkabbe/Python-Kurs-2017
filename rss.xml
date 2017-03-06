@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://example.com/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://example.com/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Mon, 06 Mar 2017 22:28:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>01 - Numpy</title><link>https://example.com/vorlesungen/numpy/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Ein kleiner Test mit Notebooks in Nikola&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;v1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;mat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;eye&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mat&lt;/span&gt; &lt;span class="o"&gt;@&lt;/span&gt; &lt;span class="n"&gt;v1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;[ 1.  4.  3.]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><guid>https://example.com/vorlesungen/numpy/</guid><pubDate>Mon, 06 Mar 2017 22:13:02 GMT</pubDate></item><item><title>0 - Die Kommandozeile in Linux</title><link>https://example.com/vorlesungen/kommandozeile/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Die Kommandozeile&lt;/h2&gt;
+&lt;p&gt;Da wir in diesem Kurs auf einem Linux-Rechner arbeiten, kommen wir nicht darum herum, uns ein wenig mit Linux auseinanderzusetzen. &lt;/p&gt;
+&lt;p&gt;Alle Befehle, die wir dem Computer mitteilen werden, werden über die sogenannte Kommandozeile ausgeführt.&lt;/p&gt;
+&lt;p&gt;Um sie zu öffnen, klicken wir auf das Startmenü und suchen nach "Terminal". Wenn wir den Eintrag mit der Maus anklicken, sollte sich ein Fenster öffnen. Das ist unsere Kommandozeile.&lt;/p&gt;
+&lt;p&gt;Nun können wir dem Computer ein paar einfache Befehle geben.&lt;/p&gt;
+&lt;p&gt;Schreiben wir&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; Hallo Welt
+&lt;/pre&gt;
+
+
+&lt;p&gt;so sollte der Computer uns &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;Hallo Welt
+&lt;/pre&gt;
+
+
+&lt;p&gt;ausgeben.&lt;/p&gt;
+&lt;h2&gt;Dateien und Ordner&lt;/h2&gt;
+&lt;p&gt;Das Linux-Dateisystem besteht aus Dateien und Ordnern. Ganz ähnlich wie man das auch von Windows kennt.&lt;/p&gt;
+&lt;p&gt;Um nun per Kommandozeile Dateien und Ordner anzulegen oder zu betrachten, gibt es diverse Befehle:&lt;/p&gt;
+&lt;h3&gt;Wo bin ich?&lt;/h3&gt;
+&lt;p&gt;Starten wir die Kommandozeile, befinden wir uns an einem ganz bestimmten Ordnerpfad. Diesen können wir sehen wenn wir den Befehl&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;eingeben. Es sollte dann so etwas wie&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;/home/&amp;lt;username&amp;gt;/
+&lt;/pre&gt;
+
+
+&lt;p&gt;erscheinen (wobei statt &amp;lt;username&amp;gt; der jeweilige Accountname zu sehen ist).
+pwd steht übrigens für "print working directory", was soviel heißt wie: "gib den Namen des aktuellen Verzeichnisses aus".&lt;/p&gt;
+&lt;h3&gt;Inhalt eines Ordners betrachten&lt;/h3&gt;
+&lt;p&gt;Um zu sehen, was in einem Ordner enthalten ist, benutzen wir den Befehl&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ls
+&lt;/pre&gt;
+
+
+&lt;p&gt;Damit werden alle Ordner und Dateien aufgelistet, die im aktuellen Verzeichnis enthalten sind.&lt;/p&gt;
+&lt;h3&gt;Ordner erstellen&lt;/h3&gt;
+&lt;p&gt;Ein Ordner lässt sich mithilfe von&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;mkdir &amp;lt;Ordnername&amp;gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;erstellen. &amp;lt;Ordnername&amp;gt; sollte dabei mit einem geeigneteren Namen ersetzt werden.&lt;/p&gt;
+&lt;h3&gt;In ein anderes Verzeichnis wechseln&lt;/h3&gt;
+&lt;p&gt;Um den Ordner zu wechseln, in dem wir uns gerade befinden, benutzen wir den Befehl &lt;strong&gt;cd&lt;/strong&gt; (change directory).&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;Ordnername&amp;gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Befinden wir uns in einem Ordner und möchten in den darüberliegenden Ordner wechseln, machen wir das mittels&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;cd ..
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Kleines Beispiel&lt;/h4&gt;
+&lt;p&gt;Wir befinden uns in unserem Home-Verzeichnis (um uns zu vergewissern, dass so ist, benutzen wir gleich noch einmal &lt;strong&gt;pwd&lt;/strong&gt;), erstellen einen Ordner mit dem Namen Python-SoSe2016, und "bewegen uns" in diesen.
+Dann benutzen wir noch einmal &lt;strong&gt;pwd&lt;/strong&gt;, um festzustellen, wo wir nun sind.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;
+mkdir Python-SoSe2016
+&lt;span class="nb"&gt;cd&lt;/span&gt; Python-SoSe2016
+&lt;span class="nb"&gt;pwd&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; ..
+&lt;span class="nb"&gt;pwd&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Dateien lesen&lt;/h3&gt;
+&lt;p&gt;Möchten wir den Inhalt einer einfachen Textdatei betrachten, hilft uns das Programm &lt;strong&gt;cat&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;cat &amp;lt;Dateiname&amp;gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Mit dem obigen Befehl wird der Inhalt der Textdatei \&amp;lt;Dateiname&amp;gt; in der Konsole ausgegeben.
+Handelt es sich um einen längeren Text, der zu groß für das Terminal ist, können wir &lt;strong&gt;less&lt;/strong&gt; benutzen&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;less &amp;lt;Dateiname&amp;gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Wieder wird uns der Text angezeigt, aber diesmal können wir mithilfe der Pfeiltasten hoch- und runterscrollen.
+Indem wir &lt;strong&gt;q&lt;/strong&gt; drücken, beenden wir das Programm wieder.&lt;/p&gt;&lt;/div&gt;</description><guid>https://example.com/vorlesungen/kommandozeile/</guid><pubDate>Mon, 06 Mar 2017 19:03:02 GMT</pubDate></item></channel></rss>
