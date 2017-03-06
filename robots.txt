@@ -1,4 +1,4 @@
-Sitemap: https://example.com/sitemapindex.xml
+Sitemap: https://gkabbe.github.io/Python-Kurs-2017/sitemapindex.xml
 
 User-Agent: *
-Host: example.com
+Host: gkabbe.github.io

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://example.com/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://example.com/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Mon, 06 Mar 2017 22:28:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>01 - Numpy</title><link>https://example.com/vorlesungen/numpy/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Mon, 06 Mar 2017 22:44:50 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>01 - Numpy</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/numpy/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -83,7 +83,7 @@
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://example.com/vorlesungen/numpy/</guid><pubDate>Mon, 06 Mar 2017 22:13:02 GMT</pubDate></item><item><title>0 - Die Kommandozeile in Linux</title><link>https://example.com/vorlesungen/kommandozeile/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Die Kommandozeile&lt;/h2&gt;
+</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/numpy/</guid><pubDate>Mon, 06 Mar 2017 22:13:02 GMT</pubDate></item><item><title>0 - Die Kommandozeile in Linux</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/kommandozeile/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Die Kommandozeile&lt;/h2&gt;
 &lt;p&gt;Da wir in diesem Kurs auf einem Linux-Rechner arbeiten, kommen wir nicht darum herum, uns ein wenig mit Linux auseinanderzusetzen. &lt;/p&gt;
 &lt;p&gt;Alle Befehle, die wir dem Computer mitteilen werden, werden über die sogenannte Kommandozeile ausgeführt.&lt;/p&gt;
 &lt;p&gt;Um sie zu öffnen, klicken wir auf das Startmenü und suchen nach "Terminal". Wenn wir den Eintrag mit der Maus anklicken, sollte sich ein Fenster öffnen. Das ist unsere Kommandozeile.&lt;/p&gt;
@@ -165,4 +165,4 @@ Handelt es sich um einen längeren Text, der zu groß für das Terminal ist, kö
 
 
 &lt;p&gt;Wieder wird uns der Text angezeigt, aber diesmal können wir mithilfe der Pfeiltasten hoch- und runterscrollen.
-Indem wir &lt;strong&gt;q&lt;/strong&gt; drücken, beenden wir das Programm wieder.&lt;/p&gt;&lt;/div&gt;</description><guid>https://example.com/vorlesungen/kommandozeile/</guid><pubDate>Mon, 06 Mar 2017 19:03:02 GMT</pubDate></item></channel></rss>
+Indem wir &lt;strong&gt;q&lt;/strong&gt; drücken, beenden wir das Programm wieder.&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/kommandozeile/</guid><pubDate>Mon, 06 Mar 2017 19:03:02 GMT</pubDate></item></channel></rss>
