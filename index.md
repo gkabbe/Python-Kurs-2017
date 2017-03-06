@@ -35,8 +35,8 @@ Soll heißen, Vorschläge der Studenten werden gerne angenommen.
 
 # Vorlesungen
 
-{{% post-list sections=vorlesungen %}}{{% /post-list %}}
+{{% post-list sections=vorlesungen sort=title template=postlistdir.tmpl %}}{{% /post-list %}}
 
 # Übungen
 
-{{% post-list sections=übungen %}}{{% /post-list %}}
+{{% post-list sections=übungen sort=title template=postlistdir.tmpl %}}{{% /post-list %}}
