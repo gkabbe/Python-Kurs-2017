@@ -8,3 +8,5 @@
 .. description: 
 .. type: text
 -->
+
+{{% post-list sections=übungen sort=title template=postlistdir.tmpl %}}{{% /post-list %}}
