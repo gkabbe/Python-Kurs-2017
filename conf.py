@@ -21,7 +21,7 @@ BLOG_AUTHOR = "Gabriel Kabbe"  # (translatable)
 BLOG_TITLE = "Python Kurs 2017"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "https://example.com/"
+SITE_URL = "https://gkabbe.github.io/Python-Kurs-2017/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://example.com/"
