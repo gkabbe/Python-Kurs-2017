@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3  Funktionen, Klassen und Objekte | Python Kurs 2017</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
+<link rel="prev" href="../datentypen/" title="2 - Datentypen" type="text/html">
+<link rel="next" href="../module_exceptions/" title="4 - Module &amp; Exceptions" type="text/html">
+<meta property="og:site_name" content="Python Kurs 2017">
+<meta property="og:title" content="3  Funktionen, Klassen und Objekte">
+<meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/">
+<meta property="og:description" content="Funktionen
+Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.
+Grundlagen
+Um eine Funk">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-04-21T00:00:00+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Springe zum Hauptinhalt</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse static-top mb-4"><div class="container">
+<!-- This keeps the margins nice -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="https://gkabbe.github.io/Python-Kurs-2017/">
+
+            <span id="blog-title">Python Kurs 2017</span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../vorlesungen" class="nav-link">Vorlesungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../%C3%BCbungen" class="nav-link">Übungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/" class="nav-link">Tags</a>
+                </li>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS-Feed</a>
+                </li>
+<li class="nav-item">
+<a href="../../about" class="nav-link">Impressum</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.md" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">3  Funktionen, Klassen und Objekte</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-04-21T00:00:00+01:00" itemprop="datePublished" title="2017-04-21 00:00">2017-04-21 00:00</time></a></p>
+            
+        <p class="sourceline"><a href="index.md" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h2>Funktionen</h2>
+<p>Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.</p>
+<h3>Grundlagen</h3>
+<p>Um eine Funktion zu erstellen wird das <em>def</em> keyword benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+</pre>
+
+
+<p>In dem oberen Beispiel hat die Funktion einen Rückgabewert. Das muss aber auch nicht zwingend sein:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
+</pre>
+
+
+<p>Man kann den Funktionsargumente Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">())</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>0
+</pre>
+
+
+<p>Es ginge aber z.B. auch:</p>
+<pre class="code literal-block"><span></span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># a und b werden auf 1 und 2 gesetzt, c hat den Defaultwert 0</span>
+
+<span class="n">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># a wird auf 100 gesetzt, b und c haben den Defaultwert 0</span>
+
+<span class="n">summe</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">99.912</span><span class="p">)</span> <span class="c1"># a wird auf 3 und c auf 99.912 gesetzt, b hat den Defaultwert 0</span>
+</pre>
+
+
+<p>Darüberhinaus ist es möglich, eine Funktion zu schreiben, die beliebig viele Argumente akzeptiert:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>1
+6
+55
+</pre>
+
+
+<p>Alle Argumente, die <em>summe</em> übergeben werden, werden in einem Tupel namens <em>args</em> gespeichert.
+Über diesen können wir dann iterieren.</p>
+<h3>Rekursive Funktionen</h3>
+<p><em>Falls Sie rekursive Funktionen nicht verstehen, lesen Sie diesen Satz bitte nochmal.</em></p>
+<p>Scherz beiseite, rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal aufrufen.</p>
+<p>Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
+Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
+einer natürlichen Zahl n definiert als:</p>
+<pre class="code literal-block"><span></span>n! = n * (n-1) * (n-2) * ... * 1
+</pre>
+
+
+<p>Obige Formel können wir aber auch folgendermaßen schreiben:</p>
+<pre class="code literal-block"><span></span>n! = n * (n-1)!
+</pre>
+
+
+<p>In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.</p>
+<p>Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. In diesem Fall ist dieser Anker die Tatsache, dass 0! = 1.</p>
+<p>Als Programm geschrieben, sieht das ganze so aus:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultaet</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultaet</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
+<h2>Klassen und Objekte</h2>
+<p>Aus Zeitgründen wird dieses Thema nur kurz angeschnitten werden, auch wenn man eigentlich sehr viel mehr Zeit damit verbringen könnte.</p>
+<p>Wir hatten zuvor gesehen, dass wir mit Funktionen gewissermaßen unseren Code etwas aufräumen können. Code der häufiger verwendet wird, wird als Funktion definiert, und später nur noch über den Funktionsnamen aufgerufen.</p>
+<p>Ebenso können wir nun Variablen <strong>und</strong> Funktionen zusammenfassen. Das geht über ein Objekt.
+Die Klasse ist dabei die Blaupause, aus der ein Objekt erstellt wird. Aus einer Klasse können beliebig viele Objekte erstellt werden.</p>
+<p>Eine Klasse wird folgendermaßen in Python definiert:</p>
+<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">MeineKlasse</span><span class="p">:</span>
+    <span class="n">var1</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">var2</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">methode1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+        <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">methode2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+        <span class="o">...</span>
+    <span class="o">...</span>
+</pre>
+
+
+<p><em>var1</em> und <em>var2</em> sind hier Objektvariablen, <em>methode1</em> und <em>methode2</em> Methoden, d.h. Funktionen, die jedes Objekt dieser Klasse besitzen wird.<br>
+Die Methode <em>__init__</em> ist eine besondere Methode. Sie wird beim Erstellen eines Objekts aufgerufen.</p>
+<p>Ein Beispiel aus der Physik: wir wollen ein freies Teilchen in zwei Dimensionen simulieren, das durch den Raum fliegt. Wir können es über Position und Geschwindigkeit beschreiben. Darüberhinaus wollen wir ihm eine <em>move</em> Methode geben, die als Parameter einen Zeitschritt akzeptiert, und das Teilchen in dieser Zeit weiterbewegt.</p>
+<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">Particle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v_x</span><span class="p">,</span> <span class="n">v_y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="c1"># hier wird die x, y Position des Teilchens festgelegt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_y</span> <span class="o">=</span> <span class="n">v_x</span><span class="p">,</span> <span class="n">v_y</span> <span class="c1"># hier wird die Geschwindigkeit festgelegt</span>
+    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delta_t</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_x</span> <span class="o">*</span> <span class="n">delta_t</span> <span class="c1"># Teilchen wird in x-Richtung bewegt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_y</span> <span class="o">*</span> <span class="n">delta_t</span> <span class="c1"># Teilchen wird in y-Richtung bewegt</span>
+</pre>
+
+
+<p>Wann immer wir auf eine Objektvariable zugreifen möchten, müssen wir dies mit einem vorangestellten <em>self.</em> kenntlich machen. </p>
+<p>Wir können nun folgendermaßen ein Objekt erstellen:</p>
+<pre class="code literal-block"><span></span><span class="n">mein_teilchen</span> <span class="o">=</span> <span class="n">Particle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># die Parameter, die wir hier angeben, werden an die __init__ Funktion weitergereicht</span>
+<span class="k">print</span> <span class="n">mein_teilchen</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mein_teilchen</span><span class="o">.</span><span class="n">y</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">mein_teilchen</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="c1"># ruft die move Methode mit delta_t = 0.1 auf</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">mein_teilchen</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mein_teilchen</span><span class="o">.</span><span class="n">y</span>
+<span class="sb">``</span><span class="err">`</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="n">der</span> <span class="n">ersten</span> <span class="n">Zeile</span> <span class="n">haben</span> <span class="n">wir</span> <span class="n">nun</span> <span class="n">ein</span> <span class="n">Objekt</span> <span class="n">der</span> <span class="n">Klasse</span> <span class="n">_Particle_</span> <span class="n">erstellt</span> <span class="n">und</span> <span class="n">es</span> <span class="n">_mein_teilchen_</span> <span class="n">genannt</span><span class="o">.</span> <span class="n">Wir</span> <span class="n">können</span> <span class="n">nun</span> <span class="n">auf</span> <span class="n">die</span> <span class="n">Methoden</span> <span class="n">und</span> <span class="n">Objektvariablen</span> <span class="n">unseres</span> <span class="n">Objekts</span> <span class="n">zugreifen</span><span class="p">,</span> <span class="n">indem</span> <span class="n">wir</span> <span class="n">hinter</span> <span class="n">dem</span> <span class="n">Objektnamen</span> <span class="n">einen</span> <span class="n">Punkt</span> <span class="n">und</span> <span class="n">dann</span> <span class="n">den</span> <span class="n">Objektvariablennamen</span> <span class="n">bzw</span><span class="o">.</span> <span class="n">Methodennamen</span> <span class="n">schreiben</span><span class="o">.</span>  
+<span class="n">Es</span> <span class="n">ist</span> <span class="n">so</span> <span class="n">sogar</span> <span class="n">möglich</span><span class="p">,</span> <span class="n">neue</span> <span class="n">Objektvariablen</span> <span class="n">auf</span> <span class="n">diese</span> <span class="n">Weise</span> <span class="n">hinzuzufügen</span> <span class="n">nachdem</span> <span class="n">das</span> <span class="n">Objekt</span> <span class="n">schon</span> <span class="n">erstellt</span> <span class="n">wurde</span><span class="o">.</span>
+
+<span class="c1">## Funktionen als Objekte ##</span>
+
+<span class="n">Diese</span> <span class="n">Tatsache</span><span class="p">,</span> <span class="n">mag</span> <span class="n">etwas</span> <span class="n">verwunderlich</span> <span class="n">erscheinen</span><span class="p">,</span> <span class="n">aber</span> <span class="n">tatsächlich</span> <span class="n">sind</span> <span class="ow">in</span> <span class="n">Python</span> <span class="n">auch</span> <span class="n">Funktionen</span> <span class="n">Objekte</span><span class="o">.</span>
+
+<span class="n">So</span> <span class="n">könnten</span> <span class="n">wir</span> <span class="n">z</span><span class="o">.</span><span class="n">B</span><span class="o">.</span> <span class="n">eine</span> <span class="n">Funktion</span> <span class="n">schreiben</span><span class="p">,</span> <span class="n">die</span> <span class="n">eine</span> <span class="n">andere</span> <span class="n">Funktion</span> <span class="n">als</span> <span class="n">Argument</span> <span class="n">bekommt</span><span class="p">,</span> <span class="n">und</span> <span class="n">diese</span> <span class="n">dann</span> <span class="n">aufruft</span><span class="p">:</span>
+
+<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">werte_funktionen_aus</span><span class="p">(</span><span class="n">irgendeine_funktion</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">irgendeine_funktion</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="n">werte_funktionen_aus</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre>
+
+
+<p>Dieser Code würde also die Funktion f(x) auswerten an den Stellen 0 bis 9.</p>
+<p>Andersherum können wir aber auch Funktionen definieren, die wiederum Funktionen zurückgeben:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">polynom_creator</span><span class="p">(</span><span class="n">degree</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">polynom</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">degree</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="n">i</span>
+        <span class="k">return</span> <span class="n">total</span>
+    <span class="k">return</span> <span class="n">polynom</span> <span class="c1"># hier wird das Funktionsobjekt zurückgegeben</span>
+</pre>
+
+
+<p>Diese Funktion gibt uns ein Polynom der Form</p>
+<pre class="code literal-block"><span></span>p(x) = x<span class="nb">^</span>n + x<span class="nb">^{</span>n-1<span class="nb">}</span> + ... + 1
+</pre>
+
+
+<p>zurück.</p>
+<pre class="code literal-block"><span></span><span class="n">polynom_dritten_grades</span> <span class="o">=</span> <span class="n">polynom_creator</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># hier erstellen wir ein Polynom zweiten Grades</span>
+<span class="n">polynom_zweiten_grades</span> <span class="o">=</span> <span class="n">polynom_creator</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># und hier eins dritten Grades</span>
+<span class="k">print</span><span class="p">(</span><span class="n">polynom_zweiten_grades</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">polynom_dritten_grades</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>31
+156
+</pre>
+
+
+<h4>Grundlegende Verständnisfragen:</h4>
+<ul>
+<li>Was gibt die Funktion <em>polynom_creator</em> zurück?</li>
+<li>Was gibt die Funktion <em>polynom</em> zurück?</li>
+</ul>
+<h3>Scope -- Der Geltungsbereich von Variablen</h3>
+<p>Was passiert in folgendem Beispiel?</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"x wurde gesetzt auf"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">"vor Ausführung von f: x ="</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"nach Ausführung von f: x ="</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<p>Es sieht so aus, als würde die Funktion f unsere zuvor deklarierte Variable x ändern.
+Tatsächlich ist die Ausgabe aber </p>
+<pre class="code literal-block"><span></span>vor Ausführung von f: x = 0
+x wurde gesetzt auf 7
+nach Ausführung von f: x = 0
+</pre>
+
+
+<p>Der Grund für dieses Verhalten ist, dass Python dafür sorgt, dass Funktionen nicht aus Versehen globale Variablen (d.h. Variablen, die auf oberster Ebene definiert wurden) ändert.
+Damit die globale Variable x nicht überschrieben wird, legt Python eine weitere Variable x an, die nur innerhalb der Funktion f Gültigkeit hat. Nach Verlassen der Funktion existiert diese nicht mehr, und es existiert nur noch das globale x.</p>
+<p>Ein anderes Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"x hat den Wert:"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">()</span>
+</pre>
+
+
+<p>In diesem Beispiel haben wir innerhalb von f keine Variable x definiert. Dennoch funktioniert der Code. Python merkt in diesem Fall nämlich, dass keine lokale Variable x existiert und schaut deshalb nach, ob es eine globale Variable gibt.</p>
+<p>Aber Vorsicht: sobald irgendwo in der Funktion auch eine Variable x auftaucht, existiert diese lokal, und Python wird nicht mehr im globalen Scope nach x suchen:</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">if</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"x hat den Wert:"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">()</span>
+</pre>
+
+
+<p>Obwohl der Code nach der if-Bedingung niemals ausgeführt wird, sorgt er dafür, dass x nun lokal existiert.
+Allerdings wird dem lokalen x nie ein Wert zugewiesen, weshalb das obige Beispiel mit einer Fehlermeldung endet.</p>
+<h3>Funktions-Wrapper</h3>
+<p>Dass wir Funktionen wie Objekte anderen Funktionen übergeben dürfen, eröffnet uns nun ganz neue Möglichkeiten.
+So können wir nun eine Funktion schreiben, die eine andere Funktion als Argument nimmt und daraus eine neue Funktion macht!</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">f_enhanced</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Am Anfang..."</span><span class="p">)</span>
+        <span class="n">f</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"und am Ende passiert was neues!"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f_enhanced</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Hallo Welt"</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">()</span>
+<span class="n">f_neu</span> <span class="o">=</span> <span class="n">wrapper</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">f_neu</span><span class="p">()</span>
+</pre>
+
+
+<p>Die Funktion <em>wrapper</em> nimmt also eine Funktion, und macht daraus eine neue Funktion mit erweiterter Funktionalität. Natürlich hätten wir im obigen Beispiel auch einfach die Funktion <em>f</em> umschreiben können, allerdings wird das spätestens dann anstrengend, wenn wir das für mehrere Funktionen machen wollen.</p>
+<p>Ein weiteres Beispiel wäre z.B. ein wrapper, der Funktionen dahingehend erweitert, dass sie ihre Argumente auf bestimmte Kriterien prüfen:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">check_args_nonnegative</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">f_enhanced</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">arg</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Bitte nur Argumente größer Null eingeben!"</span><span class="p">)</span> 
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f_enhanced</span>
+</pre>
+
+
+<p>Zu diesem Beispiel sind noch ein paar Worte zu sagen: wir sehen zum einen, dass f_enhanced mit *args als Argument definiert wurde. D.h. sie nimmt beliebig viele Argumente. Das ist notwendig, da f_enhanced ja mit vielen verschiedenen Funktionen soll, die unterschiedlich viele Funktionsargumente erwarten.</p>
+<p>Bevor nun die ursprüngliche Funktion <em>f</em> aufgerufen wird, wird zuerst geprüft, ob eines der gegebenen Argumente kleiner Null ist. In diesem Fall wird ein Fehler ausgelöst und die Funktion beendet sich.</p>
+<p>Diesen 'Wrapper' können wir jetzt beispielsweise auf unsere Fakultätsfunktion anwenden:</p>
+<pre class="code literal-block"><span></span><span class="n">fak</span> <span class="o">=</span> <span class="n">check_args_nonnegative</span><span class="p">(</span><span class="n">fak</span><span class="p">)</span> <span class="c1"># wir speichern die neue Funktion wieder unter dem selben Namen</span>
+<span class="n">fak</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># ok</span>
+<span class="n">fak</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># ok</span>
+<span class="n">fak</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># ok </span>
+<span class="n">fak</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># ValueError!</span>
+</pre>
+
+
+<p>Alternativ können wir anstelle von 'fak = check_args_nonnegative(fak)' auch einen sogenannten Decorator verwenden. Diesen müssen wir direkt über die Funktionsdefinition schreiben:</p>
+<pre class="code literal-block"><span></span><span class="nd">@check_args_nonnegative</span>
+<span class="k">def</span> <span class="nf">fak</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fak</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
+<p>Die Funktion <em>fak</em> hat dann automatisch die erweiterte Funktionalität.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../datentypen/" rel="prev" title="2 - Datentypen">Vorheriger Eintrag</a>
+            </li>
+            <li class="next">
+                <a href="../module_exceptions/" rel="next" title="4 - Module &amp; Exceptions">Nächster Eintrag</a>
+            </li>
+        </ul></nav></aside></article><!--End of body content--><footer id="footer">
+            Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("de");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
