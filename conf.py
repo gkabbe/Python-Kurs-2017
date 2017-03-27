@@ -134,6 +134,7 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
+        ("/verlaufsplan", "Verlaufsplan"),
         ("/vorlesungen", "Vorlesungen"),
         ("/übungen", "Übungen"),
         ("/categories/", "Tags"),
