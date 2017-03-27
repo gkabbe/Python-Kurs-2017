@@ -7,78 +7,46 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/2017/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/about/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/archive.html</loc>
-  <lastmod>2017-03-27T14:35:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/categories/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/listings/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/listings/hello.py.html</loc>
-  <lastmod>2017-03-08T13:37:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/</loc>
-  <lastmod>2017-03-27T14:35:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/datentypen/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/grundlagen/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/installation/</loc>
-  <lastmod>2017-03-27T14:44:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/kommandozeile/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/module_exceptions/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/numpy/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/numpy_test/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/scipy_matplotlib/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/%C3%BCbungen/</loc>
-  <lastmod>2017-03-07T14:49:00Z</lastmod>
+  <lastmod>2017-03-27T14:58:00Z</lastmod>
  </url>
 </urlset>
