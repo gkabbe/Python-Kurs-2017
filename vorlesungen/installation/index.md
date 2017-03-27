@@ -12,6 +12,9 @@
 
 # Python installieren
 
+Diese Anleitung ist für alle gedacht, die sich schon im Voraus Python auf ihrem privaten Rechner installieren möchten.
+Eine ausführliche Erklärung bekommt ihr sowieso nochmal von mir, sobald der Kurs beginnt.
+
 Um für diesen Kurs gewappnet zu sein, empfehle ich die Installation von Python via [Anaconda](https://www.continuum.io/downloads).
 Dafür einfach auf den obigen Link drücken und auf der Webseite das Betriebssystem auswählen.
 Dann den Installer der Version 3.6 herunterladen.
