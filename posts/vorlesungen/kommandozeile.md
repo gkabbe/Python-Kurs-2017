@@ -1,7 +1,7 @@
 <!-- 
-.. title: 0 - Die Kommandozeile in Linux
+.. title: 0.2 - Die Kommandozeile in Linux
 .. slug: kommandozeile
-.. date: 2017-03-06 20:03:02 UTC+01:00
+.. date: 2017-03-28 20:03:02 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
