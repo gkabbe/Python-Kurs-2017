@@ -22,6 +22,7 @@ Python ist im Gegensatz zu Programmiersprachen wie C, C++ oder Fortran eine _Int
 Das bedeutet, dass geschriebener Python-Code nicht kompiliert werden muss. Stattdessen wird der Code zur Laufzeit des Programmes vom Python Interpreter abgearbeitet.
 
 Wenn wir ein Programm mit dem Namen hello_world.py starten möchten, müssen wir in der Konsole daher einfach nur
+
 ```bash
 python hello_world.py
 ```
@@ -32,9 +33,11 @@ eingeben.
 Um einen ersten Eindruck einer Programmiersprache zu geben, beginnen die meisten Tutorials mit einem simplen Programm, das nur die Worte "Hello World" ausgibt. Auch dieses Tutorium macht da keinen Unterschied.
 
 Wir legen eine Textdatei **hello_world.py** mit folgendem Inhalt an:
+
 ```python
 print("Hello World")
 ```
+
 Das "Hello World" Programm zeigt schon gut, worin Pythons große Stärke liegt: die gute Lesbarkeit des Quellcodes!
 In nur einer Zeile steht alles, was nötig ist, um das Programm auszuführen.
 
@@ -42,6 +45,7 @@ Was passiert hier genau? In dem Programm wird die print Funktion aufgerufen. Als
 
 
 Zum Vergleich "Hello World" in Java:
+
 ```java
 class Main{
     public static void main(String[] args){
@@ -49,6 +53,7 @@ class Main{
     }
 }
 ```
+
 # Datentypen und Variablen #
 
 In Python können wir u.a. mit folgenden grundlegenden Datentypen arbeiten:
@@ -83,7 +88,9 @@ print(type(string_variable))
 print(type(boolsche_variable))
 print(type(none_variable))
 ```
+
 mit den Resultaten
+
 ```
 <class 'int'>
 <class 'float'>
@@ -92,6 +99,7 @@ mit den Resultaten
 <class 'bool'>
 <class 'NoneType'>
 ```  
+
 Ein kleiner Hinweis zu Variablennamen:
 Grundsätzlich ist es möglich, seine Variablen zu nennen, wie man möchte, solange sie mit einem Buchstaben beginnen. Zahlen am Anfang sind nicht erlaubt. Sonderzeichen dürfen nicht im Variablennamen vorkommen. Darüberhinaus ist es Konvention, Variablennamen klein zu schreiben und mit Unterstrich zu trennen.
 
@@ -131,6 +139,7 @@ Dieser Operator weist einer Variablen einen Wert zu.
 ## Arithmetische Operatoren +, -, *, /, %, **  
   
 Mit diesen Operatoren können wir einfache arithmetische Ausdrücke berechnen.
+
 ```python
 print(4 * 3)
 print(10 / 5)
@@ -172,6 +181,7 @@ sogenannte Integer-Division anwendet. Das Ergebnis ist also auch wieder ein Inte
 
 ## Vergleichsoperatoren ==, <, <=, >, >=  
 Diese Operatoren vergleichen zwei Werte miteinander und geben einen booleschen Wert zurück.
+
 ```python
 print(4 + 3 == 7)
 print(-11 < -13)
