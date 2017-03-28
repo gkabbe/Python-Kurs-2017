@@ -12,7 +12,7 @@
 
 # Übersicht
 
-### [Linux-Basics](/vorlesungen/installation)
+### [Linux-Basics](/vorlesungen/grundlagen)
 
 ### [Grundlagen]()
 
