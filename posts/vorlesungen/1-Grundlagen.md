@@ -100,9 +100,16 @@ Ein weiterer __wichtiger__ Punkt für Programmiersprachen generell, der sich zwa
 
 Kommentare lassen sich mithilfe des Raute-Zeichens in ein Python-Skript einfügen. Alles was in derselben Zeile hinter der Raute steht, wird nicht vom Python-Interpreter abgearbeitet
 
+Im unteren Beispiel, steht nach dem print Befehl ein Kommentar. Der print Befehl wird ausgeführt, der Kommentar dient nur dem Programmierer als Hinweis
+
 ```python
-print(1, 2, 3) # wird ausgeführt, denn die Raute kommt erst nach dem Befehl
-# print(4, 5, 6) wird nicht ausgeführt, da zu Beginn der Zeile eine Raute steht
+print(1, 2, 3) # Gibt 1, 2, 3 aus
+```
+
+Im nächsten Beispiel steht die Raute vor dem print Befehl. Damit wird Python ihn nicht mehr ausführen
+
+```python
+# print(4, 5, 6) Gibt gar nichts aus
 ```
 
 
@@ -111,158 +118,184 @@ print(1, 2, 3) # wird ausgeführt, denn die Raute kommt erst nach dem Befehl
 Bisher ist in unseren Programmen noch nicht viel passiert. Das wird sich nun ändern!  
 Mit Operatoren ist es uns nun möglich, Werte in unseren Programmen miteinander zu vergleichen, Variablen neue Werte zuzuweisen, oder mathematische Ausdrücke zu berechnen.
 
-* Zuweisungsoperator =
+## Zuweisungsoperator =
+    
+Diesen Operator haben wir schon im vorherigen Abschnitt kennengelernt.
+
+```python
+x = 3
+```
+
+Dieser Operator weist einer Variablen einen Wert zu.
+
+## Arithmetische Operatoren +, -, *, /, %, **  
   
-  Diesen Operator haben wir schon im vorherigen Abschnitt kennengelernt.
-  ```python
-  x = 3
-  ```
-  Dieser Operator weist einer Variablen einen Wert zu.
+Mit diesen Operatoren können wir einfache arithmetische Ausdrücke berechnen.
+```python
+print(4 * 3)
+print(10 / 5)
+print(10 / 4)
+print(10 + 3 - 11)
+print(14 % 3)
+print(10**2)
+```
 
-* Arithmetische Operatoren +, -, *, /, %, **  
-  Mit diesen Operatoren können wir einfache arithmetische Ausdrücke berechnen.
-  ```python
-  print(4 * 3)
-  print(10 / 5)
-  print(10 / 4)
-  print(10 + 3 - 11)
-  print(14 % 3)
-  print(10**2)
-  ```
-  Ausgabe:
-  ```
-  12
-  2.0
-  2.5
-  2
-  2
-  100
+Ausgabe:
 
-  ```
-  Wir können diese natürlich auch mit dem Zuweisungs-Operator kombinieren:
-  ```python
-  x = 4 * 3 + 13 / 5
-  print(x)
-  ```
-  Ausgabe:
-  ```
-  14.6
-  ```
+```
+12
+2.0
+2.5
+2
+2
+100
 
-  Hinweis für Python 2: 
-  In Python 2 ist das Ergebnis 14 statt 14.6. Der Grund dafür ist, dass Python 2 bei 13/5 die 
-  sogenannte Integer-Division anwendet. Das Ergebnis ist also auch wieder ein Integer (13 durch 5 ist 2 Rest 3).
+```
+
+Wir können diese natürlich auch mit dem Zuweisungs-Operator kombinieren:
+
+```python
+x = 4 * 3 + 13 / 5
+print(x)
+```
+
+Ausgabe:
+
+```
+14.6
+```
+
+Hinweis für Python 2: 
+In Python 2 ist das Ergebnis 14 statt 14.6. Der Grund dafür ist, dass Python 2 bei 13/5 die 
+sogenannte Integer-Division anwendet. Das Ergebnis ist also auch wieder ein Integer (13 durch 5 ist 2 Rest 3).
 
 
-* Vergleichsoperatoren ==, <, <=, >, >=  
-  Diese Operatoren vergleichen zwei Werte miteinander und geben einen booleschen Wert zurück.
-  ```python
-  print(4 + 3 == 7)
-  print(-11 < -13)
-  ```
-  Ausgabe:
-  ```
-  True
-  False
-  
-  ```
+## Vergleichsoperatoren ==, <, <=, >, >=  
+Diese Operatoren vergleichen zwei Werte miteinander und geben einen booleschen Wert zurück.
+```python
+print(4 + 3 == 7)
+print(-11 < -13)
+```
 
-* Logische Operatoren not, and, or
-  Diese Operatoren akzeptieren als Eingabe boolesche Werte und geben einen booleschen Wert zurück.  
-  **not** negiert einen booleschen Wert:
-  ```python
-  print(not False)
-  print(not True)
-  ```
-  Ausgabe:
-  ```
-  True
-  False
-  ```
-  **and** ergibt _True_ wenn beide Eingabewerte _True_ sind, ansonsten _False_
-  ```python
-  print(True and True)
-  print(True and False)
-  print(False and False)
+Ausgabe:
 
-  print(1+2==3 and 4*4==16)
-  print(1+2==3 and False)
-  x = 7
-  print(x == 7 and x+3 == 10 and True)
-  ```
-  Ausgabe
-  ```
-  True
-  False
-  False
-  True
-  False
-  True
-  ```
-  **or** ergibt _True_ wenn mindestens einer der beiden Eingabewerte _True_ ist.
-  ```python
-  print(True or True)
-  print(True or False)
-  print(False or False)
-  x = 5
-  print(x<5 or x>5)
-  ```
-  Ausgabe:
-  ```
-  True
-  True
-  False
-  False
-  ```
+```
+True
+False
 
-# Schleifen #
+```
+
+## Logische Operatoren not, and, or
+Diese Operatoren akzeptieren als Eingabe boolesche Werte und geben einen booleschen Wert zurück.  
+
+
+**not** negiert einen booleschen Wert:
+
+```python
+print(not False)
+print(not True)
+```
+
+Ausgabe:
+
+```
+True
+False
+```
+
+
+**and** ergibt _True_ wenn beide Eingabewerte _True_ sind, ansonsten _False_
+
+```python
+print(True and True)
+print(True and False)
+print(False and False)
+
+print(1+2==3 and 4*4==16)
+print(1+2==3 and False)
+x = 7
+print(x == 7 and x+3 == 10 and True)
+```
+
+Ausgabe
+
+```
+True
+False
+False
+True
+False
+True
+```
+
+
+**or** ergibt _True_ wenn mindestens einer der beiden Eingabewerte _True_ ist.
+
+```python
+print(True or True)
+print(True or False)
+print(False or False)
+x = 5
+print(x<5 or x>5)
+```
+
+Ausgabe:
+
+```
+True
+True
+False
+False
+```
+
+# Schleifen
 
 In Python gibt es zwei Arten von Schleifen:
 
-## For-Schleife ##
+## For-Schleife
 
 Die for-Schleife wird verwendet, wenn man einen Code-Teil eine bestimmte Anzahl von Malen wiederholen möchte.
 
-  Z.B.
-  
-  ```python
-  for i in range(10):
-    print(i)
-  ```
+Z.B.
 
-  Ausgabe:
+```python
+for i in range(10):
+  print(i)
+```
 
-  ```
-  0
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
-  ```
+Ausgabe:
+
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
 
 Wichtig ist hierbei die Einrückung nach der for-Anweisung (Konvention sind 4 Leerzeichen pro Einrückung). Alles, was nach der for-Anweisung eingerückt geschrieben wird, 
 wird so oft ausgeführt, wie die for-Schleife durchlaufen wird.
 
-## While-Schleife ##
+## While-Schleife
 
 Die While-Schleife wird benutzt, um eine Bedingung zu prüfen, und wenn diese erfüllt ist, den nachfolgenden Code auszuführen
 
-  Beispiel:
-  
-  ```python
-  summe = 0
-  i = 0
-  while summe < 20:
-    i = i + 1
-    summe = summe + i
-  ```
+Beispiel:
 
-## Mit _break_ aus einer Schleife ausbrechen ##
+```python
+summe = 0
+i = 0
+while summe < 20:
+  i = i + 1
+  summe = summe + i
+```
+
+## Mit _break_ aus einer Schleife ausbrechen
 
 Manchmal gibt es Fälle, in denen wir vorzeitig aus einer Schleife ausbrechen wollen. In diesen Fällen hilft uns das Statement _break_
 
@@ -287,7 +320,7 @@ Ausgabe:
 
 Anstatt die komplette Schleife zu durchlaufen, bricht das Programm die Schleife ab, sobald es die break-Anweisung erreicht.
 
-# Bedingte Anweisungen (if-statements) #
+# Bedingte Anweisungen (if-statements)
 
 Um ein richtiges Programm schreiben zu können, müssen wir dem Computer mitteilen können, wie er auf bestimmte Situationen reagieren soll. Dafür sind **bedingte Anweisungen** nötig.
 Die Form dieser **if statements** ist wie folgt:
@@ -301,26 +334,79 @@ else:
     <Anweisung 3>
 ```
 
-*<Bedingung>* ist dabei ein Ausdruck, der einen boolschen Wert zurückgibt. Die Anweisungen sind beliebiger Python-Code.
+<code class="html">`<Bedingung>`</code> ist dabei ein Ausdruck, der einen boolschen Wert zurückgibt. 
+Also z.B. so etwas wie
+
+```python
+meine_variable < 5 and andere_variable > 3
+```
+
+Die Anweisungen sind beliebiger Python-Code.
 
 Beispiel:
 
 ```python
-x = 7
+anzahl_räder = 2
+motor = True
 
-if 0 <= x <= 5:
-    print("x lässt sich an einer Hand abzählen")
-elif 6 <= x <= 10:
-    print("x lässt sich an zwei Händen abzählen")
-elif x > 10:
-    print("Dieses x ist mir zu groß...")
+if anzahl_räder == 4 and motor:
+    print("Das ist ein Auto")
+elif anzahl_räder == 4 and not motor:
+    print("Eine Kutsche!")
+elif anzahl_räder == 2 and motor:
+    print("Ein Motorrad!")
+elif anzahl_räder == 2 and not motor:
+    print("Ein Fahrrad!")
 else:
-    print("Dieses x ist mir zu klein...")
+    print("Keine Ahnung...")
+
 ```
 
-Was passiert in diesem Beispiel? Zuallererst wird in x der Wert 7 gespeichert.  
-Nun beginnt das if-Statement: die erste boolsche Funktion wird ausgewertet. Da x größer als 5 ist, 
-ergibt der gesamte Ausdruck False. Daher wird der darauf folgende Code nicht ausgewertet. Das Programm springt weiter zum elif-Statement. Da 6 <= 7 <= 10 True ergibt, gibt das Programm den Satz ""x lässt sich an zwei Händen abzählen" aus. Die letzten beiden Bedingungen werden übersprungen da die zweite Bedingung True ergab).
+Was passiert in diesem Beispiel? Zuallererst wird *anzahl_räder* auf 4 gesetzt, und *motor* auf <code class="python"> `True` </code>  
+Nun beginnt das if-Statement: die erste boolsche Funktion wird ausgewertet. 
+
+```python
+if anzahl_räder == 4 and motor:
+```
+
+Der Interpreter wertet nun zuerst <code class="python"> `anzahl_räder == 4` </code> aus.
+
+Damit ergibt sich:
+
+```python
+if False and motor:
+```
+
+Im nächsten Schritt müsste nun noch der Wert von <code class="python">`motor`</code> ausgewertet werden.
+Allerdings ist der Interpreter schlau genug, zu erkennen, dass das *and* Statement nur noch <code class="python"> `False` </code> ergeben kann, da 
+ein Argument ja schon <code class="python"> `False` </code> ist.
+
+Daher springt der Interpreter nun zum nächsten Teil des if-Statements:
+
+```python
+elif anzahl_räder == 4 and not motor
+```
+
+Hier passiert wieder das selbe. Da der erste Teil des and-Statements <code class="python"> `False` </code> ist, hört der Interpreter hier schon auf
+und springt eins weiter:
+
+```python
+elif anzahl_räder == 2 and motor:
+```
+
+Diesmal ist <code class="python"> `anzahl_räder == 2` </code> <code class="python"> `True` </code>.
+Daher muss der Interpreter nun auch prüfen, ob das zweite Statement stimmt. Tatsächlich ist auch <code class="python"> `motor` </code> <code class="python"> `True` </code>.
+
+Somit ist dieses Statement erfüllt, und daher wird der Python-Code danach ausgeführt, die Ausgabe ist also
+
+```
+Ein Motorrad!
+```
+
+### Kleine Übungsaufgabe:
+
+Ändern Sie die Variablen <code class="python"> `motor` </code> und <code class="python"> `anzahl_räder` </code>, um auch die anderen Ausgaben zu sehen zu bekommen.
+
 
 # Ein- und Ausgabe #
 
