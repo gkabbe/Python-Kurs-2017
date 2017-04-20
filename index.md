@@ -44,7 +44,7 @@ Soll heißen, Vorschläge der Studenten werden gerne angenommen.
 # Übungen
 
 
-{{% post-list sections=übungen sort=date template=published_list.tmpl %}}{{% /post-list %}}
+{{% post-list sections=uebungen sort=date template=published_list.tmpl %}}{{% /post-list %}}
 
 
-{{% post-list sections=übungen sort=date template=future_list.tmpl %}}{{% /post-list %}}
+{{% post-list sections=uebungen sort=date template=future_list.tmpl %}}{{% /post-list %}}
