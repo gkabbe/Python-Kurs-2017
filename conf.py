@@ -136,7 +136,7 @@ NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ("/verlaufsplan", "Verlaufsplan"),
         ("/vorlesungen", "Vorlesungen"),
-        ("/übungen", "Übungen"),
+        ("/uebungen", "Übungen"),
         ("/categories/", "Tags"),
         ("/rss.xml", "RSS-Feed"),
         ("/about", "Impressum"),
@@ -190,14 +190,16 @@ POSTS = (
     ("posts/*.html", "blog", "post.tmpl"),
     ("posts/vorlesungen/*.md", "vorlesungen", "post.tmpl"),
     ("posts/vorlesungen/*.ipynb", "vorlesungen", "post.tmpl"),
-    ("posts/übungen/*.md", "übungen", "post.tmpl"),
-    ("posts/übungen/*.ipynb", "übungen", "post.tmpl"),
+    ("posts/übungen/*.md", "uebungen", "post.tmpl"),
+    ("posts/übungen/*.ipynb", "uebungen", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.rst",  "", "story.tmpl"),
     ("pages/*.txt",  "", "story.tmpl"),
     ("pages/*.html", "", "story.tmpl"),
     ("pages/*.md",   "", "story.tmpl"),
+    ("pages/vorlesungen/index.md",   "vorlesungen", "story.tmpl"),
+    ("pages/übungen/index.md",   "uebungen", "story.tmpl"),
 )
 
 
@@ -325,7 +327,7 @@ POSTS_SECTIONS = True
 
 # Setting this to False generates a list page instead of an index. Indexes
 # are the default and will apply GENERATE_ATOM if set.
-# POSTS_SECTIONS_ARE_INDEXES = True
+POSTS_SECTIONS_ARE_INDEXES = False
 
 # Each post and section page will have an associated color that can be used
 # to style them with a recognizable color detail across your site. A color
