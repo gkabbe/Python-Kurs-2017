@@ -426,7 +426,7 @@ In diesem Kapitel beschäftigen wir uns mit verschiedenen Arten der Ein- und Aus
 * Einlesen und Schreiben von Dateien
 * Einlesen von Tastatureingaben
 
-__Schreiben__:
+## Schreiben:
 
 Um eine Datei zu öffnen, benötigen wir den Befehl __open__:
 
@@ -468,7 +468,7 @@ with open("meine_datei", "w") as datei:
     print("Und der hier in der zweiten", file=datei)
 ```
 
-__Einlesen__:
+## Einlesen:
 
 Das Einlesen einer Datei funktioniert ähnlich. Hier können wir zum Einlesen aller Zeilen einen schönen Trick verwenden:
 
@@ -481,7 +481,7 @@ with open("meine_datei", "r") as datei:
 Hier benutzen wir eine for-Schleife, die über alle Zeilen in unserer Datei iteriert.
 Tatsächlich kann man in Python for-Schleifen sehr vielfältig anwenden. Mehr dazu beim nächsten Mal!
 
-__Tastatureingabe__:
+## Tastatureingabe:
 
 Mit dem Handling von Tastatureingaben können wir unsere Programme endlich etwas interaktiver gestalten!
 Die Syntax dafür ist wie folgt:

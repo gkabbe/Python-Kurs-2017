@@ -86,9 +86,10 @@ mit dem Resultat
 ```
 
 
-## Was kann eine Liste speichern? ##
+## Was kann eine Liste speichern?
 
-Bisher haben wir als Beispiel nur Strings in unserer Liste gespeichert. Selbstverständlich lassen sich aber auch alle anderen Datentypen darin speichern. Selbst Listen von Listen, oder Listen von Listen von Listen (etc...) sind möglich. Auch ist es erlaubt, verschiedene Datentypen in einer Liste zu speichern:
+Bisher haben wir als Beispiel nur Strings und Integer in unserer Liste gespeichert. Es lassen sich aber auch alle anderen Datentypen darin speichern. 
+Selbst Listen von Listen, oder Listen von Listen von Listen (etc...) sind möglich. Auch ist es erlaubt, verschiedene Datentypen in der selben Liste zu speichern:
 
 ```python
 bunt_gemischt = ["hallo", [1, 2, 3], 3.456, 5+3j, True, False]
@@ -535,7 +536,7 @@ Die Syntax ist fast identisch, nur statt eckiger benutzen wir hier geschweifte K
 gerade_zahlen = {i for i in range(0, 200, 2)}
 ```
 
-# Assoziatives Datenfeld bzw. Wörterbücher (Dictionaries) #
+# Assoziative Datenfelder bzw. Wörterbücher (Dictionaries) #
 
 Ein weiterer nützlicher Datentyp ist das sogenannte assoziative Datenfeld, oder, einfacher ausgedrückt, Wörterbuch. Es speichert jeweils ein Paar aus Schlüsselwort (Key) und Wert (Value). Über das Schlüsselwort kann man sich den gespeicherten Wert ausgeben lassen.
 
@@ -560,6 +561,20 @@ Ausgabe:
 ```
 1
 ```
+
+### Bemerkung:
+
+Ein Dictionary hat eine gewisse Ähnlichkeit mit einer Liste:
+
+* Auch eine Liste speichert Werte, auf die man über einen Schlüssel (den Index) zugreifen kann.
+
+Die Unterschiede:
+
+* Die Schlüssel der Liste sind immer 0, 1, 2, ...
+
+* Schlüssel beim Dictionary können (fast) beliebig sein
+
+* Die Werte in der Liste sind geordnet, im Dictionary nicht unbedingt
 
 ## Iterieren über alle Key, Value Paare
 
