@@ -1,5 +1,5 @@
 <!-- 
-.. title: 2. Datentypen - Übung
+.. title: 2 - Datentypen: Übung
 .. slug: 2-datentypen-ubungen
 .. date: 2017-04-20 14:19:07 UTC+02:00
 .. tags: 
