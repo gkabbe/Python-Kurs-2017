@@ -103,7 +103,8 @@ mit den Resultaten
 Ein kleiner Hinweis zu Variablennamen:
 Grundsätzlich ist es möglich, seine Variablen zu nennen, wie man möchte, solange sie mit einem Buchstaben beginnen. Zahlen am Anfang sind nicht erlaubt. Sonderzeichen dürfen nicht im Variablennamen vorkommen. Darüberhinaus ist es Konvention, Variablennamen klein zu schreiben und mit Unterstrich zu trennen.
 
-# Kommentare #
+# Kommentare
+
 Ein weiterer __wichtiger__ Punkt für Programmiersprachen generell, der sich zwar nicht auf die Ausführung des Codes auswirkt, aber dafür auf das Verständnis des Lesers, sind Kommentare. 
 
 Kommentare lassen sich mithilfe des Raute-Zeichens in ein Python-Skript einfügen. Alles was in derselben Zeile hinter der Raute steht, wird nicht vom Python-Interpreter abgearbeitet
@@ -121,7 +122,7 @@ Im nächsten Beispiel steht die Raute vor dem print Befehl. Damit wird Python ih
 ```
 
 
-# Operatoren #
+# Operatoren
 
 Bisher ist in unseren Programmen noch nicht viel passiert. Das wird sich nun ändern!  
 Mit Operatoren ist es uns nun möglich, Werte in unseren Programmen miteinander zu vergleichen, Variablen neue Werte zuzuweisen, oder mathematische Ausdrücke zu berechnen.
@@ -418,7 +419,7 @@ Ein Motorrad!
 Ändern Sie die Variablen <code class="python"> `motor` </code> und <code class="python"> `anzahl_räder` </code>, um auch die anderen Ausgaben zu sehen zu bekommen.
 
 
-# Ein- und Ausgabe #
+# Ein- und Ausgabe
 
 In diesem Kapitel beschäftigen wir uns mit verschiedenen Arten der Ein- und Ausgabe, nämlich:
 

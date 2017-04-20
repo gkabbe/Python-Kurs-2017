@@ -38,16 +38,16 @@ meine_liste.append("b")
 meine_liste.append("c")
 ```
 
-## Zugreifen auf ein Element ##
+## Zugreifen auf ein Element
 
-Um auf das ite Element einer Liste l zuzugreifen, schreiben wir 
+Um auf das ite Element einer Liste mit Namen *dreier_liste* zuzugreifen, schreiben wir 
 
 ```python
-dreier_liste = ["bla", "bli", "Blub"]
+dreier_liste = ["a", "b", "c"]
 element = dreier_liste[0]
 ```
 
-Achtung, wir fangen bei Null an zu zählen! element hat also den Wert "bla".
+Achtung, wir fangen bei Null an zu zählen! element hat also den Wert "a".
 
 Möchten wir auf eines der hinteren Elemente zugreifen, können wir auch rückwärts zählen, indem wir negative ganze Zahlen benutzen:
 
@@ -57,7 +57,7 @@ vorletztes_element = dreier_liste[-2]
 ```
 
 
-## Entfernen von Elementen ##
+## Entfernen von Elementen
 
 Ebenso können wir Elemente entfernen, wenn wir sie nicht mehr brauchen. Dafür rufen wir die Methode _pop_ auf:
 
@@ -68,7 +68,7 @@ entferntes_element = meine_liste.pop(2)
 Obiger Befehl entfernt aus _meine_liste_ das Element, das an zweiter Stelle (Achtung, wir fangen bei Null an, zu zählen!). Damit ist es zwar aus der Liste entfernt, aber falls nötig, können wir es in einer weiteren Variablen speichern.
 
 
-## Listen miteinander verknüpfen ##
+## Listen miteinander verknüpfen
 
 Möchten wir zwei Teillisten zu einer großen Liste machen, so schreiben wir einfach
 
@@ -146,13 +146,13 @@ konzentrationen = [1.000,
 Um nun sowohl Zeit, als auch Konzentration zu bekommen, schreiben wir folgenden Code:
 
 ```python
-print "Zeit in Sekunden,  Konzentration"
+print("Zeit in Sekunden,  Konzentration")
 for index, messwert in enumerate(konzentrationen):
     print(index*20, messwert)
 ```
 
 
-## Listen "slicen" ##
+## Listen "slicen"
 
 Manchmal möchten wir nur auf einen Teil der Gesamtliste zugreifen. In diesem Fall ist das sogenannte "Slicing" von Vorteil.
 
@@ -183,7 +183,7 @@ Das liegt daran, dass _start_ und _stop_ automatisch auf 0 und Länge der Liste 
 Tatsächlich hat die "Slicing" Syntax eine starke Ähnlichkeit mit der range-Funktion.
 Übungsaufgabe: Teilliste erstellen, _ohne_ die Slicing Syntax zu benutzen.
 
-### Merkhilfe für die Index-Benutzung beim Slicen ###
+### Merkhilfe für die Index-Benutzung beim Slicen
 
 Folgendes Schaubild ([Quelle](https://docs.python.org/2/tutorial/introduction.html#strings)) macht anschaulich klar, wie die Indizes beim Slicen zu verstehen sind.
 
@@ -199,7 +199,7 @@ Anstatt die Elemente zu nummerieren, werden vielmehr die Trennlinien zwischen de
 
 
 
-## Listen sortieren ##
+## Listen sortieren
 
 In Python lassen sich Listen entweder mit der Methode _sort_, oder mit der Funktion _sorted_ sortieren.
 
@@ -222,7 +222,7 @@ l1 = [8, 3, 12, 2]
 l1.sort(reverse=True)
 ```
 
-## Unveränderliche Listen (Tupel) ##
+## Unveränderliche Listen (Tupel)
 
 In manchen Fällen ist es wüschenswert, eine unveränderliche Liste zu erstellen.
 Dies erreicht man folgendermaßen:
@@ -240,7 +240,7 @@ mein_tupel = tuple(meine_liste)
 
 Der Unterschied zur normalen Liste ist nur, dass wir weder Elemente zum Tupel hinzufügen noch entfernen können.
 
-### Listen/Tupel entpacken ###
+### Listen/Tupel entpacken
 
 Manchmal möchten wir mehrere Elemente einer Liste Variablen zuordnen.
 Als Beispiel haben wir einen Tupel, in dem Name, Vorname und Note eines Studenten steht:
@@ -273,7 +273,7 @@ Die Schachtelung darf übrigens beliebig komplex werden:
 (a, (b, (c, d, e), f), g, h) = (1, (2, (3, 4, 5), 6), 7, 8)
 ```
 
-## Listen zippen (der Reißverschluss) ##
+## Listen zippen (der Reißverschluss)
 
 Möchte man über mehrere Listen gleichzeitig iterieren, ist die zip Funktion hilfreich. 
 
@@ -311,26 +311,31 @@ for dreier_tupel in zip(vornamen_liste, nachnamen_liste, noten_liste):
     print(vn, nn, note)
 ```
 
-<!-- Noch ein wichtiger Hinweis:
+### Noch ein wichtiger Hinweis:
 
 Möchten wir nur über gezippte Listen iterieren (wie im obigen Beispiel mit den Namen und Noten), reicht
+
 ```python
 for el1, el2, el3, ... in zip(liste1, liste2, liste3, ...):
     ...
 ```
 
 Möchten wir jedoch explizit eine Liste erhalten, müssen wir schreiben:
+
 ```python
 liste_gezippt = list(zip(liste1, liste2, liste3, ...))
 ```
--->
-## List comprehensions ##
+
+## List comprehensions
 
 Manchmal möchten wir aus einer vorhandenen Liste eine neue Liste erstellen, die nur bestimmte Elemente enthält.
+
 Z.B. könnten wir folgende Liste haben
+
 ```python
 tiere = ["Affe", "Löwe", "Giraffe", "Schlange", "Nashorn"]
 ```
+
 und wir möchten eine Liste mit den Tieren erstellen, deren Namen mindestens 5 Buchstaben lang sind.
 
 Dann schreiben wir:
@@ -359,7 +364,7 @@ Folgender Code speichert nur die ungeraden Zahlen von 1 bis 20 in einer Liste:
 ungerade_zahlen = [zahl for zahl in range(1, 20) if zahl % 2 != 0]
 ```
 
-# Nochmal kurz Strings #
+# Nochmal kurz Strings
 
 Jetzt, wo wir gesehen haben, was man alles mit Listen anstellen kann, könnte sich einem die Frage stellen, ob das nicht auch auf Strings anwendbar ist? Tatsächlich haben Strings ganz ähnliche Eigenschaften wie Listen.
 Wir können sie addieren:
@@ -385,7 +390,7 @@ EnnshnngtnTg
 
 Ebenso können wir über die einzelnen Buchstaben eines Strings __iterieren__, und sogar sortieren lassen sich Strings.
 
-## Ein praktisches Beispiel ##
+## Ein praktisches Beispiel
 
 [Hier](https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/%C3%9Cbungen/molecule-example.xyz) finden Sie eine sogenannte xyz-Datei, in der die Struktur eines Systems aus Molekülen gespeichert ist. 
 Die Datei hat folgenden Aufbau:
@@ -415,7 +420,7 @@ with open("molecule-example.xyz", "r") as f:
 
 
 
-# Mengen (Sets) #
+# Mengen (Sets)
 
 Mengenoperationen, wie man sie aus der Mathematik kennt, lassen sich in Python mit dem Datentyp _set_ leicht ausführen.
 
@@ -439,70 +444,89 @@ Da eine Menge jedes Element nur einmal enthält, ist die Ausgabe:
 {1, 2, 3, 4}
 ```
 
-## Mengenoperationen ##
+## Mengenoperationen
 
 Mengenoperationen lassen sich folgendermaßen ausführen:
 
-* Schnitt:
-  ````python
-  a = {1, 2, 3, 4}
-  b = {1, 4, 6, 7, 8}
-  
-  print(a & b)
-  ````
-  Ausgabe:
-  ````
-  {1, 4}
-  ````
-* Vereinigung:
-  ````python
-  a = {1, 2, 3, 4}
-  b = {1, 4, 6, 7, 8}
-  
-  print(a | b)
-  ````
-  Ausgabe:
-  ````
-  {1, 2, 3, 4, 6, 7, 8}
-  ````
-* Differenz:
-  ````python
-  a = {1, 2, 3, 4}
-  b = {1, 4, 6, 7, 8}
-  
-  print(a - b)
-  print(b - a)
-  ````
-  Ausgabe:
-  ````
-  {2, 3}
-  {6, 7, 8}
-  ````
-* Symmetrische Differenz
-  ````python
-  a = {1, 2, 3, 4}
-  b = {1, 4, 6, 7, 8}
-  
-  print(a ^ b)
-  ````
+### Schnitt:
 
-  Ausgabe:
-  ````
-  {2, 3, 6, 7, 8}
-  ````
+```python
+a = {1, 2, 3, 4}
+b = {1, 4, 6, 7, 8}
+  
+print(a & b)
+```
 
-* Wenn wir testen möchten, ob ein Element in der Menge enthalten ist, schreiben wir
-  ```python
-  print(1 in {1, 2, 3})
-  print("a" in {1, 2, 3})
-  ```
-  Ausgabe:
-  ```
-  True
-  False
-  ```
+Ausgabe:
 
-## Set Comprehensions ##
+```
+{1, 4}
+```
+
+### Vereinigung:
+
+```python
+a = {1, 2, 3, 4}
+b = {1, 4, 6, 7, 8}
+  
+print(a | b)
+```
+
+Ausgabe:
+
+```
+{1, 2, 3, 4, 6, 7, 8}
+```
+
+### Differenz:
+
+```python
+a = {1, 2, 3, 4}
+b = {1, 4, 6, 7, 8}
+  
+print(a - b)
+print(b - a)
+```
+
+Ausgabe:
+
+```
+{2, 3}
+{6, 7, 8}
+```
+
+### Symmetrische Differenz
+
+```python
+a = {1, 2, 3, 4}
+b = {1, 4, 6, 7, 8}
+  
+print(a ^ b)
+```
+
+Ausgabe:
+
+```
+{2, 3, 6, 7, 8}
+```
+
+### Vorkommen überprüfen
+
+Wenn wir testen möchten, ob ein Element in der Menge enthalten ist, schreiben wir
+
+```python
+print(1 in {1, 2, 3})
+print("a" in {1, 2, 3})
+```
+
+Ausgabe:
+
+```
+True
+False
+```
+
+## Set Comprehensions
 
 Ganz ähnlich wie bei Listen können wir Sets mithilfe von Set Comprehensions erstellen.
 Die Syntax ist fast identisch, nur statt eckiger benutzen wir hier geschweifte Klammern:
@@ -515,7 +539,7 @@ gerade_zahlen = {i for i in range(0, 200, 2)}
 
 Ein weiterer nützlicher Datentyp ist das sogenannte assoziative Datenfeld, oder, einfacher ausgedrückt, Wörterbuch. Es speichert jeweils ein Paar aus Schlüsselwort (Key) und Wert (Value). Über das Schlüsselwort kann man sich den gespeicherten Wert ausgeben lassen.
 
-## Erstellen eines Dictionaries ##
+## Erstellen eines Dictionaries
 
 Auch hier gibt es wieder mehrere Wege:
 
@@ -524,6 +548,7 @@ my_dict = dict(a=1, b=2, c=3)
 my_dict_2 = {"a":1, "b":2, "c":3}
 my_dict_3 = dict([("a", 1), ("b", 2), ("c", 3)])
 ```
+
 In allen Fällen wird ein Wörterbuch mit den Schlüsselwörtern "a", "b" und "c" und den dazugehörigen Werten 1, 2 und 3 erstellt. 
 
 Schreiben wir nun in eckigen Klammern eines der gespeicherten Keywords hinter den Variablennamen, können wir auf den zugehörigen Wert zugreifen.
@@ -535,7 +560,8 @@ Ausgabe:
 ```
 1
 ```
-## Iterieren über alle Key, Value Paare ##
+
+## Iterieren über alle Key, Value Paare
 
 Wie bei Listen können wir auch bei Dictionaries eine for-Schleife benutzen, um über die enthaltenen Elemente zu iterieren.
 
@@ -546,6 +572,7 @@ for key in my_dict:
 ```
 
 Ausgabe:
+
 ```
 a
 c
@@ -560,6 +587,7 @@ for key in sorted(my_dict):
 ```
 
 Ausgabe:
+
 ```
 a
 b
@@ -581,11 +609,12 @@ c : 3
 b : 2
 ```
 
-## Dictionary Comprehensions ##
+## Dictionary Comprehensions
 
 Und auch hier gibt es wieder Comprehensions:
 
 ```python
 quadrat_zahlen_dict = {i: i*i for i in range(10)}
 ```
+
 Die Schreibweise ist ähnlich wie bei den Sets, jedoch müssen wir nun mit einem Doppelpunkt getrennte Key-Value Paare angeben.
