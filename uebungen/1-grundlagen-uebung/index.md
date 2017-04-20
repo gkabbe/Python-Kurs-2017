@@ -1,5 +1,5 @@
 <!-- 
-.. title: 1. Grundlagen - Übung
+.. title: 1 - Grundlagen: Übung
 .. slug: 1-grundlagen-uebung
 .. date: 2017-04-01 11:13:28 UTC+02:00
 .. tags: 
