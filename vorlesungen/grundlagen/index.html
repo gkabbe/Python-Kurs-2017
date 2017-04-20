@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1 - Grundlagen | Python Kurs 2017</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/grundlagen/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
+<link rel="prev" href="../../uebungen/1-grundlagen-uebung/" title="1. Grundlagen - Übung" type="text/html">
+<link rel="next" href="../datentypen/" title="2 - Datentypen" type="text/html">
+<meta property="og:site_name" content="Python Kurs 2017">
+<meta property="og:title" content="1 - Grundlagen">
+<meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/grundlagen/">
+<meta property="og:description" content="Der Kochrezept-Vergleich
+Ein beliebter Vergleich, der oft gebracht wird, um die Bedeutung des Programmierens zu veranschaulichen: wir haben einen Rezeptschreiber (Programmierer) und einen Koch (Comput">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-04-07T00:00:00+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Springe zum Hauptinhalt</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse static-top mb-4"><div class="container">
+<!-- This keeps the margins nice -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="https://gkabbe.github.io/Python-Kurs-2017/">
+
+            <span id="blog-title">Python Kurs 2017</span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../verlaufsplan" class="nav-link">Verlaufsplan</a>
+                </li>
+<li class="nav-item">
+<a href="../../vorlesungen" class="nav-link">Vorlesungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../uebungen" class="nav-link">Übungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/" class="nav-link">Tags</a>
+                </li>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS-Feed</a>
+                </li>
+<li class="nav-item">
+<a href="../../about" class="nav-link">Impressum</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.md" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">1 - Grundlagen</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-04-07T00:00:00+01:00" itemprop="datePublished" title="2017-04-07 00:00">2017-04-07 00:00</time></a></p>
+            
+        <p class="sourceline"><a href="index.md" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h2>Der Kochrezept-Vergleich</h2>
+<p>Ein beliebter Vergleich, der oft gebracht wird, um die Bedeutung des Programmierens zu veranschaulichen: wir haben einen Rezeptschreiber (Programmierer) und einen Koch (Computer). Der Koch ist allerdings sehr pingelig! Anstatt zu schreiben "gebe 3 Eier zum Mehl", müssen wir ihm sagen "Nimm das erste Ei. Klopfe es auf. Gib den Inhalt in die Schüssel. Nimm das zweite Ei. Klopfe es auf ..."</p>
+<p>Je nach Programmiersprache variiert die Auffassungsgabe des Kochs. Unser Python-Koch ist schon recht selbstständig. Jeder, der schon mal in einer Low-Level Sprache wie C, C++ oder Fortran gearbeitet hat, wird das schnell merken. Alle anderen, die bisher noch nicht programmiert haben, seien hier nur einmal darauf hingewiesen, damit sie sich bei später auftretenden Problemen damit trösten können, dass sie in anderen Programmiersprachen <em>mindestens</em> genauso viele Schwierigkeiten hätten ;-)</p>
+<h2>Python als Interpreter Sprache</h2>
+<p>Python ist im Gegensatz zu Programmiersprachen wie C, C++ oder Fortran eine <em>Interpretersprache</em>.
+Das bedeutet, dass geschriebener Python-Code nicht kompiliert werden muss. Stattdessen wird der Code zur Laufzeit des Programmes vom Python Interpreter abgearbeitet.</p>
+<p>Wenn wir ein Programm mit dem Namen hello_world.py starten möchten, müssen wir in der Konsole daher einfach nur</p>
+<pre class="code literal-block"><span></span>python hello_world.py
+</pre>
+
+
+<p>eingeben.</p>
+<h2>Hello World</h2>
+<p>Um einen ersten Eindruck einer Programmiersprache zu geben, beginnen die meisten Tutorials mit einem simplen Programm, das nur die Worte "Hello World" ausgibt. Auch dieses Tutorium macht da keinen Unterschied.</p>
+<p>Wir legen eine Textdatei <strong>hello_world.py</strong> mit folgendem Inhalt an:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
+</pre>
+
+
+<p>Das "Hello World" Programm zeigt schon gut, worin Pythons große Stärke liegt: die gute Lesbarkeit des Quellcodes!
+In nur einer Zeile steht alles, was nötig ist, um das Programm auszuführen.</p>
+<p>Was passiert hier genau? In dem Programm wird die print Funktion aufgerufen. Als Argument bekommt sie eine Zeichenkette (einen sogenannten String) geliefert. Dieser String wird dann schließlich beim Ausführen des Programms ausgegeben.</p>
+<p>Zum Vergleich "Hello World" in Java:</p>
+<pre class="code literal-block"><span></span><span class="kd">class</span> <span class="nc">Main</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+
+
+<h2>Datentypen und Variablen</h2>
+<p>In Python können wir u.a. mit folgenden grundlegenden Datentypen arbeiten:</p>
+<ul>
+<li>
+<strong>Integer</strong>: ganzzahlige Zahlen</li>
+<li>
+<strong>Float</strong>: Gleitkomma-Zahlen</li>
+<li>
+<strong>String</strong>: Zeichenketten</li>
+<li>
+<strong>Boolean</strong>: Logische Werte, können True oder False sein</li>
+<li>
+<strong>NoneType</strong>: Spezieller Datentyp, der z.B. als Default-Argument in Funktionen verwendet wird (kommt später)</li>
+</ul>
+<p>Jeder dieser Datentypen kann nun in einer Variablen gespeichert werden.
+Dies funktioniert mit einer einfachen Zuweisung wie in folgendem Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">ganze_zahl</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">komma_zahl</span> <span class="o">=</span> <span class="mf">1.234</span>
+<span class="n">komplexe_zahl</span> <span class="o">=</span> <span class="mf">3.123</span> <span class="o">+</span> <span class="mi">2j</span>
+<span class="n">string_variable</span> <span class="o">=</span> <span class="s2">"Hallo Welt"</span>
+<span class="n">boolsche_variable</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">none_variable</span> <span class="o">=</span> <span class="bp">None</span>
+</pre>
+
+
+<p>Hier haben wir vier Variablen mit den Namen <em>ganze_zahl</em>, <em>komma_zahl</em>, <em>komplexe_zahl</em>, <em>string_variable</em> und <em>boolsche_variable</em> initialisiert.
+Im Gegensatz zu anderen Programmiersprachen erkennt der Interpreter von alleine, um was für einen Datentyp es sich handelt.
+Um zu sehen, welchen Datentyp unsere Variablen nun haben, schreiben wir</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ganze_zahl</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">komma_zahl</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">komplexe_zahl</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">string_variable</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">boolsche_variable</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">none_variable</span><span class="p">))</span>
+</pre>
+
+
+<p>mit den Resultaten</p>
+<pre class="code literal-block"><span></span>&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'complex'&gt;
+&lt;class 'str'&gt;
+&lt;class 'bool'&gt;
+&lt;class 'NoneType'&gt;
+</pre>
+
+
+<p>Ein kleiner Hinweis zu Variablennamen:
+Grundsätzlich ist es möglich, seine Variablen zu nennen, wie man möchte, solange sie mit einem Buchstaben beginnen. Zahlen am Anfang sind nicht erlaubt. Sonderzeichen dürfen nicht im Variablennamen vorkommen. Darüberhinaus ist es Konvention, Variablennamen klein zu schreiben und mit Unterstrich zu trennen.</p>
+<h2>Kommentare</h2>
+<p>Ein weiterer <strong>wichtiger</strong> Punkt für Programmiersprachen generell, der sich zwar nicht auf die Ausführung des Codes auswirkt, aber dafür auf das Verständnis des Lesers, sind Kommentare. </p>
+<p>Kommentare lassen sich mithilfe des Raute-Zeichens in ein Python-Skript einfügen. Alles was in derselben Zeile hinter der Raute steht, wird nicht vom Python-Interpreter abgearbeitet</p>
+<p>Im unteren Beispiel, steht nach dem print Befehl ein Kommentar. Der print Befehl wird ausgeführt, der Kommentar dient nur dem Programmierer als Hinweis</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Gibt 1, 2, 3 aus</span>
+</pre>
+
+
+<p>Im nächsten Beispiel steht die Raute vor dem print Befehl. Damit wird Python ihn nicht mehr ausführen</p>
+<pre class="code literal-block"><span></span><span class="c1"># print(4, 5, 6) Gibt gar nichts aus</span>
+</pre>
+
+
+<h2>Operatoren</h2>
+<p>Bisher ist in unseren Programmen noch nicht viel passiert. Das wird sich nun ändern!<br>
+Mit Operatoren ist es uns nun möglich, Werte in unseren Programmen miteinander zu vergleichen, Variablen neue Werte zuzuweisen, oder mathematische Ausdrücke zu berechnen.</p>
+<h3>Zuweisungsoperator =</h3>
+<p>Diesen Operator haben wir schon im vorherigen Abschnitt kennengelernt.</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+</pre>
+
+
+<p>Dieser Operator weist einer Variablen einen Wert zu.</p>
+<h3>Arithmetische Operatoren +, -, <em>, /, %, </em>*</h3>
+<p>Mit diesen Operatoren können wir einfache arithmetische Ausdrücke berechnen.</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">11</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">14</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>12
+2.0
+2.5
+2
+2
+100
+</pre>
+
+
+<p>Wir können diese natürlich auch mit dem Zuweisungs-Operator kombinieren:</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">13</span> <span class="o">/</span> <span class="mi">5</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>14.6
+</pre>
+
+
+<p>Hinweis für Python 2: 
+In Python 2 ist das Ergebnis 14 statt 14.6. Der Grund dafür ist, dass Python 2 bei 13/5 die 
+sogenannte Integer-Division anwendet. Das Ergebnis ist also auch wieder ein Integer (13 durch 5 ist 2 Rest 3).</p>
+<h3>Vergleichsoperatoren ==, &lt;, &lt;=, &gt;, &gt;=</h3>
+<p>Diese Operatoren vergleichen zwei Werte miteinander und geben einen booleschen Wert zurück.</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">13</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>True
+False
+</pre>
+
+
+<h3>Logische Operatoren not, and, or</h3>
+<p>Diese Operatoren akzeptieren als Eingabe boolesche Werte und geben einen booleschen Wert zurück.  </p>
+<p><strong>not</strong> negiert einen booleschen Wert:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="ow">not</span> <span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="ow">not</span> <span class="bp">True</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>True
+False
+</pre>
+
+
+<p><strong>and</strong> ergibt <em>True</em> wenn beide Eingabewerte <em>True</em> sind, ansonsten <em>False</em></p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="bp">True</span> <span class="ow">and</span> <span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="bp">True</span> <span class="ow">and</span> <span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="bp">False</span> <span class="ow">and</span> <span class="bp">False</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">==</span><span class="mi">3</span> <span class="ow">and</span> <span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="o">==</span><span class="mi">16</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">==</span><span class="mi">3</span> <span class="ow">and</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">7</span> <span class="ow">and</span> <span class="n">x</span><span class="o">+</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">and</span> <span class="bp">True</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe</p>
+<pre class="code literal-block"><span></span>True
+False
+False
+True
+False
+True
+</pre>
+
+
+<p><strong>or</strong> ergibt <em>True</em> wenn mindestens einer der beiden Eingabewerte <em>True</em> ist.</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="bp">True</span> <span class="ow">or</span> <span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="bp">True</span> <span class="ow">or</span> <span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="bp">False</span> <span class="ow">or</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">5</span> <span class="ow">or</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>True
+True
+False
+False
+</pre>
+
+
+<h2>Schleifen</h2>
+<p>In Python gibt es zwei Arten von Schleifen:</p>
+<h3>For-Schleife</h3>
+<p>Die for-Schleife wird verwendet, wenn man einen Code-Teil eine bestimmte Anzahl von Malen wiederholen möchte.</p>
+<p>Z.B.</p>
+<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre>
+
+
+<p>Wichtig ist hierbei die Einrückung nach der for-Anweisung (Konvention sind 4 Leerzeichen pro Einrückung). Alles, was nach der for-Anweisung eingerückt geschrieben wird, 
+wird so oft ausgeführt, wie die for-Schleife durchlaufen wird.</p>
+<h3>While-Schleife</h3>
+<p>Die While-Schleife wird benutzt, um eine Bedingung zu prüfen, und wenn diese erfüllt ist, den nachfolgenden Code auszuführen</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">summe</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span> <span class="o">+</span> <span class="n">i</span>
+</pre>
+
+
+<h3>Mit <em>break</em> aus einer Schleife ausbrechen</h3>
+<p>Manchmal gibt es Fälle, in denen wir vorzeitig aus einer Schleife ausbrechen wollen. In diesen Fällen hilft uns das Statement <em>break</em></p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>0
+1
+2
+3
+4
+</pre>
+
+
+<p>Anstatt die komplette Schleife zu durchlaufen, bricht das Programm die Schleife ab, sobald es die break-Anweisung erreicht.</p>
+<h2>Bedingte Anweisungen (if-statements)</h2>
+<p>Um ein richtiges Programm schreiben zu können, müssen wir dem Computer mitteilen können, wie er auf bestimmte Situationen reagieren soll. Dafür sind <strong>bedingte Anweisungen</strong> nötig.
+Die Form dieser <strong>if statements</strong> ist wie folgt:</p>
+<pre class="code literal-block"><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">Bedingung</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">Anweisung</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="k">elif</span> <span class="o">&lt;</span><span class="n">Bedingung</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">Anweisung</span> <span class="mi">2</span><span class="o">&gt;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">Anweisung</span> <span class="mi">3</span><span class="o">&gt;</span>
+</pre>
+
+
+<p><code class="html"><code>&lt;Bedingung&gt;</code></code> ist dabei ein Ausdruck, der einen boolschen Wert zurückgibt. 
+Also z.B. so etwas wie</p>
+<pre class="code literal-block"><span></span><span class="n">meine_variable</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">andere_variable</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</pre>
+
+
+<p>Die Anweisungen sind beliebiger Python-Code.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">anzahl_räder</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">motor</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Das ist ein Auto"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">motor</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Eine Kutsche!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Ein Motorrad!"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">motor</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Ein Fahrrad!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Keine Ahnung..."</span><span class="p">)</span>
+</pre>
+
+
+<p>Was passiert in diesem Beispiel? Zuallererst wird <em>anzahl_räder</em> auf 4 gesetzt, und <em>motor</em> auf <code class="python"> <code>True</code> </code><br>
+Nun beginnt das if-Statement: die erste boolsche Funktion wird ausgewertet. </p>
+<pre class="code literal-block"><span></span><span class="k">if</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
+</pre>
+
+
+<p>Der Interpreter wertet nun zuerst <code class="python"> <code>anzahl_räder == 4</code> </code> aus.</p>
+<p>Damit ergibt sich:</p>
+<pre class="code literal-block"><span></span><span class="k">if</span> <span class="bp">False</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
+</pre>
+
+
+<p>Im nächsten Schritt müsste nun noch der Wert von <code class="python"><code>motor</code></code> ausgewertet werden.
+Allerdings ist der Interpreter schlau genug, zu erkennen, dass das <em>and</em> Statement nur noch <code class="python"> <code>False</code> </code> ergeben kann, da 
+ein Argument ja schon <code class="python"> <code>False</code> </code> ist.</p>
+<p>Daher springt der Interpreter nun zum nächsten Teil des if-Statements:</p>
+<pre class="code literal-block"><span></span><span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">motor</span>
+</pre>
+
+
+<p>Hier passiert wieder das selbe. Da der erste Teil des and-Statements <code class="python"> <code>False</code> </code> ist, hört der Interpreter hier schon auf
+und springt eins weiter:</p>
+<pre class="code literal-block"><span></span><span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
+</pre>
+
+
+<p>Diesmal ist <code class="python"> <code>anzahl_räder == 2</code> </code> <code class="python"> <code>True</code> </code>.
+Daher muss der Interpreter nun auch prüfen, ob das zweite Statement stimmt. Tatsächlich ist auch <code class="python"> <code>motor</code> </code> <code class="python"> <code>True</code> </code>.</p>
+<p>Somit ist dieses Statement erfüllt, und daher wird der Python-Code danach ausgeführt, die Ausgabe ist also</p>
+<pre class="code literal-block"><span></span>Ein Motorrad!
+</pre>
+
+
+<h4>Kleine Übungsaufgabe:</h4>
+<p>Ändern Sie die Variablen <code class="python"> <code>motor</code> </code> und <code class="python"> <code>anzahl_räder</code> </code>, um auch die anderen Ausgaben zu sehen zu bekommen.</p>
+<h2>Ein- und Ausgabe</h2>
+<p>In diesem Kapitel beschäftigen wir uns mit verschiedenen Arten der Ein- und Ausgabe, nämlich:</p>
+<ul>
+<li>Einlesen und Schreiben von Dateien</li>
+<li>Einlesen von Tastatureingaben</li>
+</ul>
+<p><strong>Schreiben</strong>:</p>
+<p>Um eine Datei zu öffnen, benötigen wir den Befehl <strong>open</strong>:</p>
+<pre class="code literal-block"><span></span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
+</pre>
+
+
+<p>Das <strong>"w"</strong> steht dabei für <em>writeable</em>. Möchte man eine (schon existierende) Datei nur auslesen, benutzt man <strong>"r"</strong> für <em>readable</em>.
+Möchte man an eine bestehende Datei weiteren Text anhängen, muss man <strong>"a"</strong> (für <em>append</em>) benutzen.</p>
+<p>Als nächstes möchten wir etwas in unsere gerade geöffnete Datei schreiben.
+Dazu benutzen wir, wie schon im Hello World Programm die print-Funktion:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="s2">"Dieser Satz steht in der ersten Zeile"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">datei</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"Und der hier in der zweiten"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">datei</span><span class="p">)</span>
+</pre>
+
+
+<p>Anschließend müssen wir die Datei noch schließen.</p>
+<pre class="code literal-block"><span></span><span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre>
+
+
+<p>In diesem Beispiel gibt es allerdings ein Problem. Angenommen, etwas unvorhergesehenes geschieht, bevor das Programm die Datei schließen kann:</p>
+<pre class="code literal-block"><span></span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Das wird mit einer Fehlermeldung abbrechen...</span>
+<span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># diese Zeile wird nie ausgeführt werden</span>
+</pre>
+
+
+<p>In diesem Fall wird f.close() nie ausgeführt. Als Resultat können Speicherprobleme auftreten, oder die Datei wird unlesbar.</p>
+<p>Die sichere Variante sieht wie folgt aus:</p>
+<pre class="code literal-block"><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">datei</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Dieser Satz steht in der ersten Zeile"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">datei</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Und der hier in der zweiten"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">datei</span><span class="p">)</span>
+</pre>
+
+
+<p><strong>Einlesen</strong>:</p>
+<p>Das Einlesen einer Datei funktioniert ähnlich. Hier können wir zum Einlesen aller Zeilen einen schönen Trick verwenden:</p>
+<pre class="code literal-block"><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">datei</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">datei</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre>
+
+
+<p>Hier benutzen wir eine for-Schleife, die über alle Zeilen in unserer Datei iteriert.
+Tatsächlich kann man in Python for-Schleifen sehr vielfältig anwenden. Mehr dazu beim nächsten Mal!</p>
+<p><strong>Tastatureingabe</strong>:</p>
+<p>Mit dem Handling von Tastatureingaben können wir unsere Programme endlich etwas interaktiver gestalten!
+Die Syntax dafür ist wie folgt:</p>
+<pre class="code literal-block"><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte geben Sie etwas ein: "</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"Sie gaben ein:"</span><span class="p">,</span> <span class="n">user_input</span><span class="p">)</span>
+</pre>
+
+
+<p>In Kombination mit if-else Anweisungen können wir nun Programme schreiben, 
+die auf verschiedene User-Eingaben reagieren. Mehr dazu in den Übungen.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../../uebungen/1-grundlagen-uebung/" rel="prev" title="1. Grundlagen - Übung">Vorheriger Eintrag</a>
+            </li>
+            <li class="next">
+                <a href="../datentypen/" rel="next" title="2 - Datentypen">Nächster Eintrag</a>
+            </li>
+        </ul></nav></aside></article><!--End of body content--><footer id="footer">
+            Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("de");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Python Kurs 2017 (Uebungen)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/rss.xml"></atom:link><language>de</language><lastBuildDate>Thu, 20 Apr 2017 11:24:12 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>1. Grundlagen - Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;p&gt;Schreibe hier deinen Eintrag hin.&lt;/p&gt;
+&lt;h3&gt;Mit dem Python Interpreter spielen&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Machen Sie sich mit dem Python Interpreter vertraut. &lt;ul&gt;
+&lt;li&gt;Führen Sie ein paar Rechenaufgaben durch&lt;/li&gt;
+&lt;li&gt;Benutzen Sie den print-Befehl, um beliebigen Text in der Kommandozeile auszugeben&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Hello World&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Schreiben Sie das Hello World Programm in einer Datei hello_world.py und führen Sie es mit dem Befehl&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;python hello_world.py
+&lt;/pre&gt;
+
+
+&lt;p&gt;aus.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie das Hello World Programm so um, dass es eine Datei &lt;em&gt;hello_world&lt;/em&gt; öffnet, und in diese "Hello World!" schreibt.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie ein Programm, das ihre neu erstellte Datei &lt;em&gt;hello_world&lt;/em&gt; wieder ausliest!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie ein Programm, das die Datei &lt;em&gt;hello_world&lt;/em&gt; öffnet und eine weitere Zeile "How are you?" anhängt. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie ein interaktives "Hello User"-Programm! Beim Start soll es den Benutzer nach seinem Namen fragen, und ihn anschließend mit seinem Namen grüßen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Datentypen&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Erstellen Sie eine Variable mit dem Namen &lt;em&gt;var1&lt;/em&gt;, die den Wert 10 enthält&lt;/li&gt;
+&lt;li&gt;Nun erstellen Sie eine Variable &lt;em&gt;var2&lt;/em&gt;, die den String ":-)" enthält&lt;/li&gt;
+&lt;li&gt;Welchen Datentyp hat die Variable &lt;em&gt;var3&lt;/em&gt;, die folgendermaßen erstellt wird: &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;var3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;var1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;var2&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Erhöhen Sie den Wert der Variablen &lt;em&gt;var1&lt;/em&gt; um 0.3. Welchen Datentyp hat sie jetzt?&lt;/li&gt;
+&lt;li&gt;Addieren Sie nun eine komplexe Zahl hinzu. Wie ändert sich der Datentyp?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Casten von Datentypen&lt;/h3&gt;
+&lt;p&gt;In manchen Fällen ist es sinnvoll, von einem gegebenen Datentyp zu einem anderen zu wechseln.
+Z.B. lässt sich ein Integer folgendermaßen zu einem Float konvertieren:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="n"&gt;x_float&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Konvertieren Sie nun:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;float -&amp;gt; int&lt;/li&gt;
+&lt;li&gt;float -&amp;gt; complex&lt;/li&gt;
+&lt;li&gt;float -&amp;gt; str&lt;/li&gt;
+&lt;li&gt;str -&amp;gt; int&lt;/li&gt;
+&lt;li&gt;str -&amp;gt; float&lt;/li&gt;
+&lt;li&gt;str -&amp;gt; complex&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;usw.&lt;/p&gt;
+&lt;p&gt;Schreiben Sie nun eine for-Schleife, in der die Zahlen 0.0, 0.1, ..., 0.9 ausgegeben werden&lt;/p&gt;
+&lt;h3&gt;Boolesche Variablen&lt;/h3&gt;
+&lt;p&gt;Gegeben seien die Variablen&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;student_motiviert&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;student_ausgeschlafen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;span class="n"&gt;unterricht_spannend&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Welchen Wert hat &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;lernerfolg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;student_ausgeschlafen&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;student_motiviert&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;unterricht_spannend&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Was passiert bei folgender Klammernsetzung?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;lernerfolg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;student_ausgeschlafen&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;student_motiviert&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;unterricht_spannend&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Wir setzen unterricht_spannend nun auf den (rein hypothetischen) Wert False. Wie ändert sich der Lernerfolg in den beiden oben genannten Fällen?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Passwortabfrage&lt;/h3&gt;
+&lt;p&gt;Schreiben Sie ein passwortgeschütztes Hello World Programm.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Beim Start fragt es nach einem Passwort. Erst wenn der User das korrekte Passwort eingegeben hat, wird "Hello World" ausgegeben.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Diesmal sind nur 3 Fehlversuche erlaubt. Danach bricht das Programm ohne Ausgabe ab&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</guid><pubDate>Sat, 01 Apr 2017 09:13:28 GMT</pubDate></item></channel></rss>
