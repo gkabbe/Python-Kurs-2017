@@ -13,6 +13,7 @@
 <link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/datentypen/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
 <link rel="prev" href="../grundlagen/" title="1 - Grundlagen" type="text/html">
+<link rel="next" href="../../uebungen/2-datentypen-ubungen/" title="2. Datentypen - Übung" type="text/html">
 <meta property="og:site_name" content="Python Kurs 2017">
 <meta property="og:title" content="2 - Datentypen">
 <meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/datentypen/">
@@ -151,7 +152,8 @@ In Python lässt sich eine Liste leicht erstellen:</p>
 
 
 <h3>Was kann eine Liste speichern?</h3>
-<p>Bisher haben wir als Beispiel nur Strings in unserer Liste gespeichert. Selbstverständlich lassen sich aber auch alle anderen Datentypen darin speichern. Selbst Listen von Listen, oder Listen von Listen von Listen (etc...) sind möglich. Auch ist es erlaubt, verschiedene Datentypen in einer Liste zu speichern:</p>
+<p>Bisher haben wir als Beispiel nur Strings und Integer in unserer Liste gespeichert. Es lassen sich aber auch alle anderen Datentypen darin speichern. 
+Selbst Listen von Listen, oder Listen von Listen von Listen (etc...) sind möglich. Auch ist es erlaubt, verschiedene Datentypen in der selben Liste zu speichern:</p>
 <pre class="code literal-block"><span></span><span class="n">bunt_gemischt</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hallo"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mf">3.456</span><span class="p">,</span> <span class="mi">5</span><span class="o">+</span><span class="mi">3j</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]</span>
 </pre>
 
@@ -514,7 +516,7 @@ Die Syntax ist fast identisch, nur statt eckiger benutzen wir hier geschweifte K
 </pre>
 
 
-<h2>Assoziatives Datenfeld bzw. Wörterbücher (Dictionaries)</h2>
+<h2>Assoziative Datenfelder bzw. Wörterbücher (Dictionaries)</h2>
 <p>Ein weiterer nützlicher Datentyp ist das sogenannte assoziative Datenfeld, oder, einfacher ausgedrückt, Wörterbuch. Es speichert jeweils ein Paar aus Schlüsselwort (Key) und Wert (Value). Über das Schlüsselwort kann man sich den gespeicherten Wert ausgeben lassen.</p>
 <h3>Erstellen eines Dictionaries</h3>
 <p>Auch hier gibt es wieder mehrere Wege:</p>
@@ -535,6 +537,23 @@ Die Syntax ist fast identisch, nur statt eckiger benutzen wir hier geschweifte K
 </pre>
 
 
+<h4>Bemerkung:</h4>
+<p>Ein Dictionary hat eine gewisse Ähnlichkeit mit einer Liste:</p>
+<ul>
+<li>Auch eine Liste speichert Werte, auf die man über einen Schlüssel (den Index) zugreifen kann.</li>
+</ul>
+<p>Die Unterschiede:</p>
+<ul>
+<li>
+<p>Die Schlüssel der Liste sind immer 0, 1, 2, ...</p>
+</li>
+<li>
+<p>Schlüssel beim Dictionary können (fast) beliebig sein</p>
+</li>
+<li>
+<p>Die Werte in der Liste sind geordnet, im Dictionary nicht unbedingt</p>
+</li>
+</ul>
 <h3>Iterieren über alle Key, Value Paare</h3>
 <p>Wie bei Listen können wir auch bei Dictionaries eine for-Schleife benutzen, um über die enthaltenen Elemente zu iterieren.</p>
 <pre class="code literal-block"><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -588,6 +607,9 @@ c
     <aside class="postpromonav"><nav><ul class="pager hidden-print">
 <li class="previous">
                 <a href="../grundlagen/" rel="prev" title="1 - Grundlagen">Vorheriger Eintrag</a>
+            </li>
+            <li class="next">
+                <a href="../../uebungen/2-datentypen-ubungen/" rel="next" title="2. Datentypen - Übung">Nächster Eintrag</a>
             </li>
         </ul></nav></aside></article><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         

@@ -429,7 +429,7 @@ Daher muss der Interpreter nun auch prüfen, ob das zweite Statement stimmt. Tat
 <li>Einlesen und Schreiben von Dateien</li>
 <li>Einlesen von Tastatureingaben</li>
 </ul>
-<p><strong>Schreiben</strong>:</p>
+<h3>Schreiben:</h3>
 <p>Um eine Datei zu öffnen, benötigen wir den Befehl <strong>open</strong>:</p>
 <pre class="code literal-block"><span></span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
 </pre>
@@ -464,7 +464,7 @@ Dazu benutzen wir, wie schon im Hello World Programm die print-Funktion:</p>
 </pre>
 
 
-<p><strong>Einlesen</strong>:</p>
+<h3>Einlesen:</h3>
 <p>Das Einlesen einer Datei funktioniert ähnlich. Hier können wir zum Einlesen aller Zeilen einen schönen Trick verwenden:</p>
 <pre class="code literal-block"><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">datei</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">datei</span><span class="p">:</span>
@@ -474,7 +474,7 @@ Dazu benutzen wir, wie schon im Hello World Programm die print-Funktion:</p>
 
 <p>Hier benutzen wir eine for-Schleife, die über alle Zeilen in unserer Datei iteriert.
 Tatsächlich kann man in Python for-Schleifen sehr vielfältig anwenden. Mehr dazu beim nächsten Mal!</p>
-<p><strong>Tastatureingabe</strong>:</p>
+<h3>Tastatureingabe:</h3>
 <p>Mit dem Handling von Tastatureingaben können wir unsere Programme endlich etwas interaktiver gestalten!
 Die Syntax dafür ist wie folgt:</p>
 <pre class="code literal-block"><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte geben Sie etwas ein: "</span><span class="p">)</span>
