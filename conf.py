@@ -137,6 +137,7 @@ NAVIGATION_LINKS = {
         ("/verlaufsplan", "Verlaufsplan"),
         ("/vorlesungen", "Vorlesungen"),
         ("/uebungen", "Übungen"),
+        ("/notebooks", "Notebooks"),
         ("/categories/", "Tags"),
         ("/rss.xml", "RSS-Feed"),
         ("/about", "Impressum"),
@@ -192,6 +193,7 @@ POSTS = (
     ("posts/vorlesungen/*.ipynb", "vorlesungen", "post.tmpl"),
     ("posts/übungen/*.md", "uebungen", "post.tmpl"),
     ("posts/übungen/*.ipynb", "uebungen", "post.tmpl"),
+    ("posts/notebooks/*.ipynb", "notebooks", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.rst",  "", "story.tmpl"),
