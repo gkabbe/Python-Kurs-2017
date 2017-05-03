@@ -1,6 +1,6 @@
 <!-- 
-.. title: 2 - Datentypen
-.. slug: datentypen
+.. title: 2 - Datenstrukturen
+.. slug: datenstrukturen
 .. date: 2017-04-14 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
