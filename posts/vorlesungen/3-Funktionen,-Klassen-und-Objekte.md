@@ -1,7 +1,7 @@
 <!-- 
 .. title: 3  Funktionen, Klassen und Objekte
 .. slug: funktionen_klassen_objekte
-.. date: 2017-04-21 00:00:00 UTC+01:00
+.. date: 2017-05-12 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
