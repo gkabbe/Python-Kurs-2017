@@ -1,7 +1,7 @@
 <!-- 
 .. title: Scipy & Matplotlib
 .. slug: scipy_matplotlib
-.. date: 2017-05-12 00:00:00 UTC+01:00
+.. date: 2018-05-12 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 

@@ -1,7 +1,7 @@
 <!-- 
 .. title: 4 - Module & Exceptions
 .. slug: module_exceptions
-.. date: 2017-05-19 00:00:00 UTC+01:00
+.. date: 2018-05-19 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 

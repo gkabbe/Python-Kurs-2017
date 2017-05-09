@@ -1,7 +1,7 @@
 <!-- 
 .. title: 5 - Numpy
 .. slug: numpy
-.. date: 2017-05-05 00:00:00 UTC+01:00
+.. date: 2018-05-05 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
