@@ -1,6 +1,6 @@
 <!-- 
-.. title: 2 - Datentypen: Übung
-.. slug: 2-datentypen-ubungen
+.. title: 2 - Datenstrukturen: Übung
+.. slug: 2-datenstrukturen-ubungen
 .. date: 2017-04-20 14:19:07 UTC+02:00
 .. tags: 
 .. category: 
@@ -9,11 +9,10 @@
 .. type: text
 -->
 
-# Übung Datentypen
 
-## Listen
+# Listen
 
-### Quadratzahlen korrigieren  
+## Quadratzahlen korrigieren  
 Gegeben sei folgende Liste:
 
 ```python
@@ -24,7 +23,7 @@ quadrat_zahlen = [1, 4, 9, 16, 26, 36, 49, 64, 81, 100]
 
 * Fügen Sie noch eine weitere Quadratzahl hinzu
 
-### Einkaufliste:
+## Einkaufliste:
 
 * Erstellen Sie eine Einkaufsliste bestehend aus (maximal) 10 Produkten, sowie eine Liste mit den dazugehörigen Preisen.
   
@@ -54,7 +53,7 @@ Gegenstand_10, Preis_10
 
 * Erstellen Sie eine Liste der Quadratzahlen von 1 bis 400
 
-### Noch mehr Listen
+## Noch mehr Listen
 
 * Gegeben ist eine Liste von Strings
 
@@ -69,7 +68,7 @@ string_liste = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     * Wieviele Sauerstoffatome in der Nähe jedes Phosphoratoms (P) sitzen 
 
 
-### Daten einlesen:
+# Daten einlesen:
 
 * Schreiben Sie eine Datei "Daten", in die Sie ein paar numerische Werte eintragen (am einfachsten ist es, wenn Sie pro Zeile einen Wert schreiben)
 
@@ -78,19 +77,19 @@ string_liste = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 * Berechnen Sie die Summe und den Mittelwert der Daten
   
 
-### Mengen
+# Mengen
 
 Sie und ein(e) Bekannte(r) waren shoppen. 
 Sie haben gekauft:
 
 ```python
-meine_einkaeufe = {"hose", "jacke", "schuhe", "schokoriegel", "schal", "flatscreen"}
+meine_einkäufe = {"hose", "jacke", "schuhe", "schokoriegel", "schal", "flatscreen"}
 ```
 
 Ihr Bekannter hat gekauft:
 
 ```python
-seine_einkaeufe = {"buch", "schuhe", "muetze", "jacke", "softdrink"}
+seine_einkäufe = {"buch", "schuhe", "mütze", "jacke", "softdrink"}
 ```
 
 Benutzen Sie Mengenoperationen um herauszufinden:
@@ -106,7 +105,7 @@ Benutzen Sie Mengenoperationen um herauszufinden:
 * Welche Dinge haben Sie nicht beide gekauft?
 
 
-### Sieb des Eratosthenes
+# Sieb des Eratosthenes
 
 Das Sieb des Eratosthenes ist ein Algorithmus, mit dem man Primzahlen bestimmen kann.
 Er lässt sich in Python gut mit Mengen lösen.
@@ -124,7 +123,7 @@ Um die Primzahlen von 2 bis _n_max_ zu bestimmen, tun Sie folgendes:
 
 
 
-### Dictionary ###
+# Dictionary
 
 Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:
 
@@ -136,7 +135,7 @@ Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!
 
 
 
-### Wortzähler ###
+# Wortzähler
 
 Schreiben Sie folgendes Python Programm:
 
@@ -182,7 +181,7 @@ text.replace(zu_ersetzendes_zeichen, "")
 
 * Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen
 
-### Galgenmännchen
+# Galgenmännchen
 
 Schreiben Sie ein Programm, in dem ein String mit dem Namen _unbekanntes_wort_ gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
 In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:

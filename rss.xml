@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>de</language><lastBuildDate>Wed, 03 May 2017 10:39:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Interne Datenstrukturen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Tue, 09 May 2017 09:38:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Interne Datenstrukturen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -775,9 +775,8 @@ käse kostet 2.3
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen/</guid><pubDate>Fri, 28 Apr 2017 13:00:12 GMT</pubDate></item><item><title>2 - Datentypen: Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datentypen-ubungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Übung Datentypen&lt;/h2&gt;
-&lt;h3&gt;Listen&lt;/h3&gt;
-&lt;h4&gt;Quadratzahlen korrigieren&lt;/h4&gt;
+</description><guid>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen/</guid><pubDate>Fri, 28 Apr 2017 13:00:12 GMT</pubDate></item><item><title>2 - Datenstrukturen: Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Listen&lt;/h2&gt;
+&lt;h3&gt;Quadratzahlen korrigieren&lt;/h3&gt;
 &lt;p&gt;Gegeben sei folgende Liste:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;quadrat_zahlen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;81&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;
@@ -791,7 +790,7 @@ käse kostet 2.3
 &lt;p&gt;Fügen Sie noch eine weitere Quadratzahl hinzu&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Einkaufliste:&lt;/h4&gt;
+&lt;h3&gt;Einkaufliste:&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Erstellen Sie eine Einkaufsliste bestehend aus (maximal) 10 Produkten, sowie eine Liste mit den dazugehörigen Preisen.&lt;/li&gt;
 &lt;/ul&gt;
@@ -828,7 +827,7 @@ Gegenstand_10, Preis_10
 &lt;p&gt;Erstellen Sie eine Liste der Quadratzahlen von 1 bis 400&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Noch mehr Listen&lt;/h4&gt;
+&lt;h3&gt;Noch mehr Listen&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Gegeben ist eine Liste von Strings&lt;/li&gt;
 &lt;/ul&gt;
@@ -844,7 +843,7 @@ Gegenstand_10, Preis_10
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Daten einlesen:&lt;/h4&gt;
+&lt;h2&gt;Daten einlesen:&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Schreiben Sie eine Datei "Daten", in die Sie ein paar numerische Werte eintragen (am einfachsten ist es, wenn Sie pro Zeile einen Wert schreiben)&lt;/p&gt;
@@ -856,15 +855,15 @@ Gegenstand_10, Preis_10
 &lt;p&gt;Berechnen Sie die Summe und den Mittelwert der Daten&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Mengen&lt;/h4&gt;
+&lt;h2&gt;Mengen&lt;/h2&gt;
 &lt;p&gt;Sie und ein(e) Bekannte(r) waren shoppen. 
 Sie haben gekauft:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;meine_einkaeufe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"hose"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"jacke"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schuhe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schokoriegel"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schal"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"flatscreen"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;meine_einkäufe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"hose"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"jacke"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schuhe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schokoriegel"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schal"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"flatscreen"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 
 
 &lt;p&gt;Ihr Bekannter hat gekauft:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;seine_einkaeufe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"buch"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schuhe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"muetze"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"jacke"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"softdrink"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;seine_einkäufe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"buch"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schuhe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"mütze"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"jacke"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"softdrink"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -886,7 +885,7 @@ Sie haben gekauft:&lt;/p&gt;
 &lt;p&gt;Welche Dinge haben Sie nicht beide gekauft?&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Sieb des Eratosthenes&lt;/h4&gt;
+&lt;h2&gt;Sieb des Eratosthenes&lt;/h2&gt;
 &lt;p&gt;Das Sieb des Eratosthenes ist ein Algorithmus, mit dem man Primzahlen bestimmen kann.
 Er lässt sich in Python gut mit Mengen lösen.&lt;/p&gt;
 &lt;p&gt;Um die Primzahlen von 2 bis &lt;em&gt;n_max&lt;/em&gt; zu bestimmen, tun Sie folgendes:&lt;/p&gt;
@@ -905,14 +904,14 @@ Er lässt sich in Python gut mit Mengen lösen.&lt;/p&gt;
 &lt;p&gt;Wenn die while-Schleife beendet, sollten sich in &lt;em&gt;numbers&lt;/em&gt; nur noch die Primzahlen zwischen 2 und &lt;em&gt;n_max&lt;/em&gt; befinden&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Dictionary&lt;/h4&gt;
+&lt;h2&gt;Dictionary&lt;/h2&gt;
 &lt;p&gt;Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;englisch_deutsch_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"hello"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"hallo"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"world"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"welt"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"good bye"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"auf wiedersehen"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 
 
 &lt;p&gt;Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!&lt;/p&gt;
-&lt;h4&gt;Wortzähler&lt;/h4&gt;
+&lt;h2&gt;Wortzähler&lt;/h2&gt;
 &lt;p&gt;Schreiben Sie folgendes Python Programm:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;this&lt;/span&gt;
 &lt;/pre&gt;
@@ -961,7 +960,7 @@ Er lässt sich in Python gut mit Mengen lösen.&lt;/p&gt;
 &lt;p&gt;Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Galgenmännchen&lt;/h4&gt;
+&lt;h2&gt;Galgenmännchen&lt;/h2&gt;
 &lt;p&gt;Schreiben Sie ein Programm, in dem ein String mit dem Namen &lt;em&gt;unbekanntes_wort&lt;/em&gt; gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
 In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:&lt;/p&gt;
 &lt;ul&gt;
@@ -1000,7 +999,7 @@ In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:&lt;/p&
 &lt;p&gt;das geheime Wort eingeben lassen, ohne dass es auf dem Bildschirm zu sehen ist.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Spielen Sie eine Runde Galgenmännchen mit Ihrem Nachbarn  &lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datentypen-ubungen/</guid><pubDate>Thu, 20 Apr 2017 12:19:07 GMT</pubDate></item><item><title>2 - Datenstrukturen</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/datenstrukturen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Listen&lt;/h2&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</guid><pubDate>Thu, 20 Apr 2017 12:19:07 GMT</pubDate></item><item><title>2 - Datenstrukturen</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/datenstrukturen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Listen&lt;/h2&gt;
 &lt;h3&gt;Erstellen einer Liste&lt;/h3&gt;
 &lt;p&gt;Oftmals haben wir es mit einer Sammlung von Daten zu tun und wollen diese speichern, z.B. Messdaten. Eine Datenstruktur, die sich dafür anbietet, ist die Liste.
 In Python lässt sich eine Liste leicht erstellen:&lt;/p&gt;
