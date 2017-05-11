@@ -2,7 +2,7 @@
 .. title: 3 - Funktionen, Klassen und Objekte
 .. slug: funktionen_klassen_objekte
 .. date: 2017-05-11 00:00:00 UTC+01:00
-.. tags: 
+.. tags: mathjax
 .. category: 
 .. link: 
 .. description: 
@@ -101,15 +101,11 @@ Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
 Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
 einer natürlichen Zahl n definiert als:
 
-```
-n! = n * (n-1) * (n-2) * ... * 1
-```
+\\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\\)
 
 Obige Formel können wir aber auch folgendermaßen schreiben:
 
-```
-n! = n * (n-1)!
-```
+\\(n! = n \cdot (n-1)!\\)
 
 In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.
 
@@ -341,9 +337,7 @@ def polynom_creator(degree):
 
 Diese Funktion gibt uns ein Polynom der Form
 
-```latex
-p(x) = x^n + x^{n-1} + ... + 1
-```
+\\(p(x) = x^n + x^{n-1} + ... + x^0\\)
 
 zurück.
 
