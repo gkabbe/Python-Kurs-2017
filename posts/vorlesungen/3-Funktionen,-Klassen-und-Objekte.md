@@ -1,7 +1,7 @@
 <!-- 
-.. title: 3  Funktionen, Klassen und Objekte
+.. title: 3 - Funktionen, Klassen und Objekte
 .. slug: funktionen_klassen_objekte
-.. date: 2018-05-12 00:00:00 UTC+01:00
+.. date: 2017-05-11 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
@@ -9,27 +9,42 @@
 .. type: text
 -->
 
-# Funktionen #
+# Funktionen
 
 Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.
 
-## Grundlagen ##
+## Grundlagen
 
-Um eine Funktion zu erstellen wird das _def_ keyword benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).
+Um eine Funktion zu erstellen wird das Keyword **def** benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).
 
 ```python
 def quadrat(x):
-    return x*x
+    return x * x
 ```
 
-In dem oberen Beispiel hat die Funktion einen Rückgabewert. Das muss aber auch nicht zwingend sein:
+In dem oberen Beispiel hat die Funktion einen Rückgabewert (gekennzeichnet durch das **return** Statement).
+Das bedeutet, dass die Funktion beim Aufruf einen Wert zurückgibt.
+
+Das muss aber auch nicht zwingend sein:
+Die folgende Funktion _hello_world_ z.B. gibt nur "Hello World" aus, hat aber kein return Statement.
 
 ```python
 def hello_world():
     print("Hello World")
 ```
 
-Man kann den Funktionsargumente Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:
+Nachdem eine Funktion erstellt wurde, muss sie aufgerufen werden, damit überhaupt etwas passiert:
+
+```python
+def quadrat(x):
+    return x * x
+
+zahl = 12
+quadrat_der_zahl = quadrat(zahl)
+print(zahl, "zum Quadrat ist", quadrat_der_zahl)
+```
+
+Man kann den Funktionsargumenten Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:
 
 ```python
 def summe(a=0, b=0, c=0):
@@ -39,6 +54,7 @@ print(summe())
 ```
 
 Ausgabe:
+
 ```
 0
 ```
@@ -77,12 +93,9 @@ Ausgabe:
 Alle Argumente, die _summe_ übergeben werden, werden in einem Tupel namens _args_ gespeichert.
 Über diesen können wir dann iterieren.
 
-## Rekursive Funktionen ##
+## Rekursive Funktionen
 
-_Falls Sie rekursive Funktionen nicht verstehen, lesen Sie diesen Satz bitte nochmal._
-
-
-Scherz beiseite, rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal aufrufen.
+Rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal (mit anderen Parametern) aufrufen.
 
 Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
 Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
@@ -100,38 +113,47 @@ n! = n * (n-1)!
 
 In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.
 
-Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. In diesem Fall ist dieser Anker die Tatsache, dass 0! = 1.
+Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
+In diesem Fall ist dieser Anker die Tatsache, dass 0! = 1.
 
 Als Programm geschrieben, sieht das ganze so aus:
 
 ```python
-def fakultaet(n):
+def fakultät(n):
     if n == 0:
         return 1
     else:
-        return n * fakultaet(n-1)
+        return n * fakultät(n-1)
 ```
 
 
 
-# Klassen und Objekte #
+# Klassen und Objekte
 
 Aus Zeitgründen wird dieses Thema nur kurz angeschnitten werden, auch wenn man eigentlich sehr viel mehr Zeit damit verbringen könnte.
 
-Wir hatten zuvor gesehen, dass wir mit Funktionen gewissermaßen unseren Code etwas aufräumen können. Code der häufiger verwendet wird, wird als Funktion definiert, und später nur noch über den Funktionsnamen aufgerufen.
+Wir hatten zuvor gesehen, dass wir mit Funktionen gewissermaßen unseren Code etwas aufräumen können. 
+Code der häufiger verwendet wird, wird als Funktion definiert, und später nur noch über den Funktionsnamen aufgerufen.
 
 Ebenso können wir nun Variablen __und__ Funktionen zusammenfassen. Das geht über ein Objekt.
 Die Klasse ist dabei die Blaupause, aus der ein Objekt erstellt wird. Aus einer Klasse können beliebig viele Objekte erstellt werden.
 
-Eine Klasse wird folgendermaßen in Python definiert:
+Eine Klasse wird typischerweise folgendermaßen in Python definiert (die "..." sollen nur andeuten, dass hier noch mehr Code stehen kann):
 
 ```python
 class MeineKlasse:
-    var1 = ...
-    var2 = ...
     ...
+    # Die __init__ Methode wird automatisch aufgerufen wenn ein Objekt aus einer Klasse erzeugt wird
+    # Hier werden die Attribute des Objekts gespeichert
     def __init__(self, p1, p2, p3, ...):
+        self.p1 = p1
+        self.p2 = p2
         ...
+        
+    # Eine Methode ist wie eine Funktion, die aber auch noch auf die Attribute eines Objekts
+    # Zugriff hat.
+    # Wichtig ist, dass eine Methode als erstes Argument immer das entsprechende Objekt
+    # bekommt 
     def methode1(self, q1, q2, ...)
         ...
     def methode2(self, ...)
@@ -141,6 +163,69 @@ class MeineKlasse:
 
 _var1_ und _var2_ sind hier Objektvariablen, _methode1_ und _methode2_ Methoden, d.h. Funktionen, die jedes Objekt dieser Klasse besitzen wird.  
 Die Methode *\_\_init\_\_* ist eine besondere Methode. Sie wird beim Erstellen eines Objekts aufgerufen.
+
+## Minimales Beispiel
+
+Eine ganz einfache Klasse könnte so aussehen:
+
+```python
+class Minimal:
+    pass
+```
+
+_pass_ ist nur ein Platzhalter, der gar nichts macht. 
+Dennoch reicht das schon, um eine funktionierende Klasse zu erstellen.
+Wir können daraus nun ein Objekt erzeugen.
+
+```python
+mini = Minimal()
+print(type(mini))
+```
+
+Dieses Objekt hat weder Methoden, noch Attribute.
+Wir können in ihm jedoch nachträglich noch Attribute speichern:
+
+```python
+mini.mein_attribut = 5
+print(mini.mein_attribut)
+```
+
+Damit funktioniert unsere Minmal-Klasse nun ähnlich wie ein Dictionary.
+Der Unterschied ist bloß, dass wir statt mini["mein_attribut"] mini.mein_attribut schreiben.
+
+
+## Beispiel mit einem Attribut
+
+Da es unpraktisch ist, einem Objekt nach Erzeugung erst noch manuell die Attribute zuweisen zu müssen, benutzen wir diesmal die \_\_init\_\_ Methode.
+
+```python
+class Simple:
+    def __init__(self):
+        self.mein_attribut = 5
+
+simple = Simple()
+print(simple.mein_attribut)
+```
+
+Jedes Objekt, das nun erzeugt wird, speichert das Attribut _mein_atribut_ mit dem Wert 5.
+Möchten wir das Attribut bei Erzeugung selbst festlegen, können wir es als Parameter in der \_\_init\_\_ Methode angeben:
+
+```python
+class LessSimple:
+    def __init__(self, attribut):
+        self.mein_attribut = attribut
+
+# Jetzt können wir Objekte mit unterschiedlichen Attribut-Werten erzeugen:
+less_simple_1 = LessSimple(5)
+less_simple_2 = LessSimple("hallo")
+less_simple_3 = LessSimple([1, 2, 3])
+
+print(less_simple_1.mein_attribut)
+print(less_simple_2.mein_attribut)
+print(less_simple_3.mein_attribut)
+```
+
+## Praktisches Beispiel (für Physiker)
 
 Ein Beispiel aus der Physik: wir wollen ein freies Teilchen in zwei Dimensionen simulieren, das durch den Raum fliegt. Wir können es über Position und Geschwindigkeit beschreiben. Darüberhinaus wollen wir ihm eine _move_ Methode geben, die als Parameter einen Zeitschritt akzeptiert, und das Teilchen in dieser Zeit weiterbewegt.
 
@@ -160,55 +245,111 @@ Wir können nun folgendermaßen ein Objekt erstellen:
 
 ```python
 mein_teilchen = Particle(0, 0, 1, 3)  # die Parameter, die wir hier angeben, werden an die __init__ Funktion weitergereicht
-print mein_teilchen.x, mein_teilchen.y
+print(mein_teilchen.x, mein_teilchen.y)
 for i in range(10):
-    mein_teilchen.move(0.1) # ruft die move Methode mit delta_t = 0.1 auf
-    print(mein_teilchen.x, mein_teilchen.y
-```)
+    mein_teilchen.move(0.1)  # ruft die move Methode mit delta_t = 0.1 auf
+    print(mein_teilchen.x, mein_teilchen.y)
+```
 
 In der ersten Zeile haben wir nun ein Objekt der Klasse _Particle_ erstellt und es _mein_teilchen_ genannt. Wir können nun auf die Methoden und Objektvariablen unseres Objekts zugreifen, indem wir hinter dem Objektnamen einen Punkt und dann den Objektvariablennamen bzw. Methodennamen schreiben.  
 Es ist so sogar möglich, neue Objektvariablen auf diese Weise hinzuzufügen nachdem das Objekt schon erstellt wurde.
 
-## Funktionen als Objekte ##
+## Funktionen als Objekte
 
 Diese Tatsache, mag etwas verwunderlich erscheinen, aber tatsächlich sind in Python auch Funktionen Objekte.
+Das bedeutet, wir können mit ihnen alles machen, was wir auch mit anderen Objekten machen können.
 
-So könnten wir z.B. eine Funktion schreiben, die eine andere Funktion als Argument bekommt, und diese dann aufruft:
+Z.B können wir sie in einer Liste speichern:
 
 ```python
-def f(x):
-    return x*x
+def x_hoch_2(x):
+    return x * x
 
+
+def x_hoch_3(x):
+    return x * x * x
+
+
+def x_hoch_4(x):
+    return x * x * x * x
+
+
+liste_mit_funktionen = [x_hoch_2, x_hoch_3, x_hoch_4]
+
+for func in liste_mit_funktionen:
+    print(func(5))
+```
+
+Oder wir können eine Funktion schreiben, die eine andere Funktion als Argument bekommt, und diese dann aufruft:
+
+```python
 def werte_funktionen_aus(irgendeine_funktion):
     for i in range(10):
         print(irgendeine_funktion(i))
 
-werte_funktionen_aus(f)
+werte_funktionen_aus(x_hoch_2)
 ```
 
-Dieser Code würde also die Funktion f(x) auswerten an den Stellen 0 bis 9.
+Dieser Code würde also die Funktion _x_hoch_2_ auswerten an den Stellen 0 bis 9.
 
 Andersherum können wir aber auch Funktionen definieren, die wiederum Funktionen zurückgeben:
+
+```python
+def gib_mir_eine_fkt(name):
+    # Die Funktionen quadrat und hello_world werden hier innerhalb der Funktion gib_mir_eine_fkt
+    # definiert, und sind daher nicht von außerhalb erreichbar
+    def quadrat(x):
+        return x * x
+    def hello_world():
+        print("Hello World!")
+
+    if name == "quadrat":
+        return quadrat
+    elif name == "hello_world":
+        return hello_world
+    else:
+        print("Unbekannter Funktionsname", name)
+
+func1 = gib_mir_eine_fkt("quadrat")
+print(type(func1))
+# Über das Attribut __name__ können wir den Namen def Funktion sehen
+print("Name der Funktion:", func1.__name__)
+print(func1(5))
+
+func2 = gib_mir_eine_fkt("hello_world")
+print("Name der Funktion:", func2.__name__)
+print(type(func2))
+func2()
+
+```
+
+Ein praktisches Beispiel dafür wäre z.B. eine Funktion, die Polynom-Funktionen beliebigen Grades
+erstellen kann:
 
 ```python
 def polynom_creator(degree):
     def polynom(x):
         total = 0
-        for i in range(degree, -1, -1):
-            total += x**i
+        # Das ist die entscheidende Zeile:
+        # Die range ändert sich, je nachdem welchen Wert der Parameter degree von polynom_creator
+        # annimmt
+        for n in range(0, degree + 1):
+            total += x**n
         return total
     return polynom # hier wird das Funktionsobjekt zurückgegeben
 ```
 
 Diese Funktion gibt uns ein Polynom der Form
+
 ```latex
 p(x) = x^n + x^{n-1} + ... + 1
 ```
+
 zurück.
 
 ```python
-polynom_dritten_grades = polynom_creator(2) # hier erstellen wir ein Polynom zweiten Grades
-polynom_zweiten_grades = polynom_creator(3) # und hier eins dritten Grades
+polynom_zweiten_grades = polynom_creator(2) # hier erstellen wir ein Polynom zweiten Grades
+polynom_dritten_grades = polynom_creator(3) # und hier eins dritten Grades
 print(polynom_zweiten_grades(5))
 print(polynom_dritten_grades(5))
 ```
@@ -220,12 +361,12 @@ Ausgabe:
 156
 ```
 
-### Grundlegende Verständnisfragen: ###
+### Grundlegende Verständnisfragen:
 
-* Was gibt die Funktion _polynom_creator_ zurück?
+* Was für einen Datentyp gibt die Funktion _polynom_creator_ zurück?
 * Was gibt die Funktion _polynom_ zurück?
 
-## Scope -- Der Geltungsbereich von Variablen ##
+## Scope -- Der Geltungsbereich von Variablen
 
 Was passiert in folgendem Beispiel?
 
@@ -284,7 +425,7 @@ f()
 Obwohl der Code nach der if-Bedingung niemals ausgeführt wird, sorgt er dafür, dass x nun lokal existiert.
 Allerdings wird dem lokalen x nie ein Wert zugewiesen, weshalb das obige Beispiel mit einer Fehlermeldung endet.
 
-## Funktions-Wrapper ##
+## Funktions-Wrapper
 
 Dass wir Funktionen wie Objekte anderen Funktionen übergeben dürfen, eröffnet uns nun ganz neue Möglichkeiten.
 So können wir nun eine Funktion schreiben, die eine andere Funktion als Argument nimmt und daraus eine neue Funktion macht!
