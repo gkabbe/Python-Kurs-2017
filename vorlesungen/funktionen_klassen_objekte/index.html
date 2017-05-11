@@ -22,6 +22,7 @@ Grundlagen
 Um eine Funk">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-05-11T00:00:00+01:00">
+<meta property="article:tag" content="mathjax">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Springe zum Hauptinhalt</a>
@@ -173,15 +174,9 @@ Die folgende Funktion <em>hello_world</em> z.B. gibt nur "Hello World" aus, hat 
 <p>Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
 Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
 einer natürlichen Zahl n definiert als:</p>
-<pre class="code literal-block"><span></span>n! = n * (n-1) * (n-2) * ... * 1
-</pre>
-
-
+<p>\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\)</p>
 <p>Obige Formel können wir aber auch folgendermaßen schreiben:</p>
-<pre class="code literal-block"><span></span>n! = n * (n-1)!
-</pre>
-
-
+<p>\(n! = n \cdot (n-1)!\)</p>
 <p>In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.</p>
 <p>Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
 In diesem Fall ist dieser Anker die Tatsache, dass 0! = 1.</p>
@@ -378,10 +373,7 @@ erstellen kann:</p>
 
 
 <p>Diese Funktion gibt uns ein Polynom der Form</p>
-<pre class="code literal-block"><span></span>p(x) = x<span class="nb">^</span>n + x<span class="nb">^{</span>n-1<span class="nb">}</span> + ... + 1
-</pre>
-
-
+<p>\(p(x) = x^n + x^{n-1} + ... + x^0\)</p>
 <p>zurück.</p>
 <pre class="code literal-block"><span></span><span class="n">polynom_zweiten_grades</span> <span class="o">=</span> <span class="n">polynom_creator</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># hier erstellen wir ein Polynom zweiten Grades</span>
 <span class="n">polynom_dritten_grades</span> <span class="o">=</span> <span class="n">polynom_creator</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># und hier eins dritten Grades</span>
@@ -506,11 +498,14 @@ So können wir nun eine Funktion schreiben, die eine andere Funktion als Argumen
 <p>Die Funktion <em>fak</em> hat dann automatisch die erweiterte Funktionalität.</p>
 </div>
     </div>
-    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags"></ul>
+<ul class="pager hidden-print">
 <li class="previous">
                 <a href="../datenstrukturen/" rel="prev" title="2 - Datenstrukturen">Vorheriger Eintrag</a>
             </li>
-        </ul></nav></aside></article><!--End of body content--><footer id="footer">
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>

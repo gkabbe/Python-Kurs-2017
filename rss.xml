@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Thu, 11 May 2017 11:55:02 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>3 - Funktionen, Klassen und Objekte</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Thu, 11 May 2017 12:30:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>3 - Funktionen, Klassen und Objekte</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
 &lt;p&gt;Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.&lt;/p&gt;
 &lt;h3&gt;Grundlagen&lt;/h3&gt;
 &lt;p&gt;Um eine Funktion zu erstellen wird das Keyword &lt;strong&gt;def&lt;/strong&gt; benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).&lt;/p&gt;
@@ -77,15 +77,9 @@ Die folgende Funktion &lt;em&gt;hello_world&lt;/em&gt; z.B. gibt nur "Hello Worl
 &lt;p&gt;Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
 Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
 einer natürlichen Zahl n definiert als:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;n! = n * (n-1) * (n-2) * ... * 1
-&lt;/pre&gt;
-
-
+&lt;p&gt;\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\)&lt;/p&gt;
 &lt;p&gt;Obige Formel können wir aber auch folgendermaßen schreiben:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;n! = n * (n-1)!
-&lt;/pre&gt;
-
-
+&lt;p&gt;\(n! = n \cdot (n-1)!\)&lt;/p&gt;
 &lt;p&gt;In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.&lt;/p&gt;
 &lt;p&gt;Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
 In diesem Fall ist dieser Anker die Tatsache, dass 0! = 1.&lt;/p&gt;
@@ -282,10 +276,7 @@ erstellen kann:&lt;/p&gt;
 
 
 &lt;p&gt;Diese Funktion gibt uns ein Polynom der Form&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;p(x) = x&lt;span class="nb"&gt;^&lt;/span&gt;n + x&lt;span class="nb"&gt;^{&lt;/span&gt;n-1&lt;span class="nb"&gt;}&lt;/span&gt; + ... + 1
-&lt;/pre&gt;
-
-
+&lt;p&gt;\(p(x) = x^n + x^{n-1} + ... + x^0\)&lt;/p&gt;
 &lt;p&gt;zurück.&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;polynom_zweiten_grades&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;polynom_creator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# hier erstellen wir ein Polynom zweiten Grades&lt;/span&gt;
 &lt;span class="n"&gt;polynom_dritten_grades&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;polynom_creator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# und hier eins dritten Grades&lt;/span&gt;
@@ -407,7 +398,7 @@ So können wir nun eine Funktion schreiben, die eine andere Funktion als Argumen
 &lt;/pre&gt;
 
 
-&lt;p&gt;Die Funktion &lt;em&gt;fak&lt;/em&gt; hat dann automatisch die erweiterte Funktionalität.&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</guid><pubDate>Wed, 10 May 2017 23:00:00 GMT</pubDate></item><item><title>3 - Funktionen, Klassen und Objekte - Übungen</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_klassen_objekte_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Aufgabe max&lt;/h2&gt;
+&lt;p&gt;Die Funktion &lt;em&gt;fak&lt;/em&gt; hat dann automatisch die erweiterte Funktionalität.&lt;/p&gt;&lt;/div&gt;</description><category>mathjax</category><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</guid><pubDate>Wed, 10 May 2017 23:00:00 GMT</pubDate></item><item><title>3 - Funktionen, Klassen und Objekte - Übungen</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_klassen_objekte_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Aufgabe max&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt&lt;/li&gt;
 &lt;li&gt;Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt&lt;/li&gt;
