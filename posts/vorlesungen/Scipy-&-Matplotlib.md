@@ -9,13 +9,13 @@
 .. type: text
 -->
 
-# Plotten mit Matplotlib #
+# Plotten mit Matplotlib
 
-## 1D-Plots ##
+## 1D-Plots
 
 Siehe auch [offizielles Tutorial von der matplotlib-Seite](http://matplotlib.org/users/pyplot_tutorial.html#pyplot-tutorial)
 
-### Simples Beispiel ###
+### Simples Beispiel
 
 ```python
 import matplotlib.pyplot as plt
