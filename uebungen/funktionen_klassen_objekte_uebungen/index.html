@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 - Funktionen, Klassen und Objekte - Übungen | Python Kurs 2017</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_klassen_objekte_uebungen/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
+<link rel="prev" href="../2-datenstrukturen-ubungen/" title="2 - Datenstrukturen: Übung" type="text/html">
+<meta property="og:site_name" content="Python Kurs 2017">
+<meta property="og:title" content="3 - Funktionen, Klassen und Objekte - Übungen">
+<meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_klassen_objekte_uebungen/">
+<meta property="og:description" content="Aufgabe max
+
+Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt
+Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt
+
+Aufgabe Palindrom
+Schreib">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-05-11T00:00:00+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Springe zum Hauptinhalt</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse static-top mb-4"><div class="container">
+<!-- This keeps the margins nice -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="https://gkabbe.github.io/Python-Kurs-2017/">
+
+            <span id="blog-title">Python Kurs 2017</span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../verlaufsplan" class="nav-link">Verlaufsplan</a>
+                </li>
+<li class="nav-item">
+<a href="../../vorlesungen" class="nav-link">Vorlesungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../uebungen" class="nav-link">Übungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../notebooks" class="nav-link">Notebooks</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/" class="nav-link">Tags</a>
+                </li>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS-Feed</a>
+                </li>
+<li class="nav-item">
+<a href="../../about" class="nav-link">Impressum</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.md" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">3 - Funktionen, Klassen und Objekte - Übungen</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-05-11T00:00:00+01:00" itemprop="datePublished" title="2017-05-11 00:00">2017-05-11 00:00</time></a></p>
+            
+        <p class="sourceline"><a href="index.md" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h2>Aufgabe max</h2>
+<ul>
+<li>Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt</li>
+<li>Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt</li>
+</ul>
+<h2>Aufgabe Palindrom</h2>
+<p>Schreiben Sie eine Funktion <em>palindrom</em>, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).</p>
+<p>Implementieren Sie diese Funktion sowohl iterativ, als auch rekursiv!</p>
+<h2>Ein- und Ausgabe</h2>
+<h3>read_file</h3>
+<p>Schreiben Sie eine Funktion <em>read_file</em>, die einen Dateinamen als Argument erwartet und eine Liste mit den Zeilen der ausgelesenen Datei zurückgibt</p>
+<h3>write_file</h3>
+<p>Schreiben Sie eine Funktion <em>write_file</em>, die als Argumente einen Dateinamen, sowie eine Liste mit Strings erwartet und diese in eine Datei schreibt.</p>
+<h2>Zahlen von 1 bis n</h2>
+<p>Schreiben Sie eine Funktion, die bei Eingabe einer natürlichen Zahl n die Zahlen von 1 bis n ausgibt.
+Jedoch ohne eine Schleife zu benutzen!</p>
+<h2>Matrix Multiplikation</h2>
+<p>Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr Produkt ausgibt.</p>
+<p>Hinweis:</p>
+<p>Eine Matrix können Sie als Liste von Listen speichern:</p>
+<pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+</pre>
+
+
+<h2>Sichtbarkeit und Lebensdauer von Variablen in Funktionen</h2>
+<p>Was gibt folgender Code aus?</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+</pre>
+
+
+<p>Was passiert jetzt?</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<p>Und hier?</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<p>Verschachtelt:</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f_aussen</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">def</span> <span class="nf">f_innen</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f_innen</span>
+
+<span class="n">f_innen</span> <span class="o">=</span> <span class="n">f_aussen</span><span class="p">()</span>
+<span class="n">f_innen</span><span class="p">()</span>
+</pre>
+
+
+<p>???</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">liste</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span>
+</pre>
+
+
+<p>Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        </p>
+<h2>Aufgabe Cäsar Verschlüsselung</h2>
+<p>Die <em>Cäsar Verschlüsselung</em> ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um <em>n</em> verschoben ist.<br>
+Beispielsweise könnte man jeden Buchstaben um 4 Positionen verschieben:  </p>
+<pre class="code literal-block"><span></span>a -&gt; e
+b -&gt; f
+...
+z -&gt; d 
+</pre>
+
+
+<ul>
+<li>Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte <em>ROT13</em> Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">rot13</span><span class="p">(</span><span class="s2">"hallo welt"</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>'unyyb jryg'
+</pre>
+
+
+<ul>
+<li>Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist</li>
+<li>Kleine Hilfe:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">alphabet</span> <span class="o">=</span> <span class="s1">'abcdefghijklmnopqrstuvwxyz'</span>
+</pre>
+
+
+<p>Erstellen Sie nun daraus einen String alphabet_verschoben (Slicing hilft!), der mit dem 13. Buchstaben beginnt.</p>
+<ul>
+<li>Wie sieht die Funktion aus, die verschlüsselten Text wieder entschlüsselt?</li>
+</ul>
+<h2>Pascalsches Dreieck</h2>
+<p><img alt="PascalschesDreieck" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif"></p>
+<p>(Quelle: https://de.wikipedia.org/wiki/Pascalsches_Dreieck)</p>
+<p>Das Pascalsche Dreieck ist ein Dreieck aus Zahlen. In jeder Zeile sind die erste und die letzte Zahl jeweils Einsen. Für die weiteren Zahlen gilt folgende rekursive Formel:
+z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
+<p>So gilt beispielsweise für die Zahl 6 (vierte Zeile) im obigen Dreieck: sie steht in der 4.Zeile (bei Null anfangen zu zählen!) an zweiter Stelle, und ist die Summe aus der Zahl in der 3. Zeile an erster Stelle und der Zahl in der 3. Zeile an zweiter Stelle.</p>
+<p>Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer die Einträge des Pascalschen Dreiecks ausgibt.</p>
+<h2>Klassen</h2>
+<p>Schreiben Sie eine Klasse Student mit folgenden Eigenschaften:</p>
+<ul>
+<li>Ein neues Studenten-Objekt wird erstellt, indem man dem Konstruktor (d.h. der <strong>init</strong> Funktion Namen und Vornamen des Studenten übergibt:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Müller"</span><span class="p">,</span> <span class="n">vorname</span><span class="o">=</span><span class="s2">"Heinz"</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>
+<p>Die Klasse soll eine Objektvariable <em>noten_liste</em> besitzen, die zu Beginn eine leere Liste ist, sowie eine Methode <em>neue_note</em>, die der <em>noten_liste</em> eine neue Note hinzufügt</p>
+</li>
+<li>
+<p>Schreiben Sie eine Methode <em>durchschnitts_note</em>, die den Durchschnitt aller Noten in <em>noten_liste</em> bildet</p>
+</li>
+</ul>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../2-datenstrukturen-ubungen/" rel="prev" title="2 - Datenstrukturen: Übung">Vorheriger Eintrag</a>
+            </li>
+        </ul></nav></aside></article><!--End of body content--><footer id="footer">
+            Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("de");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
