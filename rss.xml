@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Thu, 11 May 2017 12:30:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>3 - Funktionen, Klassen und Objekte</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>de</language><lastBuildDate>Fri, 12 May 2017 09:24:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>3 - Funktionen, Klassen und Objekte</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
 &lt;p&gt;Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.&lt;/p&gt;
 &lt;h3&gt;Grundlagen&lt;/h3&gt;
 &lt;p&gt;Um eine Funktion zu erstellen wird das Keyword &lt;strong&gt;def&lt;/strong&gt; benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).&lt;/p&gt;
@@ -403,6 +403,16 @@ So können wir nun eine Funktion schreiben, die eine andere Funktion als Argumen
 &lt;li&gt;Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt&lt;/li&gt;
 &lt;li&gt;Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;Aufgabe Listen&lt;/h2&gt;
+&lt;p&gt;Gegeben sind eine Funktion und eine Liste&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+
+&lt;span class="n"&gt;numbers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Wenden Sie die Funktion auf jedes Element der Liste an.&lt;/p&gt;
 &lt;h2&gt;Aufgabe Palindrom&lt;/h2&gt;
 &lt;p&gt;Schreiben Sie eine Funktion &lt;em&gt;palindrom&lt;/em&gt;, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).&lt;/p&gt;
 &lt;p&gt;Implementieren Sie diese Funktion sowohl iterativ, als auch rekursiv!&lt;/p&gt;
