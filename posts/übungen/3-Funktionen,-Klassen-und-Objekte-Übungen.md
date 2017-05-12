@@ -1,5 +1,5 @@
 <!-- 
-.. title: 3 - Funktionen, Klassen und Objekte - Übungen
+.. title: 3 - Funktionen, Klassen und Objekte - Übung
 .. slug: funktionen_klassen_objekte_uebungen
 .. date: 2017-05-11 00:00:00 UTC+01:00
 .. tags: 
