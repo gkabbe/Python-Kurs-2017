@@ -14,6 +14,19 @@
 * Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt
 * Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt
 
+# Aufgabe Listen
+
+Gegeben sind eine Funktion und eine Liste
+
+```python
+def f(x):
+    return 1 / x
+
+numbers = list(range(1, 21))
+```
+
+Wenden Sie die Funktion auf jedes Element der Liste an.
+
 # Aufgabe Palindrom
 
 Schreiben Sie eine Funktion _palindrom_, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).
