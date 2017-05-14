@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml" rel="self" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Thu, 11 May 2017 12:30:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>3 - Funktionen, Klassen und Objekte</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml"></atom:link><language>de</language><lastBuildDate>Fri, 12 May 2017 13:11:29 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>3 - Funktionen, Klassen und Objekte</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
 &lt;p&gt;Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.&lt;/p&gt;
 &lt;h3&gt;Grundlagen&lt;/h3&gt;
 &lt;p&gt;Um eine Funktion zu erstellen wird das Keyword &lt;strong&gt;def&lt;/strong&gt; benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).&lt;/p&gt;
@@ -398,4 +398,228 @@ So können wir nun eine Funktion schreiben, die eine andere Funktion als Argumen
 &lt;/pre&gt;
 
 
-&lt;p&gt;Die Funktion &lt;em&gt;fak&lt;/em&gt; hat dann automatisch die erweiterte Funktionalität.&lt;/p&gt;&lt;/div&gt;</description><category>mathjax</category><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</guid><pubDate>Wed, 10 May 2017 23:00:00 GMT</pubDate></item></channel></rss>
+&lt;p&gt;Die Funktion &lt;em&gt;fak&lt;/em&gt; hat dann automatisch die erweiterte Funktionalität.&lt;/p&gt;&lt;/div&gt;</description><category>mathjax</category><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</guid><pubDate>Wed, 10 May 2017 23:00:00 GMT</pubDate></item><item><title>2 - Datenstrukturen: Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Listen&lt;/h2&gt;
+&lt;h3&gt;Quadratzahlen korrigieren&lt;/h3&gt;
+&lt;p&gt;Gegeben sei folgende Liste:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;quadrat_zahlen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;81&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Finden Sie die fehlerhafte Quadratzahl und ersetzen Sie sie mit der korrekten Zahl.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fügen Sie noch eine weitere Quadratzahl hinzu&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Einkaufliste:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Erstellen Sie eine Einkaufsliste bestehend aus (maximal) 10 Produkten, sowie eine Liste mit den dazugehörigen Preisen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Oder benutzen Sie die hier:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;einkaufs_liste&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"apfel"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"milch"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"banane"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"joghurt"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"käse"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;preise&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.59&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.30&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Iterieren Sie mithilfe einer for-Schleife über alle Elemente in &lt;em&gt;einkaufs_liste&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Benutzen Sie enumerate, um die Elemente in &lt;em&gt;einkaufs_liste&lt;/em&gt; durchzuzählen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Iterieren Sie nun über Gegenstand und Preis, so dass Sie als Ausgabe bekommen:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;Gegenstand_1, Preis_1
+Gegenstand_2, Preis_2
+...
+Gegenstand_10, Preis_10
+&lt;/pre&gt;
+
+
+&lt;p&gt;(Hinweis: zip!)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Lassen Sie sich nun nur jeden zweiten Gegenstand ausgeben&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Erstellen Sie eine Liste der Quadratzahlen von 1 bis 400&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Noch mehr Listen&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Gegeben ist eine Liste von Strings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;string_liste&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"1"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"2"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"3"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"4"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"5"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"6"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"7"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"8"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"9"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"10"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Machen Sie daraus eine Liste von Integers!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In der Vorlesung wurde eine xyz-Datei eingelesen und in eine Atomnamen-Liste und eine Positionsliste gespeichert. Benutzen Sie die beiden Listen um herauszufinden:&lt;ul&gt;
+&lt;li&gt;Wieviel Wasserstoffatome (Buchstabe H) nicht weiter als 2.0 Angström (Längeneinheit, entspricht \(10^{-10}\) m) von einem Sauerstoffatom (O) entfernt sind.&lt;/li&gt;
+&lt;li&gt;Wieviele Sauerstoffatome in der Nähe jedes Phosphoratoms (P) sitzen &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Daten einlesen:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie eine Datei "Daten", in die Sie ein paar numerische Werte eintragen (am einfachsten ist es, wenn Sie pro Zeile einen Wert schreiben)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie nun ein Programm, das die Datei "Daten" öffnet und die Zahlen in einer Liste speichert&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Berechnen Sie die Summe und den Mittelwert der Daten&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Mengen&lt;/h2&gt;
+&lt;p&gt;Sie und ein(e) Bekannte(r) waren shoppen. 
+Sie haben gekauft:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;meine_einkäufe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"hose"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"jacke"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schuhe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schokoriegel"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schal"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"flatscreen"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ihr Bekannter hat gekauft:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;seine_einkäufe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"buch"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schuhe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"mütze"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"jacke"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"softdrink"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Benutzen Sie Mengenoperationen um herauszufinden:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Was ist die Gesamtmenge, die Sie beide eingekauft haben?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Was hat Ihr Bekannter gekauft, was Sie auch gekauft haben?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Was hat Ihr Bekannter gekauft, das Sie nicht gekauft haben?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Was haben Sie gekauft, das Ihr Bekannter nicht gekauft hat?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Welche Dinge haben Sie nicht beide gekauft?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Sieb des Eratosthenes&lt;/h2&gt;
+&lt;p&gt;Das Sieb des Eratosthenes ist ein Algorithmus, mit dem man Primzahlen bestimmen kann.
+Er lässt sich in Python gut mit Mengen lösen.&lt;/p&gt;
+&lt;p&gt;Um die Primzahlen von 2 bis &lt;em&gt;n_max&lt;/em&gt; zu bestimmen, tun Sie folgendes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Erstellen Sie eine Menge &lt;em&gt;numbers&lt;/em&gt; der Zahlen von 2 bis &lt;em&gt;n_max&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Erstellen Sie eine Variable &lt;em&gt;next_prime&lt;/em&gt; = 2&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Solange &lt;em&gt;next_prime&lt;/em&gt; &amp;lt; &lt;em&gt;n_max&lt;/em&gt;/2 ist (while-Schleife!), erstellen Sie eine weitere Menge &lt;em&gt;not_prime&lt;/em&gt;, die alle Vielfachen von &lt;em&gt;next_prime&lt;/em&gt; enthält. 
+  Ziehen Sie diese von &lt;em&gt;numbers&lt;/em&gt; ab. Erhöhen Sie anschließend &lt;em&gt;next_prime&lt;/em&gt; um 1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wenn die while-Schleife beendet, sollten sich in &lt;em&gt;numbers&lt;/em&gt; nur noch die Primzahlen zwischen 2 und &lt;em&gt;n_max&lt;/em&gt; befinden&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Dictionary&lt;/h2&gt;
+&lt;p&gt;Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;englisch_deutsch_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"hello"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"hallo"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"world"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"welt"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"good bye"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"auf wiedersehen"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!&lt;/p&gt;
+&lt;h2&gt;Wortzähler&lt;/h2&gt;
+&lt;p&gt;Schreiben Sie folgendes Python Programm:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;this&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Speichern Sie den resultierenden Text in einer extra Datei.&lt;/p&gt;
+&lt;p&gt;Analysieren Sie den Text, indem Sie ein Programm schreiben, das die Häufigkeit jedes Wortes im obigen Text zählt.&lt;/p&gt;
+&lt;p&gt;Hilfestellungen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Speichern Sie den Text entweder als String mit 3 Anführungszeichen am Anfang und am Ende (dann kann er sich auch über mehrere Zeilen erstrecken), oder lesen Sie ihn aus einer Datei aus, in die Sie ihn vorher geschrieben haben.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"""&lt;/span&gt;
+&lt;span class="s2"&gt;Hier kann beliebiger Text&lt;/span&gt;
+&lt;span class="s2"&gt;stehen, der sich über mehrere Zeilen erstreckt&lt;/span&gt;
+&lt;span class="s2"&gt;"""&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Angenommen, Sie haben den gesamten Text in der Variablen &lt;em&gt;text&lt;/em&gt; gespeichert. Dann können Sie mit &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;wortliste&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;eine Liste der einzelnen Wörter erstellen.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Um ungewünschte Zeichen aus dem Text zu entfernen, benutzen Sie:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zu_ersetzendes_zeichen&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Zum Zählen der Wörter ist ein Dictionary sehr hilfreich! &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie das Programm nun so um, dass es die Häufigkeit der einzelnen Buchstaben zählt.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Benutzen Sie Sets (Mengen), um herauszufinden, welche Wörter in jeder der ersten 6 Zeilen vorkommen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Galgenmännchen&lt;/h2&gt;
+&lt;p&gt;Schreiben Sie ein Programm, in dem ein String mit dem Namen &lt;em&gt;unbekanntes_wort&lt;/em&gt; gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
+In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Zuerst wird jeder Buchstabe von &lt;em&gt;unbekanntes_wort&lt;/em&gt; durchlaufen, und, wenn er in &lt;em&gt;geratene_woerter&lt;/em&gt; enthalten ist, ausgegeben. Ist er nicht enthalten, wird ein "-" ausgegeben. &lt;br&gt;
+  Beispiel:  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Das geheime Wort ist &lt;em&gt;wochenende&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;geratene_woerter&lt;/em&gt; enthält {"n", "e"}&lt;/li&gt;
+&lt;li&gt;Ausgabe ist dann: "- - - - e n e n - e"&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dann muss der User einen neuen Buchstaben eingeben (Achtung, genau einen!). Dieser wird in &lt;em&gt;geratene_woerter&lt;/em&gt; gespeichert&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ergänzen Sie das Programm nun so, dass es mit einer Glückwunschsnachricht abbricht, sobald der User alle Buchstaben geraten hat.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Erlauben Sie nur maximal 11 Fehlversuche, bevor das Programm mit "Game Over" abbricht&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bonus: Anstatt das Wort in den Quellcode zu schreiben, lassen Sie es einen Mitspieler am Anfang eingeben. Wenn Sie
+  folgendes zu Beginn schreiben:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;getpass&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;getpass&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;können Sie mittels &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;unbekanntes_wort&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;getpass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte zu ratendes Wort eingeben&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;das geheime Wort eingeben lassen, ohne dass es auf dem Bildschirm zu sehen ist.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Spielen Sie eine Runde Galgenmännchen mit Ihrem Nachbarn  &lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>mathjax</category><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</guid><pubDate>Thu, 20 Apr 2017 12:19:07 GMT</pubDate></item></channel></rss>
