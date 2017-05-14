@@ -109,10 +109,23 @@ Obige Formel können wir aber auch folgendermaßen schreiben:
 
 In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.
 
-Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
-In diesem Fall ist dieser Anker die Tatsache, dass 0! = 1.
+In Python übersetzt sieht die Formel so aus:
 
-Als Programm geschrieben, sieht das ganze so aus:
+```python
+def fakultät(n):
+    return n * fakultät(n - 1)
+```
+
+Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
+Fehlt dieser Anker, wird die Funktion sich immer wieder selbst aufrufen, bis irgendwann folgende Fehlermeldung erscheint:
+
+```
+RecursionError: maximum recursion depth exceeded
+```
+
+Bei der Fakultät können wir ausnutzen, dass \\(0! = 1\\).
+
+Als Programm geschrieben, sieht das ganze dann so aus:
 
 ```python
 def fakultät(n):
@@ -122,6 +135,12 @@ def fakultät(n):
         return n * fakultät(n-1)
 ```
 
+Hundertprozentig sicher ist diese Funktion allerdings noch nicht. 
+Denn wenn \\(n < 0\\), findet die Funktion wieder kein Abbruchkriterium.
+
+
+Hier könnte man nun noch mit einer weiteren if-Abfrage prüfen, ob \\(n < 0\\), und in dem Fall
+z.B. ```None``` ausgeben.
 
 
 # Klassen und Objekte
@@ -207,18 +226,18 @@ Jedes Objekt, das nun erzeugt wird, speichert das Attribut _mein_atribut_ mit de
 Möchten wir das Attribut bei Erzeugung selbst festlegen, können wir es als Parameter in der \_\_init\_\_ Methode angeben:
 
 ```python
-class LessSimple:
+class MitAttribut:
     def __init__(self, attribut):
         self.mein_attribut = attribut
 
 # Jetzt können wir Objekte mit unterschiedlichen Attribut-Werten erzeugen:
-less_simple_1 = LessSimple(5)
-less_simple_2 = LessSimple("hallo")
-less_simple_3 = LessSimple([1, 2, 3])
+m_1 = MitAttribut(5)
+m_2 = MitAttribut("hallo")
+m_3 = MitAttribut([1, 2, 3])
 
-print(less_simple_1.mein_attribut)
-print(less_simple_2.mein_attribut)
-print(less_simple_3.mein_attribut)
+print(m_1.mein_attribut)
+print(m_2.mein_attribut)
+print(m_3.mein_attribut)
 ```
 
 ## Praktisches Beispiel (für Physiker)
