@@ -97,13 +97,13 @@ Verschachtelt:
 
 ```python
 x = 1
-def f_aussen():
+def f_außen():
     x = 5
     def f_innen():
         print(x)
     return f_innen
 
-f_innen = f_aussen()
+f_innen = f_außen()
 f_innen()
 ```
 
