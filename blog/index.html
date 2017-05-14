@@ -1179,9 +1179,20 @@ einer natürlichen Zahl n definiert als:</p>
 <p>Obige Formel können wir aber auch folgendermaßen schreiben:</p>
 <p>\(n! = n \cdot (n-1)!\)</p>
 <p>In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.</p>
+<p>In Python übersetzt sieht die Formel so aus:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
 <p>Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
-In diesem Fall ist dieser Anker die Tatsache, dass 0! = 1.</p>
-<p>Als Programm geschrieben, sieht das ganze so aus:</p>
+Fehlt dieser Anker, wird die Funktion sich immer wieder selbst aufrufen, bis irgendwann folgende Fehlermeldung erscheint:</p>
+<pre class="code literal-block"><span></span><span class="n">RecursionError</span><span class="o">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
+</pre>
+
+
+<p>Bei der Fakultät können wir ausnutzen, dass \(0! = 1\).</p>
+<p>Als Programm geschrieben, sieht das ganze dann so aus:</p>
 <pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
@@ -1190,6 +1201,10 @@ In diesem Fall ist dieser Anker die Tatsache, dass 0! = 1.</p>
 </pre>
 
 
+<p>Hundertprozentig sicher ist diese Funktion allerdings noch nicht. 
+Denn wenn \(n &lt; 0\), findet die Funktion wieder kein Abbruchkriterium.</p>
+<p>Hier könnte man nun noch mit einer weiteren if-Abfrage prüfen, ob \(n &lt; 0\), und in dem Fall
+z.B. <code>None</code> ausgeben.</p>
 <h2>Klassen und Objekte</h2>
 <p>Aus Zeitgründen wird dieses Thema nur kurz angeschnitten werden, auch wenn man eigentlich sehr viel mehr Zeit damit verbringen könnte.</p>
 <p>Wir hatten zuvor gesehen, dass wir mit Funktionen gewissermaßen unseren Code etwas aufräumen können. 
@@ -1257,18 +1272,18 @@ Der Unterschied ist bloß, dass wir statt mini["mein_attribut"] mini.mein_attrib
 
 <p>Jedes Objekt, das nun erzeugt wird, speichert das Attribut <em>mein_atribut</em> mit dem Wert 5.
 Möchten wir das Attribut bei Erzeugung selbst festlegen, können wir es als Parameter in der __init__ Methode angeben:</p>
-<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">LessSimple</span><span class="p">:</span>
+<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">MitAttribut</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribut</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mein_attribut</span> <span class="o">=</span> <span class="n">attribut</span>
 
 <span class="c1"># Jetzt können wir Objekte mit unterschiedlichen Attribut-Werten erzeugen:</span>
-<span class="n">less_simple_1</span> <span class="o">=</span> <span class="n">LessSimple</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">less_simple_2</span> <span class="o">=</span> <span class="n">LessSimple</span><span class="p">(</span><span class="s2">"hallo"</span><span class="p">)</span>
-<span class="n">less_simple_3</span> <span class="o">=</span> <span class="n">LessSimple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">m_1</span> <span class="o">=</span> <span class="n">MitAttribut</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">m_2</span> <span class="o">=</span> <span class="n">MitAttribut</span><span class="p">(</span><span class="s2">"hallo"</span><span class="p">)</span>
+<span class="n">m_3</span> <span class="o">=</span> <span class="n">MitAttribut</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">less_simple_1</span><span class="o">.</span><span class="n">mein_attribut</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">less_simple_2</span><span class="o">.</span><span class="n">mein_attribut</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">less_simple_3</span><span class="o">.</span><span class="n">mein_attribut</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m_1</span><span class="o">.</span><span class="n">mein_attribut</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m_2</span><span class="o">.</span><span class="n">mein_attribut</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m_3</span><span class="o">.</span><span class="n">mein_attribut</span><span class="p">)</span>
 </pre>
 
 
