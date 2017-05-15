@@ -1,4 +1,4 @@
-# Vorlesungen
+# Jupyter Notebooks
 
 
 {{% post-list sections=notebooks sort=date template=published_list.tmpl %}}{{% /post-list %}}
