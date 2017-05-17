@@ -12,13 +12,13 @@
 
 # Übersicht
 
-### [Linux-Basics](/vorlesungen/grundlagen)
+### [Linux-Basics](/vorlesungen/kommandozeile)
 
-### [Grundlagen]()
+### [Grundlagen](/vorlesungen/grundlagen)
 
-### [Datentypen]()
+### [Datenstrukturen](/vorlesungen/datenstrukturen)
 
-### [Funktionen, Klassen und Objekte]() 
+### [Funktionen, Klassen und Objekte](/vorlesungen/funktionen_klassen_objekte) 
 
 ### [Module und Exceptions]()
 
