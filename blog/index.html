@@ -688,10 +688,10 @@ Zu jedem Schlüssel wird ein Wert gespeichert. Über den Schlüssel kann man auf
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>c -&gt; 3
-neuer_schlüssel -&gt; neuer_wert
-a -&gt; 123
+<pre>a -&gt; 123
 b -&gt; 2
+c -&gt; 3
+neuer_schlüssel -&gt; neuer_wert
 </pre>
 </div>
 </div>
@@ -724,10 +724,10 @@ b -&gt; 2
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>c
-neuer_schlüssel
-a
+<pre>a
 b
+c
+neuer_schlüssel
 </pre>
 </div>
 </div>
@@ -762,7 +762,7 @@ b
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Entferne 123 aus dem Dictionary
-Übrig bleibt {'c': 3, 'neuer_schlüssel': 'neuer_wert', 'b': 2}
+Übrig bleibt {'b': 2, 'c': 3, 'neuer_schlüssel': 'neuer_wert'}
 </pre>
 </div>
 </div>
@@ -1231,7 +1231,7 @@ b
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{'welt': 'world', 'auf wiedersehen': 'good bye', 'hallo': 'hello'}
+<pre>{'hallo': 'hello', 'welt': 'world', 'auf wiedersehen': 'good bye'}
 </pre>
 </div>
 </div>
@@ -1242,7 +1242,7 @@ b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [41]:</div>
+<div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Alternativ mit Dictionary Comprehension:</span>
@@ -1262,7 +1262,7 @@ b
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{'welt': 'world', 'auf wiedersehen': 'good bye', 'hallo': 'hello'}
+<pre>{'hallo': 'hello', 'welt': 'world', 'auf wiedersehen': 'good bye'}
 </pre>
 </div>
 </div>
@@ -1273,7 +1273,7 @@ b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mein_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
@@ -1286,7 +1286,7 @@ b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fehler</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"sw"</span><span class="p">,</span> <span class="s2">"grau"</span><span class="p">}</span>
@@ -1299,7 +1299,7 @@ b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [25]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_max</span> <span class="o">=</span> <span class="mi">100</span>
@@ -1314,7 +1314,7 @@ b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
@@ -1353,6 +1353,46 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Benutze Dictionary als Wortzähler:</span>
+
+<span class="n">wörter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hallo"</span><span class="p">,</span> <span class="s2">"welt"</span><span class="p">,</span> <span class="s2">"hallo"</span><span class="p">,</span> <span class="s2">"mond"</span><span class="p">]</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">wort</span> <span class="ow">in</span> <span class="n">wörter</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">wort</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">:</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">wort</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">wort</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{'hallo': 2, 'welt': 1, 'mond': 1}
 </pre>
 </div>
 </div>
