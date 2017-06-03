@@ -69,7 +69,101 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/installation/" class="u-url">0.1 Installation</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/kommandozeile/" class="u-url">0.2 - Die Kommandozeile in Linux</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../vorlesungen/kommandozeile/" rel="bookmark"><time class="published dt-published" datetime="2017-03-28T20:03:02+01:00" title="2017-03-28 20:03">2017-03-28 20:03</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Die Kommandozeile</h2>
+<p>Da wir in diesem Kurs auf einem Linux-Rechner arbeiten, kommen wir nicht darum herum, uns ein wenig mit Linux auseinanderzusetzen. </p>
+<p>Alle Befehle, die wir dem Computer mitteilen werden, werden über die sogenannte Kommandozeile ausgeführt.</p>
+<p>Um sie zu öffnen, klicken wir auf das Startmenü und suchen nach "Terminal". Wenn wir den Eintrag mit der Maus anklicken, sollte sich ein Fenster öffnen. Das ist unsere Kommandozeile.</p>
+<p>Nun können wir dem Computer ein paar einfache Befehle geben.</p>
+<p>Schreiben wir</p>
+<pre class="code literal-block"><span></span><span class="nb">echo</span> Hallo Welt
+</pre>
+
+
+<p>so sollte der Computer uns </p>
+<pre class="code literal-block"><span></span>Hallo Welt
+</pre>
+
+
+<p>ausgeben.</p>
+<h2>Dateien und Ordner</h2>
+<p>Das Linux-Dateisystem besteht aus Dateien und Ordnern. Ganz ähnlich wie man das auch von Windows kennt.</p>
+<p>Um nun per Kommandozeile Dateien und Ordner anzulegen oder zu betrachten, gibt es diverse Befehle:</p>
+<h3>Wo bin ich?</h3>
+<p>Starten wir die Kommandozeile, befinden wir uns an einem ganz bestimmten Ordnerpfad. Diesen können wir sehen wenn wir den Befehl</p>
+<pre class="code literal-block"><span></span><span class="nb">pwd</span>
+</pre>
+
+
+<p>eingeben. Es sollte dann so etwas wie</p>
+<pre class="code literal-block"><span></span>/home/&lt;username&gt;/
+</pre>
+
+
+<p>erscheinen (wobei statt &lt;username&gt; der jeweilige Accountname zu sehen ist).
+pwd steht übrigens für "print working directory", was soviel heißt wie: "gib den Namen des aktuellen Verzeichnisses aus".</p>
+<h3>Inhalt eines Ordners betrachten</h3>
+<p>Um zu sehen, was in einem Ordner enthalten ist, benutzen wir den Befehl</p>
+<pre class="code literal-block"><span></span>ls
+</pre>
+
+
+<p>Damit werden alle Ordner und Dateien aufgelistet, die im aktuellen Verzeichnis enthalten sind.</p>
+<h3>Ordner erstellen</h3>
+<p>Ein Ordner lässt sich mithilfe von</p>
+<pre class="code literal-block"><span></span>mkdir &lt;Ordnername&gt;
+</pre>
+
+
+<p>erstellen. &lt;Ordnername&gt; sollte dabei mit einem geeigneteren Namen ersetzt werden.</p>
+<h3>In ein anderes Verzeichnis wechseln</h3>
+<p>Um den Ordner zu wechseln, in dem wir uns gerade befinden, benutzen wir den Befehl <strong>cd</strong> (change directory).</p>
+<pre class="code literal-block"><span></span><span class="nb">cd</span> &lt;Ordnername&gt;
+</pre>
+
+
+<p>Befinden wir uns in einem Ordner und möchten in den darüberliegenden Ordner wechseln, machen wir das mittels</p>
+<pre class="code literal-block"><span></span>cd ..
+</pre>
+
+
+<h4>Kleines Beispiel</h4>
+<p>Wir befinden uns in unserem Home-Verzeichnis (um uns zu vergewissern, dass so ist, benutzen wir gleich noch einmal <strong>pwd</strong>), erstellen einen Ordner mit dem Namen Python-SoSe2016, und "bewegen uns" in diesen.
+Dann benutzen wir noch einmal <strong>pwd</strong>, um festzustellen, wo wir nun sind.</p>
+<pre class="code literal-block"><span></span><span class="nb">pwd</span>
+mkdir Python-SoSe2016
+<span class="nb">cd</span> Python-SoSe2016
+<span class="nb">pwd</span>
+<span class="nb">cd</span> ..
+<span class="nb">pwd</span>
+</pre>
+
+
+<h3>Dateien lesen</h3>
+<p>Möchten wir den Inhalt einer einfachen Textdatei betrachten, hilft uns das Programm <strong>cat</strong>.</p>
+<pre class="code literal-block"><span></span>cat &lt;Dateiname&gt;
+</pre>
+
+
+<p>Mit dem obigen Befehl wird der Inhalt der Textdatei \&lt;Dateiname&gt; in der Konsole ausgegeben.
+Handelt es sich um einen längeren Text, der zu groß für das Terminal ist, können wir <strong>less</strong> benutzen</p>
+<pre class="code literal-block"><span></span>less &lt;Dateiname&gt;
+</pre>
+
+
+<p>Wieder wird uns der Text angezeigt, aber diesmal können wir mithilfe der Pfeiltasten hoch- und runterscrollen.
+Indem wir <strong>q</strong> drücken, beenden wir das Programm wieder.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/installation/" class="u-url">0.1 Installation</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe

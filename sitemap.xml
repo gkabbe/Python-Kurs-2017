@@ -7,102 +7,106 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/</loc>
-  <lastmod>2017-04-28T13:11:00Z</lastmod>
+  <lastmod>2017-04-29T11:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/2017/</loc>
-  <lastmod>2017-04-20T09:10:00Z</lastmod>
+  <lastmod>2017-04-20T20:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/about/</loc>
-  <lastmod>2017-04-20T09:10:00Z</lastmod>
+  <lastmod>2017-04-20T20:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/archive.html</loc>
-  <lastmod>2017-06-03T11:20:00Z</lastmod>
+  <lastmod>2017-06-03T12:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/</loc>
-  <lastmod>2017-06-03T11:20:00Z</lastmod>
+  <lastmod>2017-06-03T12:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/index-1.html</loc>
-  <lastmod>2017-06-03T11:20:00Z</lastmod>
+  <lastmod>2017-06-03T12:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/categories/</loc>
-  <lastmod>2017-05-11T12:24:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax/</loc>
-  <lastmod>2017-05-11T12:24:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/listings/</loc>
-  <lastmod>2017-04-20T09:10:00Z</lastmod>
+  <lastmod>2017-04-20T20:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/listings/hello.py.html</loc>
-  <lastmod>2017-04-28T13:10:00Z</lastmod>
+  <lastmod>2017-04-29T11:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/</loc>
-  <lastmod>2017-06-03T11:17:00Z</lastmod>
+  <lastmod>2017-06-03T12:22:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/funktionen/</loc>
+  <lastmod>2017-06-03T12:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen01/</loc>
-  <lastmod>2017-05-14T12:03:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen02/</loc>
-  <lastmod>2017-05-14T12:03:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen03/</loc>
-  <lastmod>2017-06-03T11:20:00Z</lastmod>
+  <lastmod>2017-06-03T12:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/</loc>
-  <lastmod>2017-05-11T10:44:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</loc>
-  <lastmod>2017-04-20T09:10:00Z</lastmod>
+  <lastmod>2017-04-20T20:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</loc>
-  <lastmod>2017-05-09T09:25:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_klassen_objekte_uebungen/</loc>
-  <lastmod>2017-05-11T10:44:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/verlaufsplan/</loc>
-  <lastmod>2017-04-20T09:10:00Z</lastmod>
+  <lastmod>2017-04-20T20:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/</loc>
-  <lastmod>2017-05-03T10:39:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/datenstrukturen/</loc>
-  <lastmod>2017-05-03T10:39:00Z</lastmod>
+  <lastmod>2017-05-14T12:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</loc>
-  <lastmod>2017-05-11T10:27:00Z</lastmod>
+  <lastmod>2017-04-29T11:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/grundlagen/</loc>
-  <lastmod>2017-04-20T09:10:00Z</lastmod>
+  <lastmod>2017-04-20T20:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/installation/</loc>
-  <lastmod>2017-04-20T09:10:00Z</lastmod>
+  <lastmod>2017-04-20T20:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/kommandozeile/</loc>
-  <lastmod>2017-04-20T09:10:00Z</lastmod>
+  <lastmod>2017-04-20T20:52:00Z</lastmod>
  </url>
 </urlset>
