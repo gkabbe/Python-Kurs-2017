@@ -1,7 +1,7 @@
 <!-- 
 .. title: 4 - Module & Exceptions
 .. slug: module_exceptions
-.. date: 2018-05-19 00:00:00 UTC+01:00
+.. date: 2017-06-17 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
@@ -9,12 +9,12 @@
 .. type: text
 -->
 
-# Module #
+# Module
 
 Nachdem wir in der letzten Woche gelernt haben, wie man den selbstgeschriebenen Code besser organisieren kann durch Einsatz von Funktionen und Klassen, wird heute gezeigt, wie man nun Dateien mit Code als sogenannte Module speichern kann.
 
 
-## Importieren aus anderer Python-Datei ##
+## Importieren aus anderer Python-Datei
 
 Um aus einer weiteren Pythondatei Klassen, Funktionen, oder Variablen zu laden benutzt man 
 
@@ -25,7 +25,7 @@ import <Dateiname ohne .py>.<Klassen/Funktions/Variablenname>
 Wichtig: damit das funktioniert, muss der Python-Interpreter im selben Ordner gestartet worden sein wie die Datei aus der importiert wurde!
 
 
-## Importieren aus Ordnerstruktur ##
+## Importieren aus Ordnerstruktur
 
 Um aus einer komplexeren Ordnerstruktur importieren zu können, geht man wie folgt vor:
 
@@ -33,24 +33,24 @@ Um aus einer komplexeren Ordnerstruktur importieren zu können, geht man wie fol
 import <Ordner>.<Unterordner>.<Unterunterordner>.<...>.<Dateiname>.<Klassen/Funktions/Variablennamen>
 ```
 
-## from ... import ... ##
+## from ... import ...
 
 Möchten wir etwas direkt in den aktuellen Namespace importieren, benutzen wir _from ... import_ 
 
 
-## import ... as ... ##
+## import ... as ...
 
 Mittels _import ... as ..._ können wir dem importierten Modul einen anderen (oft gekürzten) Namen geben.
 
 
-## Beispiel ##
+## Beispiel
 
 Die aus einer Übung bekannten Funktionen _write_file_ und _read_file_ haben wir in einer Datei _input_output_file.py_ gespeichert, und sind so von ihnen überzeugt, dass wir sie in Zukunft öfters benutzen möchten.
 
 Sind wir im selben Ordner wie die Datei, ist es ganz einfach, von einer anderen Python-Datei aus auf den schon vorhandenen Code zuzugreifen: wir schreiben einfach
 
 ```python
-import input_output_file # Achtung, die Endung .py nicht schreiben!
+import input_output_file # Achtung, die Endung .py wird weggelassen!
 ```
 
 und können dann folgendermaßen auf die Funktionen (sowie Klassen und Variablen), die in der Datei _input_output_file.py_ geschrieben wurden, zugreifen:
@@ -109,7 +109,7 @@ iof.read_file("bla")
 
 auf die Funktionen zugreifen.
 
-## Selbstgeschriebene Module für den Python-Interpreter sichtbar machen ##
+## Selbstgeschriebene Module für den Python-Interpreter sichtbar machen
 
 Haben wir nun ein selbsterstelltes Modul irgendwo auf unserer Festplatte liegen, müssen wir nun Python noch sagen, wo es sich befindet. Das machen wir, indem wir den Speicherort zum _Pythonpath_ hinzufügen.
 
@@ -136,51 +136,57 @@ In die Datei autoexec.bat wird folgende Zeile geschrieben:
 set PYTHONPATH=%PYTHONPATH%;C:\Pfad/zu/meinem/Modul
 ```
 
-## Die Python Standard Library ##
+## Die Python Standard Library
 
-Netterweise kommt Python schon mit einer Menge [eigener Module](https://docs.python.org/2/library/index.html) daher. Die wichtigsten (persönliche Meinung des Dozenten) werden hier kurz vorgestellt:
+Netterweise kommt Python schon mit einer Menge [eigener Module](https://docs.python.org/3/library/index.html) daher. Die wichtigsten (persönliche Meinung des Dozenten) werden hier kurz vorgestellt:
 
-### sys ###
+### sys
 
-Das Modul [sys](https://docs.python.org/2/library/sys.html) enthält vor allem Variablen, die vom Python-Interpreter benutzt werden oder mit ihm interagieren.
+Das Modul [sys](https://docs.python.org/3/library/sys.html) enthält vor allem Variablen, die vom Python-Interpreter benutzt werden oder mit ihm interagieren.
 
 Hilfreich sind vor allem
 
-* __sys.argv__: Diese Variable speichert die Kommandozeilenargumente, mit denen ein Programm aufgerufen wurde. 
+#### __sys.argv__ 
 
-  Folgendes Programm sei unter dem Namen main.py gespeichert:
-  
-  ```python
-  import sys
- 
-  print("ich wurde aufgerufen mit den Argumenten:", sys.argv)
-  ````
+Diese Variable speichert die Kommandozeilenargumente, mit denen ein Programm aufgerufen wurde. 
 
-  Starten wir dieses Skript folgendermaßen:
+Folgendes Programm sei unter dem Namen main.py gespeichert:
 
-  ```bash
-  python main.py hier ganz viele kommandozeilen argumente 1 2 3 4 5
-  ```
+```python
+import sys
 
-  so ist die Ausgabe:
+print("ich wurde aufgerufen mit den Argumenten:", sys.argv)
+```
 
-  ```
-  ich wurde aufgerufen mit den Argumenten: ['test.py', 'hier', 'ganz', 'viele', 'kommandozeilen', 'argumente', '1', '2', '3', '4', '5']
-  ```
+Starten wir dieses Skript folgendermaßen:
 
-  Alle Argumente werden also als Strings in einer Liste gespeichert.
+```bash
+python main.py hier ganz viele kommandozeilen argumente 1 2 3 4 5
+```
 
-* __sys.path__: In dieser Variablen werden alle Pfade gespeichert, in denen der Interpreter nach nutzbaren Python-Modulen sucht. Möchte man einen weiteren Pfad hinzufügen, tut man das einfach per
+so ist die Ausgabe:
 
-  ```python
-  sys.path.append("/mein/neuer/pfad")
-  ``` 
+```
+ich wurde aufgerufen mit den Argumenten: ['test.py', 'hier', 'ganz', 'viele', 'kommandozeilen', 'argumente', '1', '2', '3', '4', '5']
+```
 
-  Der neu hinzugefügte Pfad verschwindet allerdings wieder aus sys.path wenn das Skript endet!
+Alle Argumente werden also als Strings in einer Liste gespeichert.
 
-* __sys.exit()__: Diese Funktion beendet das Skript sofort. 
+#### __sys.path__
 
-### [pickle](https://docs.python.org/2/library/pickle.html) ###
+In dieser Variablen werden alle Pfade gespeichert, in denen der Interpreter nach nutzbaren Python-Modulen sucht. Möchte man einen weiteren Pfad hinzufügen, tut man das einfach per
+
+```python
+sys.path.append("/mein/neuer/pfad")
+``` 
+
+Der neu hinzugefügte Pfad verschwindet allerdings wieder aus sys.path wenn das Skript endet!
+
+#### __sys.exit()__
+
+Diese Funktion beendet das Skript sofort. 
+
+### [pickle](https://docs.python.org/3/library/pickle.html)
 
 Erlaubt es, Python-Objekte zu serialisieren, d.h. sie als Datei zu speichern.
 
@@ -214,35 +220,44 @@ with open("meine_klasse.pickle", "r") as f:
 
 In diesem Modul sind diverse nützliche Container-Datentypen, die teilweise Erweiterungen der Standard-Container dict, list und tuple sind.
 
-* __Counter__: Damit lassen sich Elemente sehr einfach zählen. Beispiel mit dem Text aus der Übung _word_counter_:
+#### __Counter__ 
 
-  ```python
-  from collections import Counter
+Damit lassen sich Elemente sehr einfach zählen. Beispiel mit dem Text aus der Übung _word_counter_:
 
-
-  c = Counter(text.split()) 
-  print(c.most_common(10)) # gibt die 10 häufigsten Wörter in text aus
-  ```
-
-* __deque__: Eine Art Liste, bei der sich effizient an beiden Enden Elemente hinzufügen oder entfernen lassen.
-
-* __defaultdict__: Ähnlich wie dict, aber legt für einen Key, der bisher nicht gespeichert war, automatisch einen entsprechenden Default-Value an.
-
-  Beispiel:
-  ```python
-  from collections import defaultdict
+```python
+from collections import Counter
 
 
-  int_dict = defaultdict(int)
-  print(int_dict["blub"]) # gibt den Defaultwert 0 aus
+c = Counter(text.split()) 
+print(c.most_common(10)) # gibt die 10 häufigsten Wörter in text aus
+```
 
-  list_dict = defaultdict(list):
-  print(list_dict["irgendwas"]) # gibt eine leere Liste aus
-  ```
+#### __deque__
 
-* __OrderedDict__: Ein Dictionary, das sich die Reihenfolge der eingefügten Elemente merkt
+Eine Art Liste, bei der sich effizient an beiden Enden Elemente hinzufügen oder entfernen lassen.
 
-### [types](https://docs.python.org/2/library/types.html) ###
+#### __defaultdict__
+
+Ähnlich wie dict, aber legt für einen Key, der bisher nicht gespeichert war, automatisch einen entsprechenden Default-Value an.
+
+Beispiel:
+
+```python
+from collections import defaultdict
+
+
+int_dict = defaultdict(int)
+print(int_dict["blub"]) # gibt den Defaultwert 0 aus
+
+list_dict = defaultdict(list):
+print(list_dict["irgendwas"]) # gibt eine leere Liste aus
+```
+
+#### __OrderedDict__
+
+Ein Dictionary, das sich die Reihenfolge der eingefügten Elemente merkt
+
+### [types](https://docs.python.org/3/library/types.html)
 
 Hilfreiches Modul, falls man doch mal gezwungen ist, Datentypen zu prüfen.
 
@@ -256,7 +271,7 @@ y = 1.23
 z = True
 
 def f():
-    print "hello world"
+    print("hello world")
 
 print(type(x) is types.IntType # True)
 print(type(y) is types.FloatType )
@@ -264,10 +279,10 @@ print(type(z) is types.BooleanType)
 print(type(f) is types.FunctionType)
 ```
 
-### [math](https://docs.python.org/2/library/math.html) ###
+### [math](https://docs.python.org/3/library/math.html)
 
 Dieses Modul enthält die wichtigsten mathematischen Operationen
-Für Berechnungen komplexer Zahlen, benutze man [cmath](https://docs.python.org/2/library/cmath.html)
+Für Berechnungen komplexer Zahlen, benutze man [cmath](https://docs.python.org/3/library/cmath.html)
 
 ```python
 from math import sin, cos, exp, log, pi
@@ -279,7 +294,7 @@ log(1)
 ```
 
 
-### [random](https://docs.python.org/2/library/random.html) ###
+### [random](https://docs.python.org/3/library/random.html)
 
 Modul zur Erzeugung von Zufallszahlen
 
@@ -299,7 +314,7 @@ shuffle(l) # vertauscht die Elemente von l zufällig
 choice(l) # zieht zufällig ein Element aus l
 ```
 
-### [time](https://docs.python.org/2/library/time.html) ###
+### [time](https://docs.python.org/3/library/time.html)
 
 Dieses Modul beinhaltet diverse Funktionen, die für Zeitmessungen benutzt werden können. 
 
@@ -312,10 +327,10 @@ print(time.time()) # Gibt die Sekunden an, die seit dem 1. Januar 1970 vergangen
 time.sleep(5) # Das Programm stoppt für 5 Sekunden
 ```
 
-Für Datumsberechnungen ist darüberhinaus das Modul [datetime](https://docs.python.org/2/library/datetime.html) hilfreich.
+Für Datumsberechnungen ist darüberhinaus das Modul [datetime](https://docs.python.org/3/library/datetime.html) hilfreich.
 
 
-### [argparse](https://docs.python.org/2/library/argparse.html) ###
+### [argparse](https://docs.python.org/2/library/argparse.html)
 
 Möchte man ein Programm mit mehreren Parametern von der Kommandozeile aufrufen, wird es recht bald komplex, die Eingaben des Users auf Korrektheit zu prüfen und richtig zu parsen.
 
@@ -354,7 +369,7 @@ Dieses Mal können wir das Programm entweder ohne jeglichen Parameter aufrufen, 
 python main.py --argument irgendwas
 ```
 
-### [pdb](https://docs.python.org/2/library/pdb.html) ###
+### [pdb](https://docs.python.org/3/library/pdb.html)
 
 pdb ist der Python Debugger. Er ist ein sehr hilfreiches Tool, um Fehler im eigenen Python-Code zu finden.
 
@@ -369,17 +384,15 @@ Mit folgenden Befehlen kann man weiter durch den Code navigieren:
 
 * _next_ führt die nächste Zeile des Programms aus und pausiert dann wieder. Enthält die nächste Zeile einen Funktionsaufruf, wird die komplette Funktion ausgeführt, ohne dass in ihr gestoppt wird
 
-* _step_ ist wie _next, "betritt" aber auch Funktionen wenn sie aufgerufen werden
+* _step_ ist wie _next_, "betritt" aber auch Funktionen wenn sie aufgerufen werden
 
 * Befindet man sich in einer Funktion, sorgt _return_ dafür, dass das Programm erst wieder angehalten wird, wenn das return statement der Funktion erreicht wird.
-
-* _until_ führt den Code weiter aus
 
 * _until_ führt den Code weiter aus, bis die angegebene Zeilennummer erreicht wird
 
 * _jump_ erlaubt schließlich noch das direkte Springen zu einer beliebigen Zeilennummer
 
-## Weitere Module installieren ##
+## Weitere Module installieren
 
 Es gibt noch unzählige weitere Module für Python, die sich leicht nachinstallieren lassen. 
 
@@ -408,7 +421,7 @@ pip install <Modulname>
 
 
 
-# Exceptions #
+# Exceptions
 
 Bisher gingen wir immer davon aus, dass unsere Programme fehlerfrei laufen, oder haben Fehlermeldungen erstmal ignoriert.. Hier wird nun gezeigt, wie man seinen Code so schreiben kann, dass er auf Fehler direkt reagiert.
 
@@ -445,7 +458,7 @@ Also fangen wir auch den ab:
 while True:
     try:
         zahl = float(raw_input("Bitte Zahl eingeben: "))
-        print 5 / zahl
+        print(5 / zahl)
         break
     except ValueError:
         print("Hey, das war gar keine Zahl!")
@@ -453,7 +466,7 @@ while True:
         print("Null ist keine gute Idee...")
 ```
 
-Damit haben wir uns erstmal gegen alle Gefahren abgesichert. Eine Liste der möglichen Exceptions gibt es [hier](https://docs.python.org/2/library/exceptions.html).
+Damit haben wir uns erstmal gegen alle Gefahren abgesichert. Eine Liste der möglichen Exceptions gibt es [hier](https://docs.python.org/3/library/exceptions.html).
 
 Doch damit nicht genug, wir können auch selbst Exceptions "raisen", d.h. Code auf Probleme mit einer Exception reagieren lassen:
 
@@ -461,7 +474,7 @@ Doch damit nicht genug, wir können auch selbst Exceptions "raisen", d.h. Code a
 import types
 def add_integers(a, b):
     if type(a) != types.IntType or type(b) != types.IntType:
-        raise ValueError("So nicht, mein Freund!")
+        raise ValueError("Bitte nur Integers!")
     else:
         return a + b
 ```
