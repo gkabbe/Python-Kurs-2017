@@ -69,7 +69,118 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/kommandozeile/" class="u-url">0.2 - Die Kommandozeile in Linux</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/1-grundlagen-uebung/" class="u-url">1 - Grundlagen: Übung</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../uebungen/1-grundlagen-uebung/" rel="bookmark"><time class="published dt-published" datetime="2017-04-01T11:13:28+02:00" title="2017-04-01 11:13">2017-04-01 11:13</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Schreibe hier deinen Eintrag hin.</p>
+<h3>Mit dem Python Interpreter spielen</h3>
+<ul>
+<li>Machen Sie sich mit dem Python Interpreter vertraut. <ul>
+<li>Führen Sie ein paar Rechenaufgaben durch</li>
+<li>Benutzen Sie den print-Befehl, um beliebigen Text in der Kommandozeile auszugeben</li>
+</ul>
+</li>
+</ul>
+<h3>Hello World</h3>
+<ul>
+<li>Schreiben Sie das Hello World Programm in einer Datei hello_world.py und führen Sie es mit dem Befehl</li>
+</ul>
+<pre class="code literal-block"><span></span>python hello_world.py
+</pre>
+
+
+<p>aus.</p>
+<ul>
+<li>
+<p>Schreiben Sie das Hello World Programm so um, dass es eine Datei <em>hello_world</em> öffnet, und in diese "Hello World!" schreibt.</p>
+</li>
+<li>
+<p>Schreiben Sie ein Programm, das ihre neu erstellte Datei <em>hello_world</em> wieder ausliest!</p>
+</li>
+<li>
+<p>Schreiben Sie ein Programm, das die Datei <em>hello_world</em> öffnet und eine weitere Zeile "How are you?" anhängt. </p>
+</li>
+<li>
+<p>Schreiben Sie ein interaktives "Hello User"-Programm! Beim Start soll es den Benutzer nach seinem Namen fragen, und ihn anschließend mit seinem Namen grüßen.</p>
+</li>
+</ul>
+<h3>Datentypen</h3>
+<ul>
+<li>Erstellen Sie eine Variable mit dem Namen <em>var1</em>, die den Wert 10 enthält</li>
+<li>Nun erstellen Sie eine Variable <em>var2</em>, die den String ":-)" enthält</li>
+<li>Welchen Datentyp hat die Variable <em>var3</em>, die folgendermaßen erstellt wird: </li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">var3</span> <span class="o">=</span> <span class="n">var1</span> <span class="o">*</span> <span class="n">var2</span>
+</pre>
+
+
+<ul>
+<li>Erhöhen Sie den Wert der Variablen <em>var1</em> um 0.3. Welchen Datentyp hat sie jetzt?</li>
+<li>Addieren Sie nun eine komplexe Zahl hinzu. Wie ändert sich der Datentyp?</li>
+</ul>
+<h3>Casten von Datentypen</h3>
+<p>In manchen Fällen ist es sinnvoll, von einem gegebenen Datentyp zu einem anderen zu wechseln.
+Z.B. lässt sich ein Integer folgendermaßen zu einem Float konvertieren:</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<p>Konvertieren Sie nun:</p>
+<ul>
+<li>float -&gt; int</li>
+<li>float -&gt; complex</li>
+<li>float -&gt; str</li>
+<li>str -&gt; int</li>
+<li>str -&gt; float</li>
+<li>str -&gt; complex</li>
+</ul>
+<p>usw.</p>
+<p>Schreiben Sie nun eine for-Schleife, in der die Zahlen 0.0, 0.1, ..., 0.9 ausgegeben werden</p>
+<h3>Boolesche Variablen</h3>
+<p>Gegeben seien die Variablen</p>
+<pre class="code literal-block"><span></span><span class="n">student_motiviert</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">student_ausgeschlafen</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">unterricht_spannend</span> <span class="o">=</span> <span class="bp">True</span>
+</pre>
+
+
+<ul>
+<li>Welchen Wert hat </li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">lernerfolg</span> <span class="o">=</span> <span class="n">student_ausgeschlafen</span> <span class="ow">or</span> <span class="p">(</span><span class="n">student_motiviert</span> <span class="ow">and</span> <span class="n">unterricht_spannend</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>Was passiert bei folgender Klammernsetzung?</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">lernerfolg</span> <span class="o">=</span> <span class="p">(</span><span class="n">student_ausgeschlafen</span> <span class="ow">or</span> <span class="n">student_motiviert</span><span class="p">)</span> <span class="ow">and</span> <span class="n">unterricht_spannend</span>
+</pre>
+
+
+<ul>
+<li>Wir setzen unterricht_spannend nun auf den (rein hypothetischen) Wert False. Wie ändert sich der Lernerfolg in den beiden oben genannten Fällen?</li>
+</ul>
+<h3>Passwortabfrage</h3>
+<p>Schreiben Sie ein passwortgeschütztes Hello World Programm.</p>
+<ul>
+<li>
+<p>Beim Start fragt es nach einem Passwort. Erst wenn der User das korrekte Passwort eingegeben hat, wird "Hello World" ausgegeben.</p>
+</li>
+<li>
+<p>Diesmal sind nur 3 Fehlversuche erlaubt. Danach bricht das Programm ohne Ausgabe ab</p>
+</li>
+</ul>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/kommandozeile/" class="u-url">0.2 - Die Kommandozeile in Linux</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe

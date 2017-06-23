@@ -1,5 +1,366 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link rel="self" type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml"></atom:link><language>de</language><lastBuildDate>Tue, 06 Jun 2017 09:36:22 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Funktionen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/funktionen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Fri, 23 Jun 2017 07:54:45 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>4 - Module &amp; Exceptions</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/module_exceptions/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Module&lt;/h2&gt;
+&lt;p&gt;Nachdem wir in der letzten Woche gelernt haben, wie man den selbstgeschriebenen Code besser organisieren kann durch Einsatz von Funktionen und Klassen, wird heute gezeigt, wie man nun Dateien mit Code als sogenannte Module speichern kann.&lt;/p&gt;
+&lt;h3&gt;Importieren aus anderer Python-Datei&lt;/h3&gt;
+&lt;p&gt;Um aus einer weiteren Pythondatei Klassen, Funktionen, oder Variablen zu laden benutzt man &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Dateiname&lt;/span&gt; &lt;span class="n"&gt;ohne&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;.&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Klassen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Funktions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Variablenname&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Wichtig: damit das funktioniert, muss der Python-Interpreter im selben Ordner gestartet worden sein wie die Datei aus der importiert wurde!&lt;/p&gt;
+&lt;h3&gt;Importieren aus Ordnerstruktur&lt;/h3&gt;
+&lt;p&gt;Um aus einer komplexeren Ordnerstruktur importieren zu können, geht man wie folgt vor:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Ordner&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;.&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Unterordner&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;.&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Unterunterordner&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;.&amp;lt;...&amp;gt;.&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Dateiname&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;.&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Klassen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Funktions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Variablennamen&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;from ... import ...&lt;/h3&gt;
+&lt;p&gt;Möchten wir etwas direkt in den aktuellen Namespace importieren, benutzen wir &lt;em&gt;from ... import&lt;/em&gt; &lt;/p&gt;
+&lt;h3&gt;import ... as ...&lt;/h3&gt;
+&lt;p&gt;Mittels &lt;em&gt;import ... as ...&lt;/em&gt; können wir dem importierten Modul einen anderen (oft gekürzten) Namen geben.&lt;/p&gt;
+&lt;h3&gt;Beispiel&lt;/h3&gt;
+&lt;p&gt;Die aus einer Übung bekannten Funktionen &lt;em&gt;write_file&lt;/em&gt; und &lt;em&gt;read_file&lt;/em&gt; haben wir in einer Datei &lt;em&gt;input_output_file.py&lt;/em&gt; gespeichert, und sind so von ihnen überzeugt, dass wir sie in Zukunft öfters benutzen möchten.&lt;/p&gt;
+&lt;p&gt;Sind wir im selben Ordner wie die Datei, ist es ganz einfach, von einer anderen Python-Datei aus auf den schon vorhandenen Code zuzugreifen: wir schreiben einfach&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;input_output_file&lt;/span&gt; &lt;span class="c1"&gt;# Achtung, die Endung .py wird weggelassen!&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;und können dann folgendermaßen auf die Funktionen (sowie Klassen und Variablen), die in der Datei &lt;em&gt;input_output_file.py&lt;/em&gt; geschrieben wurden, zugreifen:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;input_output_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"dateiname"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Wem es zu lästig ist, bei jedem Funktionsaufruf den Modulnamen zu schreiben, kann am Anfang folgendes tun:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;input_output_file&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;read_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;write_file&lt;/span&gt; &lt;span class="c1"&gt;# , ...&lt;/span&gt;
+
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;read_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"dateiname"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Auf diese Weise werden aber auch nur die Funktionen importiert, die wir explizit nach import auflisten. Wir können sie dann aber benutzen, ohne &lt;em&gt;input_output_file.&lt;/em&gt; voranzustellen.&lt;/p&gt;
+&lt;p&gt;Es geht aber noch eine Stufe höher:
+Angenommen, wir haben nicht nur eine Datei für Input und Output, sondern noch eine weitere (z.B. für das Einlesen von komprimierten Daten wie Zip-Files zuständig sein). In diesem Fall bietet es sich an einen eigenen Ordner &lt;em&gt;input_output&lt;/em&gt; anzulegen, und in diesen die beiden Python-Dateien zu legen.&lt;/p&gt;
+&lt;p&gt;Ganz ähnlich wie zuvor wollen wir nun die Funktionen read_file und write_file importieren.
+Um das tun zu können, müssen wir es Python jedoch möglich machen, den Ordner &lt;em&gt;input_output&lt;/em&gt; als Modul zu erkennen.
+Das tun wir, indem wir eine leere Datei mit dem Namen &lt;em&gt;__init__.py&lt;/em&gt; im Ordner &lt;em&gt;input_output&lt;/em&gt; anlegen. 
+Wir können unseren Code in beliebig tief geschachtelten Ordnerstrukturen vergraben, solange wir nur daran denken, in jedem Ordner eine &lt;em&gt;__init__.py&lt;/em&gt; Datei anzulegen.&lt;/p&gt;
+&lt;p&gt;Danach können wir, wenn wir uns außerhalb des Ordners befinden, per&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;input_output.input_output_file&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;read_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;write_file&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;die Funktionen &lt;em&gt;read_file&lt;/em&gt; und &lt;em&gt;write_file&lt;/em&gt; wieder importieren.&lt;/p&gt;
+&lt;p&gt;Alternativ:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;input_output.input_output_file&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Oft ist es ratsam, die Funktionen/Klassen/Variablen nicht direkt in den globalen Namespace zu laden, da es dann zu Konflikten mit schon bestehenden Namen kommen kann.&lt;/p&gt;
+&lt;p&gt;Um in diesem Fall zu viel Schreibarbeit aufgrund langer Modulnamen zu vermeiden, lässt sich folgender Trick anwenden:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;input_output.input_output_file&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;iof&lt;/span&gt; &lt;span class="c1"&gt;# 'as' keyword gefolgt von Aliasnamen&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Im weiteren Verlauf lässt sich dann per &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;iof.read_file("bla")
+&lt;/pre&gt;
+
+
+&lt;p&gt;auf die Funktionen zugreifen.&lt;/p&gt;
+&lt;h3&gt;Selbstgeschriebene Module für den Python-Interpreter sichtbar machen&lt;/h3&gt;
+&lt;p&gt;Haben wir nun ein selbsterstelltes Modul irgendwo auf unserer Festplatte liegen, müssen wir nun Python noch sagen, wo es sich befindet. Das machen wir, indem wir den Speicherort zum &lt;em&gt;Pythonpath&lt;/em&gt; hinzufügen.&lt;/p&gt;
+&lt;p&gt;Die einfachste Variante ist vermutlich, den Pythonpfad direkt im Code zu setzen:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"/Pfad/zum/Ordner/in/dem/das/Modul/liegt"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;mein_modul&lt;/span&gt; &lt;span class="c1"&gt;# ersetze mein_modul durch gewünschten Modulnamen&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Möchte man den Pfad dauerhaft hinzufügen, tun Linux-User folgendes im Terminal:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'export PYTHONPATH="/Pfad/zu/meinem/Modul:$PYTHONPATH"'&lt;/span&gt; &amp;gt;&amp;gt; .bashrc
+&lt;/pre&gt;
+
+
+&lt;p&gt;Windows-User können folgendes ausprobieren:&lt;/p&gt;
+&lt;p&gt;In die Datei autoexec.bat wird folgende Zeile geschrieben:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;set PYTHONPATH=%PYTHONPATH%;C:\Pfad/zu/meinem/Modul
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Die Python Standard Library&lt;/h3&gt;
+&lt;p&gt;Netterweise kommt Python schon mit einer Menge &lt;a href="https://docs.python.org/3/library/index.html"&gt;eigener Module&lt;/a&gt; daher. Die wichtigsten (persönliche Meinung des Dozenten) werden hier kurz vorgestellt:&lt;/p&gt;
+&lt;h4&gt;sys&lt;/h4&gt;
+&lt;p&gt;Das Modul &lt;a href="https://docs.python.org/3/library/sys.html"&gt;sys&lt;/a&gt; enthält vor allem Variablen, die vom Python-Interpreter benutzt werden oder mit ihm interagieren.&lt;/p&gt;
+&lt;p&gt;Hilfreich sind vor allem&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;sys.argv&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;Diese Variable speichert die Kommandozeilenargumente, mit denen ein Programm aufgerufen wurde. &lt;/p&gt;
+&lt;p&gt;Folgendes Programm sei unter dem Namen main.py gespeichert:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"ich wurde aufgerufen mit den Argumenten:"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Starten wir dieses Skript folgendermaßen:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;python main.py hier ganz viele kommandozeilen argumente &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;so ist die Ausgabe:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ich wurde aufgerufen mit den Argumenten: ['test.py', 'hier', 'ganz', 'viele', 'kommandozeilen', 'argumente', '1', '2', '3', '4', '5']
+&lt;/pre&gt;
+
+
+&lt;p&gt;Alle Argumente werden also als Strings in einer Liste gespeichert.&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;sys.path&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;In dieser Variablen werden alle Pfade gespeichert, in denen der Interpreter nach nutzbaren Python-Modulen sucht. Möchte man einen weiteren Pfad hinzufügen, tut man das einfach per&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"/mein/neuer/pfad"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Der neu hinzugefügte Pfad verschwindet allerdings wieder aus sys.path wenn das Skript endet!&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;sys.exit()&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;Diese Funktion beendet das Skript sofort. &lt;/p&gt;
+&lt;h4&gt;&lt;a href="https://docs.python.org/3/library/pickle.html"&gt;pickle&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Erlaubt es, Python-Objekte zu serialisieren, d.h. sie als Datei zu speichern.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pickle&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MeineKlasse&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+
+&lt;span class="n"&gt;mk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MeineKlasse&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"meine_klasse.pickle"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"w"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;pickle&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dump&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mk&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Das gespeicherte Objekt kann anschließend folgendermaßen geladen werden:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"meine_klasse.pickle"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"r"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;pickle&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;&lt;a href="https://docs.python.org/2/library/collections.html"&gt;collections&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;In diesem Modul sind diverse nützliche Container-Datentypen, die teilweise Erweiterungen der Standard-Container dict, list und tuple sind.&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;Counter&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;Damit lassen sich Elemente sehr einfach zählen. Beispiel mit dem Text aus der Übung &lt;em&gt;word_counter&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Counter&lt;/span&gt;
+
+
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Counter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; 
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;most_common&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c1"&gt;# gibt die 10 häufigsten Wörter in text aus&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h5&gt;&lt;strong&gt;deque&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;Eine Art Liste, bei der sich effizient an beiden Enden Elemente hinzufügen oder entfernen lassen.&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;defaultdict&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;Ähnlich wie dict, aber legt für einen Key, der bisher nicht gespeichert war, automatisch einen entsprechenden Default-Value an.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;defaultdict&lt;/span&gt;
+
+
+&lt;span class="n"&gt;int_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;defaultdict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;int_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"blub"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="c1"&gt;# gibt den Defaultwert 0 aus&lt;/span&gt;
+
+&lt;span class="n"&gt;list_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;defaultdict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"irgendwas"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="c1"&gt;# gibt eine leere Liste aus&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h5&gt;&lt;strong&gt;OrderedDict&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;Ein Dictionary, das sich die Reihenfolge der eingefügten Elemente merkt&lt;/p&gt;
+&lt;h4&gt;&lt;a href="https://docs.python.org/3/library/types.html"&gt;types&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Hilfreiches Modul, falls man doch mal gezwungen ist, Datentypen zu prüfen.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;types&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.23&lt;/span&gt;
+&lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"hello world"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IntType&lt;/span&gt; &lt;span class="c1"&gt;# True)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FloatType&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BooleanType&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FunctionType&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;&lt;a href="https://docs.python.org/3/library/math.html"&gt;math&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Dieses Modul enthält die wichtigsten mathematischen Operationen
+Für Berechnungen komplexer Zahlen, benutze man &lt;a href="https://docs.python.org/3/library/cmath.html"&gt;cmath&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pi&lt;/span&gt;
+
+&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; 
+&lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# usw.&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;&lt;a href="https://docs.python.org/3/library/random.html"&gt;random&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Modul zur Erzeugung von Zufallszahlen&lt;/p&gt;
+&lt;p&gt;Die wichtigsten Funktionen im Überblick:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shuffle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;choice&lt;/span&gt;
+
+&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# erzeugt eine gleichverteilte Pseudozufallszahl zwischen 0 und 1 (ohne die 1).&lt;/span&gt;
+&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;3.4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;7.8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# erzeugt eine gleichverteilte Pseudozufallszahl (float) zwischen den gegebenen Grenzen&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;wuerfel&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# erzeugt zufällig (und gleichverteilt) einen Integer zwischen 1 und 6 (einschließlich 6)&lt;/span&gt;
+
+&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;shuffle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# vertauscht die Elemente von l zufällig&lt;/span&gt;
+&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# zieht zufällig ein Element aus l&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;&lt;a href="https://docs.python.org/3/library/time.html"&gt;time&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Dieses Modul beinhaltet diverse Funktionen, die für Zeitmessungen benutzt werden können. &lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="c1"&gt;# Gibt die Sekunden an, die seit dem 1. Januar 1970 vergangen sind&lt;/span&gt;
+&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Das Programm stoppt für 5 Sekunden&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Für Datumsberechnungen ist darüberhinaus das Modul &lt;a href="https://docs.python.org/3/library/datetime.html"&gt;datetime&lt;/a&gt; hilfreich.&lt;/p&gt;
+&lt;h4&gt;&lt;a href="https://docs.python.org/2/library/argparse.html"&gt;argparse&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Möchte man ein Programm mit mehreren Parametern von der Kommandozeile aufrufen, wird es recht bald komplex, die Eingaben des Users auf Korrektheit zu prüfen und richtig zu parsen.&lt;/p&gt;
+&lt;p&gt;Hier hilft das Modul argparse.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
+
+&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"argument"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# hier wird festgelegt, dass es genau ein notwendiges Argument gibt&lt;/span&gt;
+&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Im obigen Beispiel haben wir festgelegt, dass das Programm mit genau einem Parameter aufgerufen werden muss. Nicht mer und nicht weniger ist möglich.&lt;/p&gt;
+&lt;p&gt;Manchmal ist es aber auch hilfreich, optionale Parameter festzulegen. Das geht so:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
+
+&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"--argument"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# hier wird festgelegt, dass es genau ein notwendiges Argument gibt&lt;/span&gt;
+&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argument&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argument&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Kein Argument angegeben"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Dieses Mal können wir das Programm entweder ohne jeglichen Parameter aufrufen, oder wir rufen es folgendermaßen auf (unter der Annahme, dass die Datei main.py heißt):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;python main.py --argument irgendwas
+&lt;/pre&gt;
+
+
+&lt;h4&gt;&lt;a href="https://docs.python.org/3/library/pdb.html"&gt;pdb&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;pdb ist der Python Debugger. Er ist ein sehr hilfreiches Tool, um Fehler im eigenen Python-Code zu finden.&lt;/p&gt;
+&lt;p&gt;Typischerweise ruft man den Debugger auf, indem man an der Stelle seines Codes, an der man etwas inspizieren will, folgende Zeile schreibt:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;pdb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_trace&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;An dieser Stelle hält der Debugger das Programm an und wechselt in den interaktiven Modus, in dem man sich die Werte aller Variablen anschauen kann, aber auch neue Variablen definieren oder Funktionen ausführen kann.&lt;/p&gt;
+&lt;p&gt;Mit folgenden Befehlen kann man weiter durch den Code navigieren:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;next&lt;/em&gt; führt die nächste Zeile des Programms aus und pausiert dann wieder. Enthält die nächste Zeile einen Funktionsaufruf, wird die komplette Funktion ausgeführt, ohne dass in ihr gestoppt wird&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;step&lt;/em&gt; ist wie &lt;em&gt;next&lt;/em&gt;, "betritt" aber auch Funktionen wenn sie aufgerufen werden&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Befindet man sich in einer Funktion, sorgt &lt;em&gt;return&lt;/em&gt; dafür, dass das Programm erst wieder angehalten wird, wenn das return statement der Funktion erreicht wird.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;until&lt;/em&gt; führt den Code weiter aus, bis die angegebene Zeilennummer erreicht wird&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;jump&lt;/em&gt; erlaubt schließlich noch das direkte Springen zu einer beliebigen Zeilennummer&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Weitere Module installieren&lt;/h3&gt;
+&lt;p&gt;Es gibt noch unzählige weitere Module für Python, die sich leicht nachinstallieren lassen. &lt;/p&gt;
+&lt;p&gt;Ubuntu- und Debian-User mit Administratorrechten finden viele Pakete in ihrem Paketmanager, z.B. python-numpy, python-scipy, ...&lt;/p&gt;
+&lt;p&gt;Alternativ ist es möglich eine sogenannte virtualenv zu benutzen. Diese kopiert den Python-Interpreter, der oftmals in einem geschützten Pfad liegt, in das Home-Verzeichnis des Benutzers. Das erleichtert die Modul-Installation deutlich.&lt;/p&gt;
+&lt;p&gt;Alle mit Linux können folgendes tun:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~
+mkdir virtualenvs
+virtualenv virtualenvs/pythonkurs
+&lt;span class="nb"&gt;source&lt;/span&gt; virtualenvs/pythonkurs/bin/activate
+&lt;/pre&gt;
+
+
+&lt;p&gt;Nach diesen vier Schritten wird der Python-Interpreter benutzt der im Verzeichnis ~/virtualenvs/pythonkurs/bin/ liegt, benutzt.&lt;/p&gt;
+&lt;p&gt;Nun kann man Module mittels &lt;em&gt;pip&lt;/em&gt; installieren:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;pip install &amp;lt;Modulname&amp;gt;
+&lt;/pre&gt;
+
+
+&lt;h2&gt;Exceptions&lt;/h2&gt;
+&lt;p&gt;Bisher gingen wir immer davon aus, dass unsere Programme fehlerfrei laufen, oder haben Fehlermeldungen erstmal ignoriert.. Hier wird nun gezeigt, wie man seinen Code so schreiben kann, dass er auf Fehler direkt reagiert.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Führen wir dieses Zahl aus und geben brav eine Zahl ein, kommt es zu keinen Problemen. Hat der Anwender jedoch nicht aufgepasst und gibt z.B. "Hallo" ein, wird er von folgender Meldung überrascht:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ValueError&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;could&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;convert&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;float&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Hallo&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ganz logisch, float() kann den String "Hallo" nicht in eine Zahl umwandeln, daher erscheint ein sogenannter ValueError.&lt;/p&gt;
+&lt;p&gt;Nun möchten wir aber gerne ein anderes Verhalten unseres Codes. Wir möchten, dass er den User so lange nach einer Zahl fragt, bis er sie bekommt. Die Lösung könnte so aussehen:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;zahl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;break&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Hey, das war gar keine Zahl!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Damit hätten wir schonmal das Problem der falschen Benutzereingabe gelöst. Allerdings gibt es immer noch eine Möglichkeit, das Programm zum Absturz zu bringen: Gibt der User 0 ein, grüßt ihn der &lt;strong&gt;ZeroDivisionError&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;Also fangen wir auch den ab:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;zahl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;break&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Hey, das war gar keine Zahl!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ZeroDivisionError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Null ist keine gute Idee..."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Damit haben wir uns erstmal gegen alle Gefahren abgesichert. Eine Liste der möglichen Exceptions gibt es &lt;a href="https://docs.python.org/3/library/exceptions.html"&gt;hier&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Doch damit nicht genug, wir können auch selbst Exceptions "raisen", d.h. Code auf Probleme mit einer Exception reagieren lassen:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;types&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add_integers&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IntType&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IntType&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte nur Integers!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Diese Funktion beschwert sich beispielsweise lautstark mit einem ValueError, sobald wir ihr ein Argument liefern, das kein Integer ist.
+Die Wahl der Exception ist dabei uns überlassen&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/module_exceptions/</guid><pubDate>Fri, 16 Jun 2017 23:00:00 GMT</pubDate></item><item><title>Funktionen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/funktionen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -4773,103 +5134,4 @@ Die Syntax dafür ist wie folgt:&lt;/p&gt;
 
 
 &lt;p&gt;In Kombination mit if-else Anweisungen können wir nun Programme schreiben, 
-die auf verschiedene User-Eingaben reagieren. Mehr dazu in den Übungen.&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/grundlagen/</guid><pubDate>Thu, 06 Apr 2017 23:00:00 GMT</pubDate></item><item><title>1 - Grundlagen: Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;p&gt;Schreibe hier deinen Eintrag hin.&lt;/p&gt;
-&lt;h3&gt;Mit dem Python Interpreter spielen&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Machen Sie sich mit dem Python Interpreter vertraut. &lt;ul&gt;
-&lt;li&gt;Führen Sie ein paar Rechenaufgaben durch&lt;/li&gt;
-&lt;li&gt;Benutzen Sie den print-Befehl, um beliebigen Text in der Kommandozeile auszugeben&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Hello World&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Schreiben Sie das Hello World Programm in einer Datei hello_world.py und führen Sie es mit dem Befehl&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;python hello_world.py
-&lt;/pre&gt;
-
-
-&lt;p&gt;aus.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie das Hello World Programm so um, dass es eine Datei &lt;em&gt;hello_world&lt;/em&gt; öffnet, und in diese "Hello World!" schreibt.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie ein Programm, das ihre neu erstellte Datei &lt;em&gt;hello_world&lt;/em&gt; wieder ausliest!&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie ein Programm, das die Datei &lt;em&gt;hello_world&lt;/em&gt; öffnet und eine weitere Zeile "How are you?" anhängt. &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie ein interaktives "Hello User"-Programm! Beim Start soll es den Benutzer nach seinem Namen fragen, und ihn anschließend mit seinem Namen grüßen.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Datentypen&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Erstellen Sie eine Variable mit dem Namen &lt;em&gt;var1&lt;/em&gt;, die den Wert 10 enthält&lt;/li&gt;
-&lt;li&gt;Nun erstellen Sie eine Variable &lt;em&gt;var2&lt;/em&gt;, die den String ":-)" enthält&lt;/li&gt;
-&lt;li&gt;Welchen Datentyp hat die Variable &lt;em&gt;var3&lt;/em&gt;, die folgendermaßen erstellt wird: &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;var3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;var1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;var2&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Erhöhen Sie den Wert der Variablen &lt;em&gt;var1&lt;/em&gt; um 0.3. Welchen Datentyp hat sie jetzt?&lt;/li&gt;
-&lt;li&gt;Addieren Sie nun eine komplexe Zahl hinzu. Wie ändert sich der Datentyp?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Casten von Datentypen&lt;/h3&gt;
-&lt;p&gt;In manchen Fällen ist es sinnvoll, von einem gegebenen Datentyp zu einem anderen zu wechseln.
-Z.B. lässt sich ein Integer folgendermaßen zu einem Float konvertieren:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
-&lt;span class="n"&gt;x_float&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Konvertieren Sie nun:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;float -&amp;gt; int&lt;/li&gt;
-&lt;li&gt;float -&amp;gt; complex&lt;/li&gt;
-&lt;li&gt;float -&amp;gt; str&lt;/li&gt;
-&lt;li&gt;str -&amp;gt; int&lt;/li&gt;
-&lt;li&gt;str -&amp;gt; float&lt;/li&gt;
-&lt;li&gt;str -&amp;gt; complex&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;usw.&lt;/p&gt;
-&lt;p&gt;Schreiben Sie nun eine for-Schleife, in der die Zahlen 0.0, 0.1, ..., 0.9 ausgegeben werden&lt;/p&gt;
-&lt;h3&gt;Boolesche Variablen&lt;/h3&gt;
-&lt;p&gt;Gegeben seien die Variablen&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;student_motiviert&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
-&lt;span class="n"&gt;student_ausgeschlafen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
-&lt;span class="n"&gt;unterricht_spannend&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Welchen Wert hat &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;lernerfolg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;student_ausgeschlafen&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;student_motiviert&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;unterricht_spannend&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Was passiert bei folgender Klammernsetzung?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;lernerfolg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;student_ausgeschlafen&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;student_motiviert&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;unterricht_spannend&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Wir setzen unterricht_spannend nun auf den (rein hypothetischen) Wert False. Wie ändert sich der Lernerfolg in den beiden oben genannten Fällen?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Passwortabfrage&lt;/h3&gt;
-&lt;p&gt;Schreiben Sie ein passwortgeschütztes Hello World Programm.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Beim Start fragt es nach einem Passwort. Erst wenn der User das korrekte Passwort eingegeben hat, wird "Hello World" ausgegeben.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Diesmal sind nur 3 Fehlversuche erlaubt. Danach bricht das Programm ohne Ausgabe ab&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</guid><pubDate>Sat, 01 Apr 2017 09:13:28 GMT</pubDate></item></channel></rss>
+die auf verschiedene User-Eingaben reagieren. Mehr dazu in den Übungen.&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/grundlagen/</guid><pubDate>Thu, 06 Apr 2017 23:00:00 GMT</pubDate></item></channel></rss>
