@@ -625,14 +625,15 @@ Als einfachstes Beispiel können wir nun aus einem Farbbild ein Schwarz-Weiß-Bi
 
 ```python
 black_white = pic_array.mean(axis=2)
-````
+```
 Da die Kanäle in der zweiten Dimension gespeichert sind, müssen wir das auch der mean-Methode über das axis keyword mitteilen.
 
 Um das neuerhaltene Schwarz-Weiß-Bild speichern zu können, machen wir folgendes:
 
 
 ```python
-black_white = np.array(black_white, dtype=np.uint8) # Um den Array umwandeln zu können, muss er den dtype uint8 haben
+# Um den Array umwandeln zu können, muss er den dtype uint8 haben
+black_white = np.array(black_white, dtype=np.uint8)
 bw_image = Image.fromarray(black_white)
 bw_image.save("bw_img.jpg")
 ```

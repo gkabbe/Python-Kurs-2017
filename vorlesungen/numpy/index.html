@@ -572,14 +572,13 @@ Berechnen wir jetzt aber naiv atoms*masses, tut Numpy leider nicht das, was wir 
 <p>pic_array ist ein Numpy-Array mit den Dimensionen (höhe, breite, farbkanäle). Bei einem Farbbild haben wir dann 3 Farbkanäle: rot, grün und blau.</p>
 <p>Als einfachstes Beispiel können wir nun aus einem Farbbild ein Schwarz-Weiß-Bild machen. Dazu mitteln wir die Werte der 3 Farbkanäle</p>
 <pre class="code literal-block"><span></span><span class="n">black_white</span> <span class="o">=</span> <span class="n">pic_array</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="sb">````</span>
-<span class="n">Da</span> <span class="n">die</span> <span class="n">Kanäle</span> <span class="ow">in</span> <span class="n">der</span> <span class="n">zweiten</span> <span class="n">Dimension</span> <span class="n">gespeichert</span> <span class="n">sind</span><span class="p">,</span> <span class="n">müssen</span> <span class="n">wir</span> <span class="n">das</span> <span class="n">auch</span> <span class="n">der</span> <span class="n">mean</span><span class="o">-</span><span class="n">Methode</span> <span class="err">ü</span><span class="n">ber</span> <span class="n">das</span> <span class="n">axis</span> <span class="n">keyword</span> <span class="n">mitteilen</span><span class="o">.</span>
-
-<span class="n">Um</span> <span class="n">das</span> <span class="n">neuerhaltene</span> <span class="n">Schwarz</span><span class="o">-</span><span class="n">Weiß</span><span class="o">-</span><span class="n">Bild</span> <span class="n">speichern</span> <span class="n">zu</span> <span class="n">können</span><span class="p">,</span> <span class="n">machen</span> <span class="n">wir</span> <span class="n">folgendes</span><span class="p">:</span>
+</pre>
 
 
-<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
-<span class="n">black_white</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">black_white</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># Um den Array umwandeln zu können, muss er den dtype uint8 haben</span>
+<p>Da die Kanäle in der zweiten Dimension gespeichert sind, müssen wir das auch der mean-Methode über das axis keyword mitteilen.</p>
+<p>Um das neuerhaltene Schwarz-Weiß-Bild speichern zu können, machen wir folgendes:</p>
+<pre class="code literal-block"><span></span><span class="c1"># Um den Array umwandeln zu können, muss er den dtype uint8 haben</span>
+<span class="n">black_white</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">black_white</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
 <span class="n">bw_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">black_white</span><span class="p">)</span>
 <span class="n">bw_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"bw_img.jpg"</span><span class="p">)</span>
 </pre>
