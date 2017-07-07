@@ -1,7 +1,7 @@
 <!-- 
 .. title: 5 - Numpy
 .. slug: numpy
-.. date: 2018-05-05 00:00:00 UTC+01:00
+.. date: 2017-07-07 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
@@ -12,13 +12,13 @@
 Geht es um numerische Problemstellungen aller Art, ist das Modul Numpy in Python die erste Wahl.
 Es erlaubt Matrix- und Vektorberechnungen, und ist damit gerade bei größeren Datenmengen ein gutes Stück schneller als handgeschriebener Python-Code.
 
-# Erste Schritte #
+# Erste Schritte
 
-## Erstellen von Numpy-Arrays ##
+## Erstellen von Numpy-Arrays
 
 Die meiste Zeit arbeitet man in Numpy mit den sogenannten Numpy-Arrays. Diese verhalten sich ähnlich wie Listen, es lassen sich aber nachträglich keine neuen Elemente hinzufügen.
 
-### Erzeugen eines Arrays aus einer Liste ###
+### Erzeugen eines Arrays aus einer Liste
 
 Ein Numpy-Array lässt sich leicht aus einer Liste erstellen:
 
@@ -35,7 +35,7 @@ Ausgabe:
 numpy.ndarray
 ```
 
-### Shape - Die Dimensionen eines Arrays ###
+### Shape - Die Dimensionen eines Arrays
 
 Wir haben im obigen Beispiel gesehen, dass das erzeugte Objekt vom Typ ndarray ist.
 Ein ndarray kann, wie gezeigt, eine Dimension haben (entspricht einer einfache Liste), durch Schachtelung von Listen können wir aber auch höherdimensionierte Arrays erhalten
@@ -43,7 +43,9 @@ Ein ndarray kann, wie gezeigt, eine Dimension haben (entspricht einer einfache L
 ```python
 import numpy as np
 
-arr_2d = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9.0, 10, 11, 12]]) # Liste von Listen -> 2 Dimensionen
+arr_2d = np.array([[1, 2, 3, 4], 
+                   [5, 6, 7, 8], 
+                   [9.0, 10, 11, 12]]) # Liste von Listen -> 2 Dimensionen
 shape = arr_2d.shape # 
 print(shape)
 print("Anzahl Dimensionen:", len(shape))
@@ -52,6 +54,7 @@ for i, dim_len in enumerate(shape):
 ```
 
 Ausgabe:
+
 ```
 (3, 4)
 Anzahl Dimensionen: 2
@@ -63,7 +66,7 @@ Der Tupel shape kann uns für ndarrays anzeigen, wieviele Dimensionen es gibt.
 
 Zu beachten ist übrigens immer, dass alle Listen einer Dimension die selbe Länge haben müssen!
 
-### Erzeugen eines mit Nullen gefüllten Arrays ###
+### Erzeugen eines mit Nullen gefüllten Arrays
 
 Um einen mit Nullen gefüllten Array zu erstellen, benutzen wir die Funktion _zeros_:
 
@@ -72,14 +75,14 @@ shape = (3, 4, 5)
 arr_zeros = np.zeros(shape)
 ```
 
-### Erzeugen eines mit Einsen gefüllten Arrays ###
+### Erzeugen eines mit Einsen gefüllten Arrays
 
 ```python
 shape = (4, 5, 6)
 arr_ones = np.ones(shape)
 ```
 
-### Erzeugen einer Zahlenreihe ###
+### Erzeugen einer Zahlenreihe
 
 Um einen Floatarray zu erzeugen, der zwischen Start- und Endpunkt Werte in regelmäßigen Abständen voneinander enthält, benutzt man _linspace_:
 
@@ -90,7 +93,7 @@ arr = np.linspace(start, end, size)
 print(arr)
 ```
 
-### Erzeugen von zufälligen Arrays ###
+### Erzeugen von zufälligen Arrays
 
 Für Integers benutzt man:
 
@@ -112,7 +115,7 @@ np.random.uniform(start, end, size=shape)
 
 
 
-## Datentyp eines Arrays ##
+## Datentyp eines Arrays
 
 Bisher haben wir Numpy-Arrays erzeugt, ohne uns Gedanken darüber zu machen, welchen Datentyp sie eigentlich besitzen.
 
@@ -146,7 +149,7 @@ print(arr.dtype)
 Ebenso funktioniert das bei den anderen Funktionen zur Erzeugung eines Arrays.
 
 
-## IO mit Numpy ##
+## IO mit Numpy
 
 Numpy macht es uns sehr einfach, numerische Daten einzulesen. In der Regel (bei gut formatierten Dateien) reicht die Funktion _loadtxt_ aus:
 
@@ -162,11 +165,11 @@ np.savetxt("random_data", arr1)
 ```
 
 
-## Rechnen mit Arrays ##
+## Rechnen mit Arrays
 
 Wir fangen in einer Dimension an:
 
-### Addition ###
+### Addition
 
 ```python
 arr1 = np.array([1, 2, 3])
@@ -187,7 +190,7 @@ float64
 Hier sehen wir, dass die Addition zweier Arrays zu einer elementweisen Addition führt. Da arr2 vom Type float64 ist, ist auch der Array _result_ vom Typ float64.
 
 
-### Multiplikation ###
+### Multiplikation
 
 Was passiert wenn wir die beiden Arrays multiplizieren?
 
@@ -216,7 +219,7 @@ Ausgabe:
 32.0
 ```
 
-### Boolsche Operationen mit Numpy-Arrays ###
+### Boolsche Operationen mit Numpy-Arrays
 
 Auch boolsche Operationen werden elementweise angewandt.
 
@@ -237,7 +240,7 @@ Ausgabe:
 Das Ergebnis ist in diesem Beispiel also wieder ein zweidimensionaler Array.
 
 
-### Weitere elementweise Operationen ###
+### Weitere elementweise Operationen
 
 Alle bekannten Funktionen wie cos, sin, exp, ... lassen sich auch in Numpy elementweise auf einen Array anwenden:
 
@@ -253,13 +256,13 @@ Ausgabe:
 viele Zahlen
 
 
-### Höhere Dimensionen ###
+### Höhere Dimensionen
 
 Arbeiten wir mit Arrays in höheren Dimensionen, funktioniert bei elementweisen Operationen alles wie in einer Dimension. 
 
 Die Funktion _dot_ ermöglicht für zwei Dimensionen Matrix-Multiplikation. Bei Kombination von 2D- und 1D-Arrays wird Matrix-Vektor-Multiplikation angewandt.
 
-### sum, mean und var ###
+### sum, mean und var
 
 Numpy bringt eigene Methoden mit, um über Arrays zu summieren (sum), sie zu mitteln (mean), oder die Varianz auszurechnen (var).
 
@@ -309,7 +312,7 @@ Für axis=1 würde dementsprechend über alle Spalten jeder Zeile gemittelt:
 array([ 6.        ,  8.        ,  2.33333333,  5.33333333])
 ```
 
-## all und any ##
+## all und any
 
 Ähnlich wie sum, mean und var, gibt es für boolsche Arrays die Methoden all und any.
 Dabei gibt all True zurück wenn alle Einträge des Arrays True sind.
@@ -345,7 +348,7 @@ False
 
 
 
-## [Broadcasting](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html) ##
+## [Broadcasting](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 Was passiert wenn wir versuchen, zwei Arrays unterschiedlicher Dimensionen miteinander zu addieren/multiplizieren?
 
@@ -434,7 +437,7 @@ arr2 hat shape (1, 3, 4, 8, 7, 3)
 da die letzten Dimensionen (3 und 5) nicht miteinander kompatibel sind.
 
 
-### Praktisches Beispiel ###
+### Praktisches Beispiel
 
 Eine Anwendung ist z.B. das dyadische Produkt (= Produkt aus Spalten- und Zeilenvektor, bei dem eine Matrix entsteht):
 
@@ -458,30 +461,31 @@ arr2.shape -> (4,)
 
    ->  arr1 wird zu 
 
-   ```python
-   np.array([[1, 1, 1, 1], [3, 3, 3, 3], [2, 2, 2, 2]])
-   ```
+```python
+np.array([[1, 1, 1, 1], [3, 3, 3, 3], [2, 2, 2, 2]])
+```
 
 2. Numpy betrachtet die nächste Dimension:
    arr1 hat als vorletzte Dimensionsgröße 3, arr2 hat keine weitere Dimension.
    -> Numpy erweitert die shape von arr2 zu (1, 4)
    Jetzt können die Werte wieder kopiert werden
    -> arr2 wird zu 
-   ```python
-   np.array([[2, 1, 0, 3], 
-             [2, 1, 0, 3], 
-             [2, 1, 0, 3]])
-   ```
+
+```python
+np.array([[2, 1, 0, 3], 
+          [2, 1, 0, 3], 
+          [2, 1, 0, 3]])
+```
 
 3. Jetzt wo beide Arrays die selbe shape haben, kann einfach elementweise multipliziert werden:
 
-``` 
+```python
 array([[2, 1, 0, 3],
        [6, 3, 0, 9],
        [4, 2, 0, 6]])
 ```
   
-## Neue Dimensionen zu einem Array hinzufügen ##
+## Neue Dimensionen zu einem Array hinzufügen
 
 Wie wir gesehen haben, fügt Numpy beim Broadcasten oft neue Dimensionen ein, so dass elementweise Rechenoperationen ausgeführt werden können. In manchen Fällen müssen zusätzliche Dimensionen jedoch auch manuell eingefügt werden. Dazu folgendes Beispiel:
 
@@ -538,11 +542,11 @@ Wir haben einen Spaltenvektor daraus gemacht!
 Und diesmal broadcastet Numpy dann auch richtig: jede Atomkoordinate wird mit der entprechenden Atommasse multipliziert.
 
 
-## Indexing und Slicing ##
+## Indexing und Slicing
 
 Indexing und Slicing funktioniert mit Numpy-Objekten ganz ähnlich wie mit Listen. Der Unterschied ist nun aber, dass auch höhere Dimensionen berücksichtigt werden müssen. 
 
-### Indexing ###
+### Indexing
 
 ```python
 mat = np.array([[1, 2, 3, 4], 
@@ -579,7 +583,7 @@ print(mat[2, 2])
 
 Damit konstruieren wir einen neuen Array mit den Werten mat[0, -1], mat[0, 0] und mat[2, 2]
 
-### Slicing ###
+### Slicing
 
 
 
@@ -603,7 +607,7 @@ Ausgabe:
 ```
 
 
-## Praktisches Beispiel: Bildbearbeitung ##
+## Praktisches Beispiel: Bildbearbeitung
 
 Das Modul PIL erlaubt uns, Bilder einzulesen, und als Numpy-Array zu bearbeiten.
 
@@ -645,7 +649,7 @@ Image.fromarray(pic_array).save("komplementär.jpg")
 
 <img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_kompl.jpg" alt="Blume" width="400" height="300"/>
 
-## Fortgeschrittenes Beispiel: Blume umfärben ##
+## Fortgeschrittenes Beispiel: Blume umfärben
 
 In diesem etwas schwierigeren Beispiel wollen wir jetzt die Blume umfärben. Nämlich von gelb zu rot. Als erstes müssen wir dazu die gelben Stellen im Bild finden. Eine kurze \<beliebige Suchmaschine\>-Suche wird uns zeigen, dass Gelb im RGB-Raum den Wert (255, 255, 0) hat. Wir bekommen also Gelb wenn wir Rot und Grün mischen. Es reicht nun aber nicht, den Bild-Array nur nach Pixeln zu durchsuchen, die hohe Rot- und Gelbwerte haben. Denn dann wäre auch Weiß dabei (255, 255, 255). 
 
@@ -653,21 +657,21 @@ Wir machen also folgendes: wir suchen nach all den Pixeln, deren Rot- und Gelbwe
 
 1. Array aus Bild erzeugen:
    
-   ```python   
-   from PIL import Image
-   import numpy as np
+```python   
+from PIL import Image
+import numpy as np
 
 
-   img_arr = np.array(Image.open("blume.JPG"))
-   ```
+img_arr = np.array(Image.open("blume.JPG"))
+```
 
    Unser Array hat die shape (600, 800, 3), denn das Bild ist 600 Pixel hoch und 800 Pixel breit, und jeder Pixel hat 3 Farbwerte.
 
 2. Durchschnitts-RGB-Werte berechnen:
 
-   ```python
-   mean_rgb = img_arr.mean(axis=(0, 1))
-   ```
+```python
+mean_rgb = img_arr.mean(axis=(0, 1))
+```
 
    Hier mitteln wir die RGB-Werte über alle Bildpunkte, d.h. über die 0. und 1. Dimension. Das Resultat ist ein Array der shape (3,), der einen mittleren RGB-Wert des gesamten Bildes enthält.
 
@@ -677,17 +681,17 @@ Wir machen also folgendes: wir suchen nach all den Pixeln, deren Rot- und Gelbwe
 
    Schreiben wir nun 
 
-   ```python
-   img_arr[:, :, :2] > mean_rgb[:2]
-   ```
+```python
+img_arr[:, :, :2] > mean_rgb[:2]
+```
 
    bekommen wir einen Array mit boolschen Werten zurück (shape: (600, 800, 2)). Diese sind über all dort True, wo entweder der Rot- __oder__ der Grünwert über dem Durchschnittswert liegen. Das ist aber nicht was wir wollen! Wir möchten alle Pixel finden, bei denen sowohl Rot- als auch Grünwert über dem Durchschnitt liegen. Anders gesagt suchen wir in dem oberen boolschen Array alle Pixel, bei denen in der letzten Dimension nur Trues vorkommen.
    
    Daher:
 
-   ```python
-   where_is_yellow = (img_arr[:, :, :2] > mean_rgb[:2]).all(axis=2)
-   ```
+```python
+where_is_yellow = (img_arr[:, :, :2] > mean_rgb[:2]).all(axis=2)
+```
 
    Der resultierende boolsche Array mit der Shape (600, 800) sagt uns, an welchen Stellen des Bildes die Rot- und Grünwerte über dem Mittel liegen. 
 
@@ -695,17 +699,17 @@ Wir machen also folgendes: wir suchen nach all den Pixeln, deren Rot- und Gelbwe
 
    Das können wir so ausdrücken:
 
-   ```python
-   only_little_blue = img_arr[:, :, 2] < mean_rgb[2]
-   ```
+```python
+only_little_blue = img_arr[:, :, 2] < mean_rgb[2]
+```
 
    Was uns jetzt noch fehlt ist eine komponentenweise _and_ Verknüpfung, um nämlich einen Array zurückzubekommen, der uns für jeden Pixel sagt, ob es dort Gelb gibt __und__ ob dort wenig blau vorkommt. 
 
    Selbstverständlich gibt es diese Funktion in numpy. Sie heißt dort _logical_and_:
 
-   ```python
-   yellow_and_little_blue = np.logical_and(where_is_yellow, only_little_blue)
-   ```
+```python
+yellow_and_little_blue = np.logical_and(where_is_yellow, only_little_blue)
+```
    
 Nun sind wir fast fertig. Mittels _np.where_ lassen wir uns die Indizes des obigen Arrays ausgeben, wo True gespeichert ist.
 
