@@ -69,7 +69,822 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/module_exceptions/" class="u-url">4 - Module &amp; Exceptions</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/numpy/" class="u-url">5 - Numpy</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../vorlesungen/numpy/" rel="bookmark"><time class="published dt-published" datetime="2017-07-07T00:00:00+01:00" title="2017-07-07 00:00">2017-07-07 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Geht es um numerische Problemstellungen aller Art, ist das Modul Numpy in Python die erste Wahl.
+Es erlaubt Matrix- und Vektorberechnungen, und ist damit gerade bei größeren Datenmengen ein gutes Stück schneller als handgeschriebener Python-Code.</p>
+<h2>Erste Schritte</h2>
+<h3>Erstellen von Numpy-Arrays</h3>
+<p>Die meiste Zeit arbeitet man in Numpy mit den sogenannten Numpy-Arrays. Diese verhalten sich ähnlich wie Listen, es lassen sich aber nachträglich keine neuen Elemente hinzufügen.</p>
+<h4>Erzeugen eines Arrays aus einer Liste</h4>
+<p>Ein Numpy-Array lässt sich leicht aus einer Liste erstellen:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>numpy.ndarray
+</pre>
+
+
+<h4>Shape - Die Dimensionen eines Arrays</h4>
+<p>Wir haben im obigen Beispiel gesehen, dass das erzeugte Objekt vom Typ ndarray ist.
+Ein ndarray kann, wie gezeigt, eine Dimension haben (entspricht einer einfache Liste), durch Schachtelung von Listen können wir aber auch höherdimensionierte Arrays erhalten</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">arr_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+                   <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                   <span class="p">[</span><span class="mf">9.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span> <span class="c1"># Liste von Listen -&gt; 2 Dimensionen</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">arr_2d</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># </span>
+<span class="k">print</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"Anzahl Dimensionen:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dim_len</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Dimension"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">"hat Länge"</span><span class="p">,</span> <span class="n">dim_len</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>(3, 4)
+Anzahl Dimensionen: 2
+Dimension 0 hat Länge 3
+Dimension 1 hat Länge 4
+</pre>
+
+
+<p>Der Tupel shape kann uns für ndarrays anzeigen, wieviele Dimensionen es gibt.</p>
+<p>Zu beachten ist übrigens immer, dass alle Listen einer Dimension die selbe Länge haben müssen!</p>
+<h4>Erzeugen eines mit Nullen gefüllten Arrays</h4>
+<p>Um einen mit Nullen gefüllten Array zu erstellen, benutzen wir die Funktion <em>zeros</em>:</p>
+<pre class="code literal-block"><span></span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">arr_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<h4>Erzeugen eines mit Einsen gefüllten Arrays</h4>
+<pre class="code literal-block"><span></span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">arr_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<h4>Erzeugen einer Zahlenreihe</h4>
+<p>Um einen Floatarray zu erzeugen, der zwischen Start- und Endpunkt Werte in regelmäßigen Abständen voneinander enthält, benutzt man <em>linspace</em>:</p>
+<pre class="code literal-block"><span></span><span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> 
+<span class="n">size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre>
+
+
+<h4>Erzeugen von zufälligen Arrays</h4>
+<p>Für Integers benutzt man:</p>
+<pre class="code literal-block"><span></span><span class="n">start</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># Achtung, end ist nicht enthalten!</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<p>Für Float:</p>
+<pre class="code literal-block"><span></span><span class="n">start</span> <span class="o">=</span> <span class="mf">3.7</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="c1"># nicht enthalten!</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<h3>Datentyp eines Arrays</h3>
+<p>Bisher haben wir Numpy-Arrays erzeugt, ohne uns Gedanken darüber zu machen, welchen Datentyp sie eigentlich besitzen.</p>
+<p>Den Datentyp können wir uns ansehen, wenn wir das Attribut <em>dtype</em> eines Arrays aufrufen</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr_2d</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr_zeros</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>int64
+float64
+float64
+</pre>
+
+
+<p>Der Grund für diese Ausgabe: im ersten Beispiel wurde ein Array aus einer Liste mit Integers erzeugt. Daher ist auch der resultierende Datentyp vom Typ Integer. 
+Im zweiten Beispiel enthält die zweite Liste am Anfang einen Float, daher bekommt der gesamte Array den Typ Float (die 64 steht dabei für 64 bit, 
+der Größe eines einzelnen Elements des Arrays). Und auch <em>zeros</em> erstellt standardmäßig einen Array vom Typen Float.</p>
+<p>Möchten wir dieses Verhalten beeinflussen, können wir einfach beim erstellen des Arrays das Keyword <em>dtype</em>=<gew datentyp> mitgeben:</gew></p>
+<pre class="code literal-block"><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre>
+
+
+<p>Ebenso funktioniert das bei den anderen Funktionen zur Erzeugung eines Arrays.</p>
+<h3>IO mit Numpy</h3>
+<p>Numpy macht es uns sehr einfach, numerische Daten einzulesen. In der Regel (bei gut formatierten Dateien) reicht die Funktion <em>loadtxt</em> aus:</p>
+<pre class="code literal-block"><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"dateiname"</span><span class="p">)</span>
+</pre>
+
+
+<p>Genauso kann man <em>savetxt</em> benutzen, um Daten auf die Fesplatte zu schreiben:</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">"random_data"</span><span class="p">,</span> <span class="n">arr1</span><span class="p">)</span>
+</pre>
+
+
+<h3>Rechnen mit Arrays</h3>
+<p>Wir fangen in einer Dimension an:</p>
+<h4>Addition</h4>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">+</span> <span class="n">arr2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span><span class="k">[ 5.  7.  9.]</span>
+<span class="na">float64</span>
+</pre>
+
+
+<p>Hier sehen wir, dass die Addition zweier Arrays zu einer elementweisen Addition führt. Da arr2 vom Type float64 ist, ist auch der Array <em>result</em> vom Typ float64.</p>
+<h4>Multiplikation</h4>
+<p>Was passiert wenn wir die beiden Arrays multiplizieren?</p>
+<pre class="code literal-block"><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">*</span> <span class="n">arr2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>[  4.  10.  18.]
+</pre>
+
+
+<p>Man sieht, dass auch hier wieder elementweise multipliziert wurde!
+Wollen wir stattdessen das Skalarprodukt berechnen, müssen wir auf die Funktion <em>dot</em> zurückgreifen:</p>
+<pre class="code literal-block"><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>32.0
+</pre>
+
+
+<h4>Boolsche Operationen mit Numpy-Arrays</h4>
+<p>Auch boolsche Operationen werden elementweise angewandt.</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">arr2</span> <span class="o">&gt;</span> <span class="n">arr1</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span><span class="k">[[ True  True  True]</span>
+ <span class="k">[False False False]</span>
+ <span class="k">[ True False False]]</span>
+</pre>
+
+
+<p>Das Ergebnis ist in diesem Beispiel also wieder ein zweidimensionaler Array.</p>
+<h4>Weitere elementweise Operationen</h4>
+<p>Alle bekannten Funktionen wie cos, sin, exp, ... lassen sich auch in Numpy elementweise auf einen Array anwenden:</p>
+<pre class="code literal-block"><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<p>viele Zahlen</p>
+<h4>Höhere Dimensionen</h4>
+<p>Arbeiten wir mit Arrays in höheren Dimensionen, funktioniert bei elementweisen Operationen alles wie in einer Dimension. </p>
+<p>Die Funktion <em>dot</em> ermöglicht für zwei Dimensionen Matrix-Multiplikation. Bei Kombination von 2D- und 1D-Arrays wird Matrix-Vektor-Multiplikation angewandt.</p>
+<h4>sum, mean und var</h4>
+<p>Numpy bringt eigene Methoden mit, um über Arrays zu summieren (sum), sie zu mitteln (mean), oder die Varianz auszurechnen (var).</p>
+<p>Einfachstes Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
+</pre>
+
+
+<p>mit der Ausgabe</p>
+<pre class="code literal-block"><span></span>6
+2.0
+0.666666666667
+</pre>
+
+
+<p>Liegt der Array in höheren Dimensionen vor, so wird standardmäßig über alle Elemente summiert/gemittelt/die Varianz gebildet. </p>
+<p>In manchen Fällen ist das jedoch nicht das, was wir möchten. Wenn wir beispielsweise einen Array mit mehreren 3D-Koordinaten haben, und davon den geometrischen Schwerpunkt berechnen wollen, so müssen wir die x-, y- und z-Koordinaten aller Atome separat mitteln.</p>
+<pre class="code literal-block"><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+</pre>
+
+
+<p>Dafür geben wir der mean-Methode noch den zusätzlichen Parameter <em>axis</em> mit. In diesem Fall wäre das die 0. Dimension. Numpy mittelt dann über alle Zeilen des Arrays</p>
+<pre class="code literal-block"><span></span><span class="n">geometric_center</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">geometric_center</span><span class="p">)</span>
+</pre>
+
+
+<p>Damit erhalten wir aus dem Array atoms mit der shape (4, 3) einen neuen eindimensionalen Array der shape (3,).</p>
+<pre class="code literal-block"><span></span>array([ 4.25,  6.  ,  6.  ])
+</pre>
+
+
+<p>Für axis=1 würde dementsprechend über alle Spalten jeder Zeile gemittelt:</p>
+<pre class="code literal-block"><span></span>array([ 6.        ,  8.        ,  2.33333333,  5.33333333])
+</pre>
+
+
+<h3>all und any</h3>
+<p>Ähnlich wie sum, mean und var, gibt es für boolsche Arrays die Methoden all und any.
+Dabei gibt all True zurück wenn alle Einträge des Arrays True sind.
+Any gibt True zurück, falls einer der Einträge True ist.</p>
+<p>Auch hier können wir wieder das keyword axis angeben, was zur Folge hat, dass in der angegebenen Dimension überprüft wird, ob alle Einträge/mindestens ein Eintrag True sind, und die Dimension dann auf True oder False reduziert wird.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">bool_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span> 
+                       <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> 
+                       <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">]])</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">any</span><span class="p">())</span>  <span class="c1"># True, weil es Einträge im gesamten Array gibt, die True sind</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>  <span class="c1"># False, weil es Einträge gibt, die False sind</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># any wird auf jede Spalte angewendet</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># any wird auf jede Zeile angewendet</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># all wird auf jede Spalte angewendet</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># all wird auf jede Zeile angewendet</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>True
+False
+[ True  True  True]
+[ True  True False]
+[False False False]
+[False  True False]
+</pre>
+
+
+<h3><a href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">Broadcasting</a></h3>
+<p>Was passiert wenn wir versuchen, zwei Arrays unterschiedlicher Dimensionen miteinander zu addieren/multiplizieren?</p>
+<p>Der einfachste Fall ist, wenn ein Array nur ein einziges Element enthält:</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">arr1</span> <span class="o">*</span> <span class="n">arr2</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span><span class="k">[[ 2  4  6]</span>
+ <span class="k">[ 8 10 12]]</span>
+</pre>
+
+
+<p>Hier wird jedes Element von arr1 mit 2 multipliziert. Wir können uns vorstellen, dass arr2 auf die Dimension von arr1 vergrößert wurde, um dann schließlich eine Multiplikation zweier Arrays mit gleichen Dimensionen durchzuführen.</p>
+<p>arr2 kann aber auch eine komplexere shape haben:</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">*</span><span class="n">arr2</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>(2, 3)
+(1, 3)
+[[ 3  8 15]
+ [12 20 30]]
+</pre>
+
+
+<p>Was ist hier passiert? Wir sehen, dass beide Arrays zwei Dimensionen haben, wobei die letzten Dimensionen beide die Länge 3 haben. Die nullten Dimensionen haben jedoch unterschiedliche Größen. Numpy kopiert nun einfach die nullte Dimension von arr2 einmal, so dass arr2 identisch ist zu</p>
+<pre class="code literal-block"><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
+          <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+</pre>
+
+
+<p>Nun kann wieder elementweise gerechnet werden.</p>
+<p>Hinweis:</p>
+<p>Wir haben arr2 schon direkt mit zwei Dimensionen (zwei geschachtelte Klammern) initialisiert:</p>
+<pre class="code literal-block"><span></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+</pre>
+
+
+<p>Tatsächlich wäre das gar nicht notwendig. Es reicht auch nur eine Dimension:</p>
+<pre class="code literal-block"><span></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre>
+
+
+<p>Numpy kann dann immer noch broadcasten. Es fügt einfach solange neue Dimensionen (der Länge 1) hinzu, bis die Anzahl der Dimensionen der beiden Arrays gleich ist. </p>
+<p><strong>Allgemein</strong>:
+Damit zwei Arrays gebroadcastet werden können, muss folgendes gelten (man fängt dabei an, die Dimensionen von hinten paarweise zu vergleichen): beide Dimensionen haben jeweils die selbe Länge oder eine davon hat die Länge 1.</p>
+<p>Beispiel</p>
+<p>arr1 hat shape (2, 3, 4, 1, 7, 5)
+arr2 hat shape (1, 3, 4, 8, 7, 1)</p>
+<p>Diese beiden Arrays können gebroadcastet werden. Der resultierende Array hat dann die Shape (2, 3, 4, 8, 7, 5).</p>
+<p>Folgendes Beispiel funktioniert aber nicht:</p>
+<p>arr1 hat shape (2, 3, 4, 1, 7, 5)
+arr2 hat shape (1, 3, 4, 8, 7, 3)</p>
+<p>da die letzten Dimensionen (3 und 5) nicht miteinander kompatibel sind.</p>
+<h4>Praktisches Beispiel</h4>
+<p>Eine Anwendung ist z.B. das dyadische Produkt (= Produkt aus Spalten- und Zeilenvektor, bei dem eine Matrix entsteht):</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="n">mat</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">*</span> <span class="n">arr2</span>
+</pre>
+
+
+<p>Was passiert genau? Schauen wir uns die shapes an:</p>
+<p>arr1.shape -&gt; (3, 1)</p>
+<p>arr2.shape -&gt; (4,)</p>
+<ol>
+<li>Numpy betrachtet die letzten Dimensionen der beiden Arrays. arr1 hat als letzte Dimensionsgröße 1, arr2 hat 4.
+   Numpy macht daraus:</li>
+</ol>
+<p>arr1: (3, 4) # kopiere die letzte Dimension 4 mal</p>
+<p>-&gt;  arr1 wird zu </p>
+<pre class="code literal-block"><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre>
+
+
+<ol>
+<li>Numpy betrachtet die nächste Dimension:
+   arr1 hat als vorletzte Dimensionsgröße 3, arr2 hat keine weitere Dimension.
+   -&gt; Numpy erweitert die shape von arr2 zu (1, 4)
+   Jetzt können die Werte wieder kopiert werden
+   -&gt; arr2 wird zu </li>
+</ol>
+<pre class="code literal-block"><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+          <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+          <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+</pre>
+
+
+<ol>
+<li>Jetzt wo beide Arrays die selbe shape haben, kann einfach elementweise multipliziert werden:</li>
+</ol>
+<pre class="code literal-block"><span></span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</pre>
+
+
+<h3>Neue Dimensionen zu einem Array hinzufügen</h3>
+<p>Wie wir gesehen haben, fügt Numpy beim Broadcasten oft neue Dimensionen ein, so dass elementweise Rechenoperationen ausgeführt werden können. In manchen Fällen müssen zusätzliche Dimensionen jedoch auch manuell eingefügt werden. Dazu folgendes Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="n">masses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
+</pre>
+
+
+<p>Wir haben einen Array, in dem zeilenweise die Koordinaten von 3 Atomen gespeichert sind, sowie einen Array, der ihre Massen speichert. Da wir den Schwerpunkt berechnen wollen, wollen wir erst jede Atomkoordinate mit dem jeweiligen Gewicht des Atoms multiplizieren und anschließend durch die Gesamtmasse teilen.
+Berechnen wir jetzt aber naiv atoms*masses, tut Numpy leider nicht das, was wir wollen. Es multipliziert nun die x-Koordinaten mit der Masse von Atom 1, die y-Koordinaten mit der Masse von Atom 2 und die z-Koordinaten mit der Masse von Atom 3. </p>
+<p>Der Grund: masses und atoms werden falsch gebroadcastet. </p>
+<p>Shape-Betrachtung:</p>
+<p>atoms:  (3, 3)</p>
+<p>masses: (3,)</p>
+<p>Daraus wird:</p>
+<p>atoms:  (3, 3)</p>
+<p>masses: (1, 3) # Numpy fügt eine Dimension am Anfang ein!</p>
+<p>Und nun wird der Inhalt der hinteren Dimension von masses dreimal kopiert:</p>
+<pre class="code literal-block"><span></span><span class="n">masses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]])</span>
+</pre>
+
+
+<p>Um das zu verhindern, machen wir folgendes: Wir fügen eine zusätzliche Dimension hinten an masses an:</p>
+<pre class="code literal-block"><span></span><span class="n">masses</span> <span class="o">=</span> <span class="n">masses</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> 
+<span class="k">print</span> <span class="n">masses</span>
+</pre>
+
+
+<p>masses sieht dann so aus:</p>
+<pre class="code literal-block"><span></span>array([[ 1. ],
+       [ 1.5],
+       [ 2.5]])
+</pre>
+
+
+<p>Wir haben einen Spaltenvektor daraus gemacht!</p>
+<p>Und diesmal broadcastet Numpy dann auch richtig: jede Atomkoordinate wird mit der entprechenden Atommasse multipliziert.</p>
+<h3>Indexing und Slicing</h3>
+<p>Indexing und Slicing funktioniert mit Numpy-Objekten ganz ähnlich wie mit Listen. Der Unterschied ist nun aber, dass auch höhere Dimensionen berücksichtigt werden müssen. </p>
+<h4>Indexing</h4>
+<pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre>
+
+
+<p>Hier wird also für jede Dimension ein Index angegeben.</p>
+<p>Alternativ kann man auch für jede Dimension eine Liste mit Indizes angeben:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+          <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>[ 4  1 11]
+</pre>
+
+
+<p>Diese Operation könnten wir auch in mehreren einzelnen Schritten ausführen:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre>
+
+
+<p>Damit konstruieren wir einen neuen Array mit den Werten mat[0, -1], mat[0, 0] und mat[2, 2]</p>
+<h4>Slicing</h4>
+<pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># erste Spalte für jede Zeile</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># die ersten beiden Zeilen, und davon jeweils die ersten 3 Spalten</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span><span class="k">[1 5 9]</span>
+
+<span class="k">[[1 2 3]</span>
+ <span class="k">[5 6 7]]</span>
+</pre>
+
+
+<h3>Praktisches Beispiel: Bildbearbeitung</h3>
+<p>Das Modul PIL erlaubt uns, Bilder einzulesen, und als Numpy-Array zu bearbeiten.</p>
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume.JPG" alt="Blume" width="400" height="300"></p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">pic_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"blume.JPG"</span><span class="p">))</span> <span class="c1"># andere Dateiformate funktionieren auch</span>
+</pre>
+
+
+<p>pic_array ist ein Numpy-Array mit den Dimensionen (höhe, breite, farbkanäle). Bei einem Farbbild haben wir dann 3 Farbkanäle: rot, grün und blau.</p>
+<p>Als einfachstes Beispiel können wir nun aus einem Farbbild ein Schwarz-Weiß-Bild machen. Dazu mitteln wir die Werte der 3 Farbkanäle</p>
+<pre class="code literal-block"><span></span><span class="n">black_white</span> <span class="o">=</span> <span class="n">pic_array</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="sb">````</span>
+<span class="n">Da</span> <span class="n">die</span> <span class="n">Kanäle</span> <span class="ow">in</span> <span class="n">der</span> <span class="n">zweiten</span> <span class="n">Dimension</span> <span class="n">gespeichert</span> <span class="n">sind</span><span class="p">,</span> <span class="n">müssen</span> <span class="n">wir</span> <span class="n">das</span> <span class="n">auch</span> <span class="n">der</span> <span class="n">mean</span><span class="o">-</span><span class="n">Methode</span> <span class="err">ü</span><span class="n">ber</span> <span class="n">das</span> <span class="n">axis</span> <span class="n">keyword</span> <span class="n">mitteilen</span><span class="o">.</span>
+
+<span class="n">Um</span> <span class="n">das</span> <span class="n">neuerhaltene</span> <span class="n">Schwarz</span><span class="o">-</span><span class="n">Weiß</span><span class="o">-</span><span class="n">Bild</span> <span class="n">speichern</span> <span class="n">zu</span> <span class="n">können</span><span class="p">,</span> <span class="n">machen</span> <span class="n">wir</span> <span class="n">folgendes</span><span class="p">:</span>
+
+
+<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+<span class="n">black_white</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">black_white</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># Um den Array umwandeln zu können, muss er den dtype uint8 haben</span>
+<span class="n">bw_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">black_white</span><span class="p">)</span>
+<span class="n">bw_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"bw_img.jpg"</span><span class="p">)</span>
+</pre>
+
+
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_bw.jpg" alt="Blume" width="400" height="300"></p>
+<p>Ein schöner Effekt kann auch erzielt werden, indem wir die Intensität jedes Farbwertes umdrehen.</p>
+<pre class="code literal-block"><span></span><span class="n">pic_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"blume.JPG"</span><span class="p">))</span>
+<span class="n">pic_array</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pic_array</span>
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">pic_array</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"komplementär.jpg"</span><span class="p">)</span>
+</pre>
+
+
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_kompl.jpg" alt="Blume" width="400" height="300"></p>
+<h3>Fortgeschrittenes Beispiel: Blume umfärben</h3>
+<p>In diesem etwas schwierigeren Beispiel wollen wir jetzt die Blume umfärben. Nämlich von gelb zu rot. Als erstes müssen wir dazu die gelben Stellen im Bild finden. Eine kurze \&lt;beliebige Suchmaschine&gt;-Suche wird uns zeigen, dass Gelb im RGB-Raum den Wert (255, 255, 0) hat. Wir bekommen also Gelb wenn wir Rot und Grün mischen. Es reicht nun aber nicht, den Bild-Array nur nach Pixeln zu durchsuchen, die hohe Rot- und Gelbwerte haben. Denn dann wäre auch Weiß dabei (255, 255, 255). </p>
+<p>Wir machen also folgendes: wir suchen nach all den Pixeln, deren Rot- und Gelbwerte über dem Durchschnitt liegen, deren Weißwerte aber unter dem Durchschnitt liegen.</p>
+<ol>
+<li>Array aus Bild erzeugen:</li>
+</ol>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+
+<span class="n">img_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"blume.JPG"</span><span class="p">))</span>
+</pre>
+
+
+<p>Unser Array hat die shape (600, 800, 3), denn das Bild ist 600 Pixel hoch und 800 Pixel breit, und jeder Pixel hat 3 Farbwerte.</p>
+<ol>
+<li>Durchschnitts-RGB-Werte berechnen:</li>
+</ol>
+<pre class="code literal-block"><span></span><span class="n">mean_rgb</span> <span class="o">=</span> <span class="n">img_arr</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre>
+
+
+<p>Hier mitteln wir die RGB-Werte über alle Bildpunkte, d.h. über die 0. und 1. Dimension. Das Resultat ist ein Array der shape (3,), der einen mittleren RGB-Wert des gesamten Bildes enthält.</p>
+<ol>
+<li>Alle Bildpunkte finden, deren Rot- und Grünwerte über den Durchschnittswerten liegen.</li>
+</ol>
+<p>Da wir nur an den Rot- und Grünwerten interessiert sind, müssen wir nur den Teilarray img_arr[:, :, :2] betrachten. D.h. in diesem Array fehlen die Blauwerte. </p>
+<p>Schreiben wir nun </p>
+<pre class="code literal-block"><span></span><span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mean_rgb</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+</pre>
+
+
+<p>bekommen wir einen Array mit boolschen Werten zurück (shape: (600, 800, 2)). Diese sind über all dort True, wo entweder der Rot- <strong>oder</strong> der Grünwert über dem Durchschnittswert liegen. Das ist aber nicht was wir wollen! Wir möchten alle Pixel finden, bei denen sowohl Rot- als auch Grünwert über dem Durchschnitt liegen. Anders gesagt suchen wir in dem oberen boolschen Array alle Pixel, bei denen in der letzten Dimension nur Trues vorkommen.</p>
+<p>Daher:</p>
+<pre class="code literal-block"><span></span><span class="n">where_is_yellow</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mean_rgb</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+
+
+<p>Der resultierende boolsche Array mit der Shape (600, 800) sagt uns, an welchen Stellen des Bildes die Rot- und Grünwerte über dem Mittel liegen. </p>
+<p>Darüberhinaus wollen wir aber auch nur die Stellen, bei denen der Blauwert nicht über dem Durchschnitt liegt.</p>
+<p>Das können wir so ausdrücken:</p>
+<pre class="code literal-block"><span></span><span class="n">only_little_blue</span> <span class="o">=</span> <span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mean_rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre>
+
+
+<p>Was uns jetzt noch fehlt ist eine komponentenweise <em>and</em> Verknüpfung, um nämlich einen Array zurückzubekommen, der uns für jeden Pixel sagt, ob es dort Gelb gibt <strong>und</strong> ob dort wenig blau vorkommt. </p>
+<p>Selbstverständlich gibt es diese Funktion in numpy. Sie heißt dort <em>logical_and</em>:</p>
+<pre class="code literal-block"><span></span><span class="n">yellow_and_little_blue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">where_is_yellow</span><span class="p">,</span> <span class="n">only_little_blue</span><span class="p">)</span>
+</pre>
+
+
+<p>Nun sind wir fast fertig. Mittels <em>np.where</em> lassen wir uns die Indizes des obigen Arrays ausgeben, wo True gespeichert ist.</p>
+<pre class="code literal-block"><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">yellow_and_little_blue</span><span class="p">)</span>
+</pre>
+
+
+<p>und ändern die RGB Werte an diesen Stellen zu [255, 0, 0] (was der Farbe Rot entspricht).</p>
+<pre class="code literal-block"><span></span><span class="n">img_arr</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre>
+
+
+<p>Schließlich speichern wir noch alles: </p>
+<pre class="code literal-block"><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img_arr</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"blume_rot.jpg"</span><span class="p">)</span>
+</pre>
+
+
+<p>Und das Ergebnis ist...</p>
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_halbrot.jpg" alt="Blume" width="400" height="300"></p>
+<p>... noch nicht ganz das, was wir uns erhofft hatten. Hier kommt nun ein bisschen Heuristik ins Spiel. Wenn wir die Zeile</p>
+<pre class="code literal-block"><span></span><span class="n">where_is_yellow</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mean_rgb</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+
+
+<p>umändern zu</p>
+<pre class="code literal-block"><span></span><span class="n">where_is_yellow</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">mean_rgb</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+
+
+<p>Sieht das Ergebnis...</p>
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_rot.jpg" alt="Blume" width="400" height="300"></p>
+<p>...schon wesentlich besser aus. Durch das Heruntersetzen des benötigten Gelbwertes werden nun zwar auch die Schatten rot gefärbt, aber das kann auch als Feature statt als Bug betrachtet werden...</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/numpy_uebungen/" class="u-url">5 - Numpy - Übung</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../uebungen/numpy_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-07-07T00:00:00+01:00" title="2017-07-07 00:00">2017-07-07 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Broadcasting</h3>
+<p>Gegeben sind die Positionen von 3 Atomen:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">atoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">]]</span>
+                 <span class="p">)</span>
+</pre>
+
+
+<p>sowie ihre Massen:</p>
+<pre class="code literal-block"><span></span><span class="n">masses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">])</span>
+</pre>
+
+
+<ul>
+<li>
+<p>Verschieben Sie die Positionen aller 3 Atome um [1., 2., 3.]</p>
+</li>
+<li>
+<p>Berechnen Sie den Schwerpunkt der 3 Atome</p>
+</li>
+</ul>
+<h3>Selektives Ändern eines Arrays</h3>
+<p>Gegeben ist folgender Array:</p>
+<pre class="code literal-block"><span></span><span class="n">riddle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">533.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">552.</span><span class="p">,</span>  <span class="mf">563.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">570.</span><span class="p">,</span>  <span class="mf">557.</span><span class="p">,</span>  <span class="mf">510.</span><span class="p">,</span>  <span class="mf">303.</span><span class="p">,</span>  <span class="mf">355.</span><span class="p">,</span>  <span class="mf">389.</span><span class="p">,</span>  <span class="mf">306.</span><span class="p">,</span>  <span class="mf">598.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">,</span>  <span class="mf">526.</span><span class="p">,</span>  <span class="mf">585.</span><span class="p">,</span>  <span class="mf">599.</span><span class="p">,</span>  <span class="mf">505.</span><span class="p">,</span>  <span class="mf">547.</span><span class="p">,</span>  <span class="mf">569.</span><span class="p">,</span>  <span class="mf">566.</span><span class="p">,</span>  <span class="mf">580.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">512.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">,</span>  <span class="mf">510.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">567.</span><span class="p">,</span>  <span class="mf">324.</span><span class="p">,</span>  <span class="mf">388.</span><span class="p">,</span>  <span class="mf">384.</span><span class="p">,</span>  <span class="mf">495.</span><span class="p">,</span>  <span class="mf">457.</span><span class="p">,</span>  <span class="mf">469.</span><span class="p">,</span>  <span class="mf">485.</span><span class="p">,</span>  <span class="mf">300.</span><span class="p">,</span>  <span class="mf">426.</span><span class="p">,</span>  <span class="mf">410.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">545.</span><span class="p">,</span>  <span class="mf">518.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">518.</span><span class="p">,</span>  <span class="mf">536.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">556.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">560.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">545.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">552.</span><span class="p">,</span>  <span class="mf">589.</span><span class="p">,</span>  <span class="mf">583.</span><span class="p">,</span>  <span class="mf">314.</span><span class="p">,</span>  <span class="mf">301.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">473.</span><span class="p">,</span>  <span class="mf">436.</span><span class="p">,</span>  <span class="mf">469.</span><span class="p">,</span>  <span class="mf">478.</span><span class="p">,</span>  <span class="mf">440.</span><span class="p">,</span>  <span class="mf">449.</span><span class="p">,</span>  <span class="mf">431.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">322.</span><span class="p">,</span>  <span class="mf">319.</span><span class="p">,</span>  <span class="mf">592.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">569.</span><span class="p">,</span>  <span class="mf">593.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">551.</span><span class="p">,</span>  <span class="mf">514.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">576.</span><span class="p">,</span>  <span class="mf">517.</span><span class="p">,</span>  <span class="mf">538.</span><span class="p">,</span>  <span class="mf">588.</span><span class="p">,</span>  <span class="mf">550.</span><span class="p">,</span>  <span class="mf">331.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">532.</span><span class="p">,</span>  <span class="mf">470.</span><span class="p">,</span>  <span class="mf">469.</span><span class="p">,</span>  <span class="mf">471.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">426.</span><span class="p">,</span>  <span class="mf">400.</span><span class="p">,</span>  <span class="mf">450.</span><span class="p">,</span>  <span class="mf">462.</span><span class="p">,</span>  <span class="mf">422.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">454.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">398.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">567.</span><span class="p">,</span>  <span class="mf">594.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">506.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">542.</span><span class="p">,</span>  <span class="mf">582.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">,</span>  <span class="mf">525.</span><span class="p">,</span>  <span class="mf">319.</span><span class="p">,</span>  <span class="mf">575.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">,</span>  <span class="mf">481.</span><span class="p">,</span>  <span class="mf">413.</span><span class="p">,</span>  <span class="mf">474.</span><span class="p">,</span>  <span class="mf">408.</span><span class="p">,</span>  <span class="mf">446.</span><span class="p">,</span>  <span class="mf">433.</span><span class="p">,</span>  <span class="mf">465.</span><span class="p">,</span>  <span class="mf">409.</span><span class="p">,</span>  <span class="mf">448.</span><span class="p">,</span>  <span class="mf">407.</span><span class="p">,</span>  <span class="mf">401.</span><span class="p">,</span>  <span class="mf">485.</span><span class="p">,</span>  <span class="mf">434.</span><span class="p">,</span>  <span class="mf">403.</span><span class="p">,</span>  <span class="mf">360.</span><span class="p">,</span>  <span class="mf">525.</span><span class="p">,</span>  <span class="mf">523.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">528.</span><span class="p">,</span>  <span class="mf">555.</span><span class="p">,</span>  <span class="mf">567.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">533.</span><span class="p">,</span>  <span class="mf">588.</span><span class="p">,</span>  <span class="mf">569.</span><span class="p">,</span>  <span class="mf">383.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">,</span>  <span class="mf">558.</span><span class="p">,</span>  <span class="mf">448.</span><span class="p">,</span>  <span class="mf">411.</span><span class="p">,</span>  <span class="mf">425.</span><span class="p">,</span>  <span class="mf">403.</span><span class="p">,</span>  <span class="mf">463.</span><span class="p">,</span>  <span class="mf">423.</span><span class="p">,</span>  <span class="mf">457.</span><span class="p">,</span>  <span class="mf">493.</span><span class="p">,</span>  <span class="mf">472.</span><span class="p">,</span>  <span class="mf">460.</span><span class="p">,</span>  <span class="mf">470.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">418.</span><span class="p">,</span>  <span class="mf">498.</span><span class="p">,</span>  <span class="mf">426.</span><span class="p">,</span>  <span class="mf">340.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">,</span>  <span class="mf">556.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">560.</span><span class="p">,</span>  <span class="mf">589.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">576.</span><span class="p">,</span>  <span class="mf">552.</span><span class="p">,</span>  <span class="mf">550.</span><span class="p">,</span>  <span class="mf">365.</span><span class="p">,</span>  <span class="mf">587.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">,</span>  <span class="mf">575.</span><span class="p">,</span>  <span class="mf">586.</span><span class="p">,</span>  <span class="mf">425.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">493.</span><span class="p">,</span>  <span class="mf">488.</span><span class="p">,</span>  <span class="mf">446.</span><span class="p">,</span>  <span class="mf">460.</span><span class="p">,</span>  <span class="mf">447.</span><span class="p">,</span>  <span class="mf">493.</span><span class="p">,</span>  <span class="mf">404.</span><span class="p">,</span>  <span class="mf">414.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">417.</span><span class="p">,</span>  <span class="mf">449.</span><span class="p">,</span>  <span class="mf">317.</span><span class="p">,</span>  <span class="mf">538.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">,</span>  <span class="mf">513.</span><span class="p">,</span>  <span class="mf">553.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">567.</span><span class="p">,</span>  <span class="mf">574.</span><span class="p">,</span>  <span class="mf">374.</span><span class="p">,</span>  <span class="mf">513.</span><span class="p">,</span>  <span class="mf">578.</span><span class="p">,</span>  <span class="mf">593.</span><span class="p">,</span>  <span class="mf">539.</span><span class="p">,</span>  <span class="mf">555.</span><span class="p">,</span>  <span class="mf">512.</span><span class="p">,</span>  <span class="mf">407.</span><span class="p">,</span>  <span class="mf">435.</span><span class="p">,</span>  <span class="mf">483.</span><span class="p">,</span>  <span class="mf">458.</span><span class="p">,</span>  <span class="mf">456.</span><span class="p">,</span>  <span class="mf">462.</span><span class="p">,</span>  <span class="mf">433.</span><span class="p">,</span>  <span class="mf">497.</span><span class="p">,</span>  <span class="mf">465.</span><span class="p">,</span>  <span class="mf">459.</span><span class="p">,</span>  <span class="mf">400.</span><span class="p">,</span>  <span class="mf">445.</span><span class="p">,</span>  <span class="mf">436.</span><span class="p">,</span>  <span class="mf">456.</span><span class="p">,</span>  <span class="mf">356.</span><span class="p">,</span>  <span class="mf">547.</span><span class="p">,</span>  <span class="mf">526.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">537.</span><span class="p">,</span>  <span class="mf">515.</span><span class="p">,</span>  <span class="mf">398.</span><span class="p">,</span>  <span class="mf">576.</span><span class="p">,</span>  <span class="mf">525.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">513.</span><span class="p">,</span>  <span class="mf">450.</span><span class="p">,</span>  <span class="mf">420.</span><span class="p">,</span>  <span class="mf">426.</span><span class="p">,</span>  <span class="mf">489.</span><span class="p">,</span>  <span class="mf">441.</span><span class="p">,</span>  <span class="mf">432.</span><span class="p">,</span>  <span class="mf">427.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">482.</span><span class="p">,</span>  <span class="mf">415.</span><span class="p">,</span>  <span class="mf">486.</span><span class="p">,</span>  <span class="mf">472.</span><span class="p">,</span>  <span class="mf">466.</span><span class="p">,</span>  <span class="mf">320.</span><span class="p">,</span>  <span class="mf">501.</span><span class="p">,</span>  <span class="mf">535.</span><span class="p">,</span>  <span class="mf">592.</span><span class="p">,</span>  <span class="mf">580.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">539.</span><span class="p">,</span>  <span class="mf">542.</span><span class="p">,</span>  <span class="mf">304.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">565.</span><span class="p">,</span>  <span class="mf">500.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">,</span>  <span class="mf">526.</span><span class="p">,</span>  <span class="mf">594.</span><span class="p">,</span>  <span class="mf">423.</span><span class="p">,</span>  <span class="mf">472.</span><span class="p">,</span>  <span class="mf">477.</span><span class="p">,</span>  <span class="mf">468.</span><span class="p">,</span>  <span class="mf">428.</span><span class="p">,</span>  <span class="mf">374.</span><span class="p">,</span>  <span class="mf">343.</span><span class="p">,</span>  <span class="mf">332.</span><span class="p">,</span>  <span class="mf">379.</span><span class="p">,</span>  <span class="mf">419.</span><span class="p">,</span>  <span class="mf">477.</span><span class="p">,</span>  <span class="mf">354.</span><span class="p">,</span>  <span class="mf">557.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">550.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">544.</span><span class="p">,</span>  <span class="mf">383.</span><span class="p">,</span>  <span class="mf">567.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">,</span>  <span class="mf">575.</span><span class="p">,</span>  <span class="mf">372.</span><span class="p">,</span>  <span class="mf">393.</span><span class="p">,</span>  <span class="mf">528.</span><span class="p">,</span>  <span class="mf">546.</span><span class="p">,</span>  <span class="mf">571.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">538.</span><span class="p">,</span>  <span class="mf">548.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">,</span>  <span class="mf">566.</span><span class="p">,</span>  <span class="mf">355.</span><span class="p">,</span>  <span class="mf">387.</span><span class="p">,</span>  <span class="mf">407.</span><span class="p">,</span>  <span class="mf">471.</span><span class="p">,</span>  <span class="mf">332.</span><span class="p">,</span>  <span class="mf">352.</span><span class="p">,</span>  <span class="mf">347.</span><span class="p">,</span>  <span class="mf">369.</span><span class="p">,</span>  <span class="mf">494.</span><span class="p">,</span>  <span class="mf">394.</span><span class="p">,</span>  <span class="mf">566.</span><span class="p">,</span>  <span class="mf">590.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">590.</span><span class="p">,</span>  <span class="mf">326.</span><span class="p">,</span>  <span class="mf">524.</span><span class="p">,</span>  <span class="mf">327.</span><span class="p">,</span>  <span class="mf">357.</span><span class="p">,</span>  <span class="mf">501.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">348.</span><span class="p">,</span>  <span class="mf">566.</span><span class="p">,</span>  <span class="mf">516.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">505.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">501.</span><span class="p">,</span>  <span class="mf">363.</span><span class="p">,</span>  <span class="mf">445.</span><span class="p">,</span>  <span class="mf">442.</span><span class="p">,</span>  <span class="mf">398.</span><span class="p">,</span>  <span class="mf">329.</span><span class="p">,</span>  <span class="mf">548.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">512.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">358.</span><span class="p">,</span>  <span class="mf">344.</span><span class="p">,</span>  <span class="mf">571.</span><span class="p">,</span>  <span class="mf">519.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">571.</span><span class="p">,</span>  <span class="mf">362.</span><span class="p">,</span>  <span class="mf">322.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">251.</span><span class="p">,</span>  <span class="mf">223.</span><span class="p">,</span>  <span class="mf">523.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">355.</span><span class="p">,</span>  <span class="mf">542.</span><span class="p">,</span>  <span class="mf">597.</span><span class="p">,</span>  <span class="mf">587.</span><span class="p">,</span>  <span class="mf">571.</span><span class="p">,</span>  <span class="mf">322.</span><span class="p">,</span>  <span class="mf">446.</span><span class="p">,</span>  <span class="mf">377.</span><span class="p">,</span>  <span class="mf">343.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">509.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">,</span>  <span class="mf">136.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">672.</span><span class="p">,</span>  <span class="mf">367.</span><span class="p">,</span>  <span class="mf">349.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">585.</span><span class="p">,</span>  <span class="mf">312.</span><span class="p">,</span>  <span class="mf">225.</span><span class="p">,</span>  <span class="mf">228.</span><span class="p">,</span>  <span class="mf">435.</span><span class="p">,</span>  <span class="mf">484.</span><span class="p">,</span>  <span class="mf">215.</span><span class="p">,</span>  <span class="mf">536.</span><span class="p">,</span>  <span class="mf">336.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">557.</span><span class="p">,</span>  <span class="mf">375.</span><span class="p">,</span>  <span class="mf">455.</span><span class="p">,</span>  <span class="mf">350.</span><span class="p">,</span>  <span class="mf">371.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">523.</span><span class="p">,</span>  <span class="mf">507.</span><span class="p">,</span>  <span class="mf">218.</span><span class="p">,</span>  <span class="mf">298.</span><span class="p">,</span>  <span class="mf">221.</span><span class="p">,</span>  <span class="mf">292.</span><span class="p">,</span>  <span class="mf">244.</span><span class="p">,</span>  <span class="mf">242.</span><span class="p">,</span>  <span class="mf">294.</span><span class="p">,</span>  <span class="mf">556.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">552.</span><span class="p">,</span>  <span class="mf">232.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">458.</span><span class="p">,</span>  <span class="mf">454.</span><span class="p">,</span>  <span class="mf">435.</span><span class="p">,</span>  <span class="mf">234.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">503.</span><span class="p">,</span>  <span class="mf">365.</span><span class="p">,</span>  <span class="mf">589.</span><span class="p">,</span>  <span class="mf">555.</span><span class="p">,</span>  <span class="mf">303.</span><span class="p">,</span>  <span class="mf">394.</span><span class="p">,</span>  <span class="mf">582.</span><span class="p">,</span>  <span class="mf">364.</span><span class="p">,</span>  <span class="mf">507.</span><span class="p">,</span>  <span class="mf">258.</span><span class="p">,</span>  <span class="mf">299.</span><span class="p">,</span>  <span class="mf">258.</span><span class="p">,</span>  <span class="mf">219.</span><span class="p">,</span>  <span class="mf">291.</span><span class="p">,</span>  <span class="mf">269.</span><span class="p">,</span>  <span class="mf">269.</span><span class="p">,</span>  <span class="mf">243.</span><span class="p">,</span>  <span class="mf">230.</span><span class="p">,</span>  <span class="mf">281.</span><span class="p">,</span>  <span class="mf">536.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">279.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">453.</span><span class="p">,</span>  <span class="mf">406.</span><span class="p">,</span>  <span class="mf">419.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">514.</span><span class="p">,</span>  <span class="mf">283.</span><span class="p">,</span>  <span class="mf">398.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">352.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">309.</span><span class="p">,</span>  <span class="mf">347.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">214.</span><span class="p">,</span>  <span class="mf">236.</span><span class="p">,</span>  <span class="mf">602.</span><span class="p">,</span>  <span class="mf">261.</span><span class="p">,</span>  <span class="mf">221.</span><span class="p">,</span>  <span class="mf">200.</span><span class="p">,</span>  <span class="mf">292.</span><span class="p">,</span>  <span class="mf">235.</span><span class="p">,</span>  <span class="mf">261.</span><span class="p">,</span>  <span class="mf">236.</span><span class="p">,</span>  <span class="mf">292.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">227.</span><span class="p">,</span>  <span class="mf">460.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">405.</span><span class="p">,</span>  <span class="mf">451.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">454.</span><span class="p">,</span>  <span class="mf">409.</span><span class="p">,</span>  <span class="mf">379.</span><span class="p">,</span>  <span class="mf">505.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">314.</span><span class="p">,</span>  <span class="mf">317.</span><span class="p">,</span>  <span class="mf">325.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">236.</span><span class="p">,</span>  <span class="mf">279.</span><span class="p">,</span>  <span class="mf">270.</span><span class="p">,</span>  <span class="mf">234.</span><span class="p">,</span>  <span class="mf">226.</span><span class="p">,</span>  <span class="mf">553.</span><span class="p">,</span>  <span class="mf">215.</span><span class="p">,</span>  <span class="mf">219.</span><span class="p">,</span>  <span class="mf">246.</span><span class="p">,</span>  <span class="mf">622.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">595.</span><span class="p">,</span>  <span class="mf">218.</span><span class="p">,</span>  <span class="mf">209.</span><span class="p">,</span>  <span class="mf">456.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">,</span>  <span class="mf">576.</span><span class="p">,</span>  <span class="mf">450.</span><span class="p">,</span>  <span class="mf">401.</span><span class="p">,</span>  <span class="mf">491.</span><span class="p">,</span>  <span class="mf">515.</span><span class="p">,</span>  <span class="mf">321.</span><span class="p">,</span>  <span class="mf">654.</span><span class="p">,</span>  <span class="mf">697.</span><span class="p">,</span>  <span class="mf">267.</span><span class="p">,</span>  <span class="mf">276.</span><span class="p">,</span>  <span class="mf">249.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">651.</span><span class="p">,</span>  <span class="mf">606.</span><span class="p">,</span>  <span class="mf">558.</span><span class="p">,</span>  <span class="mf">604.</span><span class="p">,</span>  <span class="mf">693.</span><span class="p">,</span>  <span class="mf">594.</span><span class="p">,</span>  <span class="mf">570.</span><span class="p">,</span>  <span class="mf">560.</span><span class="p">,</span>  <span class="mf">523.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">524.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">433.</span><span class="p">,</span>  <span class="mf">400.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">516.</span><span class="p">,</span>  <span class="mf">575.</span><span class="p">,</span>  <span class="mf">413.</span><span class="p">,</span>  <span class="mf">662.</span><span class="p">,</span>  <span class="mf">648.</span><span class="p">,</span>  <span class="mf">666.</span><span class="p">,</span>  <span class="mf">470.</span><span class="p">,</span>  <span class="mf">579.</span><span class="p">,</span>  <span class="mf">488.</span><span class="p">,</span>  <span class="mf">641.</span><span class="p">,</span>  <span class="mf">210.</span><span class="p">,</span>  <span class="mf">204.</span><span class="p">,</span>  <span class="mf">553.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">,</span>  <span class="mf">648.</span><span class="p">,</span>  <span class="mf">238.</span><span class="p">,</span>  <span class="mf">656.</span><span class="p">,</span>  <span class="mf">230.</span><span class="p">,</span>  <span class="mf">642.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">,</span>  <span class="mf">599.</span><span class="p">,</span>  <span class="mf">598.</span><span class="p">,</span>  <span class="mf">500.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">524.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">,</span>  <span class="mf">439.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">437.</span><span class="p">,</span>  <span class="mf">691.</span><span class="p">,</span>  <span class="mf">693.</span><span class="p">,</span>  <span class="mf">671.</span><span class="p">,</span>  <span class="mf">659.</span><span class="p">,</span>  <span class="mf">628.</span><span class="p">,</span>  <span class="mf">420.</span><span class="p">,</span>  <span class="mf">494.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">282.</span><span class="p">,</span>  <span class="mf">246.</span><span class="p">,</span>  <span class="mf">506.</span><span class="p">,</span>  <span class="mf">611.</span><span class="p">,</span>  <span class="mf">612.</span><span class="p">,</span>  <span class="mf">227.</span><span class="p">,</span>  <span class="mf">670.</span><span class="p">,</span>  <span class="mf">275.</span><span class="p">,</span>  <span class="mf">691.</span><span class="p">,</span>  <span class="mf">634.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">597.</span><span class="p">,</span>  <span class="mf">553.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">573.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">436.</span><span class="p">,</span>  <span class="mf">468.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">479.</span><span class="p">,</span>  <span class="mf">679.</span><span class="p">,</span>  <span class="mf">686.</span><span class="p">,</span>  <span class="mf">686.</span><span class="p">,</span>  <span class="mf">678.</span><span class="p">,</span>  <span class="mf">627.</span><span class="p">,</span>  <span class="mf">435.</span><span class="p">,</span>  <span class="mf">586.</span><span class="p">,</span>  <span class="mf">515.</span><span class="p">,</span>  <span class="mf">297.</span><span class="p">,</span>  <span class="mf">264.</span><span class="p">,</span>  <span class="mf">263.</span><span class="p">,</span>  <span class="mf">679.</span><span class="p">,</span>  <span class="mf">648.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">570.</span><span class="p">,</span>  <span class="mf">609.</span><span class="p">,</span>  <span class="mf">601.</span><span class="p">,</span>  <span class="mf">687.</span><span class="p">,</span>  <span class="mf">481.</span><span class="p">,</span>  <span class="mf">574.</span><span class="p">,</span>  <span class="mf">509.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">501.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">539.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">499.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">474.</span><span class="p">,</span>  <span class="mf">656.</span><span class="p">,</span>  <span class="mf">669.</span><span class="p">,</span>  <span class="mf">601.</span><span class="p">,</span>  <span class="mf">462.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">232.</span><span class="p">,</span>  <span class="mf">685.</span><span class="p">,</span>  <span class="mf">687.</span><span class="p">,</span>  <span class="mf">201.</span><span class="p">,</span>  <span class="mf">437.</span><span class="p">,</span>  <span class="mf">569.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">,</span>  <span class="mf">576.</span><span class="p">,</span>  <span class="mf">558.</span><span class="p">,</span>  <span class="mf">409.</span><span class="p">,</span>  <span class="mf">516.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">527.</span><span class="p">,</span>  <span class="mf">515.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">505.</span><span class="p">,</span>  <span class="mf">411.</span><span class="p">,</span>  <span class="mf">462.</span><span class="p">,</span>  <span class="mf">489.</span><span class="p">,</span>  <span class="mf">465.</span><span class="p">,</span>  <span class="mf">454.</span><span class="p">,</span>  <span class="mf">406.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">347.</span><span class="p">,</span>  <span class="mf">307.</span><span class="p">,</span>  <span class="mf">262.</span><span class="p">,</span>  <span class="mf">576.</span><span class="p">,</span>  <span class="mf">580.</span><span class="p">,</span>  <span class="mf">282.</span><span class="p">,</span>  <span class="mf">262.</span><span class="p">,</span>  <span class="mf">240.</span><span class="p">,</span>  <span class="mf">295.</span><span class="p">,</span>  <span class="mf">276.</span><span class="p">,</span>  <span class="mf">210.</span><span class="p">,</span>  <span class="mf">214.</span><span class="p">,</span>  <span class="mf">280.</span><span class="p">,</span>  <span class="mf">277.</span><span class="p">,</span>  <span class="mf">509.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">537.</span><span class="p">,</span>  <span class="mf">562.</span><span class="p">,</span>  <span class="mf">565.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">500.</span><span class="p">,</span>  <span class="mf">466.</span><span class="p">,</span>  <span class="mf">464.</span><span class="p">,</span>  <span class="mf">410.</span><span class="p">,</span>  <span class="mf">404.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">287.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">686.</span><span class="p">,</span>  <span class="mf">659.</span><span class="p">,</span>  <span class="mf">261.</span><span class="p">,</span>  <span class="mf">278.</span><span class="p">,</span>  <span class="mf">266.</span><span class="p">,</span>  <span class="mf">276.</span><span class="p">,</span>  <span class="mf">293.</span><span class="p">,</span>  <span class="mf">288.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">586.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">,</span>  <span class="mf">509.</span><span class="p">,</span>  <span class="mf">579.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">579.</span><span class="p">,</span>  <span class="mf">480.</span><span class="p">,</span>  <span class="mf">439.</span><span class="p">,</span>  <span class="mf">629.</span><span class="p">,</span>  <span class="mf">631.</span><span class="p">,</span>  <span class="mf">458.</span><span class="p">,</span>  <span class="mf">488.</span><span class="p">,</span>  <span class="mf">416.</span><span class="p">,</span>  <span class="mf">429.</span><span class="p">,</span>  <span class="mf">477.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">535.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">546.</span><span class="p">,</span>  <span class="mf">538.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">,</span>  <span class="mf">412.</span><span class="p">,</span>  <span class="mf">500.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">536.</span><span class="p">,</span>  <span class="mf">578.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">525.</span><span class="p">,</span>  <span class="mf">587.</span><span class="p">,</span>  <span class="mf">580.</span><span class="p">,</span>  <span class="mf">501.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">439.</span><span class="p">,</span>  <span class="mf">432.</span><span class="p">,</span>  <span class="mf">478.</span><span class="p">,</span>  <span class="mf">443.</span><span class="p">,</span>  <span class="mf">405.</span><span class="p">,</span>  <span class="mf">548.</span><span class="p">,</span>  <span class="mf">533.</span><span class="p">,</span>  <span class="mf">439.</span><span class="p">,</span>  <span class="mf">486.</span><span class="p">,</span>  <span class="mf">415.</span><span class="p">,</span>  <span class="mf">476.</span><span class="p">,</span>  <span class="mf">417.</span><span class="p">,</span>  <span class="mf">472.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">,</span>  <span class="mf">528.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">548.</span><span class="p">,</span>  <span class="mf">562.</span><span class="p">,</span>  <span class="mf">550.</span><span class="p">,</span>  <span class="mf">561.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">598.</span><span class="p">,</span>  <span class="mf">572.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">548.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">512.</span><span class="p">,</span>  <span class="mf">552.</span><span class="p">,</span>  <span class="mf">587.</span><span class="p">,</span>  <span class="mf">511.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">,</span>  <span class="mf">565.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">560.</span><span class="p">,</span>  <span class="mf">565.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">556.</span><span class="p">,</span>  <span class="mf">585.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">]])</span>
+</pre>
+
+
+<p>Wandeln Sie den Array folgendermaßen um:</p>
+<ul>
+<li>Zahlen zwischen 200 und 300 -&gt; 0</li>
+<li>Zahlen zwischen 300 und 400 -&gt; 40</li>
+<li>Zahlen zwischen 400 und 500 -&gt; 156</li>
+<li>Zahlen zwischen 600 und 700 -&gt; 220</li>
+</ul>
+<p>Speichern Sie den Ergebnisarray als Bild</p>
+<pre class="code literal-block"><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">riddle</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"solution.png"</span><span class="p">)</span>
+</pre>
+
+
+<h3>Inverse einer Matrix</h3>
+<ul>
+<li>
+<p>Schreiben Sie eine Funktion, die die Inverse einer 2x2 Matrix berechnet.</p>
+</li>
+<li>
+<p>Schreiben Sie eine Funktion, die die Adjunkte einer beliebigen (quadratischen) Matrix bestimmt</p>
+</li>
+<li>
+<p>Benutzen Sie die vorherige Funktion, um beliebige quadratische Matrizen zu invertieren</p>
+</li>
+</ul>
+<p>Hinweise:</p>
+<ul>
+<li>np.linalg.det berechnet die Determinante einer Matrix</li>
+</ul>
+<h3>Apfel-Männchen</h3>
+<p>Gegeben ist eine rekursive Folge für komplexe Zahlen</p>
+<p>\(z_{i+1} = z_i^2 + c \)</p>
+<p>mit \(z_0 = 0\)</p>
+<p>Je nachdem wie man c wählt, bleibt diese Folge beschränkt (d.h. der Betrag der komplexen Zahl (np.abs) bleibt unter einer gewissen Grenze), oder sie divergiert.</p>
+<ul>
+<li>Erstellen Sie einen komplexen 2D-Array c, der die komplexe Ebene darstellen soll. Der Realteil soll dabei von -2 bis 2 verlaufen, der Imaginärteil von -i bis i.
+ Dies erreichen Sie durch folgende Schritte:</li>
+<li>Erstellen Sie einen Float-Array für den Realteil und einen für den Imaginärteil:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">imag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1j</span>
+</pre>
+
+
+<ul>
+<li>Mit folgendem Befehl machen Sie aus dem imag Array einen Spaltenvektor:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">imag</span> <span class="o">=</span> <span class="n">imag</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span>Addieren Sie nun die beiden Vektoren, und Sie sollten einen zweidimensionalen Array erhalten, der Punkte der komplexen Ebene zwischen -2-1j und 2+2j enthält.
+</pre>
+
+
+<ul>
+<li>
+<p>Erstellen Sie einen komplexen Array z, sowie einen Integer-Array counter, die beide die selbe shape wie c haben</p>
+</li>
+<li>
+<p>Nun beginnt die Hauptschleife: berechnen Sie in 100 Schritten die Werte z_1 bis z_100, indem Sie ihren Array z immer wieder neu berechnen. Überprüfen Sie nach jeder Rechnung, welche Elemente des z-Arrays noch einen Betrag (np.abs) kleiner 10 haben (-&gt; den resultierenden Boolschen Array können Sie zu counter hinzuaddieren. True wird dann als Wert 1, und False als Wert 0 aufgefasst).</p>
+</li>
+<li>
+<p>Zum Schluss können Sie sich ein Bild des Counters ausgeben lassen. Dazu müssen Sie zu Beginn des Skripts folgendes Paket importieren:</p>
+</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span>anschließend können Sie mit folgenden 3 Zeilen ein Bild speichern:
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">counter</span><span class="o">/</span><span class="mf">100.</span> <span class="o">*</span> <span class="mi">255</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"mandelbrot.png"</span><span class="p">)</span> 
+</pre>
+
+
+<ul>
+<li>Experimentieren Sie auch mit anderen Grenzen des Arrays c. Sie können so weiter in das Apfelmännchen "zoomen".</li>
+</ul>
+<h3>Monte Carlo</h3>
+<p><img alt="PI_Berechnung" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif"></p>
+<p>Quelle: https://en.wikipedia.org/wiki/Monte_Carlo_method</p>
+<p>Bestimmen Sie die Kreiszahl \(\pi\), indem Sie zufällig Punkte in einem Koordinatensystem der Länge 1 und Höhe 1 verteilen. 
+Wenn Sie einen Kreis ziehen, dessen Zentrum im Ursprung des Koordinatensystems liegt, ist ein Viertel davon in dem Koordinatensystemausschnitt zu sehen.
+Einige der zufällig gewählten Punkte werden nun innerhalb des Viertelkreises liegen, andere außerhalb. 
+Bestimmen Sie über das Verhältnis \(\frac{\text{Anzahl der Punkte im Kreis}}{\text{Gesamtanzahl der Punkte}}\) die Zahl \(\pi\). </p>
+<p>Hinweis: 
+Mittels</p>
+<pre class="code literal-block"><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<p>können Sie einen Array mit Zufallszahlen im Intervall [0, 1) erzeugen.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/module_exceptions_uebungen/" class="u-url">4 - Module &amp; Exceptions - Übung</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../uebungen/module_exceptions_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T00:00:00+01:00" title="2017-07-06 00:00">2017-07-06 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Module</h2>
+<h3>timeit</h3>
+<ul>
+<li>
+<p>Benutzen Sie die time-Funktion aus dem time-Modul, um die Laufzeit des Pascalschen Dreieck Programms zu bestimmen. </p>
+</li>
+<li>
+<p>Schreiben Sie eine Wrapper-Funktion <em>timeit</em>, die die Laufzeit beliebiger Funktionen misst.</p>
+</li>
+<li>
+<p>Benutzen Sie sie als Decorator</p>
+</li>
+</ul>
+<h3>Lotto</h3>
+<ul>
+<li>
+<p>Spielen Sie Lotto! (aber nur am Computer...) Schreiben Sie ein Programm, das 6 Kugeln aus 49 zieht (dafür ist das random Modul sehr hilfreich).</p>
+</li>
+<li>
+<p>Schreiben Sie ein Programm, das eine Million mal Lotto spielt.</p>
+</li>
+<li>
+<p>Speichern Sie in einem Histogramm, wie oft das Programm null richtige, einen richtigen, ..., sechs richtige zieht. Benutzen Sie dafür die Klasse Counter aus dem Modul collections</p>
+</li>
+</ul>
+<h3>Type Checking</h3>
+<ul>
+<li>Benutzen Sie das types-Modul, und schreiben Sie einen Decorator check_if_number, der prüft, ob alle Argumente einer Funktion vom Typ Integer oder Float sind. Falls nicht, soll ein ValueError auftreten</li>
+</ul>
+<h3>Memoize</h3>
+<ul>
+<li>
+<p>Versuchen Sie, das Pascalsche Dreieck mit 40 Zeilen zu erzeugen</p>
+</li>
+<li>
+<p>Brechen Sie genervt nach 2 Minuten Wartezeit ab</p>
+</li>
+</ul>
+<p>Das Problem bei der momentanen Lösung ist, dass Zeilen die vorher schonmal berechnet wurden, immer wieder neu berechnet werden</p>
+<ul>
+<li>Schreiben Sie nun eine Wrapper-Funktion <em>memoize</em>, die eine andere Funktion f als Argument erwartet. Die memoize Funktion beinhaltet ein Dictionary d. 
+Definieren Sie in der memoize Funktion eine weitere Funktion f_extended(x). Diese prüft, ob x schon in d enthalten ist. 
+Wenn nicht, setzt sie d[x] auf f(x). Anschließend gibt sie den unter d[x] gespeicherten Wert zurück. Die memoize Funktion muss schließlich noch f_extended zurückgeben.
+Benutzen Sie memoize als Decorator und versuchen Sie nochmals die Berechnung von 40 Zeilen des Pascalschen Dreiecks</li>
+</ul>
+<p>Hinweis: tatsächlich gibt es diese Funktion schon in der Standardlibrary. Sie ist im Modul functools zu finden und heißt lru_cache</p>
+<h3>rot-n</h3>
+<p>Schreiben Sie eine Funktion, die einen Parameter n annimmt und eine Funktion zurückgibt, die einen String per Cäsar-Code verschlüsselt. Der Parameter n legt dabei fest, um wieviel Buchstaben die Funktion die Buchstaben der Eingabewörter verschiebt</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/module_exceptions/" class="u-url">4 - Module &amp; Exceptions</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe
@@ -4194,1168 +5009,6 @@ käse kostet 2.3
     </div>
   </div>
 
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/2-datenstrukturen-ubungen/" class="u-url">2 - Datenstrukturen: Übung</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../uebungen/2-datenstrukturen-ubungen/" rel="bookmark"><time class="published dt-published" datetime="2017-04-20T14:19:07+02:00" title="2017-04-20 14:19">2017-04-20 14:19</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Listen</h2>
-<h3>Quadratzahlen korrigieren</h3>
-<p>Gegeben sei folgende Liste:</p>
-<pre class="code literal-block"><span></span><span class="n">quadrat_zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Finden Sie die fehlerhafte Quadratzahl und ersetzen Sie sie mit der korrekten Zahl.</p>
-</li>
-<li>
-<p>Fügen Sie noch eine weitere Quadratzahl hinzu</p>
-</li>
-</ul>
-<h3>Einkaufliste:</h3>
-<ul>
-<li>Erstellen Sie eine Einkaufsliste bestehend aus (maximal) 10 Produkten, sowie eine Liste mit den dazugehörigen Preisen.</li>
-</ul>
-<p>Oder benutzen Sie die hier:</p>
-<pre class="code literal-block"><span></span><span class="n">einkaufs_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apfel"</span><span class="p">,</span> <span class="s2">"milch"</span><span class="p">,</span> <span class="s2">"banane"</span><span class="p">,</span> <span class="s2">"joghurt"</span><span class="p">,</span> <span class="s2">"käse"</span><span class="p">]</span>
-<span class="n">preise</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mf">1.20</span><span class="p">,</span> <span class="mf">2.30</span><span class="p">]</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Iterieren Sie mithilfe einer for-Schleife über alle Elemente in <em>einkaufs_liste</em></p>
-</li>
-<li>
-<p>Benutzen Sie enumerate, um die Elemente in <em>einkaufs_liste</em> durchzuzählen</p>
-</li>
-<li>
-<p>Iterieren Sie nun über Gegenstand und Preis, so dass Sie als Ausgabe bekommen:</p>
-</li>
-</ul>
-<pre class="code literal-block"><span></span>Gegenstand_1, Preis_1
-Gegenstand_2, Preis_2
-...
-Gegenstand_10, Preis_10
-</pre>
-
-
-<p>(Hinweis: zip!)</p>
-<ul>
-<li>
-<p>Lassen Sie sich nun nur jeden zweiten Gegenstand ausgeben</p>
-</li>
-<li>
-<p>Erstellen Sie eine Liste der Quadratzahlen von 1 bis 400</p>
-</li>
-</ul>
-<h3>Noch mehr Listen</h3>
-<ul>
-<li>Gegeben ist eine Liste von Strings</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">string_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">,</span> <span class="s2">"4"</span><span class="p">,</span> <span class="s2">"5"</span><span class="p">,</span> <span class="s2">"6"</span><span class="p">,</span> <span class="s2">"7"</span><span class="p">,</span> <span class="s2">"8"</span><span class="p">,</span> <span class="s2">"9"</span><span class="p">,</span> <span class="s2">"10"</span><span class="p">]</span>
-</pre>
-
-
-<p>Machen Sie daraus eine Liste von Integers!</p>
-<ul>
-<li>In der Vorlesung wurde eine xyz-Datei eingelesen und in eine Atomnamen-Liste und eine Positionsliste gespeichert. Benutzen Sie die beiden Listen um herauszufinden:<ul>
-<li>Wieviel Wasserstoffatome (Buchstabe H) nicht weiter als 2.0 Angström (Längeneinheit, entspricht \(10^{-10}\) m) von einem Sauerstoffatom (O) entfernt sind.</li>
-<li>Wieviele Sauerstoffatome in der Nähe jedes Phosphoratoms (P) sitzen </li>
-</ul>
-</li>
-</ul>
-<h2>Daten einlesen:</h2>
-<ul>
-<li>
-<p>Schreiben Sie eine Datei "Daten", in die Sie ein paar numerische Werte eintragen (am einfachsten ist es, wenn Sie pro Zeile einen Wert schreiben)</p>
-</li>
-<li>
-<p>Schreiben Sie nun ein Programm, das die Datei "Daten" öffnet und die Zahlen in einer Liste speichert</p>
-</li>
-<li>
-<p>Berechnen Sie die Summe und den Mittelwert der Daten</p>
-</li>
-</ul>
-<h2>Mengen</h2>
-<p>Sie und ein(e) Bekannte(r) waren shoppen. 
-Sie haben gekauft:</p>
-<pre class="code literal-block"><span></span><span class="n">meine_einkäufe</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"hose"</span><span class="p">,</span> <span class="s2">"jacke"</span><span class="p">,</span> <span class="s2">"schuhe"</span><span class="p">,</span> <span class="s2">"schokoriegel"</span><span class="p">,</span> <span class="s2">"schal"</span><span class="p">,</span> <span class="s2">"flatscreen"</span><span class="p">}</span>
-</pre>
-
-
-<p>Ihr Bekannter hat gekauft:</p>
-<pre class="code literal-block"><span></span><span class="n">seine_einkäufe</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"buch"</span><span class="p">,</span> <span class="s2">"schuhe"</span><span class="p">,</span> <span class="s2">"mütze"</span><span class="p">,</span> <span class="s2">"jacke"</span><span class="p">,</span> <span class="s2">"softdrink"</span><span class="p">}</span>
-</pre>
-
-
-<p>Benutzen Sie Mengenoperationen um herauszufinden:</p>
-<ul>
-<li>
-<p>Was ist die Gesamtmenge, die Sie beide eingekauft haben?</p>
-</li>
-<li>
-<p>Was hat Ihr Bekannter gekauft, was Sie auch gekauft haben?</p>
-</li>
-<li>
-<p>Was hat Ihr Bekannter gekauft, das Sie nicht gekauft haben?</p>
-</li>
-<li>
-<p>Was haben Sie gekauft, das Ihr Bekannter nicht gekauft hat?</p>
-</li>
-<li>
-<p>Welche Dinge haben Sie nicht beide gekauft?</p>
-</li>
-</ul>
-<h2>Sieb des Eratosthenes</h2>
-<p>Das Sieb des Eratosthenes ist ein Algorithmus, mit dem man Primzahlen bestimmen kann.
-Er lässt sich in Python gut mit Mengen lösen.</p>
-<p>Um die Primzahlen von 2 bis <em>n_max</em> zu bestimmen, tun Sie folgendes:</p>
-<ul>
-<li>
-<p>Erstellen Sie eine Menge <em>numbers</em> der Zahlen von 2 bis <em>n_max</em></p>
-</li>
-<li>
-<p>Erstellen Sie eine Variable <em>next_prime</em> = 2</p>
-</li>
-<li>
-<p>Solange <em>next_prime</em> &lt; <em>n_max</em>/2 ist (while-Schleife!), erstellen Sie eine weitere Menge <em>not_prime</em>, die alle Vielfachen von <em>next_prime</em> enthält. 
-  Ziehen Sie diese von <em>numbers</em> ab. Erhöhen Sie anschließend <em>next_prime</em> um 1</p>
-</li>
-<li>
-<p>Wenn die while-Schleife beendet, sollten sich in <em>numbers</em> nur noch die Primzahlen zwischen 2 und <em>n_max</em> befinden</p>
-</li>
-</ul>
-<h2>Dictionary</h2>
-<p>Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:</p>
-<pre class="code literal-block"><span></span><span class="n">englisch_deutsch_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"hello"</span><span class="p">:</span> <span class="s2">"hallo"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">:</span> <span class="s2">"welt"</span><span class="p">,</span> <span class="s2">"good bye"</span><span class="p">:</span> <span class="s2">"auf wiedersehen"</span><span class="p">}</span>
-</pre>
-
-
-<p>Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!</p>
-<h2>Wortzähler</h2>
-<p>Schreiben Sie folgendes Python Programm:</p>
-<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">this</span>
-</pre>
-
-
-<p>Speichern Sie den resultierenden Text in einer extra Datei.</p>
-<p>Analysieren Sie den Text, indem Sie ein Programm schreiben, das die Häufigkeit jedes Wortes im obigen Text zählt.</p>
-<p>Hilfestellungen:</p>
-<ul>
-<li>Speichern Sie den Text entweder als String mit 3 Anführungszeichen am Anfang und am Ende (dann kann er sich auch über mehrere Zeilen erstrecken), oder lesen Sie ihn aus einer Datei aus, in die Sie ihn vorher geschrieben haben.</li>
-</ul>
-<p>Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"""</span>
-<span class="s2">Hier kann beliebiger Text</span>
-<span class="s2">stehen, der sich über mehrere Zeilen erstreckt</span>
-<span class="s2">"""</span>
-</pre>
-
-
-<ul>
-<li>Angenommen, Sie haben den gesamten Text in der Variablen <em>text</em> gespeichert. Dann können Sie mit </li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">wortliste</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</pre>
-
-
-<p>eine Liste der einzelnen Wörter erstellen.</p>
-<ul>
-<li>Um ungewünschte Zeichen aus dem Text zu entfernen, benutzen Sie:</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">zu_ersetzendes_zeichen</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Zum Zählen der Wörter ist ein Dictionary sehr hilfreich! </p>
-</li>
-<li>
-<p>Schreiben Sie das Programm nun so um, dass es die Häufigkeit der einzelnen Buchstaben zählt.</p>
-</li>
-<li>
-<p>Benutzen Sie Sets (Mengen), um herauszufinden, welche Wörter in jeder der ersten 6 Zeilen vorkommen.</p>
-</li>
-<li>
-<p>Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen</p>
-</li>
-</ul>
-<h2>Galgenmännchen</h2>
-<p>Schreiben Sie ein Programm, in dem ein String mit dem Namen <em>unbekanntes_wort</em> gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
-In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:</p>
-<ul>
-<li>
-<p>Zuerst wird jeder Buchstabe von <em>unbekanntes_wort</em> durchlaufen, und, wenn er in <em>geratene_woerter</em> enthalten ist, ausgegeben. Ist er nicht enthalten, wird ein "-" ausgegeben. <br>
-  Beispiel:  </p>
-<ul>
-<li>Das geheime Wort ist <em>wochenende</em>
-</li>
-<li>
-<em>geratene_woerter</em> enthält {"n", "e"}</li>
-<li>Ausgabe ist dann: "- - - - e n e n - e"</li>
-</ul>
-</li>
-<li>
-<p>Dann muss der User einen neuen Buchstaben eingeben (Achtung, genau einen!). Dieser wird in <em>geratene_woerter</em> gespeichert</p>
-</li>
-<li>
-<p>Ergänzen Sie das Programm nun so, dass es mit einer Glückwunschsnachricht abbricht, sobald der User alle Buchstaben geraten hat.</p>
-</li>
-<li>
-<p>Erlauben Sie nur maximal 11 Fehlversuche, bevor das Programm mit "Game Over" abbricht</p>
-</li>
-<li>
-<p>Bonus: Anstatt das Wort in den Quellcode zu schreiben, lassen Sie es einen Mitspieler am Anfang eingeben. Wenn Sie
-  folgendes zu Beginn schreiben:</p>
-</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
-</pre>
-
-
-<p>können Sie mittels </p>
-<pre class="code literal-block"><span></span><span class="n">unbekanntes_wort</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">"Bitte zu ratendes Wort eingeben</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-</pre>
-
-
-<p>das geheime Wort eingeben lassen, ohne dass es auf dem Bildschirm zu sehen ist.</p>
-<ul>
-<li>Spielen Sie eine Runde Galgenmännchen mit Ihrem Nachbarn  </li>
-</ul>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/datenstrukturen/" class="u-url">2 - Datenstrukturen</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../vorlesungen/datenstrukturen/" rel="bookmark"><time class="published dt-published" datetime="2017-04-14T00:00:00+01:00" title="2017-04-14 00:00">2017-04-14 00:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Listen</h2>
-<h3>Erstellen einer Liste</h3>
-<p>Oftmals haben wir es mit einer Sammlung von Daten zu tun und wollen diese speichern, z.B. Messdaten. Eine Datenstruktur, die sich dafür anbietet, ist die Liste.
-In Python lässt sich eine Liste leicht erstellen:</p>
-<pre class="code literal-block"><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">meine_zweite_liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-</pre>
-
-
-<p>Die beiden Ausdrücke haben das selbe Resultat: eine leere Liste wird kreiert.</p>
-<p>Nun können wir diese Liste füllen. Wollen wir nur wenige Werte speichern, können wir diese direkt bei der Deklaration mit angeben:</p>
-<pre class="code literal-block"><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
-</pre>
-
-
-<p>Alternativ fügen wir sie nach und nach in die leere Liste ein:</p>
-<pre class="code literal-block"><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">meine_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
-<span class="n">meine_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>
-<span class="n">meine_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"c"</span><span class="p">)</span>
-</pre>
-
-
-<h3>Zugreifen auf ein Element</h3>
-<p>Um auf das ite Element einer Liste mit Namen <em>dreier_liste</em> zuzugreifen, schreiben wir </p>
-<pre class="code literal-block"><span></span><span class="n">dreier_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
-<span class="n">element</span> <span class="o">=</span> <span class="n">dreier_liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre>
-
-
-<p>Achtung, wir fangen bei Null an zu zählen! element hat also den Wert "a".</p>
-<p>Möchten wir auf eines der hinteren Elemente zugreifen, können wir auch rückwärts zählen, indem wir negative ganze Zahlen benutzen:</p>
-<pre class="code literal-block"><span></span><span class="n">letztes_element</span> <span class="o">=</span> <span class="n">dreier_liste</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">vorletztes_element</span> <span class="o">=</span> <span class="n">dreier_liste</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-</pre>
-
-
-<h3>Entfernen von Elementen</h3>
-<p>Ebenso können wir Elemente entfernen, wenn wir sie nicht mehr brauchen. Dafür rufen wir die Methode <em>pop</em> auf:</p>
-<pre class="code literal-block"><span></span><span class="n">entferntes_element</span> <span class="o">=</span> <span class="n">meine_liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre>
-
-
-<p>Obiger Befehl entfernt aus <em>meine_liste</em> das Element, das an zweiter Stelle (Achtung, wir fangen bei Null an, zu zählen!). Damit ist es zwar aus der Liste entfernt, aber falls nötig, können wir es in einer weiteren Variablen speichern.</p>
-<h3>Listen miteinander verknüpfen</h3>
-<p>Möchten wir zwei Teillisten zu einer großen Liste machen, so schreiben wir einfach</p>
-<pre class="code literal-block"><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
-<span class="n">liste_gesamt</span> <span class="o">=</span> <span class="n">l1</span> <span class="o">+</span> <span class="n">l2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">liste_gesamt</span><span class="p">)</span>
-</pre>
-
-
-<p>mit dem Resultat</p>
-<pre class="code literal-block"><span></span>[1, 2, 3, 'a', 'b', 'c']
-</pre>
-
-
-<h3>Was kann eine Liste speichern?</h3>
-<p>Bisher haben wir als Beispiel nur Strings und Integer in unserer Liste gespeichert. Es lassen sich aber auch alle anderen Datentypen darin speichern. 
-Selbst Listen von Listen, oder Listen von Listen von Listen (etc...) sind möglich. Auch ist es erlaubt, verschiedene Datentypen in der selben Liste zu speichern:</p>
-<pre class="code literal-block"><span></span><span class="n">bunt_gemischt</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hallo"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mf">3.456</span><span class="p">,</span> <span class="mi">5</span><span class="o">+</span><span class="mi">3j</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]</span>
-</pre>
-
-
-<p>Allerdings heißt das nicht, dass es unbedingt eine gute Idee sein muss, verschiedenste Datentypen in einer Liste zu speichern... Möglich ist es dennoch.</p>
-<h3>Iterieren über Listen</h3>
-<p>Möchten wir mit den Elementen einer Liste arbeiten, können wir eine for-Schleife benutzen:</p>
-<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">bunt_gemischt</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-</pre>
-
-
-<p>Möchten wir zusätzlich noch den Index jedes Elements benutzen, bietet sich das <em>enumerate</em> keyword an:</p>
-<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bunt_gemischt</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Das"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">"te Element meiner Liste ist:"</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span>
-</pre>
-
-
-<p>Anstatt nur über jedes Element zu iterieren, iterieren wir nun über Wertepaare (genauer gesagt Tupel) von Indices und Elementen.</p>
-<h4>Ein praktisches Beispiel</h4>
-<p>Ein Chemiker hat in seinem Grundpraktikum alle 20 Sekunden die Konzentration eines bestimmten Stoffes aufgeschrieben. Die resultierende Liste sieht dann so aus:</p>
-<pre class="code literal-block"><span></span><span class="n">konzentrationen</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.000</span><span class="p">,</span>
-                   <span class="mf">0.880</span><span class="p">,</span>
-                   <span class="mf">0.756</span><span class="p">,</span>
-                   <span class="mf">0.656</span><span class="p">,</span>
-                   <span class="mf">0.582</span><span class="p">,</span>
-                   <span class="mf">0.495</span><span class="p">,</span>
-                   <span class="mf">0.441</span><span class="p">,</span>
-                   <span class="mf">0.387</span><span class="p">,</span>
-                   <span class="mf">0.335</span><span class="p">,</span>
-                   <span class="mf">0.294</span><span class="p">,</span>
-                   <span class="mf">0.242</span><span class="p">,</span>
-                   <span class="mf">0.219</span><span class="p">,</span>
-                   <span class="mf">0.194</span><span class="p">,</span>
-                   <span class="mf">0.166</span><span class="p">,</span>
-                   <span class="mf">0.140</span><span class="p">,</span>
-                   <span class="mf">0.130</span><span class="p">,</span>
-                   <span class="mf">0.109</span><span class="p">,</span>
-                   <span class="mf">0.099</span><span class="p">,</span>
-                   <span class="mf">0.079</span><span class="p">,</span>
-                   <span class="mf">0.078</span><span class="p">,</span>
-                   <span class="mf">0.064</span>
-                  <span class="p">]</span> 
-</pre>
-
-
-<p>Um nun sowohl Zeit, als auch Konzentration zu bekommen, schreiben wir folgenden Code:</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="s2">"Zeit in Sekunden,  Konzentration"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">messwert</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">konzentrationen</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">messwert</span><span class="p">)</span>
-</pre>
-
-
-<h3>Listen "slicen"</h3>
-<p>Manchmal möchten wir nur auf einen Teil der Gesamtliste zugreifen. In diesem Fall ist das sogenannte "Slicing" von Vorteil.</p>
-<p>Die Syntax ist:</p>
-<pre class="code literal-block"><span></span><span class="n">teil_liste</span> <span class="o">=</span> <span class="n">liste</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">:</span><span class="n">schritt</span><span class="p">]</span>
-</pre>
-
-
-<p>Mit diesem Befehl wird eine Teilliste kreiert, die beim Index <em>start</em> der Ursprungsliste beginnt, und beim Index <em>stop</em> -1 der Ursprungsliste endet.
-Der <em>schritt</em> gibt dabei an, ob jedes Element zwischen <em>start</em> und <em>stop</em> (<em>schritt</em> = 1), jedes zweite (<em>schritt</em> = 2), etc. genommen werden soll.</p>
-<p>Wenn wir z.B. in obigem Beispiel nur jeden zweiten Messwert haben wollten, würden wir schreiben:</p>
-<pre class="code literal-block"><span></span><span class="n">teil_konzentrationen</span> <span class="o">=</span> <span class="n">konzentrationen</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">konzentrationen</span><span class="p">):</span><span class="mi">2</span><span class="p">]</span>
-</pre>
-
-
-<p>Dies lässt sich in diesem Fall sogar noch kürzer schreiben als</p>
-<pre class="code literal-block"><span></span><span class="n">teil_konzentrationen</span> <span class="o">=</span> <span class="n">konzentrationen</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
-</pre>
-
-
-<p>Das liegt daran, dass <em>start</em> und <em>stop</em> automatisch auf 0 und Länge der Liste gesetzt werden, wenn man sie auslässt.</p>
-<p>Tatsächlich hat die "Slicing" Syntax eine starke Ähnlichkeit mit der range-Funktion.
-Übungsaufgabe: Teilliste erstellen, <em>ohne</em> die Slicing Syntax zu benutzen.</p>
-<h4>Merkhilfe für die Index-Benutzung beim Slicen</h4>
-<p>Folgendes Schaubild (<a href="https://docs.python.org/2/tutorial/introduction.html#strings">Quelle</a>) macht anschaulich klar, wie die Indizes beim Slicen zu verstehen sind.</p>
-<pre class="code literal-block"><span></span> +---+---+---+---+---+---+
- | P | y | t | h | o | n |
- +---+---+---+---+---+---+
- 0   1   2   3   4   5   6
--6  -5  -4  -3  -2  -1
-</pre>
-
-
-<p>Anstatt die Elemente zu nummerieren, werden vielmehr die Trennlinien zwischen den Elementen gezählt. Wollen wir zum Beispiel die Teilliste, die alle Elemente vom nullten bis zum dritten Element enthält (also P,y,t,h), geben wir als linke Begrenzung die nullte Trennlinie, und als rechte Begrenzung die vierte Trennline an.</p>
-<h3>Listen sortieren</h3>
-<p>In Python lassen sich Listen entweder mit der Methode <em>sort</em>, oder mit der Funktion <em>sorted</em> sortieren.</p>
-<pre class="code literal-block"><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
-</pre>
-
-
-<p><em>sorted</em> erstellt dabei eine neue sortierte Liste, während <em>sort</em> die Ursprungsliste sortiert. Die alte Sortierung geht dabei also verloren!</p>
-<pre class="code literal-block"><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">l1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-</pre>
-
-
-<p>Möchten wir ab-, statt aufsteigend sortieren, fügen wir noch das zusätzliche Keyword "reverse=True" hinzu:</p>
-<pre class="code literal-block"><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">l1</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</pre>
-
-
-<h3>Unveränderliche Listen (Tupel)</h3>
-<p>In manchen Fällen ist es wüschenswert, eine unveränderliche Liste zu erstellen.
-Dies erreicht man folgendermaßen:</p>
-<pre class="code literal-block"><span></span><span class="n">mein_tupel</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre>
-
-
-<p>Um aus einer gegebenen Liste einen Tupel zu machen, schreibt man:</p>
-<pre class="code literal-block"><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">mein_tupel</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
-</pre>
-
-
-<p>Der Unterschied zur normalen Liste ist nur, dass wir weder Elemente zum Tupel hinzufügen noch entfernen können.</p>
-<h4>Listen/Tupel entpacken</h4>
-<p>Manchmal möchten wir mehrere Elemente einer Liste Variablen zuordnen.
-Als Beispiel haben wir einen Tupel, in dem Name, Vorname und Note eines Studenten steht:</p>
-<pre class="code literal-block"><span></span><span class="n">dreier_tupel</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"Müller"</span><span class="p">,</span> <span class="s2">"Daniel"</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-</pre>
-
-
-<p>Um nun die drei Werte in dem Tupel in die Variablen vorname, nachname, note zu speichern, schreiben wir:</p>
-<pre class="code literal-block"><span></span><span class="p">(</span><span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="p">,</span> <span class="n">note</span><span class="p">)</span> <span class="o">=</span> <span class="n">dreier_tupel</span>
-</pre>
-
-
-<p>Da in dreier_tupel drei Werte gespeichert sind, bekommt jede Variable einen davon zugewiesen.
-Das Entpacken funktioniert immer dann, wenn wir auf der linken Seite und der rechten Seite Tupel mit der selben Schachtelung haben. </p>
-<p>Wir können das auch ausnutzen, um in einer Zeile gleich mehrere neue Variablen zu definieren:</p>
-<pre class="code literal-block"><span></span><span class="n">name</span><span class="p">,</span> <span class="n">vorname</span> <span class="o">=</span> <span class="s2">"Müller"</span><span class="p">,</span> <span class="s2">"Heinz"</span>
-</pre>
-
-
-<p>Tatsächlich ist es auch gar nicht notwendig, die äußeren runden Klammern zu setzen. </p>
-<p>Das Definieren von mehreren Variablen in einer Zeile ist immer dann empfehlenswert, wenn es sich um Variablen handelt, die einen ähnlichen Zweck erfüllen.</p>
-<p>Die Schachtelung darf übrigens beliebig komplex werden:</p>
-<pre class="code literal-block"><span></span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">),</span> <span class="n">f</span><span class="p">),</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">6</span><span class="p">),</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-</pre>
-
-
-<h3>Listen zippen (der Reißverschluss)</h3>
-<p>Möchte man über mehrere Listen gleichzeitig iterieren, ist die zip Funktion hilfreich. </p>
-<p>Beispiel: wir haben eine Liste mit Vornamen, eine mit Nachnamen, und eine mit Noten. Um jetzt jeweils Nachname, Vorname und Note auszugeben, schreiben wir:</p>
-<pre class="code literal-block"><span></span><span class="n">nachnamen_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Müller"</span><span class="p">,</span> <span class="s2">"Maier"</span><span class="p">,</span> <span class="s2">"Schulz"</span><span class="p">]</span>
-<span class="n">vornamen_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Daniel"</span><span class="p">,</span> <span class="s2">"Dieter"</span><span class="p">,</span> <span class="s2">"Elise"</span><span class="p">]</span>
-<span class="n">noten_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">vn</span><span class="p">,</span> <span class="n">nn</span><span class="p">,</span> <span class="n">note</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vornamen_liste</span><span class="p">,</span> <span class="n">nachnamen_liste</span><span class="p">,</span> <span class="n">noten_liste</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">vn</span><span class="p">,</span> <span class="n">nn</span><span class="p">,</span> <span class="n">note</span><span class="p">)</span>
-</pre>
-
-
-<p>Um zu sehen, was da genau passiert, schreiben wir</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">nachnamen_liste</span><span class="p">,</span> <span class="n">vornamen_liste</span><span class="p">,</span> <span class="n">noten_liste</span><span class="p">))</span>
-</pre>
-
-
-<p>Die Ausgabe ist dann:</p>
-<pre class="code literal-block"><span></span>[('Müller', 'Daniel', 1.0), ('Maier', 'Dieter', 2.3), ('Schulz', 'Elise', 3.7)]
-</pre>
-
-
-<p>Hier sehen wir, was die zip-Funktion gemacht hat: Sie hat aus den ersten Elementen der drei Listen ("Müller", "Daniel" und 1.0) einen Tupel gemacht,  ebenso aus den zweiten Elementen und aus den dritten Elementen, und diese in einer neuen Liste gespeichert.
-Jeder Dreier-Tupel wird nun beim Iterieren in die drei Variablen <em>vn</em>, <em>nn</em> und <em>note</em> entpackt.</p>
-<p>Eine etwas ausführlichere Schreibweise wäre:</p>
-<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">dreier_tupel</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vornamen_liste</span><span class="p">,</span> <span class="n">nachnamen_liste</span><span class="p">,</span> <span class="n">noten_liste</span><span class="p">):</span>
-    <span class="n">vn</span><span class="p">,</span> <span class="n">nn</span><span class="p">,</span> <span class="n">note</span> <span class="o">=</span> <span class="n">dreier_tupel</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">vn</span><span class="p">,</span> <span class="n">nn</span><span class="p">,</span> <span class="n">note</span><span class="p">)</span>
-</pre>
-
-
-<h4>Noch ein wichtiger Hinweis:</h4>
-<p>Möchten wir nur über gezippte Listen iterieren (wie im obigen Beispiel mit den Namen und Noten), reicht</p>
-<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">el1</span><span class="p">,</span> <span class="n">el2</span><span class="p">,</span> <span class="n">el3</span><span class="p">,</span> <span class="o">...</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">liste1</span><span class="p">,</span> <span class="n">liste2</span><span class="p">,</span> <span class="n">liste3</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-    <span class="o">...</span>
-</pre>
-
-
-<p>Möchten wir jedoch explizit eine Liste erhalten, müssen wir schreiben:</p>
-<pre class="code literal-block"><span></span><span class="n">liste_gezippt</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">liste1</span><span class="p">,</span> <span class="n">liste2</span><span class="p">,</span> <span class="n">liste3</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>
-</pre>
-
-
-<h3>List comprehensions</h3>
-<p>Manchmal möchten wir aus einer vorhandenen Liste eine neue Liste erstellen, die nur bestimmte Elemente enthält.</p>
-<p>Z.B. könnten wir folgende Liste haben</p>
-<pre class="code literal-block"><span></span><span class="n">tiere</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Affe"</span><span class="p">,</span> <span class="s2">"Löwe"</span><span class="p">,</span> <span class="s2">"Giraffe"</span><span class="p">,</span> <span class="s2">"Schlange"</span><span class="p">,</span> <span class="s2">"Nashorn"</span><span class="p">]</span>
-</pre>
-
-
-<p>und wir möchten eine Liste mit den Tieren erstellen, deren Namen mindestens 5 Buchstaben lang sind.</p>
-<p>Dann schreiben wir:</p>
-<pre class="code literal-block"><span></span><span class="n">tiere_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">tier</span> <span class="k">for</span> <span class="n">tier</span> <span class="ow">in</span> <span class="n">tiere</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tier</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">]</span>
-</pre>
-
-
-<p>Alternativ könnte man natürlich auch so vorgehen:</p>
-<pre class="code literal-block"><span></span><span class="n">tiere_2</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">tier</span> <span class="ow">in</span> <span class="n">tiere</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tier</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="n">tiere_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tier</span><span class="p">)</span>
-</pre>
-
-
-<p>Verglichen mit der List-Comprehension ist diese Variante jedoch deutlich länger. Das Ergebnis ist aber das selbe.</p>
-<p>Das können wir natürlich auch mit anderen Listen, oder generell mit Objekten machen, über die wir iterieren können.</p>
-<p>Folgender Code speichert nur die ungeraden Zahlen von 1 bis 20 in einer Liste:</p>
-<pre class="code literal-block"><span></span><span class="n">ungerade_zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="n">zahl</span> <span class="k">for</span> <span class="n">zahl</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="k">if</span> <span class="n">zahl</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
-</pre>
-
-
-<h2>Nochmal kurz Strings</h2>
-<p>Jetzt, wo wir gesehen haben, was man alles mit Listen anstellen kann, könnte sich einem die Frage stellen, ob das nicht auch auf Strings anwendbar ist? Tatsächlich haben Strings ganz ähnliche Eigenschaften wie Listen.
-Wir können sie addieren:</p>
-<pre class="code literal-block"><span></span><span class="n">s1</span> <span class="o">=</span> <span class="s2">"Guten "</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="s2">"Tag"</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>Guten Tag
-</pre>
-
-
-<p>Wir können sie <em>slicen</em>:</p>
-<pre class="code literal-block"><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Einen schönen guten Tag"</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># gibt jeden zweiten Buchstaben aus</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>EnnshnngtnTg
-</pre>
-
-
-<p>Ebenso können wir über die einzelnen Buchstaben eines Strings <strong>iterieren</strong>, und sogar sortieren lassen sich Strings.</p>
-<h3>Ein praktisches Beispiel</h3>
-<p><a href="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/%C3%9Cbungen/molecule-example.xyz">Hier</a> finden Sie eine sogenannte xyz-Datei, in der die Struktur eines Systems aus Molekülen gespeichert ist. 
-Die Datei hat folgenden Aufbau:</p>
-<pre class="code literal-block"><span></span>&lt;Anzahl Atome im System&gt;
-&lt;Kommentarzeile&gt;
-&lt;Atomname 1&gt; &lt;x-Position&gt; &lt;y-Position&gt; &lt;z-Position&gt;
-&lt;Atomname 2&gt; &lt;x-Position&gt; &lt;y-Position&gt; &lt;z-Position&gt;
-&lt;Atomname 3&gt; &lt;x-Position&gt; &lt;y-Position&gt; &lt;z-Position&gt;
-...
-</pre>
-
-
-<p>Unser Ziel ist es nun, eine Liste aller Atomnamen, und eine Liste aller Positionen zu erhalten.</p>
-<pre class="code literal-block"><span></span><span class="n">atom_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># hier werden die Atomnamen gespeichert...</span>
-<span class="n">position_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># und hier ihre Positionen</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"molecule-example.xyz"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span> <span class="c1"># wir ignorieren die ersten beiden Zeilen</span>
-            <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1"># jede Zeile wird gesplittet in eine Liste, die Atomname, x-, y- und z-Position enthält</span>
-            <span class="n">atom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line_split</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># der Name kommt in atom_list</span>
-            <span class="n">position_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">1</span><span class="p">:]])</span> <span class="c1"># die Liste der Atompositionen enthält noch Strings, und muss daher zu float gecastet werden</span>
-</pre>
-
-
-<h2>Mengen (Sets)</h2>
-<p>Mengenoperationen, wie man sie aus der Mathematik kennt, lassen sich in Python mit dem Datentyp <em>set</em> leicht ausführen.</p>
-<p>Eine Menge kann mittels zweier Schreibweisen erstellt werden:</p>
-<pre class="code literal-block"><span></span><span class="n">menge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">menge</span><span class="p">)</span>
-</pre>
-
-
-<p>oder </p>
-<pre class="code literal-block"><span></span><span class="n">menge</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">menge</span><span class="p">)</span>
-</pre>
-
-
-<p>Da eine Menge jedes Element nur einmal enthält, ist die Ausgabe:</p>
-<pre class="code literal-block"><span></span>{1, 2, 3, 4}
-</pre>
-
-
-<h3>Mengenoperationen</h3>
-<p>Mengenoperationen lassen sich folgendermaßen ausführen:</p>
-<h4>Schnitt:</h4>
-<pre class="code literal-block"><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>{1, 4}
-</pre>
-
-
-<h4>Vereinigung:</h4>
-<pre class="code literal-block"><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>{1, 2, 3, 4, 6, 7, 8}
-</pre>
-
-
-<h4>Differenz:</h4>
-<pre class="code literal-block"><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>{2, 3}
-{6, 7, 8}
-</pre>
-
-
-<h4>Symmetrische Differenz</h4>
-<pre class="code literal-block"><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>{2, 3, 6, 7, 8}
-</pre>
-
-
-<h4>Vorkommen überprüfen</h4>
-<p>Wenn wir testen möchten, ob ein Element in der Menge enthalten ist, schreiben wir</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"a"</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>True
-False
-</pre>
-
-
-<h3>Set Comprehensions</h3>
-<p>Ganz ähnlich wie bei Listen können wir Sets mithilfe von Set Comprehensions erstellen.
-Die Syntax ist fast identisch, nur statt eckiger benutzen wir hier geschweifte Klammern:</p>
-<pre class="code literal-block"><span></span><span class="n">gerade_zahlen</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>
-</pre>
-
-
-<h2>Assoziative Datenfelder bzw. Wörterbücher (Dictionaries)</h2>
-<p>Ein weiterer nützlicher Datentyp ist das sogenannte assoziative Datenfeld, oder, einfacher ausgedrückt, Wörterbuch. Es speichert jeweils ein Paar aus Schlüsselwort (Key) und Wert (Value). Über das Schlüsselwort kann man sich den gespeicherten Wert ausgeben lassen.</p>
-<h3>Erstellen eines Dictionaries</h3>
-<p>Auch hier gibt es wieder mehrere Wege:</p>
-<pre class="code literal-block"><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">my_dict_2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">my_dict_3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"c"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
-</pre>
-
-
-<p>In allen Fällen wird ein Wörterbuch mit den Schlüsselwörtern "a", "b" und "c" und den dazugehörigen Werten 1, 2 und 3 erstellt. </p>
-<p>Schreiben wir nun in eckigen Klammern eines der gespeicherten Keywords hinter den Variablennamen, können wir auf den zugehörigen Wert zugreifen.</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"a"</span><span class="p">])</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>1
-</pre>
-
-
-<h4>Bemerkung:</h4>
-<p>Ein Dictionary hat eine gewisse Ähnlichkeit mit einer Liste:</p>
-<ul>
-<li>Auch eine Liste speichert Werte, auf die man über einen Schlüssel (den Index) zugreifen kann.</li>
-</ul>
-<p>Die Unterschiede:</p>
-<ul>
-<li>
-<p>Die Schlüssel der Liste sind immer 0, 1, 2, ...</p>
-</li>
-<li>
-<p>Schlüssel beim Dictionary können (fast) beliebig sein</p>
-</li>
-<li>
-<p>Die Werte in der Liste sind geordnet, im Dictionary nicht unbedingt</p>
-</li>
-</ul>
-<h3>Iterieren über alle Key, Value Paare</h3>
-<p>Wie bei Listen können wir auch bei Dictionaries eine for-Schleife benutzen, um über die enthaltenen Elemente zu iterieren.</p>
-<pre class="code literal-block"><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>a
-c
-b
-</pre>
-
-
-<p>Die Ausgabe zeigt zwei Dinge: erstens wird hier nur über die Keys unseres Dictionaries iteriert, und zweitens muss die Reihenfolge der Keys nicht erhalten bleiben. Falls wir die Keys noch sortieren wollen, können wir jedoch wieder die sorted Funktion verwenden.</p>
-<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">my_dict</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>a
-b
-c
-</pre>
-
-
-<p>Möchten wir nicht nur auf die Keys, sondern auch auf die Werte zurückgreifen, können wir die Items-Methode unseres Dictionaries benutzen:</p>
-<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span><span class="n">a</span> <span class="o">:</span> <span class="mi">1</span>
-<span class="n">c</span> <span class="o">:</span> <span class="mi">3</span>
-<span class="n">b</span> <span class="o">:</span> <span class="mi">2</span>
-</pre>
-
-
-<h3>Dictionary Comprehensions</h3>
-<p>Und auch hier gibt es wieder Comprehensions:</p>
-<pre class="code literal-block"><span></span><span class="n">quadrat_zahlen_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
-</pre>
-
-
-<p>Die Schreibweise ist ähnlich wie bei den Sets, jedoch müssen wir nun mit einem Doppelpunkt getrennte Key-Value Paare angeben.</p>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/grundlagen/" class="u-url">1 - Grundlagen</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../vorlesungen/grundlagen/" rel="bookmark"><time class="published dt-published" datetime="2017-04-07T00:00:00+01:00" title="2017-04-07 00:00">2017-04-07 00:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Der Kochrezept-Vergleich</h2>
-<p>Ein beliebter Vergleich, der oft gebracht wird, um die Bedeutung des Programmierens zu veranschaulichen: wir haben einen Rezeptschreiber (Programmierer) und einen Koch (Computer). Der Koch ist allerdings sehr pingelig! Anstatt zu schreiben "gebe 3 Eier zum Mehl", müssen wir ihm sagen "Nimm das erste Ei. Klopfe es auf. Gib den Inhalt in die Schüssel. Nimm das zweite Ei. Klopfe es auf ..."</p>
-<p>Je nach Programmiersprache variiert die Auffassungsgabe des Kochs. Unser Python-Koch ist schon recht selbstständig. Jeder, der schon mal in einer Low-Level Sprache wie C, C++ oder Fortran gearbeitet hat, wird das schnell merken. Alle anderen, die bisher noch nicht programmiert haben, seien hier nur einmal darauf hingewiesen, damit sie sich bei später auftretenden Problemen damit trösten können, dass sie in anderen Programmiersprachen <em>mindestens</em> genauso viele Schwierigkeiten hätten ;-)</p>
-<h2>Python als Interpreter Sprache</h2>
-<p>Python ist im Gegensatz zu Programmiersprachen wie C, C++ oder Fortran eine <em>Interpretersprache</em>.
-Das bedeutet, dass geschriebener Python-Code nicht kompiliert werden muss. Stattdessen wird der Code zur Laufzeit des Programmes vom Python Interpreter abgearbeitet.</p>
-<p>Wenn wir ein Programm mit dem Namen hello_world.py starten möchten, müssen wir in der Konsole daher einfach nur</p>
-<pre class="code literal-block"><span></span>python hello_world.py
-</pre>
-
-
-<p>eingeben.</p>
-<h2>Hello World</h2>
-<p>Um einen ersten Eindruck einer Programmiersprache zu geben, beginnen die meisten Tutorials mit einem simplen Programm, das nur die Worte "Hello World" ausgibt. Auch dieses Tutorium macht da keinen Unterschied.</p>
-<p>Wir legen eine Textdatei <strong>hello_world.py</strong> mit folgendem Inhalt an:</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
-</pre>
-
-
-<p>Das "Hello World" Programm zeigt schon gut, worin Pythons große Stärke liegt: die gute Lesbarkeit des Quellcodes!
-In nur einer Zeile steht alles, was nötig ist, um das Programm auszuführen.</p>
-<p>Was passiert hier genau? In dem Programm wird die print Funktion aufgerufen. Als Argument bekommt sie eine Zeichenkette (einen sogenannten String) geliefert. Dieser String wird dann schließlich beim Ausführen des Programms ausgegeben.</p>
-<p>Zum Vergleich "Hello World" in Java:</p>
-<pre class="code literal-block"><span></span><span class="kd">class</span> <span class="nc">Main</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre>
-
-
-<h2>Datentypen und Variablen</h2>
-<p>In Python können wir u.a. mit folgenden grundlegenden Datentypen arbeiten:</p>
-<ul>
-<li>
-<strong>Integer</strong>: ganzzahlige Zahlen</li>
-<li>
-<strong>Float</strong>: Gleitkomma-Zahlen</li>
-<li>
-<strong>String</strong>: Zeichenketten</li>
-<li>
-<strong>Boolean</strong>: Logische Werte, können True oder False sein</li>
-<li>
-<strong>NoneType</strong>: Spezieller Datentyp, der z.B. als Default-Argument in Funktionen verwendet wird (kommt später)</li>
-</ul>
-<p>Jeder dieser Datentypen kann nun in einer Variablen gespeichert werden.
-Dies funktioniert mit einer einfachen Zuweisung wie in folgendem Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="n">ganze_zahl</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">komma_zahl</span> <span class="o">=</span> <span class="mf">1.234</span>
-<span class="n">komplexe_zahl</span> <span class="o">=</span> <span class="mf">3.123</span> <span class="o">+</span> <span class="mi">2j</span>
-<span class="n">string_variable</span> <span class="o">=</span> <span class="s2">"Hallo Welt"</span>
-<span class="n">boolsche_variable</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">none_variable</span> <span class="o">=</span> <span class="bp">None</span>
-</pre>
-
-
-<p>Hier haben wir vier Variablen mit den Namen <em>ganze_zahl</em>, <em>komma_zahl</em>, <em>komplexe_zahl</em>, <em>string_variable</em> und <em>boolsche_variable</em> initialisiert.
-Im Gegensatz zu anderen Programmiersprachen erkennt der Interpreter von alleine, um was für einen Datentyp es sich handelt.
-Um zu sehen, welchen Datentyp unsere Variablen nun haben, schreiben wir</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ganze_zahl</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">komma_zahl</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">komplexe_zahl</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">string_variable</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">boolsche_variable</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">none_variable</span><span class="p">))</span>
-</pre>
-
-
-<p>mit den Resultaten</p>
-<pre class="code literal-block"><span></span>&lt;class 'int'&gt;
-&lt;class 'float'&gt;
-&lt;class 'complex'&gt;
-&lt;class 'str'&gt;
-&lt;class 'bool'&gt;
-&lt;class 'NoneType'&gt;
-</pre>
-
-
-<p>Ein kleiner Hinweis zu Variablennamen:
-Grundsätzlich ist es möglich, seine Variablen zu nennen, wie man möchte, solange sie mit einem Buchstaben beginnen. Zahlen am Anfang sind nicht erlaubt. Sonderzeichen dürfen nicht im Variablennamen vorkommen. Darüberhinaus ist es Konvention, Variablennamen klein zu schreiben und mit Unterstrich zu trennen.</p>
-<h2>Kommentare</h2>
-<p>Ein weiterer <strong>wichtiger</strong> Punkt für Programmiersprachen generell, der sich zwar nicht auf die Ausführung des Codes auswirkt, aber dafür auf das Verständnis des Lesers, sind Kommentare. </p>
-<p>Kommentare lassen sich mithilfe des Raute-Zeichens in ein Python-Skript einfügen. Alles was in derselben Zeile hinter der Raute steht, wird nicht vom Python-Interpreter abgearbeitet</p>
-<p>Im unteren Beispiel, steht nach dem print Befehl ein Kommentar. Der print Befehl wird ausgeführt, der Kommentar dient nur dem Programmierer als Hinweis</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Gibt 1, 2, 3 aus</span>
-</pre>
-
-
-<p>Im nächsten Beispiel steht die Raute vor dem print Befehl. Damit wird Python ihn nicht mehr ausführen</p>
-<pre class="code literal-block"><span></span><span class="c1"># print(4, 5, 6) Gibt gar nichts aus</span>
-</pre>
-
-
-<h2>Operatoren</h2>
-<p>Bisher ist in unseren Programmen noch nicht viel passiert. Das wird sich nun ändern!<br>
-Mit Operatoren ist es uns nun möglich, Werte in unseren Programmen miteinander zu vergleichen, Variablen neue Werte zuzuweisen, oder mathematische Ausdrücke zu berechnen.</p>
-<h3>Zuweisungsoperator =</h3>
-<p>Diesen Operator haben wir schon im vorherigen Abschnitt kennengelernt.</p>
-<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-</pre>
-
-
-<p>Dieser Operator weist einer Variablen einen Wert zu.</p>
-<h3>Arithmetische Operatoren +, -, <em>, /, %, </em>*</h3>
-<p>Mit diesen Operatoren können wir einfache arithmetische Ausdrücke berechnen.</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">11</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">14</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>12
-2.0
-2.5
-2
-2
-100
-</pre>
-
-
-<p>Wir können diese natürlich auch mit dem Zuweisungs-Operator kombinieren:</p>
-<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">13</span> <span class="o">/</span> <span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>14.6
-</pre>
-
-
-<p>Hinweis für Python 2: 
-In Python 2 ist das Ergebnis 14 statt 14.6. Der Grund dafür ist, dass Python 2 bei 13/5 die 
-sogenannte Integer-Division anwendet. Das Ergebnis ist also auch wieder ein Integer (13 durch 5 ist 2 Rest 3).</p>
-<h3>Vergleichsoperatoren ==, &lt;, &lt;=, &gt;, &gt;=</h3>
-<p>Diese Operatoren vergleichen zwei Werte miteinander und geben einen booleschen Wert zurück.</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">13</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>True
-False
-</pre>
-
-
-<h3>Logische Operatoren not, and, or</h3>
-<p>Diese Operatoren akzeptieren als Eingabe boolesche Werte und geben einen booleschen Wert zurück.  </p>
-<p><strong>not</strong> negiert einen booleschen Wert:</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="ow">not</span> <span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="ow">not</span> <span class="bp">True</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>True
-False
-</pre>
-
-
-<p><strong>and</strong> ergibt <em>True</em> wenn beide Eingabewerte <em>True</em> sind, ansonsten <em>False</em></p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="bp">True</span> <span class="ow">and</span> <span class="bp">True</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="bp">True</span> <span class="ow">and</span> <span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="bp">False</span> <span class="ow">and</span> <span class="bp">False</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">==</span><span class="mi">3</span> <span class="ow">and</span> <span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="o">==</span><span class="mi">16</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">==</span><span class="mi">3</span> <span class="ow">and</span> <span class="bp">False</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">7</span> <span class="ow">and</span> <span class="n">x</span><span class="o">+</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">and</span> <span class="bp">True</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe</p>
-<pre class="code literal-block"><span></span>True
-False
-False
-True
-False
-True
-</pre>
-
-
-<p><strong>or</strong> ergibt <em>True</em> wenn mindestens einer der beiden Eingabewerte <em>True</em> ist.</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="bp">True</span> <span class="ow">or</span> <span class="bp">True</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="bp">True</span> <span class="ow">or</span> <span class="bp">False</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="bp">False</span> <span class="ow">or</span> <span class="bp">False</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">5</span> <span class="ow">or</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>True
-True
-False
-False
-</pre>
-
-
-<h2>Schleifen</h2>
-<p>In Python gibt es zwei Arten von Schleifen:</p>
-<h3>For-Schleife</h3>
-<p>Die for-Schleife wird verwendet, wenn man einen Code-Teil eine bestimmte Anzahl von Malen wiederholen möchte.</p>
-<p>Z.B.</p>
-<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-
-
-<p>Wichtig ist hierbei die Einrückung nach der for-Anweisung (Konvention sind 4 Leerzeichen pro Einrückung). Alles, was nach der for-Anweisung eingerückt geschrieben wird, 
-wird so oft ausgeführt, wie die for-Schleife durchlaufen wird.</p>
-<h3>While-Schleife</h3>
-<p>Die While-Schleife wird benutzt, um eine Bedingung zu prüfen, und wenn diese erfüllt ist, den nachfolgenden Code auszuführen</p>
-<p>Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">summe</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
-  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-  <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span> <span class="o">+</span> <span class="n">i</span>
-</pre>
-
-
-<h3>Mit <em>break</em> aus einer Schleife ausbrechen</h3>
-<p>Manchmal gibt es Fälle, in denen wir vorzeitig aus einer Schleife ausbrechen wollen. In diesen Fällen hilft uns das Statement <em>break</em></p>
-<p>Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="k">break</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>0
-1
-2
-3
-4
-</pre>
-
-
-<p>Anstatt die komplette Schleife zu durchlaufen, bricht das Programm die Schleife ab, sobald es die break-Anweisung erreicht.</p>
-<h2>Bedingte Anweisungen (if-statements)</h2>
-<p>Um ein richtiges Programm schreiben zu können, müssen wir dem Computer mitteilen können, wie er auf bestimmte Situationen reagieren soll. Dafür sind <strong>bedingte Anweisungen</strong> nötig.
-Die Form dieser <strong>if statements</strong> ist wie folgt:</p>
-<pre class="code literal-block"><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">Bedingung</span><span class="o">&gt;</span><span class="p">:</span>
-    <span class="o">&lt;</span><span class="n">Anweisung</span> <span class="mi">1</span><span class="o">&gt;</span>
-<span class="k">elif</span> <span class="o">&lt;</span><span class="n">Bedingung</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">:</span>
-    <span class="o">&lt;</span><span class="n">Anweisung</span> <span class="mi">2</span><span class="o">&gt;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="o">&lt;</span><span class="n">Anweisung</span> <span class="mi">3</span><span class="o">&gt;</span>
-</pre>
-
-
-<p><code class="html"><code>&lt;Bedingung&gt;</code></code> ist dabei ein Ausdruck, der einen boolschen Wert zurückgibt. 
-Also z.B. so etwas wie</p>
-<pre class="code literal-block"><span></span><span class="n">meine_variable</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">andere_variable</span> <span class="o">&gt;</span> <span class="mi">3</span>
-</pre>
-
-
-<p>Die Anweisungen sind beliebiger Python-Code.</p>
-<p>Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="n">anzahl_räder</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">motor</span> <span class="o">=</span> <span class="bp">True</span>
-
-<span class="k">if</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Das ist ein Auto"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">motor</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Eine Kutsche!"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Ein Motorrad!"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">motor</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Ein Fahrrad!"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Keine Ahnung..."</span><span class="p">)</span>
-</pre>
-
-
-<p>Was passiert in diesem Beispiel? Zuallererst wird <em>anzahl_räder</em> auf 4 gesetzt, und <em>motor</em> auf <code class="python"> <code>True</code> </code><br>
-Nun beginnt das if-Statement: die erste boolsche Funktion wird ausgewertet. </p>
-<pre class="code literal-block"><span></span><span class="k">if</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
-</pre>
-
-
-<p>Der Interpreter wertet nun zuerst <code class="python"> <code>anzahl_räder == 4</code> </code> aus.</p>
-<p>Damit ergibt sich:</p>
-<pre class="code literal-block"><span></span><span class="k">if</span> <span class="bp">False</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
-</pre>
-
-
-<p>Im nächsten Schritt müsste nun noch der Wert von <code class="python"><code>motor</code></code> ausgewertet werden.
-Allerdings ist der Interpreter schlau genug, zu erkennen, dass das <em>and</em> Statement nur noch <code class="python"> <code>False</code> </code> ergeben kann, da 
-ein Argument ja schon <code class="python"> <code>False</code> </code> ist.</p>
-<p>Daher springt der Interpreter nun zum nächsten Teil des if-Statements:</p>
-<pre class="code literal-block"><span></span><span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">motor</span>
-</pre>
-
-
-<p>Hier passiert wieder das selbe. Da der erste Teil des and-Statements <code class="python"> <code>False</code> </code> ist, hört der Interpreter hier schon auf
-und springt eins weiter:</p>
-<pre class="code literal-block"><span></span><span class="k">elif</span> <span class="n">anzahl_räder</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">motor</span><span class="p">:</span>
-</pre>
-
-
-<p>Diesmal ist <code class="python"> <code>anzahl_räder == 2</code> </code> <code class="python"> <code>True</code> </code>.
-Daher muss der Interpreter nun auch prüfen, ob das zweite Statement stimmt. Tatsächlich ist auch <code class="python"> <code>motor</code> </code> <code class="python"> <code>True</code> </code>.</p>
-<p>Somit ist dieses Statement erfüllt, und daher wird der Python-Code danach ausgeführt, die Ausgabe ist also</p>
-<pre class="code literal-block"><span></span>Ein Motorrad!
-</pre>
-
-
-<h4>Kleine Übungsaufgabe:</h4>
-<p>Ändern Sie die Variablen <code class="python"> <code>motor</code> </code> und <code class="python"> <code>anzahl_räder</code> </code>, um auch die anderen Ausgaben zu sehen zu bekommen.</p>
-<h2>Ein- und Ausgabe</h2>
-<p>In diesem Kapitel beschäftigen wir uns mit verschiedenen Arten der Ein- und Ausgabe, nämlich:</p>
-<ul>
-<li>Einlesen und Schreiben von Dateien</li>
-<li>Einlesen von Tastatureingaben</li>
-</ul>
-<h3>Schreiben:</h3>
-<p>Um eine Datei zu öffnen, benötigen wir den Befehl <strong>open</strong>:</p>
-<pre class="code literal-block"><span></span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
-</pre>
-
-
-<p>Das <strong>"w"</strong> steht dabei für <em>writeable</em>. Möchte man eine (schon existierende) Datei nur auslesen, benutzt man <strong>"r"</strong> für <em>readable</em>.
-Möchte man an eine bestehende Datei weiteren Text anhängen, muss man <strong>"a"</strong> (für <em>append</em>) benutzen.</p>
-<p>Als nächstes möchten wir etwas in unsere gerade geöffnete Datei schreiben.
-Dazu benutzen wir, wie schon im Hello World Programm die print-Funktion:</p>
-<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="s2">"Dieser Satz steht in der ersten Zeile"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">datei</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Und der hier in der zweiten"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">datei</span><span class="p">)</span>
-</pre>
-
-
-<p>Anschließend müssen wir die Datei noch schließen.</p>
-<pre class="code literal-block"><span></span><span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre>
-
-
-<p>In diesem Beispiel gibt es allerdings ein Problem. Angenommen, etwas unvorhergesehenes geschieht, bevor das Programm die Datei schließen kann:</p>
-<pre class="code literal-block"><span></span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Das wird mit einer Fehlermeldung abbrechen...</span>
-<span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># diese Zeile wird nie ausgeführt werden</span>
-</pre>
-
-
-<p>In diesem Fall wird f.close() nie ausgeführt. Als Resultat können Speicherprobleme auftreten, oder die Datei wird unlesbar.</p>
-<p>Die sichere Variante sieht wie folgt aus:</p>
-<pre class="code literal-block"><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">datei</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Dieser Satz steht in der ersten Zeile"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">datei</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Und der hier in der zweiten"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">datei</span><span class="p">)</span>
-</pre>
-
-
-<h3>Einlesen:</h3>
-<p>Das Einlesen einer Datei funktioniert ähnlich. Hier können wir zum Einlesen aller Zeilen einen schönen Trick verwenden:</p>
-<pre class="code literal-block"><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_datei"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">datei</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">datei</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</pre>
-
-
-<p>Hier benutzen wir eine for-Schleife, die über alle Zeilen in unserer Datei iteriert.
-Tatsächlich kann man in Python for-Schleifen sehr vielfältig anwenden. Mehr dazu beim nächsten Mal!</p>
-<h3>Tastatureingabe:</h3>
-<p>Mit dem Handling von Tastatureingaben können wir unsere Programme endlich etwas interaktiver gestalten!
-Die Syntax dafür ist wie folgt:</p>
-<pre class="code literal-block"><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte geben Sie etwas ein: "</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Sie gaben ein:"</span><span class="p">,</span> <span class="n">user_input</span><span class="p">)</span>
-</pre>
-
-
-<p>In Kombination mit if-else Anweisungen können wir nun Programme schreiben, 
-die auf verschiedene User-Eingaben reagieren. Mehr dazu in den Übungen.</p>
-</div>
     </div>
     </article>
 </div>
