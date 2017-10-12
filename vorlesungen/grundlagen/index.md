@@ -155,7 +155,7 @@ Diesen Operator haben wir schon im vorherigen Abschnitt kennengelernt.
 x = 3
 ```
 
-Dieser Operator gibt einem Objekt einen Namen.
+Dieser Operator gibt dem Integer-Objekt mit dem Wert 3 den Namen x.
 
 ## Arithmetische Operatoren +, -, \*, /, //, %, \*\*  
   
