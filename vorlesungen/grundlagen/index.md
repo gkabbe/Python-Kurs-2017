@@ -58,27 +58,42 @@ class Main{
 
 In Python können wir u.a. mit folgenden grundlegenden Datentypen arbeiten:
 
-* **Integer**: ganzzahlige Zahlen
+* **Integer**: ganze Zahlen
 * **Float**: Gleitkomma-Zahlen
 * **String**: Zeichenketten
 * **Boolean**: Logische Werte, können True oder False sein
 * **NoneType**: Spezieller Datentyp, der z.B. als Default-Argument in Funktionen verwendet wird (kommt später)
 
-Jeder dieser Datentypen kann nun in einer Variablen gespeichert werden.
+Wir können nun in Python ein Objekt eines bestimmten Typs erstellen und ihm einen Namen geben.
 Dies funktioniert mit einer einfachen Zuweisung wie in folgendem Beispiel:
 
 ```python
 ganze_zahl = 10
 komma_zahl = 1.234
 komplexe_zahl = 3.123 + 2j
-string_variable = "Hallo Welt"
-boolsche_variable = True
-none_variable = None
+ein_string = "Hallo Welt"
+ein_bool = True
+nix = None
 ```
 
-Hier haben wir vier Variablen mit den Namen _ganze_zahl_, _komma_zahl_, _komplexe_zahl_, _string_variable_ und _boolsche_variable_ initialisiert.
-Im Gegensatz zu anderen Programmiersprachen erkennt der Interpreter von alleine, um was für einen Datentyp es sich handelt.
-Um zu sehen, welchen Datentyp unsere Variablen nun haben, schreiben wir
+Hier haben wir sechs Objekte mit den Namen _ganze_zahl_, _komma_zahl_, _komplexe_zahl_, 
+_ein_string_, _ein_bool_ und _nix_ gespeichert.
+Im Gegensatz zu anderen Programmiersprachen erkennt der Interpreter von alleine, um was für einen 
+Datentyp es sich handelt.
+
+
+Wir könnten unser "Hello World"-Beispiel nun z.B. auch so schreiben:
+
+```python
+begrüßung = "Hello World"
+print(begrüßung)
+```
+
+Wenn wir dieses Programm ausführen, ersetzt Python automatisch den Namen _begrüßung_ mit dem 
+dahinter stehenden Objekt "Hello World".
+
+
+Um zu sehen, welchen Arten von Objekten sich hinter den Namen verbergen, können wir _type_ benutzen.
 
 ```python
 print(type(ganze_zahl))
@@ -101,7 +116,11 @@ mit den Resultaten
 ```  
 
 Ein kleiner Hinweis zu Variablennamen:
-Grundsätzlich ist es möglich, seine Variablen zu nennen, wie man möchte, solange sie mit einem Buchstaben beginnen. Zahlen am Anfang sind nicht erlaubt. Sonderzeichen dürfen nicht im Variablennamen vorkommen. Darüberhinaus ist es Konvention, Variablennamen klein zu schreiben und mit Unterstrich zu trennen.
+Grundsätzlich ist es möglich, seine Variablen zu nennen, wie man möchte, 
+solange sie mit einem Buchstaben beginnen. 
+Zahlen am Anfang sind nicht erlaubt. 
+Sonderzeichen dürfen nicht im Variablennamen vorkommen. 
+Darüberhinaus ist es Konvention, Variablennamen klein zu schreiben und mit Unterstrich zu trennen.
 
 # Kommentare
 
@@ -125,7 +144,8 @@ Im nächsten Beispiel steht die Raute vor dem print Befehl. Damit wird Python ih
 # Operatoren
 
 Bisher ist in unseren Programmen noch nicht viel passiert. Das wird sich nun ändern!  
-Mit Operatoren ist es uns nun möglich, Werte in unseren Programmen miteinander zu vergleichen, Variablen neue Werte zuzuweisen, oder mathematische Ausdrücke zu berechnen.
+Mit Operatoren ist es möglich, Objekte in unseren Programmen miteinander zu vergleichen, 
+ihnen Namen zu geben, oder mathematische Ausdrücke zu berechnen.
 
 ## Zuweisungsoperator =
     
@@ -135,9 +155,9 @@ Diesen Operator haben wir schon im vorherigen Abschnitt kennengelernt.
 x = 3
 ```
 
-Dieser Operator weist einer Variablen einen Wert zu.
+Dieser Operator gibt einem Objekt einen Namen.
 
-## Arithmetische Operatoren +, -, *, /, %, **  
+## Arithmetische Operatoren +, -, \*, /, //, %, \*\*  
   
 Mit diesen Operatoren können wir einfache arithmetische Ausdrücke berechnen.
 
@@ -145,8 +165,9 @@ Mit diesen Operatoren können wir einfache arithmetische Ausdrücke berechnen.
 print(4 * 3)
 print(10 / 5)
 print(10 / 4)
+print(10 // 3)
 print(10 + 3 - 11)
-print(14 % 3)
+print(14 % 5)
 print(10**2)
 ```
 
@@ -156,8 +177,9 @@ Ausgabe:
 12
 2.0
 2.5
+3
 2
-2
+4
 100
 
 ```
@@ -181,11 +203,12 @@ sogenannte Integer-Division anwendet. Das Ergebnis ist also auch wieder ein Inte
 
 
 ## Vergleichsoperatoren ==, <, <=, >, >=  
-Diese Operatoren vergleichen zwei Werte miteinander und geben einen booleschen Wert zurück.
+Diese Operatoren vergleichen zwei Objekte miteinander und geben einen booleschen Wert zurück.
 
 ```python
 print(4 + 3 == 7)
 print(-11 < -13)
+print("Anna" < "Bertha")  # Bei Strings wird lexikographisch verglichen
 ```
 
 Ausgabe:
@@ -193,7 +216,7 @@ Ausgabe:
 ```
 True
 False
-
+True
 ```
 
 ## Logische Operatoren not, and, or
@@ -259,19 +282,161 @@ False
 False
 ```
 
+# Bedingte Anweisungen (if-statements)
+
+Um ein richtiges Programm schreiben zu können, müssen wir dem Computer mitteilen können, 
+wie er auf bestimmte Situationen reagieren soll. Dafür sind **bedingte Anweisungen** nötig.
+
+
+Ein einfaches Beispiel wäre z.B. ein Programm, das anhand der Temperatur entscheidet, ob es 
+Hitzefrei gibt oder nicht:
+
+```python
+temperatur = 20  # °C
+
+if temperatur > 35:
+    print("Hitzefrei!")
+    print("Viel Spaß im Schwimmbad!")
+else:
+    print("Uni!")
+    print("Endlich Zeit, Python zu lernen!")
+```
+
+Wenn wir das Programm ausführen, sehen wir die Ausgabe "Uni!".
+Was ist passiert? Das Programm hat überprüft, ob die Bedingung ```temperatur > 35``` True ergibt.
+Da in diesem Fall aber nur 20 Grad vorherrschen, gibt es daher
+
+```
+Uni!
+Endlich Zeit, Python zu lernen!
+```
+
+aus.
+Ändern wir nun aber die erste Zeile auf einen hohen Wert über 35, wird sich auch das Verhalten
+des Programmes ändern.
+
+
+Die (allgemeinere) Form dieser **if statements** ist wie folgt:
+
+```python
+if <Bedingung 1>:
+    <Anweisung 1>
+elif <Bedingung 2>:
+    <Anweisung 2>
+else:
+    <Anweisung 3>
+```
+
+```Bedingung``` ist dabei ein Ausdruck, der einen boolschen Wert zurückgibt. 
+Also z.B. so etwas wie
+
+```python
+meine_variable < 5 and andere_variable > 3
+```
+
+Noch ein Beispiel dazu:
+Wir schreiben ein Programm, das anhand der Anzahl Räder eines Fahrzeugs erkennt, ob es sich um
+ein Auto, ein Dreirad oder Zweirad handelt:
+
+
+```python
+anzahl_räder = 2
+
+if anzahl_räder == 4:
+    print("Das ist ein Auto")
+elif anzahl_räder == 3:
+    print("Ein Dreirad!")
+elif anzahl_räder == 2:
+    print("Ein Zweirad!")
+else:
+    print("Keine Ahnung...")
+
+```
+
+Was passiert in diesem Beispiel? Zuallererst wird *anzahl_räder* auf 2 gesetzt.
+Nun beginnt das if-Statement: die erste boolsche Funktion wird ausgewertet. 
+
+```python
+if anzahl_räder == 4:
+```
+
+Der Interpreter wertet nun zuerst <code class="python"> `anzahl_räder == 4` </code> aus.
+
+Da ```anzahl_räder``` den Wert 2 hat, ergibt sich:
+
+```python
+if False:
+```
+
+Daher springt der Interpreter nun zum nächsten Teil des if-Statements:
+
+```python
+elif anzahl_räder == 3:
+```
+
+Hier passiert wieder das selbe. 
+
+```python
+elif anzahl_räder == 2:
+```
+
+Diesmal ist <code class="python"> `anzahl_räder == 2` </code> <code class="python"> `True` </code>.
+Somit ist dieses Statement erfüllt, und daher wird der Python-Code danach ausgeführt, die Ausgabe ist also
+
+```
+Ein Zweirad!
+```
+
+
+## Aufgabe
+
+Ändern Sie die obigen Beispiele ab, um zu sehen, wie das Programm auf verschiedene Werte reagiert.
+
+
 # Schleifen
+
+Schleifen sind immer dann hilfreich wenn wir eine bestimmte Aufgabe mehrmals ausführen wollen.
+
 
 In Python gibt es zwei Arten von Schleifen:
 
 ## For-Schleife
 
-Die for-Schleife wird verwendet, wenn man einen Code-Teil eine bestimmte Anzahl von Malen wiederholen möchte.
+Die for-Schleife wird verwendet, wenn man einen Code-Teil eine bestimmte Anzahl von Malen wiederholen möchte, und schon
+genau weiß, wie oft das sein wird.
 
-Z.B.
+Z.B. könnte man ein Programm schreiben, das zehn mal "Hallo" schreibt:
 
 ```python
 for i in range(10):
-  print(i)
+    print("Hallo")
+```
+
+Ausgabe:
+
+```
+Hallo
+Hallo
+Hallo
+Hallo
+Hallo
+Hallo
+Hallo
+Hallo
+Hallo
+Hallo
+```
+
+Wichtig ist hierbei die Einrückung nach der for-Anweisung (Konvention sind 4 Leerzeichen pro Einrückung). Alles, was nach der for-Anweisung eingerückt geschrieben wird, 
+wird so oft ausgeführt, wie die for-Schleife durchlaufen wird.
+
+Was für eine Rolle spielt das _i_ hier?
+
+Wir lassen es uns einfach mal ausgeben mit dem print-Befehl:
+
+```python
+for i in range(10):
+    print(i)
 ```
 
 Ausgabe:
@@ -289,8 +454,16 @@ Ausgabe:
 9
 ```
 
-Wichtig ist hierbei die Einrückung nach der for-Anweisung (Konvention sind 4 Leerzeichen pro Einrückung). Alles, was nach der for-Anweisung eingerückt geschrieben wird, 
-wird so oft ausgeführt, wie die for-Schleife durchlaufen wird.
+_i_ ist also nichts anderes als ein Zähler, der die Schleifendurchläufe mitzählt.
+Jedes mal wenn der eingerückte Code ausgeführt wird, erhöht sich der Wert von _i_ um eins.
+
+Außerdem sieht man, dass die Aufzählung nicht bei 1, sondern bei 0 startet.
+
+
+### Aufgabe
+
+Lassen Sie sich mithilfe einer for-Schleife die geraden Zahlen von 0 bis 18 ausgeben.
+
 
 ## While-Schleife
 
@@ -330,93 +503,6 @@ Ausgabe:
 ```
 
 Anstatt die komplette Schleife zu durchlaufen, bricht das Programm die Schleife ab, sobald es die break-Anweisung erreicht.
-
-# Bedingte Anweisungen (if-statements)
-
-Um ein richtiges Programm schreiben zu können, müssen wir dem Computer mitteilen können, wie er auf bestimmte Situationen reagieren soll. Dafür sind **bedingte Anweisungen** nötig.
-Die Form dieser **if statements** ist wie folgt:
-
-```python
-if <Bedingung>:
-    <Anweisung 1>
-elif <Bedingung 2>:
-    <Anweisung 2>
-else:
-    <Anweisung 3>
-```
-
-<code class="html">`<Bedingung>`</code> ist dabei ein Ausdruck, der einen boolschen Wert zurückgibt. 
-Also z.B. so etwas wie
-
-```python
-meine_variable < 5 and andere_variable > 3
-```
-
-Die Anweisungen sind beliebiger Python-Code.
-
-Beispiel:
-
-```python
-anzahl_räder = 2
-motor = True
-
-if anzahl_räder == 4 and motor:
-    print("Das ist ein Auto")
-elif anzahl_räder == 4 and not motor:
-    print("Eine Kutsche!")
-elif anzahl_räder == 2 and motor:
-    print("Ein Motorrad!")
-elif anzahl_räder == 2 and not motor:
-    print("Ein Fahrrad!")
-else:
-    print("Keine Ahnung...")
-
-```
-
-Was passiert in diesem Beispiel? Zuallererst wird *anzahl_räder* auf 4 gesetzt, und *motor* auf <code class="python"> `True` </code>  
-Nun beginnt das if-Statement: die erste boolsche Funktion wird ausgewertet. 
-
-```python
-if anzahl_räder == 4 and motor:
-```
-
-Der Interpreter wertet nun zuerst <code class="python"> `anzahl_räder == 4` </code> aus.
-
-Damit ergibt sich:
-
-```python
-if False and motor:
-```
-
-Im nächsten Schritt müsste nun noch der Wert von <code class="python">`motor`</code> ausgewertet werden.
-Allerdings ist der Interpreter schlau genug, zu erkennen, dass das *and* Statement nur noch <code class="python"> `False` </code> ergeben kann, da 
-ein Argument ja schon <code class="python"> `False` </code> ist.
-
-Daher springt der Interpreter nun zum nächsten Teil des if-Statements:
-
-```python
-elif anzahl_räder == 4 and not motor
-```
-
-Hier passiert wieder das selbe. Da der erste Teil des and-Statements <code class="python"> `False` </code> ist, hört der Interpreter hier schon auf
-und springt eins weiter:
-
-```python
-elif anzahl_räder == 2 and motor:
-```
-
-Diesmal ist <code class="python"> `anzahl_räder == 2` </code> <code class="python"> `True` </code>.
-Daher muss der Interpreter nun auch prüfen, ob das zweite Statement stimmt. Tatsächlich ist auch <code class="python"> `motor` </code> <code class="python"> `True` </code>.
-
-Somit ist dieses Statement erfüllt, und daher wird der Python-Code danach ausgeführt, die Ausgabe ist also
-
-```
-Ein Motorrad!
-```
-
-### Kleine Übungsaufgabe:
-
-Ändern Sie die Variablen <code class="python"> `motor` </code> und <code class="python"> `anzahl_räder` </code>, um auch die anderen Ausgaben zu sehen zu bekommen.
 
 
 # Ein- und Ausgabe
