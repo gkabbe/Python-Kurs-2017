@@ -99,9 +99,9 @@ Um zu sehen, welchen Arten von Objekten sich hinter den Namen verbergen, können
 print(type(ganze_zahl))
 print(type(komma_zahl))
 print(type(komplexe_zahl))
-print(type(string_variable))
-print(type(boolsche_variable))
-print(type(none_variable))
+print(type(ein_string))
+print(type(ein_bool))
+print(type(nix))
 ```
 
 mit den Resultaten
