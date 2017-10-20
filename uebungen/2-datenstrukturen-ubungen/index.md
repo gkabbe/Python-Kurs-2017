@@ -181,6 +181,23 @@ text.replace(zu_ersetzendes_zeichen, "")
 
 * Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen
 
+# Schere, Stein, Papier
+
+Schreiben Sie ein Programm, das mit Ihnen Schere, Stein, Papier spielt.
+Um den Computer dazu zu bringen, zufällig zwischen Schere, Stein und Papier zu wählen,
+schreiben Sie folgendes:
+
+
+```python
+import random
+
+
+computer_hand = random.choice(["Schere", "Stein", "Papier"])
+```
+
+Mit diesem Befehl wählt der Computer zufällig ein Element aus der Liste.
+
+
 # Galgenmännchen
 
 Schreiben Sie ein Programm, in dem ein String mit dem Namen _unbekanntes_wort_ gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.

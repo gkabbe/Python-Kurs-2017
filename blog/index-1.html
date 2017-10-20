@@ -263,6 +263,18 @@ Er lässt sich in Python gut mit Mengen lösen.</p>
 <p>Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen</p>
 </li>
 </ul>
+<h2>Schere, Stein, Papier</h2>
+<p>Schreiben Sie ein Programm, das mit Ihnen Schere, Stein, Papier spielt.
+Um den Computer dazu zu bringen, zufällig zwischen Schere, Stein und Papier zu wählen,
+schreiben Sie folgendes:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="n">computer_hand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"Schere"</span><span class="p">,</span> <span class="s2">"Stein"</span><span class="p">,</span> <span class="s2">"Papier"</span><span class="p">])</span>
+</pre>
+
+
+<p>Mit diesem Befehl wählt der Computer zufällig ein Element aus der Liste.</p>
 <h2>Galgenmännchen</h2>
 <p>Schreiben Sie ein Programm, in dem ein String mit dem Namen <em>unbekanntes_wort</em> gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
 In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:</p>
@@ -1147,7 +1159,8 @@ Somit ist dieses Statement erfüllt, und daher wird der Python-Code danach ausge
 
 
 <h3>Aufgabe</h3>
-<p>Ändern Sie die obigen Beispiele ab, um zu sehen, wie das Programm auf verschiedene Werte reagiert.</p>
+<p>Ändern Sie in den obigen Beispiele die Werte für <code>temperatur</code> und <code>anzahl_räder</code> ab, 
+um zu sehen, wie die beiden Programm auf verschiedene Werte reagieren.</p>
 <h2>Schleifen</h2>
 <p>Schleifen sind immer dann hilfreich wenn wir eine bestimmte Aufgabe mehrmals ausführen wollen.</p>
 <p>In Python gibt es zwei Arten von Schleifen:</p>
@@ -1201,7 +1214,8 @@ wird so oft ausgeführt, wie die for-Schleife durchlaufen wird.</p>
 Jedes mal wenn der eingerückte Code ausgeführt wird, erhöht sich der Wert von <em>i</em> um eins.</p>
 <p>Außerdem sieht man, dass die Aufzählung nicht bei 1, sondern bei 0 startet.</p>
 <h4>Aufgabe</h4>
-<p>Lassen Sie sich mithilfe einer for-Schleife die geraden Zahlen von 0 bis 18 ausgeben.</p>
+<p>Lassen Sie sich mithilfe einer for-Schleife die geraden Zahlen von 0 bis 18 ausgeben.
+Verwenden Sie dafür eine if-Abfrage, um zu prüfen, ob es sich um eine gerade Zahl handelt.</p>
 <h3>While-Schleife</h3>
 <p>Die While-Schleife wird benutzt, um eine Bedingung zu prüfen, und wenn diese erfüllt ist, den nachfolgenden Code auszuführen</p>
 <p>Beispiel:</p>
@@ -1402,7 +1416,7 @@ Z.B. lässt sich ein Integer folgendermaßen zu einem Float konvertieren:</p>
 <p>Beim Start fragt es nach einem Passwort. Erst wenn der User das korrekte Passwort eingegeben hat, wird "Hello World" ausgegeben.</p>
 </li>
 <li>
-<p>Diesmal sind nur 3 Fehlversuche erlaubt. Danach bricht das Programm ohne Ausgabe ab</p>
+<p>Schreiben Sie es so um, dass nur 3 Fehlversuche erlaubt sind. Danach bricht das Programm mit dem Hinweis "Zu viele Fehlversuche" ab</p>
 </li>
 </ul>
 </div>

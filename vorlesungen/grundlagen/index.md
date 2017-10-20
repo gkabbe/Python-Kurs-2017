@@ -390,7 +390,8 @@ Ein Zweirad!
 
 ## Aufgabe
 
-Ändern Sie die obigen Beispiele ab, um zu sehen, wie das Programm auf verschiedene Werte reagiert.
+Ändern Sie in den obigen Beispiele die Werte für ```temperatur``` und ```anzahl_räder``` ab, 
+um zu sehen, wie die beiden Programm auf verschiedene Werte reagieren.
 
 
 # Schleifen
@@ -463,6 +464,7 @@ Außerdem sieht man, dass die Aufzählung nicht bei 1, sondern bei 0 startet.
 ### Aufgabe
 
 Lassen Sie sich mithilfe einer for-Schleife die geraden Zahlen von 0 bis 18 ausgeben.
+Verwenden Sie dafür eine if-Abfrage, um zu prüfen, ob es sich um eine gerade Zahl handelt.
 
 
 ## While-Schleife

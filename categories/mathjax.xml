@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml"></atom:link><language>de</language><lastBuildDate>Fri, 07 Jul 2017 10:40:04 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>5 - Numpy - Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h3&gt;Broadcasting&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml"></atom:link><language>de</language><lastBuildDate>Fri, 20 Oct 2017 08:22:29 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>5 - Numpy - Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h3&gt;Broadcasting&lt;/h3&gt;
 &lt;p&gt;Gegeben sind die Positionen von 3 Atomen:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 
@@ -749,6 +749,18 @@ Er lässt sich in Python gut mit Mengen lösen.&lt;/p&gt;
 &lt;p&gt;Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;Schere, Stein, Papier&lt;/h2&gt;
+&lt;p&gt;Schreiben Sie ein Programm, das mit Ihnen Schere, Stein, Papier spielt.
+Um den Computer dazu zu bringen, zufällig zwischen Schere, Stein und Papier zu wählen,
+schreiben Sie folgendes:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
+
+
+&lt;span class="n"&gt;computer_hand&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s2"&gt;"Schere"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Stein"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Papier"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Mit diesem Befehl wählt der Computer zufällig ein Element aus der Liste.&lt;/p&gt;
 &lt;h2&gt;Galgenmännchen&lt;/h2&gt;
 &lt;p&gt;Schreiben Sie ein Programm, in dem ein String mit dem Namen &lt;em&gt;unbekanntes_wort&lt;/em&gt; gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
 In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:&lt;/p&gt;
