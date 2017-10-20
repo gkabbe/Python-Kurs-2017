@@ -103,4 +103,4 @@ Schreiben Sie ein passwortgeschütztes Hello World Programm.
 
 * Beim Start fragt es nach einem Passwort. Erst wenn der User das korrekte Passwort eingegeben hat, wird "Hello World" ausgegeben.
 
-* Diesmal sind nur 3 Fehlversuche erlaubt. Danach bricht das Programm ohne Ausgabe ab
+* Schreiben Sie es so um, dass nur 3 Fehlversuche erlaubt sind. Danach bricht das Programm mit dem Hinweis "Zu viele Fehlversuche" ab
