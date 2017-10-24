@@ -23,6 +23,123 @@ quadrat_zahlen = [1, 4, 9, 16, 26, 36, 49, 64, 81, 100]
 
 * Fügen Sie noch eine weitere Quadratzahl hinzu
 
+
+
+## Noch mehr Listen
+
+* Gegeben ist eine Liste von Strings
+
+```python
+string_liste = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+```
+
+  Machen Sie daraus eine Liste von Integers!
+
+* In der Vorlesung wurde eine xyz-Datei eingelesen und in eine Atomnamen-Liste und eine Positionsliste gespeichert. Benutzen Sie die beiden Listen um herauszufinden:
+    * Wieviel Wasserstoffatome (Buchstabe H) nicht weiter als 2.0 Angström (Längeneinheit, entspricht \\(10^{-10}\\) m) von einem Sauerstoffatom (O) entfernt sind.
+    * Wieviele Sauerstoffatome in der Nähe jedes Phosphoratoms (P) sitzen 
+
+
+## Listen entpacken
+
+Gegeben ist eine Liste von zwei Elementen
+
+
+```python
+liste = ["erstes element", "zweites element"]
+```
+
+Was passiert wenn Sie folgendes schreiben:
+
+```python
+a, b = liste
+```
+
+Funktioniert das auch für mehr Elemente?
+
+
+## Liste von Listen
+
+Gegeben ist
+
+```python
+liste = [[0, "a"], [1, "b"], [2, "c"]]
+```
+
+Iterieren Sie nun mit einer for-Schleife über die Liste:
+
+```python
+for x in liste:
+    ...
+```
+
+Was steht nun in x?
+
+Entpacken Sie x, sodass Sie eine Variable i und eine Variable elem haben.
+Was enthält nun i, und was elem?
+
+Entpacken Sie nun direkt in der Zeile der for-Schleife:
+
+```python
+for i, elem in liste:
+    ...
+```
+
+
+## Enumerate
+
+Sie haben eine Liste
+
+```python
+liste = ["a", "b", "c"]
+```
+
+Wenden Sie die Funktion enumerate darauf an:
+
+```python
+enum = enumerate(liste)
+```
+
+Um sich anzuschauen, was enum enthält, schreiben Sie:
+
+```python
+print(list(enum))
+```
+
+Benutzen Sie nun enumerate, um parallel über den Index und die Elemente einer Liste zu iterieren.
+
+
+## zip
+
+Diesmal haben Sie zwei Listen:
+
+
+```python
+erste_liste = ["a", "b", "c"]
+zweite_liste = ["x", "y", "z"]
+```
+
+Benutzen Sie zip (Reißverschluss):
+
+```python
+gezippte_liste = zip(erste_liste, zweite_liste)
+print(list(gezippte_liste))
+```
+
+Was ist passiert?
+
+
+Nutzen Sie nun zip, um über folgende drei Listen zu iterieren:
+
+```python
+liste1 = ["S", "i", "e", "ri"]
+liste2 = ["o", "s", "s", "ch"]
+liste3 = ["", "t", "", "tig"]
+```
+
+Lassen Sie sich in jedem Schleifendurchlauf die Summe der Elemente ausgeben mit print.
+
+
 ## Einkaufliste:
 
 * Erstellen Sie eine Einkaufsliste bestehend aus (maximal) 10 Produkten, sowie eine Liste mit den dazugehörigen Preisen.
@@ -51,23 +168,6 @@ Gegenstand_10, Preis_10
 
 * Lassen Sie sich nun nur jeden zweiten Gegenstand ausgeben
 
-* Erstellen Sie eine Liste der Quadratzahlen von 1 bis 400
-
-## Noch mehr Listen
-
-* Gegeben ist eine Liste von Strings
-
-```python
-string_liste = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-```
-
-  Machen Sie daraus eine Liste von Integers!
-
-* In der Vorlesung wurde eine xyz-Datei eingelesen und in eine Atomnamen-Liste und eine Positionsliste gespeichert. Benutzen Sie die beiden Listen um herauszufinden:
-    * Wieviel Wasserstoffatome (Buchstabe H) nicht weiter als 2.0 Angström (Längeneinheit, entspricht \\(10^{-10}\\) m) von einem Sauerstoffatom (O) entfernt sind.
-    * Wieviele Sauerstoffatome in der Nähe jedes Phosphoratoms (P) sitzen 
-
-
 # Daten einlesen:
 
 * Schreiben Sie eine Datei "Daten", in die Sie ein paar numerische Werte eintragen (am einfachsten ist es, wenn Sie pro Zeile einen Wert schreiben)
@@ -76,6 +176,25 @@ string_liste = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 * Berechnen Sie die Summe und den Mittelwert der Daten
   
+
+# Strings
+
+
+* Schreiben Sie ein Programm, das den User nach Input fragt, und das Geschriebene in Großbuchstaben
+zurückgibt. Bei Eingabe von "Hallo" sollte also "HALLO" ausgegeben werden
+
+
+* Finden Sie heraus, wie man aus einem String eine Liste von Strings erstellt
+
+  z.B: "Dies ist ein Satz" -> ["Dies", "ist", "ein", "Satz"]
+
+* Schreiben Sie ein Programm, das den User nach einem Satz fragt, und nur das erste und das letzte
+  Wort zurückgibt
+
+* Finden Sie heraus, wie man die Reihenfolge der Elemente in einer Liste umdreht
+
+* Schreiben Sie ein Programm, das den User nach einem Satz fragt, und die Wörter in umgekehrter
+  Reihenfolge ausgibt
 
 # Mengen
 
