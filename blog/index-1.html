@@ -69,7 +69,74 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/2-datenstrukturen-ubungen/" class="u-url">2 - Datenstrukturen: Übung</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/2.5-doityourself/" class="u-url">2.5 - Python Selbsthilfekurs</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../vorlesungen/2.5-doityourself/" rel="bookmark"><time class="published dt-published" datetime="2017-04-21T00:00:00+01:00" title="2017-04-21 00:00">2017-04-21 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Hilfe in IPython</h2>
+<p>IPython hat ein paar Extras eingebaut, die das Lernen von Python leichter machen.
+Mithilfe von Tab kann man sich z.B. viele Dinge ergänzen lassen.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+<span class="n">liste</span><span class="o">.</span>
+</pre>
+
+
+<p>Wenn wir nach dem Punkt Tab drücken, bekommen wir angezeigt, welche Methoden 
+(was eine Methode genau ist, wird später noch genauer erklärt) die Liste ausführen kann.</p>
+<p>Eine dieser Methoden ist "count".
+Ergänzen Sie nun count, und benutzen die help-Funktion:</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+<span class="n">help</span><span class="p">(</span><span class="n">liste</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+</pre>
+
+
+<p>Wenn Sie nun Enter drücken, sollte folgendes erscheinen:</p>
+<pre class="code literal-block"><span></span>Help on built-in function count:
+
+count(...) method of builtins.list instance
+    L.count(value) -&gt; integer -- return number of occurrences of value
+</pre>
+
+
+<p>Eine kleine Dokumentation, die uns sagt, was count eigentlich tut.</p>
+<p>Gleich mal ausprobieren:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
+</pre>
+
+
+<p>Ergebnis ist 2, denn "a" kommt zweimal in der Liste vor.</p>
+<p>Mithilfe der help-Funktion kann man also leicht herausfinden, wozu etwas in Python gut ist.</p>
+<p>Probieren Sie doch auch mal aus:</p>
+<pre class="code literal-block"><span></span><span class="n">help</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="n">help</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="n">help</span><span class="p">(</span><span class="n">help</span><span class="p">)</span>
+</pre>
+
+
+<h3>Aufgaben:</h3>
+<ul>
+<li>
+<p>Schauen Sie, was für weitere Methoden es für Listen gibt, und probieren Sie sie aus!</p>
+</li>
+<li>
+<p>Was passiert bei Strings?</p>
+</li>
+</ul>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/2-datenstrukturen-ubungen/" class="u-url">2 - Datenstrukturen: Übung</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe
@@ -93,6 +160,94 @@
 <p>Fügen Sie noch eine weitere Quadratzahl hinzu</p>
 </li>
 </ul>
+<h3>Noch mehr Listen</h3>
+<ul>
+<li>Gegeben ist eine Liste von Strings</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">string_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">,</span> <span class="s2">"4"</span><span class="p">,</span> <span class="s2">"5"</span><span class="p">,</span> <span class="s2">"6"</span><span class="p">,</span> <span class="s2">"7"</span><span class="p">,</span> <span class="s2">"8"</span><span class="p">,</span> <span class="s2">"9"</span><span class="p">,</span> <span class="s2">"10"</span><span class="p">]</span>
+</pre>
+
+
+<p>Machen Sie daraus eine Liste von Integers!</p>
+<ul>
+<li>In der Vorlesung wurde eine xyz-Datei eingelesen und in eine Atomnamen-Liste und eine Positionsliste gespeichert. Benutzen Sie die beiden Listen um herauszufinden:<ul>
+<li>Wieviel Wasserstoffatome (Buchstabe H) nicht weiter als 2.0 Angström (Längeneinheit, entspricht \(10^{-10}\) m) von einem Sauerstoffatom (O) entfernt sind.</li>
+<li>Wieviele Sauerstoffatome in der Nähe jedes Phosphoratoms (P) sitzen </li>
+</ul>
+</li>
+</ul>
+<h3>Listen entpacken</h3>
+<p>Gegeben ist eine Liste von zwei Elementen</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"erstes element"</span><span class="p">,</span> <span class="s2">"zweites element"</span><span class="p">]</span>
+</pre>
+
+
+<p>Was passiert wenn Sie folgendes schreiben:</p>
+<pre class="code literal-block"><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">liste</span>
+</pre>
+
+
+<p>Funktioniert das auch für mehr Elemente?</p>
+<h3>Liste von Listen</h3>
+<p>Gegeben ist</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]]</span>
+</pre>
+
+
+<p>Iterieren Sie nun mit einer for-Schleife über die Liste:</p>
+<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre>
+
+
+<p>Was steht nun in x?</p>
+<p>Entpacken Sie x, sodass Sie eine Variable i und eine Variable elem haben.
+Was enthält nun i, und was elem?</p>
+<p>Entpacken Sie nun direkt in der Zeile der for-Schleife:</p>
+<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre>
+
+
+<h3>Enumerate</h3>
+<p>Sie haben eine Liste</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+</pre>
+
+
+<p>Wenden Sie die Funktion enumerate darauf an:</p>
+<pre class="code literal-block"><span></span><span class="n">enum</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+</pre>
+
+
+<p>Um sich anzuschauen, was enum enthält, schreiben Sie:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">enum</span><span class="p">))</span>
+</pre>
+
+
+<p>Benutzen Sie nun enumerate, um parallel über den Index und die Elemente einer Liste zu iterieren.</p>
+<h3>zip</h3>
+<p>Diesmal haben Sie zwei Listen:</p>
+<pre class="code literal-block"><span></span><span class="n">erste_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+<span class="n">zweite_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">]</span>
+</pre>
+
+
+<p>Benutzen Sie zip (Reißverschluss):</p>
+<pre class="code literal-block"><span></span><span class="n">gezippte_liste</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">erste_liste</span><span class="p">,</span> <span class="n">zweite_liste</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">gezippte_liste</span><span class="p">))</span>
+</pre>
+
+
+<p>Was ist passiert?</p>
+<p>Nutzen Sie nun zip, um über folgende drei Listen zu iterieren:</p>
+<pre class="code literal-block"><span></span><span class="n">liste1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"S"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="s2">"ri"</span><span class="p">]</span>
+<span class="n">liste2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"o"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"ch"</span><span class="p">]</span>
+<span class="n">liste3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"tig"</span><span class="p">]</span>
+</pre>
+
+
+<p>Lassen Sie sich in jedem Schleifendurchlauf die Summe der Elemente ausgeben mit print.</p>
 <h3>Einkaufliste:</h3>
 <ul>
 <li>Erstellen Sie eine Einkaufsliste bestehend aus (maximal) 10 Produkten, sowie eine Liste mit den dazugehörigen Preisen.</li>
@@ -123,28 +278,7 @@ Gegenstand_10, Preis_10
 
 <p>(Hinweis: zip!)</p>
 <ul>
-<li>
-<p>Lassen Sie sich nun nur jeden zweiten Gegenstand ausgeben</p>
-</li>
-<li>
-<p>Erstellen Sie eine Liste der Quadratzahlen von 1 bis 400</p>
-</li>
-</ul>
-<h3>Noch mehr Listen</h3>
-<ul>
-<li>Gegeben ist eine Liste von Strings</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">string_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">,</span> <span class="s2">"4"</span><span class="p">,</span> <span class="s2">"5"</span><span class="p">,</span> <span class="s2">"6"</span><span class="p">,</span> <span class="s2">"7"</span><span class="p">,</span> <span class="s2">"8"</span><span class="p">,</span> <span class="s2">"9"</span><span class="p">,</span> <span class="s2">"10"</span><span class="p">]</span>
-</pre>
-
-
-<p>Machen Sie daraus eine Liste von Integers!</p>
-<ul>
-<li>In der Vorlesung wurde eine xyz-Datei eingelesen und in eine Atomnamen-Liste und eine Positionsliste gespeichert. Benutzen Sie die beiden Listen um herauszufinden:<ul>
-<li>Wieviel Wasserstoffatome (Buchstabe H) nicht weiter als 2.0 Angström (Längeneinheit, entspricht \(10^{-10}\) m) von einem Sauerstoffatom (O) entfernt sind.</li>
-<li>Wieviele Sauerstoffatome in der Nähe jedes Phosphoratoms (P) sitzen </li>
-</ul>
-</li>
+<li>Lassen Sie sich nun nur jeden zweiten Gegenstand ausgeben</li>
 </ul>
 <h2>Daten einlesen:</h2>
 <ul>
@@ -156,6 +290,30 @@ Gegenstand_10, Preis_10
 </li>
 <li>
 <p>Berechnen Sie die Summe und den Mittelwert der Daten</p>
+</li>
+</ul>
+<h2>Strings</h2>
+<ul>
+<li>
+<p>Schreiben Sie ein Programm, das den User nach Input fragt, und das Geschriebene in Großbuchstaben
+zurückgibt. Bei Eingabe von "Hallo" sollte also "HALLO" ausgegeben werden</p>
+</li>
+<li>
+<p>Finden Sie heraus, wie man aus einem String eine Liste von Strings erstellt</p>
+</li>
+</ul>
+<p>z.B: "Dies ist ein Satz" -&gt; ["Dies", "ist", "ein", "Satz"]</p>
+<ul>
+<li>
+<p>Schreiben Sie ein Programm, das den User nach einem Satz fragt, und nur das erste und das letzte
+  Wort zurückgibt</p>
+</li>
+<li>
+<p>Finden Sie heraus, wie man die Reihenfolge der Elemente in einer Liste umdreht</p>
+</li>
+<li>
+<p>Schreiben Sie ein Programm, das den User nach einem Satz fragt, und die Wörter in umgekehrter
+  Reihenfolge ausgibt</p>
 </li>
 </ul>
 <h2>Mengen</h2>
