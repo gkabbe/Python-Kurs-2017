@@ -196,7 +196,9 @@ zurückgibt. Bei Eingabe von "Hallo" sollte also "HALLO" ausgegeben werden
 * Schreiben Sie ein Programm, das den User nach einem Satz fragt, und die Wörter in umgekehrter
   Reihenfolge ausgibt
 
-# Mengen
+# Mengen (Sets)
+
+## Einkäufe
 
 Sie und ein(e) Bekannte(r) waren shoppen. 
 Sie haben gekauft:
@@ -224,7 +226,12 @@ Benutzen Sie Mengenoperationen um herauszufinden:
 * Welche Dinge haben Sie nicht beide gekauft?
 
 
-# Sieb des Eratosthenes
+## Buchstaben in einem Wort
+
+Benutzen Sie set, um herauszufinden, aus wieviel verschiedenen Buchstaben ein Wort besteht
+
+
+## Sieb des Eratosthenes
 
 Das Sieb des Eratosthenes ist ein Algorithmus, mit dem man Primzahlen bestimmen kann.
 Er lässt sich in Python gut mit Mengen lösen.
