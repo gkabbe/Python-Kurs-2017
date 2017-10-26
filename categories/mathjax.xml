@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml" type="application/rss+xml" rel="self"></atom:link><language>de</language><lastBuildDate>Tue, 24 Oct 2017 14:55:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>5 - Numpy - Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h3&gt;Broadcasting&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml" rel="self"></atom:link><language>de</language><lastBuildDate>Thu, 26 Oct 2017 11:38:19 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>5 - Numpy - Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h3&gt;Broadcasting&lt;/h3&gt;
 &lt;p&gt;Gegeben sind die Positionen von 3 Atomen:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 
@@ -735,7 +735,8 @@ zurückgibt. Bei Eingabe von "Hallo" sollte also "HALLO" ausgegeben werden&lt;/p
   Reihenfolge ausgibt&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Mengen&lt;/h2&gt;
+&lt;h2&gt;Mengen (Sets)&lt;/h2&gt;
+&lt;h3&gt;Einkäufe&lt;/h3&gt;
 &lt;p&gt;Sie und ein(e) Bekannte(r) waren shoppen. 
 Sie haben gekauft:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;meine_einkäufe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"hose"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"jacke"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schuhe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schokoriegel"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"schal"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"flatscreen"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
@@ -765,7 +766,9 @@ Sie haben gekauft:&lt;/p&gt;
 &lt;p&gt;Welche Dinge haben Sie nicht beide gekauft?&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Sieb des Eratosthenes&lt;/h2&gt;
+&lt;h3&gt;Buchstaben in einem Wort&lt;/h3&gt;
+&lt;p&gt;Benutzen Sie set, um herauszufinden, aus wieviel verschiedenen Buchstaben ein Wort besteht&lt;/p&gt;
+&lt;h3&gt;Sieb des Eratosthenes&lt;/h3&gt;
 &lt;p&gt;Das Sieb des Eratosthenes ist ein Algorithmus, mit dem man Primzahlen bestimmen kann.
 Er lässt sich in Python gut mit Mengen lösen.&lt;/p&gt;
 &lt;p&gt;Um die Primzahlen von 2 bis &lt;em&gt;n_max&lt;/em&gt; zu bestimmen, tun Sie folgendes:&lt;/p&gt;

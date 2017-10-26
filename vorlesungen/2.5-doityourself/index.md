@@ -22,8 +22,7 @@ liste = ["a", "a", "b", "c"]
 liste.
 ```
 
-Wenn wir nach dem Punkt Tab drücken, bekommen wir angezeigt, welche Methoden 
-(was eine Methode genau ist, wird später noch genauer erklärt) die Liste ausführen kann.
+Wenn wir nach dem Punkt Tab drücken, bekommen wir angezeigt, welche Methoden die Liste ausführen kann.
 
 Eine dieser Methoden ist "count".
 Ergänzen Sie nun count, und benutzen die help-Funktion:
@@ -75,3 +74,5 @@ help(help)
 * Schauen Sie, was für weitere Methoden es für Listen gibt, und probieren Sie sie aus!
 
 * Was passiert bei Strings?
+
+* Was ist ein set?
