@@ -249,6 +249,61 @@ Um die Primzahlen von 2 bis _n_max_ zu bestimmen, tun Sie folgendes:
 
 
 
+
+# Schere, Stein, Papier
+
+Schreiben Sie ein Programm, das mit Ihnen Schere, Stein, Papier spielt.
+Um den Computer dazu zu bringen, zufällig zwischen Schere, Stein und Papier zu wählen,
+schreiben Sie folgendes:
+
+
+```python
+import random
+
+
+computer_hand = random.choice(["Schere", "Stein", "Papier"])
+```
+
+Mit diesem Befehl wählt der Computer zufällig ein Element aus der Liste.
+
+
+# Galgenmännchen
+
+Schreiben Sie ein Programm, in dem ein String mit dem Namen _unbekanntes_wort_ gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
+In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:
+
+* Zuerst wird jeder Buchstabe von _unbekanntes_wort_ durchlaufen, und, wenn er in _geratene_woerter_ enthalten ist, ausgegeben. Ist er nicht enthalten, wird ein "-" ausgegeben.   
+  Beispiel:  
+
+    * Das geheime Wort ist _wochenende_
+    * _geratene_woerter_ enthält {"n", "e"}
+    * Ausgabe ist dann: "- - - - e n e n - e"
+
+* Dann muss der User einen neuen Buchstaben eingeben (Achtung, genau einen!). Dieser wird in _geratene_woerter_ gespeichert
+
+* Ergänzen Sie das Programm nun so, dass es mit einer Glückwunschsnachricht abbricht, sobald der User alle Buchstaben geraten hat.
+
+* Erlauben Sie nur maximal 11 Fehlversuche, bevor das Programm mit "Game Over" abbricht
+
+* Bonus: Anstatt das Wort in den Quellcode zu schreiben, lassen Sie es einen Mitspieler am Anfang eingeben. Wenn Sie
+  folgendes zu Beginn schreiben:
+  
+```python
+from getpass import getpass
+```
+
+können Sie mittels 
+  
+```python
+unbekanntes_wort = getpass("Bitte zu ratendes Wort eingeben\n")
+```
+
+das geheime Wort eingeben lassen, ohne dass es auf dem Bildschirm zu sehen ist.
+  
+* Spielen Sie eine Runde Galgenmännchen mit Ihrem Nachbarn  
+
+
+
 # Dictionary
 
 Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:
@@ -306,55 +361,3 @@ text.replace(zu_ersetzendes_zeichen, "")
 * Benutzen Sie Sets (Mengen), um herauszufinden, welche Wörter in jeder der ersten 6 Zeilen vorkommen.
 
 * Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen
-
-# Schere, Stein, Papier
-
-Schreiben Sie ein Programm, das mit Ihnen Schere, Stein, Papier spielt.
-Um den Computer dazu zu bringen, zufällig zwischen Schere, Stein und Papier zu wählen,
-schreiben Sie folgendes:
-
-
-```python
-import random
-
-
-computer_hand = random.choice(["Schere", "Stein", "Papier"])
-```
-
-Mit diesem Befehl wählt der Computer zufällig ein Element aus der Liste.
-
-
-# Galgenmännchen
-
-Schreiben Sie ein Programm, in dem ein String mit dem Namen _unbekanntes_wort_ gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
-In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:
-
-* Zuerst wird jeder Buchstabe von _unbekanntes_wort_ durchlaufen, und, wenn er in _geratene_woerter_ enthalten ist, ausgegeben. Ist er nicht enthalten, wird ein "-" ausgegeben.   
-  Beispiel:  
-
-    * Das geheime Wort ist _wochenende_
-    * _geratene_woerter_ enthält {"n", "e"}
-    * Ausgabe ist dann: "- - - - e n e n - e"
-
-* Dann muss der User einen neuen Buchstaben eingeben (Achtung, genau einen!). Dieser wird in _geratene_woerter_ gespeichert
-
-* Ergänzen Sie das Programm nun so, dass es mit einer Glückwunschsnachricht abbricht, sobald der User alle Buchstaben geraten hat.
-
-* Erlauben Sie nur maximal 11 Fehlversuche, bevor das Programm mit "Game Over" abbricht
-
-* Bonus: Anstatt das Wort in den Quellcode zu schreiben, lassen Sie es einen Mitspieler am Anfang eingeben. Wenn Sie
-  folgendes zu Beginn schreiben:
-  
-```python
-from getpass import getpass
-```
-
-können Sie mittels 
-  
-```python
-unbekanntes_wort = getpass("Bitte zu ratendes Wort eingeben\n")
-```
-
-das geheime Wort eingeben lassen, ohne dass es auf dem Bildschirm zu sehen ist.
-  
-* Spielen Sie eine Runde Galgenmännchen mit Ihrem Nachbarn  
