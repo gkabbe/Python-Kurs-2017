@@ -9,12 +9,37 @@
 .. type: text
 -->
 
-# Aufgabe max
+# Funktionen
+
+## Hallo, name!
+
+Schreiben Sie eine Funktion "hallo", die als Parameter einen Namen erwartet, und bei Aufruf diesen
+grüßt.
+
+```python
+def hallo(name):
+    ...
+```
+
+Beispiel:
+
+```python
+hallo("Karl")
+```
+
+Ausgabe:
+
+```
+Hallo, Karl!
+```
+
+
+## Aufgabe max
 
 * Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt
 * Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt
 
-# Aufgabe Listen
+## Listen
 
 Gegeben sind eine Funktion und eine Liste
 
@@ -25,13 +50,9 @@ def f(x):
 numbers = list(range(1, 21))
 ```
 
-Wenden Sie die Funktion auf jedes Element der Liste an.
+Wenden Sie die Funktion auf jedes Element der Liste an und speichern Sie die Ergebnisse in einer
+neuen Liste.
 
-# Aufgabe Palindrom
-
-Schreiben Sie eine Funktion _palindrom_, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).
-
-Implementieren Sie diese Funktion sowohl iterativ, als auch rekursiv!
 
 # Ein- und Ausgabe
 
@@ -43,6 +64,29 @@ Schreiben Sie eine Funktion _read_file_, die einen Dateinamen als Argument erwar
 
 Schreiben Sie eine Funktion _write_file_, die als Argumente einen Dateinamen, sowie eine Liste mit Strings erwartet und diese in eine Datei schreibt.
 
+
+# Aufgabe Palindrom
+
+Schreiben Sie eine Funktion _palindrom_, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).
+
+
+Beispiel:
+
+```python
+def palindrom(wort):
+    ...
+
+print(palindrom("anna"))
+print(palindrom("anne"))
+```
+
+Ausgabe:
+
+```
+True
+False
+```
+
 # Zahlen von 1 bis n
 
 Schreiben Sie eine Funktion, die bei Eingabe einer natürlichen Zahl n die Zahlen von 1 bis n ausgibt.
@@ -50,7 +94,8 @@ Jedoch ohne eine Schleife zu benutzen!
 
 # Matrix Multiplikation
 
-Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr Produkt ausgibt.
+Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr 
+Produkt ausgibt.
 
 Hinweis:
 
