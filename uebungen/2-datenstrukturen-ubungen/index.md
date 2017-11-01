@@ -35,10 +35,6 @@ string_liste = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
   Machen Sie daraus eine Liste von Integers!
 
-* In der Vorlesung wurde eine xyz-Datei eingelesen und in eine Atomnamen-Liste und eine Positionsliste gespeichert. Benutzen Sie die beiden Listen um herauszufinden:
-    * Wieviel Wasserstoffatome (Buchstabe H) nicht weiter als 2.0 Angström (Längeneinheit, entspricht \\(10^{-10}\\) m) von einem Sauerstoffatom (O) entfernt sind.
-    * Wieviele Sauerstoffatome in der Nähe jedes Phosphoratoms (P) sitzen 
-
 
 ## Listen entpacken
 

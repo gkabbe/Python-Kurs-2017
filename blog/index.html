@@ -5,7 +5,11 @@
 <meta name="description" content="Alle Informationen zum Python Kurs">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Python Kurs 2017</title>
-<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -66,6 +70,9 @@
         <!--Body content-->
         
         
+
+    
+
 
     
 <div class="postindex">
@@ -4070,12 +4077,31 @@ So können wir nun eine Funktion schreiben, die eine andere Funktion als Argumen
         </div>
     </header><div class="e-content entry-content">
     <div>
-<h2>Aufgabe max</h2>
+<h2>Funktionen</h2>
+<h3>Hallo, name!</h3>
+<p>Schreiben Sie eine Funktion "hallo", die als Parameter einen Namen erwartet, und bei Aufruf diesen
+grüßt.</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">hallo</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre>
+
+
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">hallo</span><span class="p">(</span><span class="s2">"Karl"</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>Hallo, Karl!
+</pre>
+
+
+<h3>Aufgabe max</h3>
 <ul>
 <li>Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt</li>
 <li>Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt</li>
 </ul>
-<h2>Aufgabe Listen</h2>
+<h3>Listen</h3>
 <p>Gegeben sind eine Funktion und eine Liste</p>
 <pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">x</span>
@@ -4084,20 +4110,36 @@ So können wir nun eine Funktion schreiben, die eine andere Funktion als Argumen
 </pre>
 
 
-<p>Wenden Sie die Funktion auf jedes Element der Liste an.</p>
-<h2>Aufgabe Palindrom</h2>
-<p>Schreiben Sie eine Funktion <em>palindrom</em>, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).</p>
-<p>Implementieren Sie diese Funktion sowohl iterativ, als auch rekursiv!</p>
+<p>Wenden Sie die Funktion auf jedes Element der Liste an und speichern Sie die Ergebnisse in einer
+neuen Liste.</p>
 <h2>Ein- und Ausgabe</h2>
 <h3>read_file</h3>
 <p>Schreiben Sie eine Funktion <em>read_file</em>, die einen Dateinamen als Argument erwartet und eine Liste mit den Zeilen der ausgelesenen Datei zurückgibt</p>
 <h3>write_file</h3>
 <p>Schreiben Sie eine Funktion <em>write_file</em>, die als Argumente einen Dateinamen, sowie eine Liste mit Strings erwartet und diese in eine Datei schreibt.</p>
+<h2>Aufgabe Palindrom</h2>
+<p>Schreiben Sie eine Funktion <em>palindrom</em>, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">palindrom</span><span class="p">(</span><span class="n">wort</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">palindrom</span><span class="p">(</span><span class="s2">"anna"</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">palindrom</span><span class="p">(</span><span class="s2">"anne"</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>True
+False
+</pre>
+
+
 <h2>Zahlen von 1 bis n</h2>
 <p>Schreiben Sie eine Funktion, die bei Eingabe einer natürlichen Zahl n die Zahlen von 1 bis n ausgibt.
 Jedoch ohne eine Schleife zu benutzen!</p>
 <h2>Matrix Multiplikation</h2>
-<p>Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr Produkt ausgibt.</p>
+<p>Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr 
+Produkt ausgibt.</p>
 <p>Hinweis:</p>
 <p>Eine Matrix können Sie als Liste von Listen speichern:</p>
 <pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -5014,7 +5056,7 @@ käse kostet 2.3
 
         <nav class="postindexpager clearfix"><a href="index-1.html" class="btn btn-secondary float-right" rel="next">Ältere Einträge</a>
         
-        </nav><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        </nav><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
@@ -5024,7 +5066,7 @@ käse kostet 2.3
 </div>
 
 
-            <script src="../assets/js/all-nocdn.js"></script><script src="../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../assets/js/jquery.min.js"></script><script src="../assets/js/tether.min.js"></script><script src="../assets/js/bootstrap.min.js"></script><script src="../assets/js/moment-with-locales.min.js"></script><script src="../assets/js/fancydates.js"></script><script src="../assets/js/jquery.colorbox-min.js"></script><script src="../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("de");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates -->
