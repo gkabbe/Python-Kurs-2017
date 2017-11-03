@@ -278,7 +278,8 @@ Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer di
 Gegeben ist eine sogenannte [xyz-Datei](https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/%C3%9Cbungen/molecule-example.xyz), die eine Auflistung von Atomen und
 ihren Positionen enthält.
 In der ersten Zeile dieser Datei steht die Anzahl der Atome, die zweite Zeile enthält Kommentare.
-Schließlich erfolgt die Auflistung.
+Schließlich erfolgt die Auflistung der Atome. Dabei besteht jede Zeile aus dem Atomnamen und der Position in
+x-, y- und z-Richtung.
 
 Beantworten Sie folgende Fragen:
 
