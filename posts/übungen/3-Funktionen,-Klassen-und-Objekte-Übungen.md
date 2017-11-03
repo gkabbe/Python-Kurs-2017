@@ -1,5 +1,5 @@
 <!-- 
-.. title: Übungen - 3.11.17
+.. title: 3 - Übungen - 3.11.17
 .. slug: funktionen_klassen_objekte_uebungen
 .. date: 2017-11-03 00:00:00 UTC+01:00
 .. tags: 
@@ -58,10 +58,17 @@ neuen Liste.
 
 ## Liste filtern
 
-Ein Zoo besitzt eine Liste von Tieren:
+Ein Zoo besitzt eine [Liste von Tieren](https://raw.githubusercontent.com/gkabbe/Python-Kurs-2017/src/extras/tierliste)
 
+* Benutzen Sie eine List Comprehension, um eine Liste aller Tiere zu erstellen, die mit "A" anfangen
 
+* Erstellen Sie eine Liste aller Fische (also aller Tiere, die "Fisch" im Namen haben)
 
+* Erstellen Sie nun für jeden Buchstaben im Alphabet eine Liste von Tieren, die mit diesem Buchstaben
+anfangen
+
+* Bonus: Erstellen Sie ein Dictionary, das für den entsprechenden Anfangsbuchstaben die zuvor erstellte
+Liste zurückgibt
 
 # Ein- und Ausgabe
 
@@ -264,4 +271,17 @@ z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).
 So gilt beispielsweise für die Zahl 6 (vierte Zeile) im obigen Dreieck: sie steht in der 4.Zeile (bei Null anfangen zu zählen!) an zweiter Stelle, und ist die Summe aus der Zahl in der 3. Zeile an erster Stelle und der Zahl in der 3. Zeile an zweiter Stelle.
 
 Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer die Einträge des Pascalschen Dreiecks ausgibt.
+
+
+# Theoretische Chemie
+
+Gegeben ist eine sogenannte [xyz-Datei](https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/%C3%9Cbungen/molecule-example.xyz), die eine Auflistung von Atomen und
+ihren Positionen enthält.
+In der ersten Zeile dieser Datei steht die Anzahl der Atome, die zweite Zeile enthält Kommentare.
+Schließlich erfolgt die Auflistung.
+
+Beantworten Sie folgende Fragen:
+
+* Wieviel Wasserstoffatome (Buchstabe H) sind nicht mehr als 2.0 Angström (Längeneinheit, entspricht \\(10^{-10}\\) m) von einem Sauerstoffatom (O) entfernt?
+* Wieviele Sauerstoffatome sitzen in der Nähe jedes Phosphoratoms (P)? 
 

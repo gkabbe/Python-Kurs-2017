@@ -1,7 +1,7 @@
 <!-- 
 .. title: 4 - Module & Exceptions - Übung
 .. slug: module_exceptions_uebungen
-.. date: 2017-07-06 00:00:00 UTC+01:00
+.. date: 2017-11-10 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 

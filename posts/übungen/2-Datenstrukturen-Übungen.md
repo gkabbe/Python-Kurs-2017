@@ -1,5 +1,5 @@
 <!-- 
-.. title: Übungen - 27.10.17
+.. title: 2 - Übungen - 27.10.17
 .. slug: 2-datenstrukturen-ubungen
 .. date: 2017-10-27 14:19:07 UTC+02:00
 .. tags: mathjax

@@ -1,7 +1,7 @@
 <!-- 
 .. title: 5 - Numpy - Übung
 .. slug: numpy_uebungen
-.. date: 2017-07-07 00:00:00 UTC+01:00
+.. date: 2017-12-01 00:00:00 UTC+01:00
 .. tags: mathjax
 .. category: 
 .. link: 
