@@ -1,7 +1,7 @@
 <!-- 
-.. title: 2 - Datenstrukturen: Übung
+.. title: Übungen - 27.10.17
 .. slug: 2-datenstrukturen-ubungen
-.. date: 2017-04-20 14:19:07 UTC+02:00
+.. date: 2017-10-27 14:19:07 UTC+02:00
 .. tags: mathjax
 .. category: 
 .. link: 
@@ -297,19 +297,6 @@ unbekanntes_wort = getpass("Bitte zu ratendes Wort eingeben\n")
 das geheime Wort eingeben lassen, ohne dass es auf dem Bildschirm zu sehen ist.
   
 * Spielen Sie eine Runde Galgenmännchen mit Ihrem Nachbarn  
-
-
-
-# Dictionary
-
-Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:
-
-```python
-englisch_deutsch_dict = {"hello": "hallo", "world": "welt", "good bye": "auf wiedersehen"}
-```
-
-Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!
-
 
 
 # Wortzähler
