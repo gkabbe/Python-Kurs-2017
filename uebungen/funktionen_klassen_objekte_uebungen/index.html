@@ -3,12 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>3 - Funktionen, Klassen und Objekte - Übung | Python Kurs 2017</title>
-<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/code.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/colorbox.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/theme.css" rel="stylesheet" type="text/css">
+<title>3 - Übungen - 3.11.17 | Python Kurs 2017</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -16,10 +12,9 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_klassen_objekte_uebungen/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
-<link rel="prev" href="../2-datenstrukturen-ubungen/" title="2 - Datenstrukturen: Übung" type="text/html">
-<link rel="next" href="../module_exceptions_uebungen/" title="4 - Module &amp; Exceptions - Übung" type="text/html">
+<link rel="prev" href="../2-datenstrukturen-ubungen/" title="2 - Übungen - 27.10.17" type="text/html">
 <meta property="og:site_name" content="Python Kurs 2017">
-<meta property="og:title" content="3 - Funktionen, Klassen und Objekte - Übung">
+<meta property="og:title" content="3 - Übungen - 3.11.17">
 <meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_klassen_objekte_uebungen/">
 <meta property="og:description" content='Funktionen
 Hallo, name!
@@ -38,7 +33,7 @@ hallo("Karl")
 Ausgabe:
 Hallo,'>
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2017-05-11T00:00:00+01:00">
+<meta property="article:published_time" content="2017-11-03T00:00:00+01:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Springe zum Hauptinhalt</a>
@@ -97,15 +92,15 @@ Hallo,'>
         <!--Body content-->
         
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">3 - Funktionen, Klassen und Objekte - Übung</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">3 - Übungen - 3.11.17</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                     Gabriel Kabbe
             </span></p>
-            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-05-11T00:00:00+01:00" itemprop="datePublished" title="2017-05-11 00:00">2017-05-11 00:00</time></a></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-11-03T00:00:00+01:00" itemprop="datePublished" title="2017-11-03 00:00">2017-11-03 00:00</time></a></p>
             
-        <p class="sourceline"><a href="index.md" class="sourcelink">Source</a></p>
+        <p class="sourceline"><a href="index.md" id="sourcelink">Source</a></p>
 
         </div>
         
@@ -131,12 +126,13 @@ grüßt.</p>
 </pre>
 
 
-<h3>Aufgabe max</h3>
+<h3>Aufgabe maximum</h3>
 <ul>
-<li>Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt</li>
-<li>Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt</li>
+<li>Schreiben Sie eine Funktion <em>maximum</em> die für zwei gegebene Zahlen die größere zurückgibt</li>
+<li>Schreiben Sie eine Funktion <em>listen_maximum</em>, die für eine Liste von Zahlen die größte zurückgibt</li>
 </ul>
-<h3>Listen</h3>
+<h2>Listen</h2>
+<h3>Funktion auf Liste anwenden</h3>
 <p>Gegeben sind eine Funktion und eine Liste</p>
 <pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">x</span>
@@ -147,6 +143,24 @@ grüßt.</p>
 
 <p>Wenden Sie die Funktion auf jedes Element der Liste an und speichern Sie die Ergebnisse in einer
 neuen Liste.</p>
+<h3>Liste filtern</h3>
+<p>Ein Zoo besitzt eine <a href="https://raw.githubusercontent.com/gkabbe/Python-Kurs-2017/src/extras/tierliste">Liste von Tieren</a></p>
+<ul>
+<li>
+<p>Benutzen Sie eine List Comprehension, um eine Liste aller Tiere zu erstellen, die mit "A" anfangen</p>
+</li>
+<li>
+<p>Erstellen Sie eine Liste aller Fische (also aller Tiere, die "Fisch" im Namen haben)</p>
+</li>
+<li>
+<p>Erstellen Sie nun für jeden Buchstaben im Alphabet eine Liste von Tieren, die mit diesem Buchstaben
+anfangen</p>
+</li>
+<li>
+<p>Bonus: Erstellen Sie ein Dictionary, das für den entsprechenden Anfangsbuchstaben die zuvor erstellte
+Liste zurückgibt</p>
+</li>
+</ul>
 <h2>Ein- und Ausgabe</h2>
 <h3>read_file</h3>
 <p>Schreiben Sie eine Funktion <em>read_file</em>, die einen Dateinamen als Argument erwartet und eine Liste mit den Zeilen der ausgelesenen Datei zurückgibt</p>
@@ -235,8 +249,31 @@ Produkt ausgibt.</p>
 
 
 <p>Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        </p>
-<h2>Aufgabe Cäsar Verschlüsselung</h2>
-<p>Die <em>Cäsar Verschlüsselung</em> ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um <em>n</em> verschoben ist.<br>
+<h2>Dictionaries</h2>
+<p>Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
+Zu jedem Schlüssel gibt es einen Wert, auf den man zugreifen kann wenn man den Schlüssel hat.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Müller"</span><span class="p">,</span>
+           <span class="s2">"vorname"</span><span class="p">:</span> <span class="s2">"Karl"</span><span class="p">,</span>
+           <span class="s2">"studiengang"</span><span class="p">:</span> <span class="s2">"Physik"</span><span class="p">}</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">"vorname"</span><span class="p">],</span> <span class="n">student</span><span class="p">[</span><span class="s2">"name"</span><span class="p">],</span> <span class="s2">"studiert"</span><span class="p">,</span> <span class="n">student</span><span class="p">[</span><span class="s2">"studiengang"</span><span class="p">])</span>
+</pre>
+
+
+<h3>Telefonbuch</h3>
+<p>Schreiben Sie ein (ganz kleines) Telefonbuch.
+Für drei Nachnamen soll es jeweils die dazugehörige Telefonnummer speichern.</p>
+<h3>Englisch-Deutsch Wörterbuch</h3>
+<p>Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:</p>
+<pre class="code literal-block"><span></span><span class="n">englisch_deutsch_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"hello"</span><span class="p">:</span> <span class="s2">"hallo"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">:</span> <span class="s2">"welt"</span><span class="p">,</span> <span class="s2">"good bye"</span><span class="p">:</span> <span class="s2">"auf wiedersehen"</span><span class="p">}</span>
+</pre>
+
+
+<p>Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!</p>
+<h3>Aufgabe Cäsar Verschlüsselung</h3>
+<p>Die <em>Cäsar Verschlüsselung</em> ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um <em>n</em> Buchstaben verschoben ist.<br>
 Beispielsweise könnte man jeden Buchstaben um 4 Positionen verschieben:  </p>
 <pre class="code literal-block"><span></span>a -&gt; e
 b -&gt; f
@@ -248,7 +285,11 @@ z -&gt; d
 <ul>
 <li>Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte <em>ROT13</em> Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).</li>
 </ul>
-<pre class="code literal-block"><span></span><span class="n">rot13</span><span class="p">(</span><span class="s2">"hallo welt"</span><span class="p">)</span>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">rot13</span><span class="p">(</span><span class="n">wort</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">rot13</span><span class="p">(</span><span class="s2">"hallo welt"</span><span class="p">))</span>
 </pre>
 
 
@@ -276,31 +317,21 @@ z -&gt; d
 z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
 <p>So gilt beispielsweise für die Zahl 6 (vierte Zeile) im obigen Dreieck: sie steht in der 4.Zeile (bei Null anfangen zu zählen!) an zweiter Stelle, und ist die Summe aus der Zahl in der 3. Zeile an erster Stelle und der Zahl in der 3. Zeile an zweiter Stelle.</p>
 <p>Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer die Einträge des Pascalschen Dreiecks ausgibt.</p>
-<h2>Klassen</h2>
-<p>Schreiben Sie eine Klasse Student mit folgenden Eigenschaften:</p>
+<h2>Theoretische Chemie</h2>
+<p>Gegeben ist eine sogenannte <a href="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/%C3%9Cbungen/molecule-example.xyz">xyz-Datei</a>, die eine Auflistung von Atomen und
+ihren Positionen enthält.
+In der ersten Zeile dieser Datei steht die Anzahl der Atome, die zweite Zeile enthält Kommentare.
+Schließlich erfolgt die Auflistung.</p>
+<p>Beantworten Sie folgende Fragen:</p>
 <ul>
-<li>Ein neues Studenten-Objekt wird erstellt, indem man dem Konstruktor (d.h. der <strong>init</strong> Funktion Namen und Vornamen des Studenten übergibt:</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Müller"</span><span class="p">,</span> <span class="n">vorname</span><span class="o">=</span><span class="s2">"Heinz"</span><span class="p">)</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Die Klasse soll eine Objektvariable <em>noten_liste</em> besitzen, die zu Beginn eine leere Liste ist, sowie eine Methode <em>neue_note</em>, die der <em>noten_liste</em> eine neue Note hinzufügt</p>
-</li>
-<li>
-<p>Schreiben Sie eine Methode <em>durchschnitts_note</em>, die den Durchschnitt aller Noten in <em>noten_liste</em> bildet</p>
-</li>
+<li>Wieviel Wasserstoffatome (Buchstabe H) sind nicht mehr als 2.0 Angström (Längeneinheit, entspricht \(10^{-10}\) m) von einem Sauerstoffatom (O) entfernt?</li>
+<li>Wieviele Sauerstoffatome sitzen in der Nähe jedes Phosphoratoms (P)? </li>
 </ul>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul class="pager hidden-print">
 <li class="previous">
-                <a href="../2-datenstrukturen-ubungen/" rel="prev" title="2 - Datenstrukturen: Übung">Vorheriger Eintrag</a>
-            </li>
-            <li class="next">
-                <a href="../module_exceptions_uebungen/" rel="next" title="4 - Module &amp; Exceptions - Übung">Nächster Eintrag</a>
+                <a href="../2-datenstrukturen-ubungen/" rel="prev" title="2 - Übungen - 27.10.17">Vorheriger Eintrag</a>
             </li>
         </ul></nav></aside></article><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
@@ -310,7 +341,7 @@ z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
 </div>
 
 
-            <script src="../../assets/js/jquery.min.js"></script><script src="../../assets/js/tether.min.js"></script><script src="../../assets/js/bootstrap.min.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><script src="../../assets/js/fancydates.js"></script><script src="../../assets/js/jquery.colorbox-min.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("de");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates -->

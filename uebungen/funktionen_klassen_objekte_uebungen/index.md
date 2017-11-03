@@ -1,7 +1,7 @@
 <!-- 
-.. title: 3 - Funktionen, Klassen und Objekte - Übung
+.. title: 3 - Übungen - 3.11.17
 .. slug: funktionen_klassen_objekte_uebungen
-.. date: 2017-05-11 00:00:00 UTC+01:00
+.. date: 2017-11-03 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
@@ -34,12 +34,14 @@ Hallo, Karl!
 ```
 
 
-## Aufgabe max
+## Aufgabe maximum
 
-* Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt
-* Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt
+* Schreiben Sie eine Funktion _maximum_ die für zwei gegebene Zahlen die größere zurückgibt
+* Schreiben Sie eine Funktion *listen_maximum*, die für eine Liste von Zahlen die größte zurückgibt
 
-## Listen
+# Listen
+
+## Funktion auf Liste anwenden
 
 Gegeben sind eine Funktion und eine Liste
 
@@ -53,6 +55,20 @@ numbers = list(range(1, 21))
 Wenden Sie die Funktion auf jedes Element der Liste an und speichern Sie die Ergebnisse in einer
 neuen Liste.
 
+
+## Liste filtern
+
+Ein Zoo besitzt eine [Liste von Tieren](https://raw.githubusercontent.com/gkabbe/Python-Kurs-2017/src/extras/tierliste)
+
+* Benutzen Sie eine List Comprehension, um eine Liste aller Tiere zu erstellen, die mit "A" anfangen
+
+* Erstellen Sie eine Liste aller Fische (also aller Tiere, die "Fisch" im Namen haben)
+
+* Erstellen Sie nun für jeden Buchstaben im Alphabet eine Liste von Tieren, die mit diesem Buchstaben
+anfangen
+
+* Bonus: Erstellen Sie ein Dictionary, das für den entsprechenden Anfangsbuchstaben die zuvor erstellte
+Liste zurückgibt
 
 # Ein- und Ausgabe
 
@@ -167,10 +183,45 @@ f()
 
 Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        
 
+# Dictionaries
 
-# Aufgabe Cäsar Verschlüsselung
+Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
+Zu jedem Schlüssel gibt es einen Wert, auf den man zugreifen kann wenn man den Schlüssel hat.
 
-Die _Cäsar Verschlüsselung_ ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um _n_ verschoben ist.  
+Beispiel:
+
+```python
+student = {"name": "Müller",
+           "vorname": "Karl",
+           "studiengang": "Physik"}
+
+
+print(student["vorname"], student["name"], "studiert", student["studiengang"])
+
+```
+
+
+## Telefonbuch
+
+Schreiben Sie ein (ganz kleines) Telefonbuch.
+Für drei Nachnamen soll es jeweils die dazugehörige Telefonnummer speichern.
+
+
+## Englisch-Deutsch Wörterbuch
+
+
+Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:
+
+```python
+englisch_deutsch_dict = {"hello": "hallo", "world": "welt", "good bye": "auf wiedersehen"}
+```
+
+Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!
+
+
+## Aufgabe Cäsar Verschlüsselung
+
+Die _Cäsar Verschlüsselung_ ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um _n_ Buchstaben verschoben ist.  
 Beispielsweise könnte man jeden Buchstaben um 4 Positionen verschieben:  
 
 ```
@@ -183,7 +234,12 @@ z -> d
 * Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte _ROT13_ Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).
 
 ```python
-rot13("hallo welt")
+
+def rot13(wort):
+    ...
+
+
+print(rot13("hallo welt"))
 ```
 
 Ausgabe:
@@ -216,16 +272,16 @@ So gilt beispielsweise für die Zahl 6 (vierte Zeile) im obigen Dreieck: sie ste
 
 Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer die Einträge des Pascalschen Dreiecks ausgibt.
 
-# Klassen
 
-Schreiben Sie eine Klasse Student mit folgenden Eigenschaften:
+# Theoretische Chemie
 
-* Ein neues Studenten-Objekt wird erstellt, indem man dem Konstruktor (d.h. der __init__ Funktion Namen und Vornamen des Studenten übergibt:
+Gegeben ist eine sogenannte [xyz-Datei](https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/%C3%9Cbungen/molecule-example.xyz), die eine Auflistung von Atomen und
+ihren Positionen enthält.
+In der ersten Zeile dieser Datei steht die Anzahl der Atome, die zweite Zeile enthält Kommentare.
+Schließlich erfolgt die Auflistung.
 
-```python
-student = Student(name="Müller", vorname="Heinz")
-```
+Beantworten Sie folgende Fragen:
 
-* Die Klasse soll eine Objektvariable _noten_liste_ besitzen, die zu Beginn eine leere Liste ist, sowie eine Methode _neue_note_, die der _noten_liste_ eine neue Note hinzufügt
+* Wieviel Wasserstoffatome (Buchstabe H) sind nicht mehr als 2.0 Angström (Längeneinheit, entspricht \\(10^{-10}\\) m) von einem Sauerstoffatom (O) entfernt?
+* Wieviele Sauerstoffatome sitzen in der Nähe jedes Phosphoratoms (P)? 
 
-* Schreiben Sie eine Methode _durchschnitts_note_, die den Durchschnitt aller Noten in _noten_liste_ bildet

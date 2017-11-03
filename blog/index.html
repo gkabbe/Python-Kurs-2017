@@ -5,11 +5,7 @@
 <meta name="description" content="Alle Informationen zum Python Kurs">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Python Kurs 2017</title>
-<link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
-<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
-<link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
-<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -72,11 +68,680 @@
         
 
     
-
-
-    
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/numpy/" class="u-url">5 - Numpy</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/funktionen_klassen_objekte_uebungen/" class="u-url">3 - Übungen - 3.11.17</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../uebungen/funktionen_klassen_objekte_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-11-03T00:00:00+01:00" title="2017-11-03 00:00">2017-11-03 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Funktionen</h2>
+<h3>Hallo, name!</h3>
+<p>Schreiben Sie eine Funktion "hallo", die als Parameter einen Namen erwartet, und bei Aufruf diesen
+grüßt.</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">hallo</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre>
+
+
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">hallo</span><span class="p">(</span><span class="s2">"Karl"</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>Hallo, Karl!
+</pre>
+
+
+<h3>Aufgabe maximum</h3>
+<ul>
+<li>Schreiben Sie eine Funktion <em>maximum</em> die für zwei gegebene Zahlen die größere zurückgibt</li>
+<li>Schreiben Sie eine Funktion <em>listen_maximum</em>, die für eine Liste von Zahlen die größte zurückgibt</li>
+</ul>
+<h2>Listen</h2>
+<h3>Funktion auf Liste anwenden</h3>
+<p>Gegeben sind eine Funktion und eine Liste</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">x</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+</pre>
+
+
+<p>Wenden Sie die Funktion auf jedes Element der Liste an und speichern Sie die Ergebnisse in einer
+neuen Liste.</p>
+<h3>Liste filtern</h3>
+<p>Ein Zoo besitzt eine <a href="https://raw.githubusercontent.com/gkabbe/Python-Kurs-2017/src/extras/tierliste">Liste von Tieren</a></p>
+<ul>
+<li>
+<p>Benutzen Sie eine List Comprehension, um eine Liste aller Tiere zu erstellen, die mit "A" anfangen</p>
+</li>
+<li>
+<p>Erstellen Sie eine Liste aller Fische (also aller Tiere, die "Fisch" im Namen haben)</p>
+</li>
+<li>
+<p>Erstellen Sie nun für jeden Buchstaben im Alphabet eine Liste von Tieren, die mit diesem Buchstaben
+anfangen</p>
+</li>
+<li>
+<p>Bonus: Erstellen Sie ein Dictionary, das für den entsprechenden Anfangsbuchstaben die zuvor erstellte
+Liste zurückgibt</p>
+</li>
+</ul>
+<h2>Ein- und Ausgabe</h2>
+<h3>read_file</h3>
+<p>Schreiben Sie eine Funktion <em>read_file</em>, die einen Dateinamen als Argument erwartet und eine Liste mit den Zeilen der ausgelesenen Datei zurückgibt</p>
+<h3>write_file</h3>
+<p>Schreiben Sie eine Funktion <em>write_file</em>, die als Argumente einen Dateinamen, sowie eine Liste mit Strings erwartet und diese in eine Datei schreibt.</p>
+<h2>Aufgabe Palindrom</h2>
+<p>Schreiben Sie eine Funktion <em>palindrom</em>, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">palindrom</span><span class="p">(</span><span class="n">wort</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">palindrom</span><span class="p">(</span><span class="s2">"anna"</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">palindrom</span><span class="p">(</span><span class="s2">"anne"</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>True
+False
+</pre>
+
+
+<h2>Zahlen von 1 bis n</h2>
+<p>Schreiben Sie eine Funktion, die bei Eingabe einer natürlichen Zahl n die Zahlen von 1 bis n ausgibt.
+Jedoch ohne eine Schleife zu benutzen!</p>
+<h2>Matrix Multiplikation</h2>
+<p>Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr 
+Produkt ausgibt.</p>
+<p>Hinweis:</p>
+<p>Eine Matrix können Sie als Liste von Listen speichern:</p>
+<pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+</pre>
+
+
+<h2>Sichtbarkeit und Lebensdauer von Variablen in Funktionen</h2>
+<p>Was gibt folgender Code aus?</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+</pre>
+
+
+<p>Was passiert jetzt?</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<p>Und hier?</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<p>Verschachtelt:</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f_außen</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">def</span> <span class="nf">f_innen</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f_innen</span>
+
+<span class="n">f_innen</span> <span class="o">=</span> <span class="n">f_außen</span><span class="p">()</span>
+<span class="n">f_innen</span><span class="p">()</span>
+</pre>
+
+
+<p>???</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">liste</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span>
+</pre>
+
+
+<p>Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        </p>
+<h2>Dictionaries</h2>
+<p>Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
+Zu jedem Schlüssel gibt es einen Wert, auf den man zugreifen kann wenn man den Schlüssel hat.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Müller"</span><span class="p">,</span>
+           <span class="s2">"vorname"</span><span class="p">:</span> <span class="s2">"Karl"</span><span class="p">,</span>
+           <span class="s2">"studiengang"</span><span class="p">:</span> <span class="s2">"Physik"</span><span class="p">}</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">"vorname"</span><span class="p">],</span> <span class="n">student</span><span class="p">[</span><span class="s2">"name"</span><span class="p">],</span> <span class="s2">"studiert"</span><span class="p">,</span> <span class="n">student</span><span class="p">[</span><span class="s2">"studiengang"</span><span class="p">])</span>
+</pre>
+
+
+<h3>Telefonbuch</h3>
+<p>Schreiben Sie ein (ganz kleines) Telefonbuch.
+Für drei Nachnamen soll es jeweils die dazugehörige Telefonnummer speichern.</p>
+<h3>Englisch-Deutsch Wörterbuch</h3>
+<p>Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:</p>
+<pre class="code literal-block"><span></span><span class="n">englisch_deutsch_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"hello"</span><span class="p">:</span> <span class="s2">"hallo"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">:</span> <span class="s2">"welt"</span><span class="p">,</span> <span class="s2">"good bye"</span><span class="p">:</span> <span class="s2">"auf wiedersehen"</span><span class="p">}</span>
+</pre>
+
+
+<p>Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!</p>
+<h3>Aufgabe Cäsar Verschlüsselung</h3>
+<p>Die <em>Cäsar Verschlüsselung</em> ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um <em>n</em> Buchstaben verschoben ist.<br>
+Beispielsweise könnte man jeden Buchstaben um 4 Positionen verschieben:  </p>
+<pre class="code literal-block"><span></span>a -&gt; e
+b -&gt; f
+...
+z -&gt; d 
+</pre>
+
+
+<ul>
+<li>Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte <em>ROT13</em> Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">rot13</span><span class="p">(</span><span class="n">wort</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">rot13</span><span class="p">(</span><span class="s2">"hallo welt"</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>'unyyb jryg'
+</pre>
+
+
+<ul>
+<li>Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist</li>
+<li>Kleine Hilfe:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">alphabet</span> <span class="o">=</span> <span class="s1">'abcdefghijklmnopqrstuvwxyz'</span>
+</pre>
+
+
+<p>Erstellen Sie nun daraus einen String alphabet_verschoben (Slicing hilft!), der mit dem 13. Buchstaben beginnt.</p>
+<ul>
+<li>Wie sieht die Funktion aus, die verschlüsselten Text wieder entschlüsselt?</li>
+</ul>
+<h2>Pascalsches Dreieck</h2>
+<p><img alt="PascalschesDreieck" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif"></p>
+<p>(Quelle: https://de.wikipedia.org/wiki/Pascalsches_Dreieck)</p>
+<p>Das Pascalsche Dreieck ist ein Dreieck aus Zahlen. In jeder Zeile sind die erste und die letzte Zahl jeweils Einsen. Für die weiteren Zahlen gilt folgende rekursive Formel:
+z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
+<p>So gilt beispielsweise für die Zahl 6 (vierte Zeile) im obigen Dreieck: sie steht in der 4.Zeile (bei Null anfangen zu zählen!) an zweiter Stelle, und ist die Summe aus der Zahl in der 3. Zeile an erster Stelle und der Zahl in der 3. Zeile an zweiter Stelle.</p>
+<p>Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer die Einträge des Pascalschen Dreiecks ausgibt.</p>
+<h2>Theoretische Chemie</h2>
+<p>Gegeben ist eine sogenannte <a href="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/%C3%9Cbungen/molecule-example.xyz">xyz-Datei</a>, die eine Auflistung von Atomen und
+ihren Positionen enthält.
+In der ersten Zeile dieser Datei steht die Anzahl der Atome, die zweite Zeile enthält Kommentare.
+Schließlich erfolgt die Auflistung.</p>
+<p>Beantworten Sie folgende Fragen:</p>
+<ul>
+<li>Wieviel Wasserstoffatome (Buchstabe H) sind nicht mehr als 2.0 Angström (Längeneinheit, entspricht \(10^{-10}\) m) von einem Sauerstoffatom (O) entfernt?</li>
+<li>Wieviele Sauerstoffatome sitzen in der Nähe jedes Phosphoratoms (P)? </li>
+</ul>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/2-datenstrukturen-ubungen/" class="u-url">2 - Übungen - 27.10.17</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../uebungen/2-datenstrukturen-ubungen/" rel="bookmark"><time class="published dt-published" datetime="2017-10-27T14:19:07+02:00" title="2017-10-27 14:19">2017-10-27 14:19</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Listen</h2>
+<h3>Quadratzahlen korrigieren</h3>
+<p>Gegeben sei folgende Liste:</p>
+<pre class="code literal-block"><span></span><span class="n">quadrat_zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</pre>
+
+
+<ul>
+<li>
+<p>Finden Sie die fehlerhafte Quadratzahl und ersetzen Sie sie mit der korrekten Zahl.</p>
+</li>
+<li>
+<p>Fügen Sie noch eine weitere Quadratzahl hinzu</p>
+</li>
+</ul>
+<h3>Noch mehr Listen</h3>
+<ul>
+<li>Gegeben ist eine Liste von Strings</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">string_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">,</span> <span class="s2">"4"</span><span class="p">,</span> <span class="s2">"5"</span><span class="p">,</span> <span class="s2">"6"</span><span class="p">,</span> <span class="s2">"7"</span><span class="p">,</span> <span class="s2">"8"</span><span class="p">,</span> <span class="s2">"9"</span><span class="p">,</span> <span class="s2">"10"</span><span class="p">]</span>
+</pre>
+
+
+<p>Machen Sie daraus eine Liste von Integers!</p>
+<h3>Listen entpacken</h3>
+<p>Gegeben ist eine Liste von zwei Elementen</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"erstes element"</span><span class="p">,</span> <span class="s2">"zweites element"</span><span class="p">]</span>
+</pre>
+
+
+<p>Was passiert wenn Sie folgendes schreiben:</p>
+<pre class="code literal-block"><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">liste</span>
+</pre>
+
+
+<p>Funktioniert das auch für mehr Elemente?</p>
+<h3>Liste von Listen</h3>
+<p>Gegeben ist</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]]</span>
+</pre>
+
+
+<p>Iterieren Sie nun mit einer for-Schleife über die Liste:</p>
+<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre>
+
+
+<p>Was steht nun in x?</p>
+<p>Entpacken Sie x, sodass Sie eine Variable i und eine Variable elem haben.
+Was enthält nun i, und was elem?</p>
+<p>Entpacken Sie nun direkt in der Zeile der for-Schleife:</p>
+<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre>
+
+
+<h3>Enumerate</h3>
+<p>Sie haben eine Liste</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+</pre>
+
+
+<p>Wenden Sie die Funktion enumerate darauf an:</p>
+<pre class="code literal-block"><span></span><span class="n">enum</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+</pre>
+
+
+<p>Um sich anzuschauen, was enum enthält, schreiben Sie:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">enum</span><span class="p">))</span>
+</pre>
+
+
+<p>Benutzen Sie nun enumerate, um parallel über den Index und die Elemente einer Liste zu iterieren.</p>
+<h3>zip</h3>
+<p>Diesmal haben Sie zwei Listen:</p>
+<pre class="code literal-block"><span></span><span class="n">erste_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+<span class="n">zweite_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">]</span>
+</pre>
+
+
+<p>Benutzen Sie zip (Reißverschluss):</p>
+<pre class="code literal-block"><span></span><span class="n">gezippte_liste</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">erste_liste</span><span class="p">,</span> <span class="n">zweite_liste</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">gezippte_liste</span><span class="p">))</span>
+</pre>
+
+
+<p>Was ist passiert?</p>
+<p>Nutzen Sie nun zip, um über folgende drei Listen zu iterieren:</p>
+<pre class="code literal-block"><span></span><span class="n">liste1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"S"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="s2">"ri"</span><span class="p">]</span>
+<span class="n">liste2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"o"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"ch"</span><span class="p">]</span>
+<span class="n">liste3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"tig"</span><span class="p">]</span>
+</pre>
+
+
+<p>Lassen Sie sich in jedem Schleifendurchlauf die Summe der Elemente ausgeben mit print.</p>
+<h3>Einkaufliste:</h3>
+<ul>
+<li>Erstellen Sie eine Einkaufsliste bestehend aus (maximal) 10 Produkten, sowie eine Liste mit den dazugehörigen Preisen.</li>
+</ul>
+<p>Oder benutzen Sie die hier:</p>
+<pre class="code literal-block"><span></span><span class="n">einkaufs_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apfel"</span><span class="p">,</span> <span class="s2">"milch"</span><span class="p">,</span> <span class="s2">"banane"</span><span class="p">,</span> <span class="s2">"joghurt"</span><span class="p">,</span> <span class="s2">"käse"</span><span class="p">]</span>
+<span class="n">preise</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mf">1.20</span><span class="p">,</span> <span class="mf">2.30</span><span class="p">]</span>
+</pre>
+
+
+<ul>
+<li>
+<p>Iterieren Sie mithilfe einer for-Schleife über alle Elemente in <em>einkaufs_liste</em></p>
+</li>
+<li>
+<p>Benutzen Sie enumerate, um die Elemente in <em>einkaufs_liste</em> durchzuzählen</p>
+</li>
+<li>
+<p>Iterieren Sie nun über Gegenstand und Preis, so dass Sie als Ausgabe bekommen:</p>
+</li>
+</ul>
+<pre class="code literal-block"><span></span>Gegenstand_1, Preis_1
+Gegenstand_2, Preis_2
+...
+Gegenstand_10, Preis_10
+</pre>
+
+
+<p>(Hinweis: zip!)</p>
+<ul>
+<li>Lassen Sie sich nun nur jeden zweiten Gegenstand ausgeben</li>
+</ul>
+<h2>Daten einlesen:</h2>
+<ul>
+<li>
+<p>Schreiben Sie eine Datei "Daten", in die Sie ein paar numerische Werte eintragen (am einfachsten ist es, wenn Sie pro Zeile einen Wert schreiben)</p>
+</li>
+<li>
+<p>Schreiben Sie nun ein Programm, das die Datei "Daten" öffnet und die Zahlen in einer Liste speichert</p>
+</li>
+<li>
+<p>Berechnen Sie die Summe und den Mittelwert der Daten</p>
+</li>
+</ul>
+<h2>Strings</h2>
+<ul>
+<li>
+<p>Schreiben Sie ein Programm, das den User nach Input fragt, und das Geschriebene in Großbuchstaben
+zurückgibt. Bei Eingabe von "Hallo" sollte also "HALLO" ausgegeben werden</p>
+</li>
+<li>
+<p>Finden Sie heraus, wie man aus einem String eine Liste von Strings erstellt</p>
+</li>
+</ul>
+<p>z.B: "Dies ist ein Satz" -&gt; ["Dies", "ist", "ein", "Satz"]</p>
+<ul>
+<li>
+<p>Schreiben Sie ein Programm, das den User nach einem Satz fragt, und nur das erste und das letzte
+  Wort zurückgibt</p>
+</li>
+<li>
+<p>Finden Sie heraus, wie man die Reihenfolge der Elemente in einer Liste umdreht</p>
+</li>
+<li>
+<p>Schreiben Sie ein Programm, das den User nach einem Satz fragt, und die Wörter in umgekehrter
+  Reihenfolge ausgibt</p>
+</li>
+</ul>
+<h2>Mengen (Sets)</h2>
+<h3>Einkäufe</h3>
+<p>Sie und ein(e) Bekannte(r) waren shoppen. 
+Sie haben gekauft:</p>
+<pre class="code literal-block"><span></span><span class="n">meine_einkäufe</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"hose"</span><span class="p">,</span> <span class="s2">"jacke"</span><span class="p">,</span> <span class="s2">"schuhe"</span><span class="p">,</span> <span class="s2">"schokoriegel"</span><span class="p">,</span> <span class="s2">"schal"</span><span class="p">,</span> <span class="s2">"flatscreen"</span><span class="p">}</span>
+</pre>
+
+
+<p>Ihr Bekannter hat gekauft:</p>
+<pre class="code literal-block"><span></span><span class="n">seine_einkäufe</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"buch"</span><span class="p">,</span> <span class="s2">"schuhe"</span><span class="p">,</span> <span class="s2">"mütze"</span><span class="p">,</span> <span class="s2">"jacke"</span><span class="p">,</span> <span class="s2">"softdrink"</span><span class="p">}</span>
+</pre>
+
+
+<p>Benutzen Sie Mengenoperationen um herauszufinden:</p>
+<ul>
+<li>
+<p>Was ist die Gesamtmenge, die Sie beide eingekauft haben?</p>
+</li>
+<li>
+<p>Was hat Ihr Bekannter gekauft, was Sie auch gekauft haben?</p>
+</li>
+<li>
+<p>Was hat Ihr Bekannter gekauft, das Sie nicht gekauft haben?</p>
+</li>
+<li>
+<p>Was haben Sie gekauft, das Ihr Bekannter nicht gekauft hat?</p>
+</li>
+<li>
+<p>Welche Dinge haben Sie nicht beide gekauft?</p>
+</li>
+</ul>
+<h3>Buchstaben in einem Wort</h3>
+<p>Benutzen Sie set, um herauszufinden, aus wieviel verschiedenen Buchstaben ein Wort besteht</p>
+<h3>Sieb des Eratosthenes</h3>
+<p>Das Sieb des Eratosthenes ist ein Algorithmus, mit dem man Primzahlen bestimmen kann.
+Er lässt sich in Python gut mit Mengen lösen.</p>
+<p>Um die Primzahlen von 2 bis <em>n_max</em> zu bestimmen, tun Sie folgendes:</p>
+<ul>
+<li>
+<p>Erstellen Sie eine Menge <em>numbers</em> der Zahlen von 2 bis <em>n_max</em></p>
+</li>
+<li>
+<p>Erstellen Sie eine Variable <em>next_prime</em> = 2</p>
+</li>
+<li>
+<p>Solange <em>next_prime</em> &lt; <em>n_max</em>/2 ist (while-Schleife!), erstellen Sie eine weitere Menge <em>not_prime</em>, die alle Vielfachen von <em>next_prime</em> enthält. 
+  Ziehen Sie diese von <em>numbers</em> ab. Erhöhen Sie anschließend <em>next_prime</em> um 1</p>
+</li>
+<li>
+<p>Wenn die while-Schleife beendet, sollten sich in <em>numbers</em> nur noch die Primzahlen zwischen 2 und <em>n_max</em> befinden</p>
+</li>
+</ul>
+<h2>Schere, Stein, Papier</h2>
+<p>Schreiben Sie ein Programm, das mit Ihnen Schere, Stein, Papier spielt.
+Um den Computer dazu zu bringen, zufällig zwischen Schere, Stein und Papier zu wählen,
+schreiben Sie folgendes:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="n">computer_hand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"Schere"</span><span class="p">,</span> <span class="s2">"Stein"</span><span class="p">,</span> <span class="s2">"Papier"</span><span class="p">])</span>
+</pre>
+
+
+<p>Mit diesem Befehl wählt der Computer zufällig ein Element aus der Liste.</p>
+<h2>Galgenmännchen</h2>
+<p>Schreiben Sie ein Programm, in dem ein String mit dem Namen <em>unbekanntes_wort</em> gespeichert ist, sowie eine leere Menge mit dem Namen geratene_woerter.
+In einer ewigen while-Schleife (while True) soll nun folgendes geschehen:</p>
+<ul>
+<li>
+<p>Zuerst wird jeder Buchstabe von <em>unbekanntes_wort</em> durchlaufen, und, wenn er in <em>geratene_woerter</em> enthalten ist, ausgegeben. Ist er nicht enthalten, wird ein "-" ausgegeben. <br>
+  Beispiel:  </p>
+<ul>
+<li>Das geheime Wort ist <em>wochenende</em>
+</li>
+<li>
+<em>geratene_woerter</em> enthält {"n", "e"}</li>
+<li>Ausgabe ist dann: "- - - - e n e n - e"</li>
+</ul>
+</li>
+<li>
+<p>Dann muss der User einen neuen Buchstaben eingeben (Achtung, genau einen!). Dieser wird in <em>geratene_woerter</em> gespeichert</p>
+</li>
+<li>
+<p>Ergänzen Sie das Programm nun so, dass es mit einer Glückwunschsnachricht abbricht, sobald der User alle Buchstaben geraten hat.</p>
+</li>
+<li>
+<p>Erlauben Sie nur maximal 11 Fehlversuche, bevor das Programm mit "Game Over" abbricht</p>
+</li>
+<li>
+<p>Bonus: Anstatt das Wort in den Quellcode zu schreiben, lassen Sie es einen Mitspieler am Anfang eingeben. Wenn Sie
+  folgendes zu Beginn schreiben:</p>
+</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+</pre>
+
+
+<p>können Sie mittels </p>
+<pre class="code literal-block"><span></span><span class="n">unbekanntes_wort</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">"Bitte zu ratendes Wort eingeben</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</pre>
+
+
+<p>das geheime Wort eingeben lassen, ohne dass es auf dem Bildschirm zu sehen ist.</p>
+<ul>
+<li>Spielen Sie eine Runde Galgenmännchen mit Ihrem Nachbarn  </li>
+</ul>
+<h2>Wortzähler</h2>
+<p>Schreiben Sie folgendes Python Programm:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">this</span>
+</pre>
+
+
+<p>Speichern Sie den resultierenden Text in einer extra Datei.</p>
+<p>Analysieren Sie den Text, indem Sie ein Programm schreiben, das die Häufigkeit jedes Wortes im obigen Text zählt.</p>
+<p>Hilfestellungen:</p>
+<ul>
+<li>Speichern Sie den Text entweder als String mit 3 Anführungszeichen am Anfang und am Ende (dann kann er sich auch über mehrere Zeilen erstrecken), oder lesen Sie ihn aus einer Datei aus, in die Sie ihn vorher geschrieben haben.</li>
+</ul>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">Hier kann beliebiger Text</span>
+<span class="s2">stehen, der sich über mehrere Zeilen erstreckt</span>
+<span class="s2">"""</span>
+</pre>
+
+
+<ul>
+<li>Angenommen, Sie haben den gesamten Text in der Variablen <em>text</em> gespeichert. Dann können Sie mit </li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">wortliste</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre>
+
+
+<p>eine Liste der einzelnen Wörter erstellen.</p>
+<ul>
+<li>Um ungewünschte Zeichen aus dem Text zu entfernen, benutzen Sie:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">zu_ersetzendes_zeichen</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>
+<p>Zum Zählen der Wörter ist ein Dictionary sehr hilfreich! </p>
+</li>
+<li>
+<p>Schreiben Sie das Programm nun so um, dass es die Häufigkeit der einzelnen Buchstaben zählt.</p>
+</li>
+<li>
+<p>Benutzen Sie Sets (Mengen), um herauszufinden, welche Wörter in jeder der ersten 6 Zeilen vorkommen.</p>
+</li>
+<li>
+<p>Erstellen Sie mithilfe von Sets eine Liste aller Buchstaben, die in dem Text vorkommen</p>
+</li>
+</ul>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/1-grundlagen-uebung/" class="u-url">1 - Grundlagen: Übung</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../uebungen/1-grundlagen-uebung/" rel="bookmark"><time class="published dt-published" datetime="2017-10-20T11:13:28+02:00" title="2017-10-20 11:13">2017-10-20 11:13</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Schreibe hier deinen Eintrag hin.</p>
+<h3>Mit dem Python Interpreter spielen</h3>
+<ul>
+<li>Machen Sie sich mit dem Python Interpreter vertraut. <ul>
+<li>Führen Sie ein paar Rechenaufgaben durch</li>
+<li>Benutzen Sie den print-Befehl, um beliebigen Text in der Kommandozeile auszugeben</li>
+</ul>
+</li>
+</ul>
+<h3>Hello World</h3>
+<ul>
+<li>Schreiben Sie das Hello World Programm in einer Datei hello_world.py und führen Sie es mit dem Befehl</li>
+</ul>
+<pre class="code literal-block"><span></span>python hello_world.py
+</pre>
+
+
+<p>aus.</p>
+<ul>
+<li>
+<p>Schreiben Sie das Hello World Programm so um, dass es eine Datei <em>hello_world</em> öffnet, und in diese "Hello World!" schreibt.</p>
+</li>
+<li>
+<p>Schreiben Sie ein Programm, das ihre neu erstellte Datei <em>hello_world</em> wieder ausliest!</p>
+</li>
+<li>
+<p>Schreiben Sie ein Programm, das die Datei <em>hello_world</em> öffnet und eine weitere Zeile "How are you?" anhängt. </p>
+</li>
+<li>
+<p>Schreiben Sie ein interaktives "Hello User"-Programm! Beim Start soll es den Benutzer nach seinem Namen fragen, und ihn anschließend mit seinem Namen grüßen.</p>
+</li>
+</ul>
+<h3>Datentypen</h3>
+<ul>
+<li>Erstellen Sie eine Variable mit dem Namen <em>var1</em>, die den Wert 10 enthält</li>
+<li>Nun erstellen Sie eine Variable <em>var2</em>, die den String ":-)" enthält</li>
+<li>Welchen Datentyp hat die Variable <em>var3</em>, die folgendermaßen erstellt wird: </li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">var3</span> <span class="o">=</span> <span class="n">var1</span> <span class="o">*</span> <span class="n">var2</span>
+</pre>
+
+
+<ul>
+<li>Erhöhen Sie den Wert der Variablen <em>var1</em> um 0.3. Welchen Datentyp hat sie jetzt?</li>
+<li>Addieren Sie nun eine komplexe Zahl hinzu. Wie ändert sich der Datentyp?</li>
+</ul>
+<h3>Casten von Datentypen</h3>
+<p>In manchen Fällen ist es sinnvoll, von einem gegebenen Datentyp zu einem anderen zu wechseln.
+Z.B. lässt sich ein Integer folgendermaßen zu einem Float konvertieren:</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<p>Konvertieren Sie nun:</p>
+<ul>
+<li>float -&gt; int</li>
+<li>float -&gt; complex</li>
+<li>float -&gt; str</li>
+<li>str -&gt; int</li>
+<li>str -&gt; float</li>
+<li>str -&gt; complex</li>
+</ul>
+<p>usw.</p>
+<p>Schreiben Sie nun eine for-Schleife, in der die Zahlen 0.0, 0.1, ..., 0.9 ausgegeben werden</p>
+<h3>Boolesche Variablen</h3>
+<p>Gegeben seien die Variablen</p>
+<pre class="code literal-block"><span></span><span class="n">student_motiviert</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">student_ausgeschlafen</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">unterricht_spannend</span> <span class="o">=</span> <span class="bp">True</span>
+</pre>
+
+
+<ul>
+<li>Welchen Wert hat </li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">lernerfolg</span> <span class="o">=</span> <span class="n">student_ausgeschlafen</span> <span class="ow">or</span> <span class="p">(</span><span class="n">student_motiviert</span> <span class="ow">and</span> <span class="n">unterricht_spannend</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>Was passiert bei folgender Klammernsetzung?</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">lernerfolg</span> <span class="o">=</span> <span class="p">(</span><span class="n">student_ausgeschlafen</span> <span class="ow">or</span> <span class="n">student_motiviert</span><span class="p">)</span> <span class="ow">and</span> <span class="n">unterricht_spannend</span>
+</pre>
+
+
+<ul>
+<li>Wir setzen unterricht_spannend nun auf den (rein hypothetischen) Wert False. Wie ändert sich der Lernerfolg in den beiden oben genannten Fällen?</li>
+</ul>
+<h3>Passwortabfrage</h3>
+<p>Schreiben Sie ein passwortgeschütztes Hello World Programm.</p>
+<ul>
+<li>
+<p>Beim Start fragt es nach einem Passwort. Erst wenn der User das korrekte Passwort eingegeben hat, wird "Hello World" ausgegeben.</p>
+</li>
+<li>
+<p>Schreiben Sie es so um, dass nur 3 Fehlversuche erlaubt sind. Danach bricht das Programm mit dem Hinweis "Zu viele Fehlversuche" ab</p>
+</li>
+</ul>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/numpy/" class="u-url">5 - Numpy</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe
@@ -666,228 +1331,6 @@ Berechnen wir jetzt aber naiv atoms*masses, tut Numpy leider nicht das, was wir 
 <p>Sieht das Ergebnis...</p>
 <p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_rot.jpg" alt="Blume" width="400" height="300"></p>
 <p>...schon wesentlich besser aus. Durch das Heruntersetzen des benötigten Gelbwertes werden nun zwar auch die Schatten rot gefärbt, aber das kann auch als Feature statt als Bug betrachtet werden...</p>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/numpy_uebungen/" class="u-url">5 - Numpy - Übung</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../uebungen/numpy_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-07-07T00:00:00+01:00" title="2017-07-07 00:00">2017-07-07 00:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Broadcasting</h3>
-<p>Gegeben sind die Positionen von 3 Atomen:</p>
-<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-
-<span class="n">atoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-                  <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span>
-                  <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">]]</span>
-                 <span class="p">)</span>
-</pre>
-
-
-<p>sowie ihre Massen:</p>
-<pre class="code literal-block"><span></span><span class="n">masses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">])</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Verschieben Sie die Positionen aller 3 Atome um [1., 2., 3.]</p>
-</li>
-<li>
-<p>Berechnen Sie den Schwerpunkt der 3 Atome</p>
-</li>
-</ul>
-<h3>Selektives Ändern eines Arrays</h3>
-<p>Gegeben ist folgender Array:</p>
-<pre class="code literal-block"><span></span><span class="n">riddle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">533.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">552.</span><span class="p">,</span>  <span class="mf">563.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">570.</span><span class="p">,</span>  <span class="mf">557.</span><span class="p">,</span>  <span class="mf">510.</span><span class="p">,</span>  <span class="mf">303.</span><span class="p">,</span>  <span class="mf">355.</span><span class="p">,</span>  <span class="mf">389.</span><span class="p">,</span>  <span class="mf">306.</span><span class="p">,</span>  <span class="mf">598.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">,</span>  <span class="mf">526.</span><span class="p">,</span>  <span class="mf">585.</span><span class="p">,</span>  <span class="mf">599.</span><span class="p">,</span>  <span class="mf">505.</span><span class="p">,</span>  <span class="mf">547.</span><span class="p">,</span>  <span class="mf">569.</span><span class="p">,</span>  <span class="mf">566.</span><span class="p">,</span>  <span class="mf">580.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">512.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">,</span>  <span class="mf">510.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">567.</span><span class="p">,</span>  <span class="mf">324.</span><span class="p">,</span>  <span class="mf">388.</span><span class="p">,</span>  <span class="mf">384.</span><span class="p">,</span>  <span class="mf">495.</span><span class="p">,</span>  <span class="mf">457.</span><span class="p">,</span>  <span class="mf">469.</span><span class="p">,</span>  <span class="mf">485.</span><span class="p">,</span>  <span class="mf">300.</span><span class="p">,</span>  <span class="mf">426.</span><span class="p">,</span>  <span class="mf">410.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">545.</span><span class="p">,</span>  <span class="mf">518.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">518.</span><span class="p">,</span>  <span class="mf">536.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">556.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">560.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">545.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">552.</span><span class="p">,</span>  <span class="mf">589.</span><span class="p">,</span>  <span class="mf">583.</span><span class="p">,</span>  <span class="mf">314.</span><span class="p">,</span>  <span class="mf">301.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">473.</span><span class="p">,</span>  <span class="mf">436.</span><span class="p">,</span>  <span class="mf">469.</span><span class="p">,</span>  <span class="mf">478.</span><span class="p">,</span>  <span class="mf">440.</span><span class="p">,</span>  <span class="mf">449.</span><span class="p">,</span>  <span class="mf">431.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">322.</span><span class="p">,</span>  <span class="mf">319.</span><span class="p">,</span>  <span class="mf">592.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">569.</span><span class="p">,</span>  <span class="mf">593.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">551.</span><span class="p">,</span>  <span class="mf">514.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">576.</span><span class="p">,</span>  <span class="mf">517.</span><span class="p">,</span>  <span class="mf">538.</span><span class="p">,</span>  <span class="mf">588.</span><span class="p">,</span>  <span class="mf">550.</span><span class="p">,</span>  <span class="mf">331.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">532.</span><span class="p">,</span>  <span class="mf">470.</span><span class="p">,</span>  <span class="mf">469.</span><span class="p">,</span>  <span class="mf">471.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">426.</span><span class="p">,</span>  <span class="mf">400.</span><span class="p">,</span>  <span class="mf">450.</span><span class="p">,</span>  <span class="mf">462.</span><span class="p">,</span>  <span class="mf">422.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">454.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">398.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">567.</span><span class="p">,</span>  <span class="mf">594.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">506.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">542.</span><span class="p">,</span>  <span class="mf">582.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">,</span>  <span class="mf">525.</span><span class="p">,</span>  <span class="mf">319.</span><span class="p">,</span>  <span class="mf">575.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">,</span>  <span class="mf">481.</span><span class="p">,</span>  <span class="mf">413.</span><span class="p">,</span>  <span class="mf">474.</span><span class="p">,</span>  <span class="mf">408.</span><span class="p">,</span>  <span class="mf">446.</span><span class="p">,</span>  <span class="mf">433.</span><span class="p">,</span>  <span class="mf">465.</span><span class="p">,</span>  <span class="mf">409.</span><span class="p">,</span>  <span class="mf">448.</span><span class="p">,</span>  <span class="mf">407.</span><span class="p">,</span>  <span class="mf">401.</span><span class="p">,</span>  <span class="mf">485.</span><span class="p">,</span>  <span class="mf">434.</span><span class="p">,</span>  <span class="mf">403.</span><span class="p">,</span>  <span class="mf">360.</span><span class="p">,</span>  <span class="mf">525.</span><span class="p">,</span>  <span class="mf">523.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">528.</span><span class="p">,</span>  <span class="mf">555.</span><span class="p">,</span>  <span class="mf">567.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">533.</span><span class="p">,</span>  <span class="mf">588.</span><span class="p">,</span>  <span class="mf">569.</span><span class="p">,</span>  <span class="mf">383.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">,</span>  <span class="mf">558.</span><span class="p">,</span>  <span class="mf">448.</span><span class="p">,</span>  <span class="mf">411.</span><span class="p">,</span>  <span class="mf">425.</span><span class="p">,</span>  <span class="mf">403.</span><span class="p">,</span>  <span class="mf">463.</span><span class="p">,</span>  <span class="mf">423.</span><span class="p">,</span>  <span class="mf">457.</span><span class="p">,</span>  <span class="mf">493.</span><span class="p">,</span>  <span class="mf">472.</span><span class="p">,</span>  <span class="mf">460.</span><span class="p">,</span>  <span class="mf">470.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">418.</span><span class="p">,</span>  <span class="mf">498.</span><span class="p">,</span>  <span class="mf">426.</span><span class="p">,</span>  <span class="mf">340.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">,</span>  <span class="mf">556.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">560.</span><span class="p">,</span>  <span class="mf">589.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">576.</span><span class="p">,</span>  <span class="mf">552.</span><span class="p">,</span>  <span class="mf">550.</span><span class="p">,</span>  <span class="mf">365.</span><span class="p">,</span>  <span class="mf">587.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">,</span>  <span class="mf">575.</span><span class="p">,</span>  <span class="mf">586.</span><span class="p">,</span>  <span class="mf">425.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">493.</span><span class="p">,</span>  <span class="mf">488.</span><span class="p">,</span>  <span class="mf">446.</span><span class="p">,</span>  <span class="mf">460.</span><span class="p">,</span>  <span class="mf">447.</span><span class="p">,</span>  <span class="mf">493.</span><span class="p">,</span>  <span class="mf">404.</span><span class="p">,</span>  <span class="mf">414.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">417.</span><span class="p">,</span>  <span class="mf">449.</span><span class="p">,</span>  <span class="mf">317.</span><span class="p">,</span>  <span class="mf">538.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">,</span>  <span class="mf">513.</span><span class="p">,</span>  <span class="mf">553.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">567.</span><span class="p">,</span>  <span class="mf">574.</span><span class="p">,</span>  <span class="mf">374.</span><span class="p">,</span>  <span class="mf">513.</span><span class="p">,</span>  <span class="mf">578.</span><span class="p">,</span>  <span class="mf">593.</span><span class="p">,</span>  <span class="mf">539.</span><span class="p">,</span>  <span class="mf">555.</span><span class="p">,</span>  <span class="mf">512.</span><span class="p">,</span>  <span class="mf">407.</span><span class="p">,</span>  <span class="mf">435.</span><span class="p">,</span>  <span class="mf">483.</span><span class="p">,</span>  <span class="mf">458.</span><span class="p">,</span>  <span class="mf">456.</span><span class="p">,</span>  <span class="mf">462.</span><span class="p">,</span>  <span class="mf">433.</span><span class="p">,</span>  <span class="mf">497.</span><span class="p">,</span>  <span class="mf">465.</span><span class="p">,</span>  <span class="mf">459.</span><span class="p">,</span>  <span class="mf">400.</span><span class="p">,</span>  <span class="mf">445.</span><span class="p">,</span>  <span class="mf">436.</span><span class="p">,</span>  <span class="mf">456.</span><span class="p">,</span>  <span class="mf">356.</span><span class="p">,</span>  <span class="mf">547.</span><span class="p">,</span>  <span class="mf">526.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">537.</span><span class="p">,</span>  <span class="mf">515.</span><span class="p">,</span>  <span class="mf">398.</span><span class="p">,</span>  <span class="mf">576.</span><span class="p">,</span>  <span class="mf">525.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">513.</span><span class="p">,</span>  <span class="mf">450.</span><span class="p">,</span>  <span class="mf">420.</span><span class="p">,</span>  <span class="mf">426.</span><span class="p">,</span>  <span class="mf">489.</span><span class="p">,</span>  <span class="mf">441.</span><span class="p">,</span>  <span class="mf">432.</span><span class="p">,</span>  <span class="mf">427.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">482.</span><span class="p">,</span>  <span class="mf">415.</span><span class="p">,</span>  <span class="mf">486.</span><span class="p">,</span>  <span class="mf">472.</span><span class="p">,</span>  <span class="mf">466.</span><span class="p">,</span>  <span class="mf">320.</span><span class="p">,</span>  <span class="mf">501.</span><span class="p">,</span>  <span class="mf">535.</span><span class="p">,</span>  <span class="mf">592.</span><span class="p">,</span>  <span class="mf">580.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">539.</span><span class="p">,</span>  <span class="mf">542.</span><span class="p">,</span>  <span class="mf">304.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">565.</span><span class="p">,</span>  <span class="mf">500.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">,</span>  <span class="mf">526.</span><span class="p">,</span>  <span class="mf">594.</span><span class="p">,</span>  <span class="mf">423.</span><span class="p">,</span>  <span class="mf">472.</span><span class="p">,</span>  <span class="mf">477.</span><span class="p">,</span>  <span class="mf">468.</span><span class="p">,</span>  <span class="mf">428.</span><span class="p">,</span>  <span class="mf">374.</span><span class="p">,</span>  <span class="mf">343.</span><span class="p">,</span>  <span class="mf">332.</span><span class="p">,</span>  <span class="mf">379.</span><span class="p">,</span>  <span class="mf">419.</span><span class="p">,</span>  <span class="mf">477.</span><span class="p">,</span>  <span class="mf">354.</span><span class="p">,</span>  <span class="mf">557.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">550.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">544.</span><span class="p">,</span>  <span class="mf">383.</span><span class="p">,</span>  <span class="mf">567.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">,</span>  <span class="mf">575.</span><span class="p">,</span>  <span class="mf">372.</span><span class="p">,</span>  <span class="mf">393.</span><span class="p">,</span>  <span class="mf">528.</span><span class="p">,</span>  <span class="mf">546.</span><span class="p">,</span>  <span class="mf">571.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">538.</span><span class="p">,</span>  <span class="mf">548.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">,</span>  <span class="mf">566.</span><span class="p">,</span>  <span class="mf">355.</span><span class="p">,</span>  <span class="mf">387.</span><span class="p">,</span>  <span class="mf">407.</span><span class="p">,</span>  <span class="mf">471.</span><span class="p">,</span>  <span class="mf">332.</span><span class="p">,</span>  <span class="mf">352.</span><span class="p">,</span>  <span class="mf">347.</span><span class="p">,</span>  <span class="mf">369.</span><span class="p">,</span>  <span class="mf">494.</span><span class="p">,</span>  <span class="mf">394.</span><span class="p">,</span>  <span class="mf">566.</span><span class="p">,</span>  <span class="mf">590.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">590.</span><span class="p">,</span>  <span class="mf">326.</span><span class="p">,</span>  <span class="mf">524.</span><span class="p">,</span>  <span class="mf">327.</span><span class="p">,</span>  <span class="mf">357.</span><span class="p">,</span>  <span class="mf">501.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">348.</span><span class="p">,</span>  <span class="mf">566.</span><span class="p">,</span>  <span class="mf">516.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">505.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">501.</span><span class="p">,</span>  <span class="mf">363.</span><span class="p">,</span>  <span class="mf">445.</span><span class="p">,</span>  <span class="mf">442.</span><span class="p">,</span>  <span class="mf">398.</span><span class="p">,</span>  <span class="mf">329.</span><span class="p">,</span>  <span class="mf">548.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">512.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">358.</span><span class="p">,</span>  <span class="mf">344.</span><span class="p">,</span>  <span class="mf">571.</span><span class="p">,</span>  <span class="mf">519.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">571.</span><span class="p">,</span>  <span class="mf">362.</span><span class="p">,</span>  <span class="mf">322.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">251.</span><span class="p">,</span>  <span class="mf">223.</span><span class="p">,</span>  <span class="mf">523.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">355.</span><span class="p">,</span>  <span class="mf">542.</span><span class="p">,</span>  <span class="mf">597.</span><span class="p">,</span>  <span class="mf">587.</span><span class="p">,</span>  <span class="mf">571.</span><span class="p">,</span>  <span class="mf">322.</span><span class="p">,</span>  <span class="mf">446.</span><span class="p">,</span>  <span class="mf">377.</span><span class="p">,</span>  <span class="mf">343.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">509.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">,</span>  <span class="mf">136.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">672.</span><span class="p">,</span>  <span class="mf">367.</span><span class="p">,</span>  <span class="mf">349.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">585.</span><span class="p">,</span>  <span class="mf">312.</span><span class="p">,</span>  <span class="mf">225.</span><span class="p">,</span>  <span class="mf">228.</span><span class="p">,</span>  <span class="mf">435.</span><span class="p">,</span>  <span class="mf">484.</span><span class="p">,</span>  <span class="mf">215.</span><span class="p">,</span>  <span class="mf">536.</span><span class="p">,</span>  <span class="mf">336.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">557.</span><span class="p">,</span>  <span class="mf">375.</span><span class="p">,</span>  <span class="mf">455.</span><span class="p">,</span>  <span class="mf">350.</span><span class="p">,</span>  <span class="mf">371.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">523.</span><span class="p">,</span>  <span class="mf">507.</span><span class="p">,</span>  <span class="mf">218.</span><span class="p">,</span>  <span class="mf">298.</span><span class="p">,</span>  <span class="mf">221.</span><span class="p">,</span>  <span class="mf">292.</span><span class="p">,</span>  <span class="mf">244.</span><span class="p">,</span>  <span class="mf">242.</span><span class="p">,</span>  <span class="mf">294.</span><span class="p">,</span>  <span class="mf">556.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">552.</span><span class="p">,</span>  <span class="mf">232.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">458.</span><span class="p">,</span>  <span class="mf">454.</span><span class="p">,</span>  <span class="mf">435.</span><span class="p">,</span>  <span class="mf">234.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">503.</span><span class="p">,</span>  <span class="mf">365.</span><span class="p">,</span>  <span class="mf">589.</span><span class="p">,</span>  <span class="mf">555.</span><span class="p">,</span>  <span class="mf">303.</span><span class="p">,</span>  <span class="mf">394.</span><span class="p">,</span>  <span class="mf">582.</span><span class="p">,</span>  <span class="mf">364.</span><span class="p">,</span>  <span class="mf">507.</span><span class="p">,</span>  <span class="mf">258.</span><span class="p">,</span>  <span class="mf">299.</span><span class="p">,</span>  <span class="mf">258.</span><span class="p">,</span>  <span class="mf">219.</span><span class="p">,</span>  <span class="mf">291.</span><span class="p">,</span>  <span class="mf">269.</span><span class="p">,</span>  <span class="mf">269.</span><span class="p">,</span>  <span class="mf">243.</span><span class="p">,</span>  <span class="mf">230.</span><span class="p">,</span>  <span class="mf">281.</span><span class="p">,</span>  <span class="mf">536.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">279.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">453.</span><span class="p">,</span>  <span class="mf">406.</span><span class="p">,</span>  <span class="mf">419.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">444.</span><span class="p">,</span>  <span class="mf">514.</span><span class="p">,</span>  <span class="mf">283.</span><span class="p">,</span>  <span class="mf">398.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">352.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">309.</span><span class="p">,</span>  <span class="mf">347.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">214.</span><span class="p">,</span>  <span class="mf">236.</span><span class="p">,</span>  <span class="mf">602.</span><span class="p">,</span>  <span class="mf">261.</span><span class="p">,</span>  <span class="mf">221.</span><span class="p">,</span>  <span class="mf">200.</span><span class="p">,</span>  <span class="mf">292.</span><span class="p">,</span>  <span class="mf">235.</span><span class="p">,</span>  <span class="mf">261.</span><span class="p">,</span>  <span class="mf">236.</span><span class="p">,</span>  <span class="mf">292.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">227.</span><span class="p">,</span>  <span class="mf">460.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">405.</span><span class="p">,</span>  <span class="mf">451.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">454.</span><span class="p">,</span>  <span class="mf">409.</span><span class="p">,</span>  <span class="mf">379.</span><span class="p">,</span>  <span class="mf">505.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">314.</span><span class="p">,</span>  <span class="mf">317.</span><span class="p">,</span>  <span class="mf">325.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">236.</span><span class="p">,</span>  <span class="mf">279.</span><span class="p">,</span>  <span class="mf">270.</span><span class="p">,</span>  <span class="mf">234.</span><span class="p">,</span>  <span class="mf">226.</span><span class="p">,</span>  <span class="mf">553.</span><span class="p">,</span>  <span class="mf">215.</span><span class="p">,</span>  <span class="mf">219.</span><span class="p">,</span>  <span class="mf">246.</span><span class="p">,</span>  <span class="mf">622.</span><span class="p">,</span>  <span class="mf">540.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">595.</span><span class="p">,</span>  <span class="mf">218.</span><span class="p">,</span>  <span class="mf">209.</span><span class="p">,</span>  <span class="mf">456.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">,</span>  <span class="mf">576.</span><span class="p">,</span>  <span class="mf">450.</span><span class="p">,</span>  <span class="mf">401.</span><span class="p">,</span>  <span class="mf">491.</span><span class="p">,</span>  <span class="mf">515.</span><span class="p">,</span>  <span class="mf">321.</span><span class="p">,</span>  <span class="mf">654.</span><span class="p">,</span>  <span class="mf">697.</span><span class="p">,</span>  <span class="mf">267.</span><span class="p">,</span>  <span class="mf">276.</span><span class="p">,</span>  <span class="mf">249.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">651.</span><span class="p">,</span>  <span class="mf">606.</span><span class="p">,</span>  <span class="mf">558.</span><span class="p">,</span>  <span class="mf">604.</span><span class="p">,</span>  <span class="mf">693.</span><span class="p">,</span>  <span class="mf">594.</span><span class="p">,</span>  <span class="mf">570.</span><span class="p">,</span>  <span class="mf">560.</span><span class="p">,</span>  <span class="mf">523.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">524.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">433.</span><span class="p">,</span>  <span class="mf">400.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">516.</span><span class="p">,</span>  <span class="mf">575.</span><span class="p">,</span>  <span class="mf">413.</span><span class="p">,</span>  <span class="mf">662.</span><span class="p">,</span>  <span class="mf">648.</span><span class="p">,</span>  <span class="mf">666.</span><span class="p">,</span>  <span class="mf">470.</span><span class="p">,</span>  <span class="mf">579.</span><span class="p">,</span>  <span class="mf">488.</span><span class="p">,</span>  <span class="mf">641.</span><span class="p">,</span>  <span class="mf">210.</span><span class="p">,</span>  <span class="mf">204.</span><span class="p">,</span>  <span class="mf">553.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">,</span>  <span class="mf">648.</span><span class="p">,</span>  <span class="mf">238.</span><span class="p">,</span>  <span class="mf">656.</span><span class="p">,</span>  <span class="mf">230.</span><span class="p">,</span>  <span class="mf">642.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">,</span>  <span class="mf">599.</span><span class="p">,</span>  <span class="mf">598.</span><span class="p">,</span>  <span class="mf">500.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">524.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">,</span>  <span class="mf">439.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">437.</span><span class="p">,</span>  <span class="mf">691.</span><span class="p">,</span>  <span class="mf">693.</span><span class="p">,</span>  <span class="mf">671.</span><span class="p">,</span>  <span class="mf">659.</span><span class="p">,</span>  <span class="mf">628.</span><span class="p">,</span>  <span class="mf">420.</span><span class="p">,</span>  <span class="mf">494.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">282.</span><span class="p">,</span>  <span class="mf">246.</span><span class="p">,</span>  <span class="mf">506.</span><span class="p">,</span>  <span class="mf">611.</span><span class="p">,</span>  <span class="mf">612.</span><span class="p">,</span>  <span class="mf">227.</span><span class="p">,</span>  <span class="mf">670.</span><span class="p">,</span>  <span class="mf">275.</span><span class="p">,</span>  <span class="mf">691.</span><span class="p">,</span>  <span class="mf">634.</span><span class="p">,</span>  <span class="mf">461.</span><span class="p">,</span>  <span class="mf">597.</span><span class="p">,</span>  <span class="mf">553.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">573.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">436.</span><span class="p">,</span>  <span class="mf">468.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">479.</span><span class="p">,</span>  <span class="mf">679.</span><span class="p">,</span>  <span class="mf">686.</span><span class="p">,</span>  <span class="mf">686.</span><span class="p">,</span>  <span class="mf">678.</span><span class="p">,</span>  <span class="mf">627.</span><span class="p">,</span>  <span class="mf">435.</span><span class="p">,</span>  <span class="mf">586.</span><span class="p">,</span>  <span class="mf">515.</span><span class="p">,</span>  <span class="mf">297.</span><span class="p">,</span>  <span class="mf">264.</span><span class="p">,</span>  <span class="mf">263.</span><span class="p">,</span>  <span class="mf">679.</span><span class="p">,</span>  <span class="mf">648.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">570.</span><span class="p">,</span>  <span class="mf">609.</span><span class="p">,</span>  <span class="mf">601.</span><span class="p">,</span>  <span class="mf">687.</span><span class="p">,</span>  <span class="mf">481.</span><span class="p">,</span>  <span class="mf">574.</span><span class="p">,</span>  <span class="mf">509.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">501.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">539.</span><span class="p">,</span>  <span class="mf">430.</span><span class="p">,</span>  <span class="mf">499.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">474.</span><span class="p">,</span>  <span class="mf">656.</span><span class="p">,</span>  <span class="mf">669.</span><span class="p">,</span>  <span class="mf">601.</span><span class="p">,</span>  <span class="mf">462.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">232.</span><span class="p">,</span>  <span class="mf">685.</span><span class="p">,</span>  <span class="mf">687.</span><span class="p">,</span>  <span class="mf">201.</span><span class="p">,</span>  <span class="mf">437.</span><span class="p">,</span>  <span class="mf">569.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">,</span>  <span class="mf">576.</span><span class="p">,</span>  <span class="mf">558.</span><span class="p">,</span>  <span class="mf">409.</span><span class="p">,</span>  <span class="mf">516.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">527.</span><span class="p">,</span>  <span class="mf">515.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">505.</span><span class="p">,</span>  <span class="mf">411.</span><span class="p">,</span>  <span class="mf">462.</span><span class="p">,</span>  <span class="mf">489.</span><span class="p">,</span>  <span class="mf">465.</span><span class="p">,</span>  <span class="mf">454.</span><span class="p">,</span>  <span class="mf">406.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">347.</span><span class="p">,</span>  <span class="mf">307.</span><span class="p">,</span>  <span class="mf">262.</span><span class="p">,</span>  <span class="mf">576.</span><span class="p">,</span>  <span class="mf">580.</span><span class="p">,</span>  <span class="mf">282.</span><span class="p">,</span>  <span class="mf">262.</span><span class="p">,</span>  <span class="mf">240.</span><span class="p">,</span>  <span class="mf">295.</span><span class="p">,</span>  <span class="mf">276.</span><span class="p">,</span>  <span class="mf">210.</span><span class="p">,</span>  <span class="mf">214.</span><span class="p">,</span>  <span class="mf">280.</span><span class="p">,</span>  <span class="mf">277.</span><span class="p">,</span>  <span class="mf">509.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">537.</span><span class="p">,</span>  <span class="mf">562.</span><span class="p">,</span>  <span class="mf">565.</span><span class="p">,</span>  <span class="mf">573.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">500.</span><span class="p">,</span>  <span class="mf">466.</span><span class="p">,</span>  <span class="mf">464.</span><span class="p">,</span>  <span class="mf">410.</span><span class="p">,</span>  <span class="mf">404.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">108.</span><span class="p">,</span>  <span class="mf">287.</span><span class="p">,</span>  <span class="mf">543.</span><span class="p">,</span>  <span class="mf">521.</span><span class="p">,</span>  <span class="mf">686.</span><span class="p">,</span>  <span class="mf">659.</span><span class="p">,</span>  <span class="mf">261.</span><span class="p">,</span>  <span class="mf">278.</span><span class="p">,</span>  <span class="mf">266.</span><span class="p">,</span>  <span class="mf">276.</span><span class="p">,</span>  <span class="mf">293.</span><span class="p">,</span>  <span class="mf">288.</span><span class="p">,</span>  <span class="mf">554.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">586.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">,</span>  <span class="mf">509.</span><span class="p">,</span>  <span class="mf">579.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">579.</span><span class="p">,</span>  <span class="mf">480.</span><span class="p">,</span>  <span class="mf">439.</span><span class="p">,</span>  <span class="mf">629.</span><span class="p">,</span>  <span class="mf">631.</span><span class="p">,</span>  <span class="mf">458.</span><span class="p">,</span>  <span class="mf">488.</span><span class="p">,</span>  <span class="mf">416.</span><span class="p">,</span>  <span class="mf">429.</span><span class="p">,</span>  <span class="mf">477.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">535.</span><span class="p">,</span>  <span class="mf">564.</span><span class="p">,</span>  <span class="mf">546.</span><span class="p">,</span>  <span class="mf">538.</span><span class="p">,</span>  <span class="mf">529.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">,</span>  <span class="mf">412.</span><span class="p">,</span>  <span class="mf">500.</span><span class="p">,</span>  <span class="mf">559.</span><span class="p">,</span>  <span class="mf">508.</span><span class="p">,</span>  <span class="mf">596.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">536.</span><span class="p">,</span>  <span class="mf">578.</span><span class="p">,</span>  <span class="mf">502.</span><span class="p">,</span>  <span class="mf">522.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">525.</span><span class="p">,</span>  <span class="mf">587.</span><span class="p">,</span>  <span class="mf">580.</span><span class="p">,</span>  <span class="mf">501.</span><span class="p">,</span>  <span class="mf">487.</span><span class="p">,</span>  <span class="mf">439.</span><span class="p">,</span>  <span class="mf">432.</span><span class="p">,</span>  <span class="mf">478.</span><span class="p">,</span>  <span class="mf">443.</span><span class="p">,</span>  <span class="mf">405.</span><span class="p">,</span>  <span class="mf">548.</span><span class="p">,</span>  <span class="mf">533.</span><span class="p">,</span>  <span class="mf">439.</span><span class="p">,</span>  <span class="mf">486.</span><span class="p">,</span>  <span class="mf">415.</span><span class="p">,</span>  <span class="mf">476.</span><span class="p">,</span>  <span class="mf">417.</span><span class="p">,</span>  <span class="mf">472.</span><span class="p">,</span>  <span class="mf">541.</span><span class="p">,</span>  <span class="mf">528.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">531.</span><span class="p">,</span>  <span class="mf">549.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">548.</span><span class="p">,</span>  <span class="mf">562.</span><span class="p">,</span>  <span class="mf">550.</span><span class="p">,</span>  <span class="mf">561.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">598.</span><span class="p">,</span>  <span class="mf">572.</span><span class="p">,</span>  <span class="mf">584.</span><span class="p">,</span>  <span class="mf">581.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">548.</span><span class="p">,</span>  <span class="mf">530.</span><span class="p">,</span>  <span class="mf">512.</span><span class="p">,</span>  <span class="mf">552.</span><span class="p">,</span>  <span class="mf">587.</span><span class="p">,</span>  <span class="mf">511.</span><span class="p">,</span>  <span class="mf">577.</span><span class="p">,</span>  <span class="mf">565.</span><span class="p">,</span>  <span class="mf">591.</span><span class="p">,</span>  <span class="mf">560.</span><span class="p">,</span>  <span class="mf">565.</span><span class="p">,</span>  <span class="mf">595.</span><span class="p">,</span>  <span class="mf">544.</span><span class="p">,</span>  <span class="mf">556.</span><span class="p">,</span>  <span class="mf">585.</span><span class="p">,</span>  <span class="mf">520.</span><span class="p">]])</span>
-</pre>
-
-
-<p>Wandeln Sie den Array folgendermaßen um:</p>
-<ul>
-<li>Zahlen zwischen 200 und 300 -&gt; 0</li>
-<li>Zahlen zwischen 300 und 400 -&gt; 40</li>
-<li>Zahlen zwischen 400 und 500 -&gt; 156</li>
-<li>Zahlen zwischen 600 und 700 -&gt; 220</li>
-</ul>
-<p>Speichern Sie den Ergebnisarray als Bild</p>
-<pre class="code literal-block"><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">riddle</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"solution.png"</span><span class="p">)</span>
-</pre>
-
-
-<h3>Inverse einer Matrix</h3>
-<ul>
-<li>
-<p>Schreiben Sie eine Funktion, die die Inverse einer 2x2 Matrix berechnet.</p>
-</li>
-<li>
-<p>Schreiben Sie eine Funktion, die die Adjunkte einer beliebigen (quadratischen) Matrix bestimmt</p>
-</li>
-<li>
-<p>Benutzen Sie die vorherige Funktion, um beliebige quadratische Matrizen zu invertieren</p>
-</li>
-</ul>
-<p>Hinweise:</p>
-<ul>
-<li>np.linalg.det berechnet die Determinante einer Matrix</li>
-</ul>
-<h3>Apfel-Männchen</h3>
-<p>Gegeben ist eine rekursive Folge für komplexe Zahlen</p>
-<p>\(z_{i+1} = z_i^2 + c \)</p>
-<p>mit \(z_0 = 0\)</p>
-<p>Je nachdem wie man c wählt, bleibt diese Folge beschränkt (d.h. der Betrag der komplexen Zahl (np.abs) bleibt unter einer gewissen Grenze), oder sie divergiert.</p>
-<ul>
-<li>Erstellen Sie einen komplexen 2D-Array c, der die komplexe Ebene darstellen soll. Der Realteil soll dabei von -2 bis 2 verlaufen, der Imaginärteil von -i bis i.
- Dies erreichen Sie durch folgende Schritte:</li>
-<li>Erstellen Sie einen Float-Array für den Realteil und einen für den Imaginärteil:</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">imag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1j</span>
-</pre>
-
-
-<ul>
-<li>Mit folgendem Befehl machen Sie aus dem imag Array einen Spaltenvektor:</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">imag</span> <span class="o">=</span> <span class="n">imag</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-</pre>
-
-
-<pre class="code literal-block"><span></span>Addieren Sie nun die beiden Vektoren, und Sie sollten einen zweidimensionalen Array erhalten, der Punkte der komplexen Ebene zwischen -2-1j und 2+2j enthält.
-</pre>
-
-
-<ul>
-<li>
-<p>Erstellen Sie einen komplexen Array z, sowie einen Integer-Array counter, die beide die selbe shape wie c haben</p>
-</li>
-<li>
-<p>Nun beginnt die Hauptschleife: berechnen Sie in 100 Schritten die Werte z_1 bis z_100, indem Sie ihren Array z immer wieder neu berechnen. Überprüfen Sie nach jeder Rechnung, welche Elemente des z-Arrays noch einen Betrag (np.abs) kleiner 10 haben (-&gt; den resultierenden Boolschen Array können Sie zu counter hinzuaddieren. True wird dann als Wert 1, und False als Wert 0 aufgefasst).</p>
-</li>
-<li>
-<p>Zum Schluss können Sie sich ein Bild des Counters ausgeben lassen. Dazu müssen Sie zu Beginn des Skripts folgendes Paket importieren:</p>
-</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-</pre>
-
-
-<pre class="code literal-block"><span></span>anschließend können Sie mit folgenden 3 Zeilen ein Bild speichern:
-</pre>
-
-
-<pre class="code literal-block"><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">counter</span><span class="o">/</span><span class="mf">100.</span> <span class="o">*</span> <span class="mi">255</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-<span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"mandelbrot.png"</span><span class="p">)</span> 
-</pre>
-
-
-<ul>
-<li>Experimentieren Sie auch mit anderen Grenzen des Arrays c. Sie können so weiter in das Apfelmännchen "zoomen".</li>
-</ul>
-<h3>Monte Carlo</h3>
-<p><img alt="PI_Berechnung" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif"></p>
-<p>Quelle: https://en.wikipedia.org/wiki/Monte_Carlo_method</p>
-<p>Bestimmen Sie die Kreiszahl \(\pi\), indem Sie zufällig Punkte in einem Koordinatensystem der Länge 1 und Höhe 1 verteilen. 
-Wenn Sie einen Kreis ziehen, dessen Zentrum im Ursprung des Koordinatensystems liegt, ist ein Viertel davon in dem Koordinatensystemausschnitt zu sehen.
-Einige der zufällig gewählten Punkte werden nun innerhalb des Viertelkreises liegen, andere außerhalb. 
-Bestimmen Sie über das Verhältnis \(\frac{\text{Anzahl der Punkte im Kreis}}{\text{Gesamtanzahl der Punkte}}\) die Zahl \(\pi\). </p>
-<p>Hinweis: 
-Mittels</p>
-<pre class="code literal-block"><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-</pre>
-
-
-<p>können Sie einen Array mit Zufallszahlen im Intervall [0, 1) erzeugen.</p>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/module_exceptions_uebungen/" class="u-url">4 - Module &amp; Exceptions - Übung</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../uebungen/module_exceptions_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T00:00:00+01:00" title="2017-07-06 00:00">2017-07-06 00:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Module</h2>
-<h3>timeit</h3>
-<ul>
-<li>
-<p>Benutzen Sie die time-Funktion aus dem time-Modul, um die Laufzeit des Pascalschen Dreieck Programms zu bestimmen. </p>
-</li>
-<li>
-<p>Schreiben Sie eine Wrapper-Funktion <em>timeit</em>, die die Laufzeit beliebiger Funktionen misst.</p>
-</li>
-<li>
-<p>Benutzen Sie sie als Decorator</p>
-</li>
-</ul>
-<h3>Lotto</h3>
-<ul>
-<li>
-<p>Spielen Sie Lotto! (aber nur am Computer...) Schreiben Sie ein Programm, das 6 Kugeln aus 49 zieht (dafür ist das random Modul sehr hilfreich).</p>
-</li>
-<li>
-<p>Schreiben Sie ein Programm, das eine Million mal Lotto spielt.</p>
-</li>
-<li>
-<p>Speichern Sie in einem Histogramm, wie oft das Programm null richtige, einen richtigen, ..., sechs richtige zieht. Benutzen Sie dafür die Klasse Counter aus dem Modul collections</p>
-</li>
-</ul>
-<h3>Type Checking</h3>
-<ul>
-<li>Benutzen Sie das types-Modul, und schreiben Sie einen Decorator check_if_number, der prüft, ob alle Argumente einer Funktion vom Typ Integer oder Float sind. Falls nicht, soll ein ValueError auftreten</li>
-</ul>
-<h3>Memoize</h3>
-<ul>
-<li>
-<p>Versuchen Sie, das Pascalsche Dreieck mit 40 Zeilen zu erzeugen</p>
-</li>
-<li>
-<p>Brechen Sie genervt nach 2 Minuten Wartezeit ab</p>
-</li>
-</ul>
-<p>Das Problem bei der momentanen Lösung ist, dass Zeilen die vorher schonmal berechnet wurden, immer wieder neu berechnet werden</p>
-<ul>
-<li>Schreiben Sie nun eine Wrapper-Funktion <em>memoize</em>, die eine andere Funktion f als Argument erwartet. Die memoize Funktion beinhaltet ein Dictionary d. 
-Definieren Sie in der memoize Funktion eine weitere Funktion f_extended(x). Diese prüft, ob x schon in d enthalten ist. 
-Wenn nicht, setzt sie d[x] auf f(x). Anschließend gibt sie den unter d[x] gespeicherten Wert zurück. Die memoize Funktion muss schließlich noch f_extended zurückgeben.
-Benutzen Sie memoize als Decorator und versuchen Sie nochmals die Berechnung von 40 Zeilen des Pascalschen Dreiecks</li>
-</ul>
-<p>Hinweis: tatsächlich gibt es diese Funktion schon in der Standardlibrary. Sie ist im Modul functools zu finden und heißt lru_cache</p>
-<h3>rot-n</h3>
-<p>Schreiben Sie eine Funktion, die einen Parameter n annimmt und eine Funktion zurückgibt, die einen String per Cäsar-Code verschlüsselt. Der Parameter n legt dabei fest, um wieviel Buchstaben die Funktion die Buchstaben der Eingabewörter verschiebt</p>
 </div>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/module_exceptions/" class="u-url">4 - Module &amp; Exceptions</a></h1>
@@ -4068,198 +4511,6 @@ So können wir nun eine Funktion schreiben, die eine andere Funktion als Argumen
 <p>Die Funktion <em>fak</em> hat dann automatisch die erweiterte Funktionalität.</p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/funktionen_klassen_objekte_uebungen/" class="u-url">3 - Funktionen, Klassen und Objekte - Übung</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../uebungen/funktionen_klassen_objekte_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-05-11T00:00:00+01:00" title="2017-05-11 00:00">2017-05-11 00:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Funktionen</h2>
-<h3>Hallo, name!</h3>
-<p>Schreiben Sie eine Funktion "hallo", die als Parameter einen Namen erwartet, und bei Aufruf diesen
-grüßt.</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">hallo</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="o">...</span>
-</pre>
-
-
-<p>Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="n">hallo</span><span class="p">(</span><span class="s2">"Karl"</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>Hallo, Karl!
-</pre>
-
-
-<h3>Aufgabe max</h3>
-<ul>
-<li>Schreiben Sie eine Funktion die für zwei gegebene Zahlen die größere zurückgibt</li>
-<li>Schreiben Sie eine Funktion, die für eine Liste von Zahlen die größte zurückgibt</li>
-</ul>
-<h3>Listen</h3>
-<p>Gegeben sind eine Funktion und eine Liste</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">x</span>
-
-<span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
-</pre>
-
-
-<p>Wenden Sie die Funktion auf jedes Element der Liste an und speichern Sie die Ergebnisse in einer
-neuen Liste.</p>
-<h2>Ein- und Ausgabe</h2>
-<h3>read_file</h3>
-<p>Schreiben Sie eine Funktion <em>read_file</em>, die einen Dateinamen als Argument erwartet und eine Liste mit den Zeilen der ausgelesenen Datei zurückgibt</p>
-<h3>write_file</h3>
-<p>Schreiben Sie eine Funktion <em>write_file</em>, die als Argumente einen Dateinamen, sowie eine Liste mit Strings erwartet und diese in eine Datei schreibt.</p>
-<h2>Aufgabe Palindrom</h2>
-<p>Schreiben Sie eine Funktion <em>palindrom</em>, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).</p>
-<p>Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">palindrom</span><span class="p">(</span><span class="n">wort</span><span class="p">):</span>
-    <span class="o">...</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">palindrom</span><span class="p">(</span><span class="s2">"anna"</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">palindrom</span><span class="p">(</span><span class="s2">"anne"</span><span class="p">))</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>True
-False
-</pre>
-
-
-<h2>Zahlen von 1 bis n</h2>
-<p>Schreiben Sie eine Funktion, die bei Eingabe einer natürlichen Zahl n die Zahlen von 1 bis n ausgibt.
-Jedoch ohne eine Schleife zu benutzen!</p>
-<h2>Matrix Multiplikation</h2>
-<p>Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr 
-Produkt ausgibt.</p>
-<p>Hinweis:</p>
-<p>Eine Matrix können Sie als Liste von Listen speichern:</p>
-<pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-</pre>
-
-
-<h2>Sichtbarkeit und Lebensdauer von Variablen in Funktionen</h2>
-<p>Was gibt folgender Code aus?</p>
-<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">f</span><span class="p">()</span>
-</pre>
-
-
-<p>Was passiert jetzt?</p>
-<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">f</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre>
-
-
-<p>Und hier?</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">f</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre>
-
-
-<p>Verschachtelt:</p>
-<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">def</span> <span class="nf">f_außen</span><span class="p">():</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="k">def</span> <span class="nf">f_innen</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">f_innen</span>
-
-<span class="n">f_innen</span> <span class="o">=</span> <span class="n">f_außen</span><span class="p">()</span>
-<span class="n">f_innen</span><span class="p">()</span>
-</pre>
-
-
-<p>???</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">liste</span><span class="o">=</span><span class="p">[]):</span>
-    <span class="n">liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
-<span class="n">f</span><span class="p">()</span>
-<span class="n">f</span><span class="p">()</span>
-<span class="n">f</span><span class="p">()</span>
-<span class="n">f</span><span class="p">()</span>
-</pre>
-
-
-<p>Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        </p>
-<h2>Aufgabe Cäsar Verschlüsselung</h2>
-<p>Die <em>Cäsar Verschlüsselung</em> ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um <em>n</em> verschoben ist.<br>
-Beispielsweise könnte man jeden Buchstaben um 4 Positionen verschieben:  </p>
-<pre class="code literal-block"><span></span>a -&gt; e
-b -&gt; f
-...
-z -&gt; d 
-</pre>
-
-
-<ul>
-<li>Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte <em>ROT13</em> Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">rot13</span><span class="p">(</span><span class="s2">"hallo welt"</span><span class="p">)</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>'unyyb jryg'
-</pre>
-
-
-<ul>
-<li>Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist</li>
-<li>Kleine Hilfe:</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">alphabet</span> <span class="o">=</span> <span class="s1">'abcdefghijklmnopqrstuvwxyz'</span>
-</pre>
-
-
-<p>Erstellen Sie nun daraus einen String alphabet_verschoben (Slicing hilft!), der mit dem 13. Buchstaben beginnt.</p>
-<ul>
-<li>Wie sieht die Funktion aus, die verschlüsselten Text wieder entschlüsselt?</li>
-</ul>
-<h2>Pascalsches Dreieck</h2>
-<p><img alt="PascalschesDreieck" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif"></p>
-<p>(Quelle: https://de.wikipedia.org/wiki/Pascalsches_Dreieck)</p>
-<p>Das Pascalsche Dreieck ist ein Dreieck aus Zahlen. In jeder Zeile sind die erste und die letzte Zahl jeweils Einsen. Für die weiteren Zahlen gilt folgende rekursive Formel:
-z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
-<p>So gilt beispielsweise für die Zahl 6 (vierte Zeile) im obigen Dreieck: sie steht in der 4.Zeile (bei Null anfangen zu zählen!) an zweiter Stelle, und ist die Summe aus der Zahl in der 3. Zeile an erster Stelle und der Zahl in der 3. Zeile an zweiter Stelle.</p>
-<p>Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer die Einträge des Pascalschen Dreiecks ausgibt.</p>
-<h2>Klassen</h2>
-<p>Schreiben Sie eine Klasse Student mit folgenden Eigenschaften:</p>
-<ul>
-<li>Ein neues Studenten-Objekt wird erstellt, indem man dem Konstruktor (d.h. der <strong>init</strong> Funktion Namen und Vornamen des Studenten übergibt:</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Müller"</span><span class="p">,</span> <span class="n">vorname</span><span class="o">=</span><span class="s2">"Heinz"</span><span class="p">)</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Die Klasse soll eine Objektvariable <em>noten_liste</em> besitzen, die zu Beginn eine leere Liste ist, sowie eine Methode <em>neue_note</em>, die der <em>noten_liste</em> eine neue Note hinzufügt</p>
-</li>
-<li>
-<p>Schreiben Sie eine Methode <em>durchschnitts_note</em>, die den Durchschnitt aller Noten in <em>noten_liste</em> bildet</p>
-</li>
-</ul>
-</div>
-    </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../notebooks/interne-datenstrukturen01/" class="u-url">Interne Datenstrukturen - 1</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
@@ -5056,7 +5307,7 @@ käse kostet 2.3
 
         <nav class="postindexpager clearfix"><a href="index-1.html" class="btn btn-secondary float-right" rel="next">Ältere Einträge</a>
         
-        </nav><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        </nav><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
@@ -5066,7 +5317,7 @@ käse kostet 2.3
 </div>
 
 
-            <script src="../assets/js/jquery.min.js"></script><script src="../assets/js/tether.min.js"></script><script src="../assets/js/bootstrap.min.js"></script><script src="../assets/js/moment-with-locales.min.js"></script><script src="../assets/js/fancydates.js"></script><script src="../assets/js/jquery.colorbox-min.js"></script><script src="../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../assets/js/all-nocdn.js"></script><script src="../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("de");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates -->
