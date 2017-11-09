@@ -1,5 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml" rel="self"></atom:link><language>de</language><lastBuildDate>Fri, 03 Nov 2017 10:18:25 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2 - Übungen - 27.10.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Listen&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml" type="application/rss+xml" rel="self"></atom:link><language>de</language><lastBuildDate>Thu, 09 Nov 2017 11:41:46 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>4 - Übungen - 10.11.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
+&lt;h3&gt;Sichtbarkeit (Scope) von Variablen in Funktionen&lt;/h3&gt;
+&lt;p&gt;Python unterscheidet zwischen globalen und lokalen Variablen.
+Globale Variablen sind Variablen, die auf der obersten Ebene des Python-Skripts definiert wurden
+(d.h. sie sind nicht eingebettet in eine Funktion oder ähnliches).
+Diese sind von überall im Python-Skript lesbar.&lt;/p&gt;
+&lt;p&gt;Auf der anderen Seite gibt es lokale Variablen. Das sind Variablen, die innerhalb einer Funktion
+definiert wurden und daher nur innerhalb dieser "gesehen" werden.&lt;/p&gt;
+&lt;p&gt;Versuchen Sie, die folgenden Beispiele nachzuvollziehen.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;"""x existiert nur global"""&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;"""x existiert nur lokal"""&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;"""x existiert global und lokal"""&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;"""x existiert global. Existiert es lokal?"""&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Rekursion&lt;/h3&gt;
+&lt;p&gt;Eine rekursive Funktion ist eine Funktion, die sich selbst in ihrer Definition nochmals aufruft.
+Bekanntestes Beispiel dafür ist vermutlich die Fakultätsfunktion.&lt;/p&gt;
+&lt;p&gt;\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1
+      = n \cdot (n-1)!\)&lt;/p&gt;
+&lt;p&gt;Die Fakultät einer natürlichen Zahl \(n\) kann gelöst werden, indem man das Produkt von \(n\)
+mit \(n - 1!\) berechnet.&lt;/p&gt;
+&lt;p&gt;In Python-Code würde das ganze so aussehen:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fak&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;fak&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Wichtig hierbei ist der Rekursionsanker (&lt;code&gt;if n == 0&lt;/code&gt;), der dafür sorgt, dass die rekursiven
+Aufrufe ab einem bestimmten Punkt stoppen.&lt;/p&gt;
+&lt;h4&gt;Kontostand&lt;/h4&gt;
+&lt;p&gt;Schreiben Sie nun eine Funktion, die rekursiv einen Kontostand berechnet, der anfangs (\(t = 0\))
+1000 € beträgt, und jährlich mit 5 % verzinst wird.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kontostand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ausgabe:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;1000
+&lt;/pre&gt;
+
+
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kontostand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ausgabe:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;1050
+&lt;/pre&gt;
+
+
+&lt;p&gt;usw.&lt;/p&gt;
+&lt;h4&gt;Zahlen von 1 bis n&lt;/h4&gt;
+&lt;p&gt;Schreiben Sie eine Funktion, die bei Eingabe einer natürlichen Zahl n die Zahlen von 1 bis n ausgibt.
+Jedoch ohne eine Schleife zu benutzen!&lt;/p&gt;
+&lt;h3&gt;Aufgabe Palindrom&lt;/h3&gt;
+&lt;p&gt;Schreiben Sie eine Funktion &lt;em&gt;is_palindrom&lt;/em&gt;, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;is_palindrom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wort&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;is_palindrom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"anna"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;is_palindrom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"anne"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ausgabe:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;True
+False
+&lt;/pre&gt;
+
+
+&lt;p&gt;Sie können die Aufgabe sowohl iterativ als auch rekursiv lösen.&lt;/p&gt;
+&lt;h3&gt;Matrix Multiplikation&lt;/h3&gt;
+&lt;p&gt;Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr 
+Produkt ausgibt.&lt;/p&gt;
+&lt;p&gt;Hinweis:&lt;/p&gt;
+&lt;p&gt;Eine Matrix können Sie als Liste von Listen speichern:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+       &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+       &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        &lt;/p&gt;
+&lt;h2&gt;Dictionaries&lt;/h2&gt;
+&lt;p&gt;Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
+Zu jedem Schlüssel gibt es einen Wert, auf den man zugreifen kann wenn man den Schlüssel hat.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;student&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"name"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"Müller"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s2"&gt;"vorname"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"Karl"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s2"&gt;"studiengang"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"Physik"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;student&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"vorname"&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;student&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"name"&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="s2"&gt;"studiert"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;student&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"studiengang"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Telefonbuch&lt;/h3&gt;
+&lt;p&gt;Schreiben Sie ein (ganz kleines) Telefonbuch.
+Für drei Nachnamen soll es jeweils die dazugehörige Telefonnummer speichern.&lt;/p&gt;
+&lt;h3&gt;Englisch-Deutsch Wörterbuch&lt;/h3&gt;
+&lt;p&gt;Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;englisch_deutsch_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"hello"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"hallo"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"world"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"welt"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"good bye"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"auf wiedersehen"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!&lt;/p&gt;
+&lt;h3&gt;Aufgabe Cäsar Verschlüsselung&lt;/h3&gt;
+&lt;p&gt;Die &lt;em&gt;Cäsar Verschlüsselung&lt;/em&gt; ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um &lt;em&gt;n&lt;/em&gt; Buchstaben verschoben ist.&lt;br&gt;
+Beispielsweise könnte man jeden Buchstaben um 4 Positionen verschieben:  &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;a -&amp;gt; e
+b -&amp;gt; f
+...
+z -&amp;gt; d 
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte &lt;em&gt;ROT13&lt;/em&gt; Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;rot13&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wort&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rot13&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"hallo welt"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ausgabe:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;'unyyb jryg'
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist&lt;/li&gt;
+&lt;li&gt;Kleine Hilfe:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;alphabet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'abcdefghijklmnopqrstuvwxyz'&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Erstellen Sie nun daraus einen String alphabet_verschoben (Slicing hilft!), der mit dem 13. Buchstaben beginnt.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wie sieht die Funktion aus, die verschlüsselten Text wieder entschlüsselt?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Pascalsches Dreieck&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="PascalschesDreieck" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif"&gt;&lt;/p&gt;
+&lt;p&gt;(Quelle: https://de.wikipedia.org/wiki/Pascalsches_Dreieck)&lt;/p&gt;
+&lt;p&gt;Das Pascalsche Dreieck ist ein Dreieck aus Zahlen. In jeder Zeile sind die erste und die letzte Zahl jeweils Einsen. Für die weiteren Zahlen gilt folgende rekursive Formel:
+z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).&lt;/p&gt;
+&lt;p&gt;So gilt beispielsweise für die Zahl 6 (vierte Zeile) im obigen Dreieck: sie steht in der 4.Zeile (bei Null anfangen zu zählen!) an zweiter Stelle, und ist die Summe aus der Zahl in der 3. Zeile an erster Stelle und der Zahl in der 3. Zeile an zweiter Stelle.&lt;/p&gt;
+&lt;p&gt;Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer die Einträge des Pascalschen Dreiecks ausgibt.&lt;/p&gt;&lt;/div&gt;</description><category>mathjax</category><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/</guid><pubDate>Wed, 08 Nov 2017 23:00:00 GMT</pubDate></item><item><title>2 - Übungen - 27.10.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Listen&lt;/h2&gt;
 &lt;h3&gt;Quadratzahlen korrigieren&lt;/h3&gt;
 &lt;p&gt;Gegeben sei folgende Liste:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;quadrat_zahlen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;81&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;

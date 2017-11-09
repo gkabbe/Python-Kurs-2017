@@ -69,7 +69,204 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/funktionen_klassen_objekte_uebungen/" class="u-url">3 - Übungen - 3.11.17</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/funktionen_dictionaries/" class="u-url">4 - Übungen - 10.11.17</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../uebungen/funktionen_dictionaries/" rel="bookmark"><time class="published dt-published" datetime="2017-11-09T00:00:00+01:00" title="2017-11-09 00:00">2017-11-09 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Funktionen</h2>
+<h3>Sichtbarkeit (Scope) von Variablen in Funktionen</h3>
+<p>Python unterscheidet zwischen globalen und lokalen Variablen.
+Globale Variablen sind Variablen, die auf der obersten Ebene des Python-Skripts definiert wurden
+(d.h. sie sind nicht eingebettet in eine Funktion oder ähnliches).
+Diese sind von überall im Python-Skript lesbar.</p>
+<p>Auf der anderen Seite gibt es lokale Variablen. Das sind Variablen, die innerhalb einer Funktion
+definiert wurden und daher nur innerhalb dieser "gesehen" werden.</p>
+<p>Versuchen Sie, die folgenden Beispiele nachzuvollziehen.</p>
+<pre class="code literal-block"><span></span><span class="sd">"""x existiert nur global"""</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="sd">"""x existiert nur lokal"""</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="sd">"""x existiert global und lokal"""</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="sd">"""x existiert global. Existiert es lokal?"""</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">if</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+</pre>
+
+
+<h3>Rekursion</h3>
+<p>Eine rekursive Funktion ist eine Funktion, die sich selbst in ihrer Definition nochmals aufruft.
+Bekanntestes Beispiel dafür ist vermutlich die Fakultätsfunktion.</p>
+<p>\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1
+      = n \cdot (n-1)!\)</p>
+<p>Die Fakultät einer natürlichen Zahl \(n\) kann gelöst werden, indem man das Produkt von \(n\)
+mit \(n - 1!\) berechnet.</p>
+<p>In Python-Code würde das ganze so aussehen:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fak</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fak</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
+<p>Wichtig hierbei ist der Rekursionsanker (<code>if n == 0</code>), der dafür sorgt, dass die rekursiven
+Aufrufe ab einem bestimmten Punkt stoppen.</p>
+<h4>Kontostand</h4>
+<p>Schreiben Sie nun eine Funktion, die rekursiv einen Kontostand berechnet, der anfangs (\(t = 0\))
+1000 € beträgt, und jährlich mit 5 % verzinst wird.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">kontostand</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>1000
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">kontostand</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>1050
+</pre>
+
+
+<p>usw.</p>
+<h4>Zahlen von 1 bis n</h4>
+<p>Schreiben Sie eine Funktion, die bei Eingabe einer natürlichen Zahl n die Zahlen von 1 bis n ausgibt.
+Jedoch ohne eine Schleife zu benutzen!</p>
+<h3>Aufgabe Palindrom</h3>
+<p>Schreiben Sie eine Funktion <em>is_palindrom</em>, die überprüft, ob ein String ein Palindrom ist (also vorwärts und rückwärts gelesen das gleiche ergibt).</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">is_palindrom</span><span class="p">(</span><span class="n">wort</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">is_palindrom</span><span class="p">(</span><span class="s2">"anna"</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">is_palindrom</span><span class="p">(</span><span class="s2">"anne"</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>True
+False
+</pre>
+
+
+<p>Sie können die Aufgabe sowohl iterativ als auch rekursiv lösen.</p>
+<h3>Matrix Multiplikation</h3>
+<p>Schreiben Sie eine Funktion mat_mul(matrix_a, matrix_b), die zwei Matrizen als Eingabe nimmt und ihr 
+Produkt ausgibt.</p>
+<p>Hinweis:</p>
+<p>Eine Matrix können Sie als Liste von Listen speichern:</p>
+<pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+</pre>
+
+
+<p>Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        </p>
+<h2>Dictionaries</h2>
+<p>Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
+Zu jedem Schlüssel gibt es einen Wert, auf den man zugreifen kann wenn man den Schlüssel hat.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Müller"</span><span class="p">,</span>
+           <span class="s2">"vorname"</span><span class="p">:</span> <span class="s2">"Karl"</span><span class="p">,</span>
+           <span class="s2">"studiengang"</span><span class="p">:</span> <span class="s2">"Physik"</span><span class="p">}</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">"vorname"</span><span class="p">],</span> <span class="n">student</span><span class="p">[</span><span class="s2">"name"</span><span class="p">],</span> <span class="s2">"studiert"</span><span class="p">,</span> <span class="n">student</span><span class="p">[</span><span class="s2">"studiengang"</span><span class="p">])</span>
+</pre>
+
+
+<h3>Telefonbuch</h3>
+<p>Schreiben Sie ein (ganz kleines) Telefonbuch.
+Für drei Nachnamen soll es jeweils die dazugehörige Telefonnummer speichern.</p>
+<h3>Englisch-Deutsch Wörterbuch</h3>
+<p>Gegeben ist ein (zugegebenermaßen sehr knappes) Englisch-Deutsch-Wörterbuch:</p>
+<pre class="code literal-block"><span></span><span class="n">englisch_deutsch_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"hello"</span><span class="p">:</span> <span class="s2">"hallo"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">:</span> <span class="s2">"welt"</span><span class="p">,</span> <span class="s2">"good bye"</span><span class="p">:</span> <span class="s2">"auf wiedersehen"</span><span class="p">}</span>
+</pre>
+
+
+<p>Machen Sie daraus ein Deutsch-Englisch-Wörterbuch!</p>
+<h3>Aufgabe Cäsar Verschlüsselung</h3>
+<p>Die <em>Cäsar Verschlüsselung</em> ist eine Verschlüsselung, bei der jeder Buchstabe des zu verschlüsselnden Textes mit einem anderen Buchstaben ersetzt wird, dessen Position im Alphabet um <em>n</em> Buchstaben verschoben ist.<br>
+Beispielsweise könnte man jeden Buchstaben um 4 Positionen verschieben:  </p>
+<pre class="code literal-block"><span></span>a -&gt; e
+b -&gt; f
+...
+z -&gt; d 
+</pre>
+
+
+<ul>
+<li>Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte <em>ROT13</em> Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">rot13</span><span class="p">(</span><span class="n">wort</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">rot13</span><span class="p">(</span><span class="s2">"hallo welt"</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>'unyyb jryg'
+</pre>
+
+
+<ul>
+<li>Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist</li>
+<li>Kleine Hilfe:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">alphabet</span> <span class="o">=</span> <span class="s1">'abcdefghijklmnopqrstuvwxyz'</span>
+</pre>
+
+
+<p>Erstellen Sie nun daraus einen String alphabet_verschoben (Slicing hilft!), der mit dem 13. Buchstaben beginnt.</p>
+<ul>
+<li>Wie sieht die Funktion aus, die verschlüsselten Text wieder entschlüsselt?</li>
+</ul>
+<h2>Pascalsches Dreieck</h2>
+<p><img alt="PascalschesDreieck" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif"></p>
+<p>(Quelle: https://de.wikipedia.org/wiki/Pascalsches_Dreieck)</p>
+<p>Das Pascalsche Dreieck ist ein Dreieck aus Zahlen. In jeder Zeile sind die erste und die letzte Zahl jeweils Einsen. Für die weiteren Zahlen gilt folgende rekursive Formel:
+z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
+<p>So gilt beispielsweise für die Zahl 6 (vierte Zeile) im obigen Dreieck: sie steht in der 4.Zeile (bei Null anfangen zu zählen!) an zweiter Stelle, und ist die Summe aus der Zahl in der 3. Zeile an erster Stelle und der Zahl in der 3. Zeile an zweiter Stelle.</p>
+<p>Schreiben Sie eine Funktion pascal_zeile, die für eine gegebene Zeilennummer die Einträge des Pascalschen Dreiecks ausgibt.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/funktionen_klassen_objekte_uebungen/" class="u-url">3 - Übungen - 3.11.17</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe
@@ -4511,797 +4708,6 @@ So können wir nun eine Funktion schreiben, die eine andere Funktion als Argumen
 
 <p>Die Funktion <em>fak</em> hat dann automatisch die erweiterte Funktionalität.</p>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../notebooks/interne-datenstrukturen01/" class="u-url">Interne Datenstrukturen - 1</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../notebooks/interne-datenstrukturen01/" rel="bookmark"><time class="published dt-published" datetime="2017-04-28T15:00:12+02:00" title="2017-04-28 15:00">2017-04-28 15:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Verschiedene-Datenstrukturen-in-Python">Verschiedene Datenstrukturen in Python<a class="anchor-link" href="../notebooks/interne-datenstrukturen01/#Verschiedene-Datenstrukturen-in-Python">¶</a>
-</h2>
-<h3 id="(28.04.17)">(28.04.17)<a class="anchor-link" href="../notebooks/interne-datenstrukturen01/#(28.04.17)">¶</a>
-</h3>
-<p>Hinweis: Dieses Notebook könnt ihr runterladen, indem ihr rechts oben auf den Link Source drückt
-Ihr könnt dann zuhause nochmal die einzelnen Beispiele anschauen, ändern und ausführen</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Listen">Listen<a class="anchor-link" href="../notebooks/interne-datenstrukturen01/#Listen">¶</a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 4, 5]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">meine_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"blub"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 4, 5, 'blub']
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Hole das nullte Element aus der Liste</span>
-<span class="n">nulltes_element</span> <span class="o">=</span> <span class="n">meine_liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nulltes_element</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-[2, 3, 4, 5, 'blub']
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Zugreifen auf ein ELement in der Liste, </span>
-<span class="c1"># ohne es zu löschen:</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># An welcher Stelle in der Liste ist das Element "blub"?</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"blub"</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># .index findet immer nur ein Element (nämlich das erste)</span>
-<span class="n">weitere_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">weitere_liste</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"blub"</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># letztes Element in der Liste</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">weitere_liste</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>blub
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Wir möchten alle Indices von "blub" finden</span>
-
-<span class="n">weitere_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">]</span>
-
-<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">index_liste</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">weitere_liste</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="s2">"blub"</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-        <span class="n">index_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">index_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-4
-[2, 4]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Listen verknüpfen</span>
-<span class="n">liste_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">liste_2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">liste_1</span> <span class="o">+</span> <span class="n">liste_2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 'a', 'b', 'c']
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prüfen, ob ein Element in der Liste ist:</span>
-<span class="n">weitere_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">]</span>
-
-<span class="c1"># Ist "blub" in andere_liste?</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"blub"</span> <span class="ow">in</span> <span class="n">weitere_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Wir können for-Schleifen benutzen, um über jedes Element</span>
-<span class="c1"># in einer Liste zu iterieren</span>
-
-<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">zahl</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">zahl</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Enumerate gibt einem zu jedem Element in einer Liste</span>
-<span class="c1"># zusätzlich noch den Index</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"An Stelle"</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>An Stelle 0 : a
-An Stelle 1 : b
-An Stelle 2 : c
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Nochmal das Bsp. mit den Indices von "blub"</span>
-<span class="c1"># Diesmal benutzen wir enumerate:</span>
-<span class="n">andere_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">]</span>
-
-<span class="n">index_liste</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">andere_liste</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="s2">"blub"</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-        <span class="n">index_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">index_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-4
-[2, 4]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Chemiker misst alle 20 sek. Konzentrationen:</span>
-
-<span class="n">konzentrationen</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.000</span><span class="p">,</span>
-                   <span class="mf">0.880</span><span class="p">,</span>
-                   <span class="mf">0.756</span><span class="p">,</span>
-                   <span class="mf">0.656</span><span class="p">,</span>
-                   <span class="mf">0.582</span><span class="p">,</span>
-                   <span class="mf">0.495</span><span class="p">,</span>
-                   <span class="mf">0.441</span><span class="p">,</span>
-                   <span class="mf">0.387</span><span class="p">,</span>
-                   <span class="mf">0.335</span><span class="p">,</span>
-                   <span class="mf">0.294</span><span class="p">,</span>
-                   <span class="mf">0.242</span><span class="p">,</span>
-                   <span class="mf">0.219</span><span class="p">,</span>
-                   <span class="mf">0.194</span><span class="p">,</span>
-                   <span class="mf">0.166</span><span class="p">,</span>
-                   <span class="mf">0.140</span><span class="p">,</span>
-                   <span class="mf">0.130</span><span class="p">,</span>
-                   <span class="mf">0.109</span><span class="p">,</span>
-                   <span class="mf">0.099</span><span class="p">,</span>
-                   <span class="mf">0.079</span><span class="p">,</span>
-                   <span class="mf">0.078</span><span class="p">,</span>
-                   <span class="mf">0.064</span>
-                  <span class="p">]</span> 
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">konz</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">konzentrationen</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Time:"</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">"; Concentration:"</span><span class="p">,</span> <span class="n">konz</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Time: 0 ; Concentration: 1.0
-Time: 20 ; Concentration: 0.88
-Time: 40 ; Concentration: 0.756
-Time: 60 ; Concentration: 0.656
-Time: 80 ; Concentration: 0.582
-Time: 100 ; Concentration: 0.495
-Time: 120 ; Concentration: 0.441
-Time: 140 ; Concentration: 0.387
-Time: 160 ; Concentration: 0.335
-Time: 180 ; Concentration: 0.294
-Time: 200 ; Concentration: 0.242
-Time: 220 ; Concentration: 0.219
-Time: 240 ; Concentration: 0.194
-Time: 260 ; Concentration: 0.166
-Time: 280 ; Concentration: 0.14
-Time: 300 ; Concentration: 0.13
-Time: 320 ; Concentration: 0.109
-Time: 340 ; Concentration: 0.099
-Time: 360 ; Concentration: 0.079
-Time: 380 ; Concentration: 0.078
-Time: 400 ; Concentration: 0.064
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">),</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quadratzahlen korrigieren:</span>
-<span class="c1"># Per Hand</span>
-
-<span class="n">quadrat_zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-
-<span class="n">quadrat_zahlen</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">25</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">quadrat_zahlen</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Vollautomatisch</span>
-<span class="n">quadrat_zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">quadrat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">quadrat_zahlen</span><span class="p">):</span>
-    <span class="c1"># Der Index fängt bei Null an zu zählen, aber die erste Zahl ist 1</span>
-    <span class="c1"># -&gt; index + 1</span>
-    <span class="n">korrektes_quadrat</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">quadrat</span> <span class="o">!=</span> <span class="n">korrektes_quadrat</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Die Zahl"</span><span class="p">,</span> <span class="n">quadrat</span><span class="p">,</span> <span class="s2">"ist falsch"</span><span class="p">)</span>
-        <span class="c1"># korrigiere den Eintrag an Stelle index</span>
-        <span class="n">quadrat_zahlen</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">korrektes_quadrat</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">quadrat_zahlen</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Die Zahl 26 ist falsch
-[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Zip ermöglicht das iterieren über mehrere Listen gleichzeitig:</span>
-
-<span class="n">einkaufs_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apfel"</span><span class="p">,</span> <span class="s2">"milch"</span><span class="p">,</span> <span class="s2">"banane"</span><span class="p">,</span> <span class="s2">"joghurt"</span><span class="p">,</span> <span class="s2">"käse"</span><span class="p">]</span>
-<span class="n">preise</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mf">1.20</span><span class="p">,</span> <span class="mf">2.30</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">preis</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">einkaufs_liste</span><span class="p">,</span> <span class="n">preise</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s2">"kostet"</span><span class="p">,</span> <span class="n">preis</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>apfel kostet 0.4
-milch kostet 0.59
-banane kostet 0.3
-joghurt kostet 1.2
-käse kostet 2.3
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Mithilfe von list können wir aus dem zip-Objekt eine Liste machen:</span>
-
-<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">einkaufs_liste</span><span class="p">,</span> <span class="n">preise</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[21]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[('apfel', 0.4),
- ('milch', 0.59),
- ('banane', 0.3),
- ('joghurt', 1.2),
- ('käse', 2.3)]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s2">"1.234"</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[22]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.234</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
     </div>
     </article>
 </div>
