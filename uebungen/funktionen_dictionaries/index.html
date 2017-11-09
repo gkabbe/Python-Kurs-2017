@@ -247,9 +247,7 @@ z -&gt; d
 </pre>
 
 
-<ul>
-<li>Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte <em>ROT13</em> Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).</li>
-</ul>
+<p>Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte <em>ROT13</em> Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).</p>
 <pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">rot13</span><span class="p">(</span><span class="n">wort</span><span class="p">):</span>
     <span class="o">...</span>
 
@@ -263,15 +261,21 @@ z -&gt; d
 </pre>
 
 
-<ul>
-<li>Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist</li>
-<li>Kleine Hilfe:</li>
-</ul>
+<p>Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist</p>
+<p>Kleine Hilfe:</p>
 <pre class="code literal-block"><span></span><span class="n">alphabet</span> <span class="o">=</span> <span class="s1">'abcdefghijklmnopqrstuvwxyz'</span>
 </pre>
 
 
 <p>Erstellen Sie nun daraus einen String alphabet_verschoben (Slicing hilft!), der mit dem 13. Buchstaben beginnt.</p>
+<p>Sie können nun das Dictionary füllen:</p>
+<pre class="code literal-block"><span></span><span class="n">dict_verschlüsselt</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">buchstabe</span><span class="p">,</span> <span class="n">buchstabe_verschlüsselt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">alphabet_verschoben</span><span class="p">):</span>
+    <span class="n">dict_verschlüsselt</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="n">char_verschlüsselt</span>
+</pre>
+
+
 <ul>
 <li>Wie sieht die Funktion aus, die verschlüsselten Text wieder entschlüsselt?</li>
 </ul>

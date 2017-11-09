@@ -210,7 +210,7 @@ b -> f
 z -> d 
 ```
 
-* Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte _ROT13_ Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).
+Schreiben Sie eine Funktion, die für Wörter, die aus Kleinbuchstaben bestehen, die sogenannte _ROT13_ Verschlüsselung implementiert (also die Cäsar Verschlüsselung für n=13).
 
 ```python
 
@@ -227,14 +227,25 @@ Ausgabe:
 'unyyb jryg'
 ```
   
-  * Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist
-  * Kleine Hilfe:
+Hierfür ist es hilfreich, ein Dictionary zu erstellen, das jedem Buchstaben seinen "verschlüsselten" Buchstaben zuweist
+
+Kleine Hilfe:
    
 ```python
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 ```
     
 Erstellen Sie nun daraus einen String alphabet_verschoben (Slicing hilft!), der mit dem 13. Buchstaben beginnt.
+
+Sie können nun das Dictionary füllen:
+
+```python
+
+dict_verschlüsselt = {}
+
+for buchstabe, buchstabe_verschlüsselt in zip(alphabet, alphabet_verschoben):
+    dict_verschlüsselt[buchstabe] = buchstabe_verschlüsselt
+```
 
 * Wie sieht die Funktion aus, die verschlüsselten Text wieder entschlüsselt?
 
