@@ -5,7 +5,11 @@
 <meta name="description" content="Alle Informationen zum Python Kurs">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Python Kurs 2017 (Ältere Einträge, Seite 1) | Python Kurs 2017</title>
-<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -68,797 +72,128 @@
         
 
     
+
+
+    
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../notebooks/interne-datenstrukturen01/" class="u-url">Interne Datenstrukturen - 1</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/funktionen_klassen_objekte/" class="u-url">3 - Funktionen, Klassen und Objekte</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe
             </span></p>
-            <p class="dateline"><a href="../notebooks/interne-datenstrukturen01/" rel="bookmark"><time class="published dt-published" datetime="2017-04-28T15:00:12+02:00" title="2017-04-28 15:00">2017-04-28 15:00</time></a></p>
+            <p class="dateline"><a href="../vorlesungen/funktionen_klassen_objekte/" rel="bookmark"><time class="published dt-published" datetime="2017-05-11T00:00:00+01:00" title="2017-05-11 00:00">2017-05-11 00:00</time></a></p>
         </div>
     </header><div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Verschiedene-Datenstrukturen-in-Python">Verschiedene Datenstrukturen in Python<a class="anchor-link" href="../notebooks/interne-datenstrukturen01/#Verschiedene-Datenstrukturen-in-Python">¶</a>
-</h2>
-<h3 id="(28.04.17)">(28.04.17)<a class="anchor-link" href="../notebooks/interne-datenstrukturen01/#(28.04.17)">¶</a>
-</h3>
-<p>Hinweis: Dieses Notebook könnt ihr runterladen, indem ihr rechts oben auf den Link Source drückt
-Ihr könnt dann zuhause nochmal die einzelnen Beispiele anschauen, ändern und ausführen</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Listen">Listen<a class="anchor-link" href="../notebooks/interne-datenstrukturen01/#Listen">¶</a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">meine_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 4, 5]
+    <div>
+<h2>Funktionen</h2>
+<p>Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.</p>
+<h3>Grundlagen</h3>
+<p>Um eine Funktion zu erstellen wird das Keyword <strong>def</strong> benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">meine_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"blub"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 4, 5, 'blub']
+<p>In dem oberen Beispiel hat die Funktion einen Rückgabewert (gekennzeichnet durch das <strong>return</strong> Statement).
+Das bedeutet, dass die Funktion beim Aufruf einen Wert zurückgibt.</p>
+<p>Das muss aber auch nicht zwingend sein:
+Die folgende Funktion <em>hello_world</em> z.B. gibt nur "Hello World" aus, hat aber kein return Statement.</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Hole das nullte Element aus der Liste</span>
-<span class="n">nulltes_element</span> <span class="o">=</span> <span class="n">meine_liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nulltes_element</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
+<p>Nachdem eine Funktion erstellt wurde, muss sie aufgerufen werden, damit überhaupt etwas passiert:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-[2, 3, 4, 5, 'blub']
+<span class="n">zahl</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">quadrat_der_zahl</span> <span class="o">=</span> <span class="n">quadrat</span><span class="p">(</span><span class="n">zahl</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="s2">"zum Quadrat ist"</span><span class="p">,</span> <span class="n">quadrat_der_zahl</span><span class="p">)</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Zugreifen auf ein ELement in der Liste, </span>
-<span class="c1"># ohne es zu löschen:</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
+<p>Man kann den Funktionsargumenten Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>4
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">())</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># An welcher Stelle in der Liste ist das Element "blub"?</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">meine_liste</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"blub"</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>4
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>0
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># .index findet immer nur ein Element (nämlich das erste)</span>
-<span class="n">weitere_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">weitere_liste</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"blub"</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
+<p>Es ginge aber z.B. auch:</p>
+<pre class="code literal-block"><span></span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># a und b werden auf 1 und 2 gesetzt, c hat den Defaultwert 0</span>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
+<span class="n">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># a wird auf 100 gesetzt, b und c haben den Defaultwert 0</span>
+
+<span class="n">summe</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">99.912</span><span class="p">)</span> <span class="c1"># a wird auf 3 und c auf 99.912 gesetzt, b hat den Defaultwert 0</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># letztes Element in der Liste</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">weitere_liste</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
+<p>Darüberhinaus ist es möglich, eine Funktion zu schreiben, die beliebig viele Argumente akzeptiert:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">total</span>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>blub
+
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Wir möchten alle Indices von "blub" finden</span>
-
-<span class="n">weitere_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">]</span>
-
-<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">index_liste</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">weitere_liste</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="s2">"blub"</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-        <span class="n">index_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">index_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-4
-[2, 4]
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>1
+6
+55
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Listen verknüpfen</span>
-<span class="n">liste_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">liste_2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">liste_1</span> <span class="o">+</span> <span class="n">liste_2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 'a', 'b', 'c']
+<p>Alle Argumente, die <em>summe</em> übergeben werden, werden in einem Tupel namens <em>args</em> gespeichert.
+Über diesen können wir dann iterieren.</p>
+<h3>Rekursive Funktionen</h3>
+<p>Rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal (mit anderen Parametern) aufrufen.</p>
+<p>Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
+Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
+einer natürlichen Zahl n definiert als:</p>
+<p>\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\)</p>
+<p>Obige Formel können wir aber auch folgendermaßen schreiben:</p>
+<p>\(n! = n \cdot (n-1)!\)</p>
+<p>In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.</p>
+<p>In Python übersetzt sieht die Formel so aus:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prüfen, ob ein Element in der Liste ist:</span>
-<span class="n">weitere_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">]</span>
-
-<span class="c1"># Ist "blub" in andere_liste?</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"blub"</span> <span class="ow">in</span> <span class="n">weitere_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>True
+<p>Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
+Fehlt dieser Anker, wird die Funktion sich immer wieder selbst aufrufen, bis irgendwann folgende Fehlermeldung erscheint:</p>
+<pre class="code literal-block"><span></span><span class="n">RecursionError</span><span class="o">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Wir können for-Schleifen benutzen, um über jedes Element</span>
-<span class="c1"># in einer Liste zu iterieren</span>
-
-<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">zahl</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">zahl</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
+<p>Bei der Fakultät können wir ausnutzen, dass \(0! = 1\).</p>
+<p>Als Programm geschrieben, sieht das ganze dann so aus:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Enumerate gibt einem zu jedem Element in einer Liste</span>
-<span class="c1"># zusätzlich noch den Index</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"An Stelle"</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>An Stelle 0 : a
-An Stelle 1 : b
-An Stelle 2 : c
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Nochmal das Bsp. mit den Indices von "blub"</span>
-<span class="c1"># Diesmal benutzen wir enumerate:</span>
-<span class="n">andere_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"blub"</span><span class="p">]</span>
-
-<span class="n">index_liste</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">andere_liste</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="s2">"blub"</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-        <span class="n">index_liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">index_liste</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-4
-[2, 4]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Chemiker misst alle 20 sek. Konzentrationen:</span>
-
-<span class="n">konzentrationen</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.000</span><span class="p">,</span>
-                   <span class="mf">0.880</span><span class="p">,</span>
-                   <span class="mf">0.756</span><span class="p">,</span>
-                   <span class="mf">0.656</span><span class="p">,</span>
-                   <span class="mf">0.582</span><span class="p">,</span>
-                   <span class="mf">0.495</span><span class="p">,</span>
-                   <span class="mf">0.441</span><span class="p">,</span>
-                   <span class="mf">0.387</span><span class="p">,</span>
-                   <span class="mf">0.335</span><span class="p">,</span>
-                   <span class="mf">0.294</span><span class="p">,</span>
-                   <span class="mf">0.242</span><span class="p">,</span>
-                   <span class="mf">0.219</span><span class="p">,</span>
-                   <span class="mf">0.194</span><span class="p">,</span>
-                   <span class="mf">0.166</span><span class="p">,</span>
-                   <span class="mf">0.140</span><span class="p">,</span>
-                   <span class="mf">0.130</span><span class="p">,</span>
-                   <span class="mf">0.109</span><span class="p">,</span>
-                   <span class="mf">0.099</span><span class="p">,</span>
-                   <span class="mf">0.079</span><span class="p">,</span>
-                   <span class="mf">0.078</span><span class="p">,</span>
-                   <span class="mf">0.064</span>
-                  <span class="p">]</span> 
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">konz</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">konzentrationen</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Time:"</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">"; Concentration:"</span><span class="p">,</span> <span class="n">konz</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Time: 0 ; Concentration: 1.0
-Time: 20 ; Concentration: 0.88
-Time: 40 ; Concentration: 0.756
-Time: 60 ; Concentration: 0.656
-Time: 80 ; Concentration: 0.582
-Time: 100 ; Concentration: 0.495
-Time: 120 ; Concentration: 0.441
-Time: 140 ; Concentration: 0.387
-Time: 160 ; Concentration: 0.335
-Time: 180 ; Concentration: 0.294
-Time: 200 ; Concentration: 0.242
-Time: 220 ; Concentration: 0.219
-Time: 240 ; Concentration: 0.194
-Time: 260 ; Concentration: 0.166
-Time: 280 ; Concentration: 0.14
-Time: 300 ; Concentration: 0.13
-Time: 320 ; Concentration: 0.109
-Time: 340 ; Concentration: 0.099
-Time: 360 ; Concentration: 0.079
-Time: 380 ; Concentration: 0.078
-Time: 400 ; Concentration: 0.064
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">),</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quadratzahlen korrigieren:</span>
-<span class="c1"># Per Hand</span>
-
-<span class="n">quadrat_zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-
-<span class="n">quadrat_zahlen</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">25</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">quadrat_zahlen</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Vollautomatisch</span>
-<span class="n">quadrat_zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">quadrat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">quadrat_zahlen</span><span class="p">):</span>
-    <span class="c1"># Der Index fängt bei Null an zu zählen, aber die erste Zahl ist 1</span>
-    <span class="c1"># -&gt; index + 1</span>
-    <span class="n">korrektes_quadrat</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">quadrat</span> <span class="o">!=</span> <span class="n">korrektes_quadrat</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Die Zahl"</span><span class="p">,</span> <span class="n">quadrat</span><span class="p">,</span> <span class="s2">"ist falsch"</span><span class="p">)</span>
-        <span class="c1"># korrigiere den Eintrag an Stelle index</span>
-        <span class="n">quadrat_zahlen</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">korrektes_quadrat</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">quadrat_zahlen</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Die Zahl 26 ist falsch
-[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Zip ermöglicht das iterieren über mehrere Listen gleichzeitig:</span>
-
-<span class="n">einkaufs_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apfel"</span><span class="p">,</span> <span class="s2">"milch"</span><span class="p">,</span> <span class="s2">"banane"</span><span class="p">,</span> <span class="s2">"joghurt"</span><span class="p">,</span> <span class="s2">"käse"</span><span class="p">]</span>
-<span class="n">preise</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mf">1.20</span><span class="p">,</span> <span class="mf">2.30</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">preis</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">einkaufs_liste</span><span class="p">,</span> <span class="n">preise</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s2">"kostet"</span><span class="p">,</span> <span class="n">preis</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>apfel kostet 0.4
-milch kostet 0.59
-banane kostet 0.3
-joghurt kostet 1.2
-käse kostet 2.3
-</pre>
-</div>
-</div>
-
-</div>
+<p>Hundertprozentig sicher ist diese Funktion allerdings noch nicht. 
+Denn wenn \(n &lt; 0\), findet die Funktion wieder kein Abbruchkriterium.</p>
+<p>Hier könnte man nun noch mit einer weiteren if-Abfrage prüfen, ob \(n &lt; 0\), und in dem Fall
+z.B. <code>None</code> ausgeben.</p>
 </div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Mithilfe von list können wir aus dem zip-Objekt eine Liste machen:</span>
-
-<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">einkaufs_liste</span><span class="p">,</span> <span class="n">preise</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[21]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[('apfel', 0.4),
- ('milch', 0.59),
- ('banane', 0.3),
- ('joghurt', 1.2),
- ('käse', 2.3)]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s2">"1.234"</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[22]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.234</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/2.5-doityourself/" class="u-url">2.5 - Python Selbsthilfekurs</a></h1>
         <div class="metadata">
@@ -2038,7 +1373,7 @@ Hier müssen einige der Pythonpakete, die wir später verwenden werden, allerdin
 
         <nav class="postindexpager clearfix"><a href="." class="btn btn-secondary float-left" rel="prev">Neuere Einträge</a>
         
-        </nav><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        </nav><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
@@ -2048,7 +1383,7 @@ Hier müssen einige der Pythonpakete, die wir später verwenden werden, allerdin
 </div>
 
 
-            <script src="../assets/js/all-nocdn.js"></script><script src="../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../assets/js/jquery.min.js"></script><script src="../assets/js/tether.min.js"></script><script src="../assets/js/bootstrap.min.js"></script><script src="../assets/js/moment-with-locales.min.js"></script><script src="../assets/js/fancydates.js"></script><script src="../assets/js/jquery.colorbox-min.js"></script><script src="../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("de");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates -->

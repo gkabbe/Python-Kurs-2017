@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>4 - Übungen - 10.11.17 | Python Kurs 2017</title>
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/theme.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -13,6 +17,7 @@
 <link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
 <link rel="prev" href="../funktionen_klassen_objekte_uebungen/" title="3 - Übungen - 3.11.17" type="text/html">
+<link rel="next" href="../module_exceptions_uebungen/" title="4 - Module &amp; Exceptions - Übung" type="text/html">
 <meta property="og:site_name" content="Python Kurs 2017">
 <meta property="og:title" content="4 - Übungen - 10.11.17">
 <meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/">
@@ -89,7 +94,7 @@ Globale Variablen sind Variablen, die auf der obersten Ebene des Python-Skript">
             </span></p>
             <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-11-09T00:00:00+01:00" itemprop="datePublished" title="2017-11-09 00:00">2017-11-09 00:00</time></a></p>
             
-        <p class="sourceline"><a href="index.md" id="sourcelink">Source</a></p>
+        <p class="sourceline"><a href="index.md" class="sourcelink">Source</a></p>
 
         </div>
         
@@ -272,7 +277,7 @@ z -&gt; d
 <pre class="code literal-block"><span></span><span class="n">dict_verschlüsselt</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">buchstabe</span><span class="p">,</span> <span class="n">buchstabe_verschlüsselt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">alphabet_verschoben</span><span class="p">):</span>
-    <span class="n">dict_verschlüsselt</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="n">char_verschlüsselt</span>
+    <span class="n">dict_verschlüsselt</span><span class="p">[</span><span class="n">buchstabe</span><span class="p">]</span> <span class="o">=</span> <span class="n">buchstabe_verschlüsselt</span>
 </pre>
 
 
@@ -293,7 +298,10 @@ z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
 <li class="previous">
                 <a href="../funktionen_klassen_objekte_uebungen/" rel="prev" title="3 - Übungen - 3.11.17">Vorheriger Eintrag</a>
             </li>
-        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+            <li class="next">
+                <a href="../module_exceptions_uebungen/" rel="next" title="4 - Module &amp; Exceptions - Übung">Nächster Eintrag</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
@@ -303,7 +311,7 @@ z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
 </div>
 
 
-            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../../assets/js/jquery.min.js"></script><script src="../../assets/js/tether.min.js"></script><script src="../../assets/js/bootstrap.min.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><script src="../../assets/js/fancydates.js"></script><script src="../../assets/js/jquery.colorbox-min.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("de");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates -->
