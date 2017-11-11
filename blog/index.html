@@ -1689,93 +1689,6 @@ die Variable <code>dateiname</code>).</p>
   </div>
 
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/klassen_uebung/" class="u-url">3.5 - Klassen - Übung</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../uebungen/klassen_uebung/" rel="bookmark"><time class="published dt-published" datetime="2017-11-10T00:00:00+01:00" title="2017-11-10 00:00">2017-11-10 00:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Klassen</h2>
-<p>Schreiben Sie eine Klasse Student mit folgenden Eigenschaften:</p>
-<ul>
-<li>Ein neues Studenten-Objekt wird erstellt, indem man dem Konstruktor (d.h. der <strong>init</strong> Funktion Namen und Vornamen des Studenten übergibt:</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Müller"</span><span class="p">,</span> <span class="n">vorname</span><span class="o">=</span><span class="s2">"Heinz"</span><span class="p">)</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Die Klasse soll eine Objektvariable <em>noten_liste</em> besitzen, die zu Beginn eine leere Liste ist, sowie eine Methode <em>neue_note</em>, die der <em>noten_liste</em> eine neue Note hinzufügt</p>
-</li>
-<li>
-<p>Schreiben Sie eine Methode <em>durchschnitts_note</em>, die den Durchschnitt aller Noten in <em>noten_liste</em> bildet</p>
-</li>
-</ul>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/module_exceptions_uebungen/" class="u-url">4 - Module &amp; Exceptions - Übung</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../uebungen/module_exceptions_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-11-10T00:00:00+01:00" title="2017-11-10 00:00">2017-11-10 00:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Module</h2>
-<h3>timeit</h3>
-<ul>
-<li>
-<p>Benutzen Sie die time-Funktion aus dem time-Modul, um die Laufzeit des Pascalschen Dreieck Programms zu bestimmen. </p>
-</li>
-<li>
-<p>Schreiben Sie eine Wrapper-Funktion <em>timeit</em>, die die Laufzeit beliebiger Funktionen misst.</p>
-</li>
-<li>
-<p>Benutzen Sie sie als Decorator</p>
-</li>
-</ul>
-<h3>Lotto</h3>
-<ul>
-<li>
-<p>Spielen Sie Lotto! (aber nur am Computer...) Schreiben Sie ein Programm, das 6 Kugeln aus 49 zieht (dafür ist das random Modul sehr hilfreich).</p>
-</li>
-<li>
-<p>Schreiben Sie ein Programm, das eine Million mal Lotto spielt.</p>
-</li>
-<li>
-<p>Speichern Sie in einem Histogramm, wie oft das Programm null richtige, einen richtigen, ..., sechs richtige zieht. Benutzen Sie dafür die Klasse Counter aus dem Modul collections</p>
-</li>
-</ul>
-<h3>Type Checking</h3>
-<ul>
-<li>Benutzen Sie das types-Modul, und schreiben Sie einen Decorator check_if_number, der prüft, ob alle Argumente einer Funktion vom Typ Integer oder Float sind. Falls nicht, soll ein ValueError auftreten</li>
-</ul>
-<h3>Memoize</h3>
-<ul>
-<li>
-<p>Versuchen Sie, das Pascalsche Dreieck mit 40 Zeilen zu erzeugen</p>
-</li>
-<li>
-<p>Brechen Sie genervt nach 2 Minuten Wartezeit ab</p>
-</li>
-</ul>
-<p>Das Problem bei der momentanen Lösung ist, dass Zeilen die vorher schonmal berechnet wurden, immer wieder neu berechnet werden</p>
-<ul>
-<li>Schreiben Sie nun eine Wrapper-Funktion <em>memoize</em>, die eine andere Funktion f als Argument erwartet. Die memoize Funktion beinhaltet ein Dictionary d. 
-Definieren Sie in der memoize Funktion eine weitere Funktion f_extended(x). Diese prüft, ob x schon in d enthalten ist. 
-Wenn nicht, setzt sie d[x] auf f(x). Anschließend gibt sie den unter d[x] gespeicherten Wert zurück. Die memoize Funktion muss schließlich noch f_extended zurückgeben.
-Benutzen Sie memoize als Decorator und versuchen Sie nochmals die Berechnung von 40 Zeilen des Pascalschen Dreiecks</li>
-</ul>
-<p>Hinweis: tatsächlich gibt es diese Funktion schon in der Standardlibrary. Sie ist im Modul functools zu finden und heißt lru_cache</p>
-<h3>rot-n</h3>
-<p>Schreiben Sie eine Funktion, die einen Parameter n annimmt und eine Funktion zurückgibt, die einen String per Cäsar-Code verschlüsselt. Der Parameter n legt dabei fest, um wieviel Buchstaben die Funktion die Buchstaben der Eingabewörter verschiebt</p>
-</div>
-    </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/funktionen_dictionaries/" class="u-url">4 - Übungen - 10.11.17</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
@@ -3462,6 +3375,194 @@ virtualenv virtualenvs/pythonkurs
 
 <p>Diese Funktion beschwert sich beispielsweise lautstark mit einem ValueError, sobald wir ihr ein Argument liefern, das kein Integer ist.
 Die Wahl der Exception ist dabei uns überlassen</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/funktionen_klassen_objekte/" class="u-url">3 - Funktionen, Klassen und Objekte</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../vorlesungen/funktionen_klassen_objekte/" rel="bookmark"><time class="published dt-published" datetime="2017-05-11T00:00:00+01:00" title="2017-05-11 00:00">2017-05-11 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Funktionen</h2>
+<p>Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.</p>
+<h3>Grundlagen</h3>
+<p>Um eine Funktion zu erstellen wird das Keyword <strong>def</strong> benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</pre>
+
+
+<p>In dem oberen Beispiel hat die Funktion einen Rückgabewert (gekennzeichnet durch das <strong>return</strong> Statement).
+Das bedeutet, dass die Funktion beim Aufruf einen Wert zurückgibt.</p>
+<p>Das muss aber auch nicht zwingend sein:
+Die folgende Funktion <em>hello_world</em> z.B. gibt nur "Hello World" aus, hat aber kein return Statement.</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
+</pre>
+
+
+<p>Nachdem eine Funktion erstellt wurde, muss sie aufgerufen werden, damit überhaupt etwas passiert:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="n">zahl</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">quadrat_der_zahl</span> <span class="o">=</span> <span class="n">quadrat</span><span class="p">(</span><span class="n">zahl</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="s2">"zum Quadrat ist"</span><span class="p">,</span> <span class="n">quadrat_der_zahl</span><span class="p">)</span>
+</pre>
+
+
+<p>Man kann den Funktionsargumenten Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">())</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>0
+</pre>
+
+
+<p>Es ginge aber z.B. auch:</p>
+<pre class="code literal-block"><span></span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># a und b werden auf 1 und 2 gesetzt, c hat den Defaultwert 0</span>
+
+<span class="n">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># a wird auf 100 gesetzt, b und c haben den Defaultwert 0</span>
+
+<span class="n">summe</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">99.912</span><span class="p">)</span> <span class="c1"># a wird auf 3 und c auf 99.912 gesetzt, b hat den Defaultwert 0</span>
+</pre>
+
+
+<p>Darüberhinaus ist es möglich, eine Funktion zu schreiben, die beliebig viele Argumente akzeptiert:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>1
+6
+55
+</pre>
+
+
+<p>Alle Argumente, die <em>summe</em> übergeben werden, werden in einem Tupel namens <em>args</em> gespeichert.
+Über diesen können wir dann iterieren.</p>
+<h3>Rekursive Funktionen</h3>
+<p>Rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal (mit anderen Parametern) aufrufen.</p>
+<p>Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
+Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
+einer natürlichen Zahl n definiert als:</p>
+<p>\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\)</p>
+<p>Obige Formel können wir aber auch folgendermaßen schreiben:</p>
+<p>\(n! = n \cdot (n-1)!\)</p>
+<p>In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.</p>
+<p>In Python übersetzt sieht die Formel so aus:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
+<p>Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
+Fehlt dieser Anker, wird die Funktion sich immer wieder selbst aufrufen, bis irgendwann folgende Fehlermeldung erscheint:</p>
+<pre class="code literal-block"><span></span><span class="n">RecursionError</span><span class="o">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
+</pre>
+
+
+<p>Bei der Fakultät können wir ausnutzen, dass \(0! = 1\).</p>
+<p>Als Programm geschrieben, sieht das ganze dann so aus:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
+<p>Hundertprozentig sicher ist diese Funktion allerdings noch nicht. 
+Denn wenn \(n &lt; 0\), findet die Funktion wieder kein Abbruchkriterium.</p>
+<p>Hier könnte man nun noch mit einer weiteren if-Abfrage prüfen, ob \(n &lt; 0\), und in dem Fall
+z.B. <code>None</code> ausgeben.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/2.5-doityourself/" class="u-url">2.5 - Python Selbsthilfekurs</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../vorlesungen/2.5-doityourself/" rel="bookmark"><time class="published dt-published" datetime="2017-04-21T00:00:00+01:00" title="2017-04-21 00:00">2017-04-21 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Hilfe in IPython</h2>
+<p>IPython hat ein paar Extras eingebaut, die das Lernen von Python leichter machen.
+Mithilfe von Tab kann man sich z.B. viele Dinge ergänzen lassen.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+<span class="n">liste</span><span class="o">.</span>
+</pre>
+
+
+<p>Wenn wir nach dem Punkt Tab drücken, bekommen wir angezeigt, welche Methoden die Liste ausführen kann.</p>
+<p>Eine dieser Methoden ist "count".
+Ergänzen Sie nun count, und benutzen die help-Funktion:</p>
+<pre class="code literal-block"><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+<span class="n">help</span><span class="p">(</span><span class="n">liste</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+</pre>
+
+
+<p>Wenn Sie nun Enter drücken, sollte folgendes erscheinen:</p>
+<pre class="code literal-block"><span></span>Help on built-in function count:
+
+count(...) method of builtins.list instance
+    L.count(value) -&gt; integer -- return number of occurrences of value
+</pre>
+
+
+<p>Eine kleine Dokumentation, die uns sagt, was count eigentlich tut.</p>
+<p>Gleich mal ausprobieren:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
+</pre>
+
+
+<p>Ergebnis ist 2, denn "a" kommt zweimal in der Liste vor.</p>
+<p>Mithilfe der help-Funktion kann man also leicht herausfinden, wozu etwas in Python gut ist.</p>
+<p>Probieren Sie doch auch mal aus:</p>
+<pre class="code literal-block"><span></span><span class="n">help</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="n">help</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="n">help</span><span class="p">(</span><span class="n">help</span><span class="p">)</span>
+</pre>
+
+
+<h3>Aufgaben:</h3>
+<ul>
+<li>
+<p>Schauen Sie, was für weitere Methoden es für Listen gibt, und probieren Sie sie aus!</p>
+</li>
+<li>
+<p>Was passiert bei Strings?</p>
+</li>
+<li>
+<p>Was ist ein set?</p>
+</li>
+</ul>
 </div>
     </div>
     </article>

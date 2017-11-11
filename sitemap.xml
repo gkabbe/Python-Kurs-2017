@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/archive.html</loc>
-  <lastmod>2017-11-09T10:12:00Z</lastmod>
+  <lastmod>2017-11-11T13:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/</loc>
@@ -27,7 +27,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/index-1.html</loc>
-  <lastmod>2017-11-11T13:08:00Z</lastmod>
+  <lastmod>2017-11-11T13:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/categories/</loc>
@@ -52,22 +52,6 @@
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/</loc>
   <lastmod>2017-11-11T13:08:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/funktionen/</loc>
-  <lastmod>2017-06-06T09:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen01/</loc>
-  <lastmod>2017-05-14T12:03:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen02/</loc>
-  <lastmod>2017-05-14T12:03:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/interne-datenstrukturen03/</loc>
-  <lastmod>2017-06-03T11:20:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</loc>
@@ -96,14 +80,6 @@
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_klassen_objekte_uebungen/</loc>
   <lastmod>2017-05-11T10:44:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/klassen_uebung/</loc>
-  <lastmod>2017-11-09T14:27:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</loc>
-  <lastmod>2017-11-09T14:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/verlaufsplan/</loc>

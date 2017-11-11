@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Sat, 11 Nov 2017 13:08:59 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Listenoperationen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self"></atom:link><language>de</language><lastBuildDate>Sat, 11 Nov 2017 13:12:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Listenoperationen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -1583,70 +1583,7 @@ die Variable &lt;code&gt;dateiname&lt;/code&gt;).&lt;/p&gt;
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://gkabbe.github.io/Python-Kurs-2017/notebooks/zusf_datenstr_funk/</guid><pubDate>Fri, 10 Nov 2017 23:00:00 GMT</pubDate></item><item><title>3.5 - Klassen - Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/klassen_uebung/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Klassen&lt;/h2&gt;
-&lt;p&gt;Schreiben Sie eine Klasse Student mit folgenden Eigenschaften:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Ein neues Studenten-Objekt wird erstellt, indem man dem Konstruktor (d.h. der &lt;strong&gt;init&lt;/strong&gt; Funktion Namen und Vornamen des Studenten übergibt:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;student&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Student&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"Müller"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vorname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"Heinz"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Die Klasse soll eine Objektvariable &lt;em&gt;noten_liste&lt;/em&gt; besitzen, die zu Beginn eine leere Liste ist, sowie eine Methode &lt;em&gt;neue_note&lt;/em&gt;, die der &lt;em&gt;noten_liste&lt;/em&gt; eine neue Note hinzufügt&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie eine Methode &lt;em&gt;durchschnitts_note&lt;/em&gt;, die den Durchschnitt aller Noten in &lt;em&gt;noten_liste&lt;/em&gt; bildet&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/klassen_uebung/</guid><pubDate>Thu, 09 Nov 2017 23:00:00 GMT</pubDate></item><item><title>4 - Module &amp; Exceptions - Übung</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Module&lt;/h2&gt;
-&lt;h3&gt;timeit&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Benutzen Sie die time-Funktion aus dem time-Modul, um die Laufzeit des Pascalschen Dreieck Programms zu bestimmen. &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie eine Wrapper-Funktion &lt;em&gt;timeit&lt;/em&gt;, die die Laufzeit beliebiger Funktionen misst.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Benutzen Sie sie als Decorator&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Lotto&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Spielen Sie Lotto! (aber nur am Computer...) Schreiben Sie ein Programm, das 6 Kugeln aus 49 zieht (dafür ist das random Modul sehr hilfreich).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie ein Programm, das eine Million mal Lotto spielt.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Speichern Sie in einem Histogramm, wie oft das Programm null richtige, einen richtigen, ..., sechs richtige zieht. Benutzen Sie dafür die Klasse Counter aus dem Modul collections&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Type Checking&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Benutzen Sie das types-Modul, und schreiben Sie einen Decorator check_if_number, der prüft, ob alle Argumente einer Funktion vom Typ Integer oder Float sind. Falls nicht, soll ein ValueError auftreten&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Memoize&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Versuchen Sie, das Pascalsche Dreieck mit 40 Zeilen zu erzeugen&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Brechen Sie genervt nach 2 Minuten Wartezeit ab&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Das Problem bei der momentanen Lösung ist, dass Zeilen die vorher schonmal berechnet wurden, immer wieder neu berechnet werden&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Schreiben Sie nun eine Wrapper-Funktion &lt;em&gt;memoize&lt;/em&gt;, die eine andere Funktion f als Argument erwartet. Die memoize Funktion beinhaltet ein Dictionary d. 
-Definieren Sie in der memoize Funktion eine weitere Funktion f_extended(x). Diese prüft, ob x schon in d enthalten ist. 
-Wenn nicht, setzt sie d[x] auf f(x). Anschließend gibt sie den unter d[x] gespeicherten Wert zurück. Die memoize Funktion muss schließlich noch f_extended zurückgeben.
-Benutzen Sie memoize als Decorator und versuchen Sie nochmals die Berechnung von 40 Zeilen des Pascalschen Dreiecks&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Hinweis: tatsächlich gibt es diese Funktion schon in der Standardlibrary. Sie ist im Modul functools zu finden und heißt lru_cache&lt;/p&gt;
-&lt;h3&gt;rot-n&lt;/h3&gt;
-&lt;p&gt;Schreiben Sie eine Funktion, die einen Parameter n annimmt und eine Funktion zurückgibt, die einen String per Cäsar-Code verschlüsselt. Der Parameter n legt dabei fest, um wieviel Buchstaben die Funktion die Buchstaben der Eingabewörter verschiebt&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</guid><pubDate>Thu, 09 Nov 2017 23:00:00 GMT</pubDate></item><item><title>4 - Übungen - 10.11.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
+</description><guid>https://gkabbe.github.io/Python-Kurs-2017/notebooks/zusf_datenstr_funk/</guid><pubDate>Fri, 10 Nov 2017 23:00:00 GMT</pubDate></item><item><title>4 - Übungen - 10.11.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
 &lt;h3&gt;Sichtbarkeit (Scope) von Variablen in Funktionen&lt;/h3&gt;
 &lt;p&gt;Python unterscheidet zwischen globalen und lokalen Variablen.
 Globale Variablen sind Variablen, die auf der obersten Ebene des Python-Skripts definiert wurden
@@ -3260,4 +3197,168 @@ virtualenv virtualenvs/pythonkurs
 
 
 &lt;p&gt;Diese Funktion beschwert sich beispielsweise lautstark mit einem ValueError, sobald wir ihr ein Argument liefern, das kein Integer ist.
-Die Wahl der Exception ist dabei uns überlassen&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/module_exceptions/</guid><pubDate>Fri, 16 Jun 2017 23:00:00 GMT</pubDate></item></channel></rss>
+Die Wahl der Exception ist dabei uns überlassen&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/module_exceptions/</guid><pubDate>Fri, 16 Jun 2017 23:00:00 GMT</pubDate></item><item><title>3 - Funktionen, Klassen und Objekte</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
+&lt;p&gt;Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.&lt;/p&gt;
+&lt;h3&gt;Grundlagen&lt;/h3&gt;
+&lt;p&gt;Um eine Funktion zu erstellen wird das Keyword &lt;strong&gt;def&lt;/strong&gt; benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;quadrat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;In dem oberen Beispiel hat die Funktion einen Rückgabewert (gekennzeichnet durch das &lt;strong&gt;return&lt;/strong&gt; Statement).
+Das bedeutet, dass die Funktion beim Aufruf einen Wert zurückgibt.&lt;/p&gt;
+&lt;p&gt;Das muss aber auch nicht zwingend sein:
+Die folgende Funktion &lt;em&gt;hello_world&lt;/em&gt; z.B. gibt nur "Hello World" aus, hat aber kein return Statement.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello_world&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Hello World"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Nachdem eine Funktion erstellt wurde, muss sie aufgerufen werden, damit überhaupt etwas passiert:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;quadrat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+
+&lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;
+&lt;span class="n"&gt;quadrat_der_zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;quadrat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"zum Quadrat ist"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;quadrat_der_zahl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Man kann den Funktionsargumenten Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ausgabe:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;0
+&lt;/pre&gt;
+
+
+&lt;p&gt;Es ginge aber z.B. auch:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# a und b werden auf 1 und 2 gesetzt, c hat den Defaultwert 0&lt;/span&gt;
+
+&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# a wird auf 100 gesetzt, b und c haben den Defaultwert 0&lt;/span&gt;
+
+&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;99.912&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# a wird auf 3 und c auf 99.912 gesetzt, b hat den Defaultwert 0&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Darüberhinaus ist es möglich, eine Funktion zu schreiben, die beliebig viele Argumente akzeptiert:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt;
+
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ausgabe:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;1
+6
+55
+&lt;/pre&gt;
+
+
+&lt;p&gt;Alle Argumente, die &lt;em&gt;summe&lt;/em&gt; übergeben werden, werden in einem Tupel namens &lt;em&gt;args&lt;/em&gt; gespeichert.
+Über diesen können wir dann iterieren.&lt;/p&gt;
+&lt;h3&gt;Rekursive Funktionen&lt;/h3&gt;
+&lt;p&gt;Rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal (mit anderen Parametern) aufrufen.&lt;/p&gt;
+&lt;p&gt;Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
+Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
+einer natürlichen Zahl n definiert als:&lt;/p&gt;
+&lt;p&gt;\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\)&lt;/p&gt;
+&lt;p&gt;Obige Formel können wir aber auch folgendermaßen schreiben:&lt;/p&gt;
+&lt;p&gt;\(n! = n \cdot (n-1)!\)&lt;/p&gt;
+&lt;p&gt;In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.&lt;/p&gt;
+&lt;p&gt;In Python übersetzt sieht die Formel so aus:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fakultät&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;fakultät&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
+Fehlt dieser Anker, wird die Funktion sich immer wieder selbst aufrufen, bis irgendwann folgende Fehlermeldung erscheint:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;RecursionError&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;maximum&lt;/span&gt; &lt;span class="n"&gt;recursion&lt;/span&gt; &lt;span class="n"&gt;depth&lt;/span&gt; &lt;span class="n"&gt;exceeded&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Bei der Fakultät können wir ausnutzen, dass \(0! = 1\).&lt;/p&gt;
+&lt;p&gt;Als Programm geschrieben, sieht das ganze dann so aus:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fakultät&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;fakultät&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Hundertprozentig sicher ist diese Funktion allerdings noch nicht. 
+Denn wenn \(n &amp;lt; 0\), findet die Funktion wieder kein Abbruchkriterium.&lt;/p&gt;
+&lt;p&gt;Hier könnte man nun noch mit einer weiteren if-Abfrage prüfen, ob \(n &amp;lt; 0\), und in dem Fall
+z.B. &lt;code&gt;None&lt;/code&gt; ausgeben.&lt;/p&gt;&lt;/div&gt;</description><category>mathjax</category><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</guid><pubDate>Wed, 10 May 2017 23:00:00 GMT</pubDate></item><item><title>2.5 - Python Selbsthilfekurs</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/2.5-doityourself/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Hilfe in IPython&lt;/h2&gt;
+&lt;p&gt;IPython hat ein paar Extras eingebaut, die das Lernen von Python leichter machen.
+Mithilfe von Tab kann man sich z.B. viele Dinge ergänzen lassen.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;liste&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"c"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;liste&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Wenn wir nach dem Punkt Tab drücken, bekommen wir angezeigt, welche Methoden die Liste ausführen kann.&lt;/p&gt;
+&lt;p&gt;Eine dieser Methoden ist "count".
+Ergänzen Sie nun count, und benutzen die help-Funktion:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;liste&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"c"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;liste&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Wenn Sie nun Enter drücken, sollte folgendes erscheinen:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;Help on built-in function count:
+
+count(...) method of builtins.list instance
+    L.count(value) -&amp;gt; integer -- return number of occurrences of value
+&lt;/pre&gt;
+
+
+&lt;p&gt;Eine kleine Dokumentation, die uns sagt, was count eigentlich tut.&lt;/p&gt;
+&lt;p&gt;Gleich mal ausprobieren:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"c"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ergebnis ist 2, denn "a" kommt zweimal in der Liste vor.&lt;/p&gt;
+&lt;p&gt;Mithilfe der help-Funktion kann man also leicht herausfinden, wozu etwas in Python gut ist.&lt;/p&gt;
+&lt;p&gt;Probieren Sie doch auch mal aus:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Aufgaben:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Schauen Sie, was für weitere Methoden es für Listen gibt, und probieren Sie sie aus!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Was passiert bei Strings?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Was ist ein set?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/2.5-doityourself/</guid><pubDate>Thu, 20 Apr 2017 23:00:00 GMT</pubDate></item></channel></rss>
