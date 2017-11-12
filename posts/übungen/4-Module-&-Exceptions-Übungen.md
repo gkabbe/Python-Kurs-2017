@@ -1,5 +1,5 @@
 <!-- 
-.. title: 4 - Module & Exceptions - Übung
+.. title: 5 - Übungen - 17.11.
 .. slug: module_exceptions_uebungen
 .. date: 2018-11-10 00:00:00 UTC+01:00
 .. tags: 
@@ -13,41 +13,58 @@
 
 # Module
 
-## timeit
+## time
 
-* Benutzen Sie die time-Funktion aus dem time-Modul, um die Laufzeit des Pascalschen Dreieck Programms zu bestimmen. 
+Das time Modul bietet verschiedene Funktionen zur Zeitmessung an.
 
-* Schreiben Sie eine Wrapper-Funktion _timeit_, die die Laufzeit beliebiger Funktionen misst.
+Die Funktion time.time() gibt Ihnen die Anzahl Sekunden seit dem Jahr 1970 zurück.
 
-* Benutzen Sie sie als Decorator
+* Schreiben Sie ein Programm, das als Stoppuhr fungiert. Wenn Sie das erste Mal eine Taste drücken,
+startet der Timer. Beim Zweiten Drücken wird die vergangene Zeit in Sekunden ausgegeben.
 
-## Lotto
+Die Funktion time.sleep() erwartet als Parameter eine Zahl, die angibt, wieviel Sekunden "geschlafen"
+werden soll. In dieser Zeit tut das Programm nichts.
 
-* Spielen Sie Lotto! (aber nur am Computer...) Schreiben Sie ein Programm, das 6 Kugeln aus 49 zieht (dafür ist das random Modul sehr hilfreich).
+* Schreiben Sie ein Programm "echo", das auf Input vom User wartet, dann eine Sekunde schläft, und
+das Input wieder ausgibt.
+
+## random
+
+Das Modul random bietet diverse Funktionen an, mit denen man Zufallszahlen generieren kann.
+
+### Lotto
+
+Spielen Sie Lotto! (aber nur am Computer...) 
+
+* Schreiben Sie ein Programm, das 6 Kugeln aus 49 zieht.
+  Benutzen Sie dafür die Funktion ```random.choice```, mit der Sie zufällig eine Zahl aus einer Liste
+  auswählen können.
 
 * Schreiben Sie ein Programm, das eine Million mal Lotto spielt.
+Dafür brauchen Sie eine Funktion ```spiel_lotto```.
+In dieser Funktion wird zuerst die Ziehung simuliert.
+Danach zieht der Computer 6 Zahlen, und es wird verglichen, wieviele davon mit der Ziehung
+übereinstimmen.
+Der Rückgabewert ist dann die Anzahl der richtig gezogenen Zahlen.
 
-* Speichern Sie in einem Histogramm, wie oft das Programm null richtige, einen richtigen, ..., sechs richtige zieht. Benutzen Sie dafür die Klasse Counter aus dem Modul collections
+* In wieviel Prozent der Fälle gibt es 1 (2, ..., 6) richtige Treffer?
 
-## Type Checking
 
-* Benutzen Sie das types-Modul, und schreiben Sie einen Decorator check_if_number, der prüft, ob alle Argumente einer Funktion vom Typ Integer oder Float sind. Falls nicht, soll ein ValueError auftreten
+## datetime
 
-## Memoize
+Das Modul datetime bietet viele verschiedene Möglichkeiten, mit Kalenderdaten umzugehen.
+Um es zu importieren, schreiben Sie
 
-* Versuchen Sie, das Pascalsche Dreieck mit 40 Zeilen zu erzeugen
+```python
+from datetime import datetime
+```
 
-* Brechen Sie genervt nach 2 Minuten Wartezeit ab
+Mithilfe von ```x = datetime.now()``` können Sie sich ein datetime-Objekt zurückgeben lassen mit der 
+aktuellen Zeit.
+Mittels ```x.day```, ```x.month``` usw. können Sie sich Werte für Tag, Monat, Jahr etc. geben lassen.
 
-Das Problem bei der momentanen Lösung ist, dass Zeilen die vorher schonmal berechnet wurden, immer wieder neu berechnet werden
+* Benutzen Sie x.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
+  Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
+  ausgibt. 
 
-* Schreiben Sie nun eine Wrapper-Funktion _memoize_, die eine andere Funktion f als Argument erwartet. Die memoize Funktion beinhaltet ein Dictionary d. 
-Definieren Sie in der memoize Funktion eine weitere Funktion f_extended(x). Diese prüft, ob x schon in d enthalten ist. 
-Wenn nicht, setzt sie d[x] auf f(x). Anschließend gibt sie den unter d[x] gespeicherten Wert zurück. Die memoize Funktion muss schließlich noch f_extended zurückgeben.
-Benutzen Sie memoize als Decorator und versuchen Sie nochmals die Berechnung von 40 Zeilen des Pascalschen Dreiecks
 
-Hinweis: tatsächlich gibt es diese Funktion schon in der Standardlibrary. Sie ist im Modul functools zu finden und heißt lru_cache
-
-## rot-n
-
-Schreiben Sie eine Funktion, die einen Parameter n annimmt und eine Funktion zurückgibt, die einen String per Cäsar-Code verschlüsselt. Der Parameter n legt dabei fest, um wieviel Buchstaben die Funktion die Buchstaben der Eingabewörter verschiebt
