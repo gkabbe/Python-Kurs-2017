@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self"></atom:link><language>de</language><lastBuildDate>Sat, 11 Nov 2017 13:12:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Listenoperationen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Mon, 13 Nov 2017 13:12:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Listenoperationen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -19,7 +19,7 @@ Hier sollen ein paar Beispiele gezeigt werden, wie man das machen kann.&lt;/p&gt
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Teillisten-erstellen"&gt;Teillisten erstellen&lt;a class="anchor-link" href="https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/#Teillisten-erstellen"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn man nur einen Teil der Liste (die ersten n Elemente, die letzten n Elemente, jedes nte Element)
+&lt;h3 id="Teillisten-erstellen-mit-Slicing"&gt;Teillisten erstellen mit Slicing&lt;a class="anchor-link" href="https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/#Teillisten-erstellen-mit-Slicing"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn man nur einen Teil der Liste (die ersten n Elemente, die letzten n Elemente, jedes nte Element)
 bearbeiten möchte hilft sogenanntes Slicing.
 Dabei gibt man in eckigen Klammern hinter der Liste, das Startelement, das Endelement und den Schritt an.&lt;/p&gt;
 &lt;h4 id="Beispiel:-alle-geraden-/-ungeraden-Zahlen"&gt;Beispiel: alle geraden / ungeraden Zahlen&lt;a class="anchor-link" href="https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/#Beispiel:-alle-geraden-/-ungeraden-Zahlen"&gt;¶&lt;/a&gt;&lt;/h4&gt;
@@ -31,11 +31,11 @@ Dabei gibt man in eckigen Klammern hinter der Liste, das Startelement, das Endel
 &lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;zahlen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;zahlen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;gerade&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zahlen&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahlen&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# start: 0, ende: len(zahlen), schritt: 2&lt;/span&gt;
 &lt;span class="n"&gt;ungerade&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zahlen&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahlen&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# start: 1, ende: len(zahlen), schritt: 2&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gerade&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ungerade&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Gerade:"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gerade&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Ungerade:"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ungerade&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -50,8 +50,8 @@ Dabei gibt man in eckigen Klammern hinter der Liste, das Startelement, das Endel
 &lt;div class="prompt"&gt;&lt;/div&gt;
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
-[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99]
+&lt;pre&gt;Gerade: [0, 2, 4, 6, 8]
+Ungerade: [1, 3, 5, 7, 9]
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -76,7 +76,7 @@ Daher kann man obiges Beispiel noch etwas kürzer schreiben&lt;/p&gt;
 &lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;zahlen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;zahlen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;gerade&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zahlen&lt;/span&gt;&lt;span class="p"&gt;[::&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="n"&gt;ungerade&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zahlen&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gerade&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -95,8 +95,8 @@ Daher kann man obiges Beispiel noch etwas kürzer schreiben&lt;/p&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
-[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99]
+&lt;pre&gt;[0, 2, 4, 6, 8]
+[1, 3, 5, 7, 9]
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;

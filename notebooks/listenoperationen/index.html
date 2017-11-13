@@ -115,7 +115,7 @@ Hier sollen ein paar Beispiele gezeigt werden, wie man das machen kann.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Teillisten-erstellen">Teillisten erstellen<a class="anchor-link" href="#Teillisten-erstellen">¶</a>
+<h3 id="Teillisten-erstellen-mit-Slicing">Teillisten erstellen mit Slicing<a class="anchor-link" href="#Teillisten-erstellen-mit-Slicing">¶</a>
 </h3>
 <p>Wenn man nur einen Teil der Liste (die ersten n Elemente, die letzten n Elemente, jedes nte Element)
 bearbeiten möchte hilft sogenanntes Slicing.
@@ -130,11 +130,11 @@ Dabei gibt man in eckigen Klammern hinter der Liste, das Startelement, das Endel
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zahlen</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zahlen</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">gerade</span> <span class="o">=</span> <span class="n">zahlen</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">zahlen</span><span class="p">):</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># start: 0, ende: len(zahlen), schritt: 2</span>
 <span class="n">ungerade</span> <span class="o">=</span> <span class="n">zahlen</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">zahlen</span><span class="p">):</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># start: 1, ende: len(zahlen), schritt: 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gerade</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ungerade</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Gerade:"</span><span class="p">,</span> <span class="n">gerade</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Ungerade:"</span><span class="p">,</span> <span class="n">ungerade</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -149,8 +149,8 @@ Dabei gibt man in eckigen Klammern hinter der Liste, das Startelement, das Endel
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
-[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99]
+<pre>Gerade: [0, 2, 4, 6, 8]
+Ungerade: [1, 3, 5, 7, 9]
 </pre>
 </div>
 </div>
@@ -175,7 +175,7 @@ Daher kann man obiges Beispiel noch etwas kürzer schreiben</p>
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zahlen</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zahlen</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">gerade</span> <span class="o">=</span> <span class="n">zahlen</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">ungerade</span> <span class="o">=</span> <span class="n">zahlen</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gerade</span><span class="p">)</span>
@@ -194,8 +194,8 @@ Daher kann man obiges Beispiel noch etwas kürzer schreiben</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
-[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99]
+<pre>[0, 2, 4, 6, 8]
+[1, 3, 5, 7, 9]
 </pre>
 </div>
 </div>
