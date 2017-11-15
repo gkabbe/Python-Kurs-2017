@@ -65,6 +65,14 @@ Mittels ```x.day```, ```x.month``` usw. können Sie sich Werte für Tag, Monat, 
 
 * Benutzen Sie x.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
   Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
-  ausgibt. 
+  ausgibt.
+
+
+## json
+
+Mit json können Sie Datenstrukturen aus Python (Listen, Dictionaries, Listen von Dictionaries etc.)
+in lesbarem Format in Dateien speichern, und daraus wieder lesen.
+
+
 
 
