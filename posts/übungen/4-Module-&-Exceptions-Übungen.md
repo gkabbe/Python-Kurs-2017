@@ -1,7 +1,7 @@
 <!-- 
 .. title: 5 - Übungen - 17.11.
 .. slug: module_exceptions_uebungen
-.. date: 2018-11-10 00:00:00 UTC+01:00
+.. date: 2017-11-17 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
@@ -31,6 +31,13 @@ das Input wieder ausgibt.
 ## random
 
 Das Modul random bietet diverse Funktionen an, mit denen man Zufallszahlen generieren kann.
+
+### Würfel
+
+Schreiben Sie ein Programm, das den Wurf einen sechsseitigen Würfels simuliert.
+Benutzen Sie dafür random.randrange.
+
+Berechnen Sie die durchschnittliche geworfene Augenzahl nach 1000 Spielen.
 
 ### Lotto
 
@@ -74,5 +81,64 @@ Mit json können Sie Datenstrukturen aus Python (Listen, Dictionaries, Listen vo
 in lesbarem Format in Dateien speichern, und daraus wieder lesen.
 
 
+Speichern Sie die Datei https://raw.githubusercontent.com/gkabbe/Python-Kurs-2017/src/extras/studenten.json
+auf Ihrem Rechner
+
+Betrachten Sie sie mit einem Texteditor.
+
+Folgendermaßen können Sie sie in Python einlesen:
+
+```python
+import json
+
+with open("studenten.json", "r") as f:
+    studenten = json.load(f)
+```
+
+Analysieren Sie nun die Liste von Studenten.
+
+* Schreiben Sie eine Funktion ```durchschnitts_note```, die für einen Studenten seine Durchschnittsnote berechnet
+
+* Lassen Sie sich für die ersten drei Studenten ihre Durchschnittsnote berechnen
+
+* Lassen Sie sich nun den Studenten mit dem besten Durchschnitt und dem schlechtesten ausgeben.
+  Das geht folgendermaßen: Sie können allen vergleichenden Funktionen (min, max, sorted, ...)
+  Ein spezielles Keyword namens key mitgeben.
+  Nehmen Sie als key Ihre Durchschnittsnoten-Funktion
+  
+```python
+bester_student = min(studenten, key=durchschnitts_note)
+```
+  
+  Die Funktion min nimmt in diesem Fall die Durchschnittsnote als Vergleichswert, um das Minimum
+  zu bestimmen.
+  
+* Sortieren Sie nun die Liste der Studenten nach Durchschnittsnote
+
+* Schreiben Sie eine weitere Funktion, um mithilfe von key=... nach dem Nachnamen sortieren zu können
+
+
+# Dictionaries
+
+## if-else
+
+Ihr Programmierkollege hat folgende Funktion geschrieben, die je nach User einen anderen String
+zurückgibt:
+
+```python
+def gib_user_etwas(name):
+    if name == "Müller":
+        return "Gehaltsabrechnung"
+    elif name == "Mayer":
+        return "Steuerbescheid"
+    elif name == "Schmidt":
+        return "Abmahnung"
+    elif name == "Huber":
+        return "Gehaltserhöhung"
+    else:
+        return None
+```
+
+Finden Sie einen Weg, diese Funktion mit einem Dictionary eleganter und kürzer zu schreiben.
 
 
