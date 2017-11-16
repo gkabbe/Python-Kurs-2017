@@ -1,7 +1,7 @@
 <!-- 
-.. title: 5 - Übungen - 17.11.
+.. title: 5 - Übungen - 17.11.17
 .. slug: module_exceptions_uebungen
-.. date: 2017-11-17 00:00:00 UTC+01:00
+.. date: 2017-11-16 00:00:00 UTC+01:00
 .. tags: 
 .. category: 
 .. link: 
@@ -43,16 +43,15 @@ Berechnen Sie die durchschnittliche geworfene Augenzahl nach 1000 Spielen.
 
 Spielen Sie Lotto! (aber nur am Computer...) 
 
-* Schreiben Sie ein Programm, das 6 Kugeln aus 49 zieht.
+* Schreiben Sie eine Funktion ```zieh_sechs```, die 6 Kugeln aus 49 zieht und das Ergebnis in einer Liste zurückgibt.
   Benutzen Sie dafür die Funktion ```random.choice```, mit der Sie zufällig eine Zahl aus einer Liste
   auswählen können.
 
-* Schreiben Sie ein Programm, das eine Million mal Lotto spielt.
-Dafür brauchen Sie eine Funktion ```spiel_lotto```.
-In dieser Funktion wird zuerst die Ziehung simuliert.
-Danach zieht der Computer 6 Zahlen, und es wird verglichen, wieviele davon mit der Ziehung
-übereinstimmen.
-Der Rückgabewert ist dann die Anzahl der richtig gezogenen Zahlen.
+* Schreiben Sie nun ein Programm, das eine Million mal Lotto spielt.
+  Definieren Sie dafür zuerst eine Funktion ```spiel_lotto```.
+  Diese erzeugt zwei Listen, indem sie ```zieh_sechs``` zweimal aufruft.
+  Dann werden beide Listen verglichen und die gemeinsamen Zahlen gezählt.
+  Der Rückgabewert ist die Anzahl der richtig gezogenen Zahlen.
 
 * In wieviel Prozent der Fälle gibt es 1 (2, ..., 6) richtige Treffer?
 
@@ -66,11 +65,16 @@ Um es zu importieren, schreiben Sie
 from datetime import datetime
 ```
 
-Mithilfe von ```x = datetime.now()``` können Sie sich ein datetime-Objekt zurückgeben lassen mit der 
+Mithilfe von ```jetzt = datetime.now()``` können Sie sich ein datetime-Objekt zurückgeben lassen mit der 
 aktuellen Zeit.
-Mittels ```x.day```, ```x.month``` usw. können Sie sich Werte für Tag, Monat, Jahr etc. geben lassen.
+Mittels ```jetzt.day```, ```jetzt.month``` usw. können Sie sich Werte für Tag, Monat, Jahr etc. geben lassen.
 
-* Benutzen Sie x.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
+* Benutzen Sie am besten Jupyter oder IPython, um sich interaktiv Informationen über *jetzt* zu verschaffen
+
+* Kreieren Sie ein zweites datetime-Objekt *danach* mit datetime.now(). Bilden Sie die Differenz
+  der zwei datetime-Objekte und speichern Sie sie unter dem Namen *delta*. Welchen Typ hat *delta*?
+
+* Benutzen Sie jetzt.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
   Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
   ausgibt.
 
@@ -117,6 +121,31 @@ bester_student = min(studenten, key=durchschnitts_note)
 
 * Schreiben Sie eine weitere Funktion, um mithilfe von key=... nach dem Nachnamen sortieren zu können
 
+* Kreieren Sie eine Liste aller Vornamen und eine Liste aller Nachnamen. Zählen Sie die Häufigkeit
+  jedes Namens
+
+
+## Vom eigenen Skript importieren
+
+```import``` funktioniert nicht nur mit Modulen aus der Standardlibrary.
+Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.
+
+
+* Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion ```meine_fkt``` definieren 
+  (was die macht, ist Ihnen überlassen)
+
+* Schreiben Sie dann eine zweite Datei *main.py* im selben Ordner wie library.py.
+  Importieren Sie in dieser ihr libary.py Skript mit
+
+```python
+import library
+```
+
+* Versuchen Sie nun, Ihre Funktion aufzurufen
+
+* Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
+  Führen Sie nun nochmal main.py aus
+
 
 # Dictionaries
 
@@ -139,6 +168,6 @@ def gib_user_etwas(name):
         return None
 ```
 
-Finden Sie einen Weg, diese Funktion mit einem Dictionary eleganter und kürzer zu schreiben.
+Schreiben Sie die Funktion neu, sodass sie statt if-elif-else ein Dictionary benutzt.
 
 
