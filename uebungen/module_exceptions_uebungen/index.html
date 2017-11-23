@@ -13,6 +13,7 @@
 <link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
 <link rel="prev" href="../funktionen_dictionaries/" title="4 - Übungen - 10.11.17" type="text/html">
+<link rel="next" href="../exceptions_uebungen/" title="6 - Übungen - 24.11.17" type="text/html">
 <meta property="og:site_name" content="Python Kurs 2017">
 <meta property="og:title" content="5 - Übungen - 17.11.17">
 <meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/">
@@ -160,103 +161,14 @@ Mittels <code>jetzt.day</code>, <code>jetzt.month</code> usw. können Sie sich W
   ausgibt.</p>
 </li>
 </ul>
-<h3>json</h3>
-<p>Mit json können Sie Datenstrukturen aus Python (Listen, Dictionaries, Listen von Dictionaries etc.)
-in lesbarem Format in Dateien speichern, und daraus wieder lesen.</p>
-<p>Speichern Sie die Datei https://raw.githubusercontent.com/gkabbe/Python-Kurs-2017/src/extras/studenten.json
-auf Ihrem Rechner</p>
-<p>Betrachten Sie sie mit einem Texteditor.</p>
-<p>Folgendermaßen können Sie sie in Python einlesen:</p>
-<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">json</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"studenten.json"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">studenten</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</pre>
-
-
-<p>Analysieren Sie nun die Liste von Studenten.</p>
-<ul>
-<li>
-<p>Schreiben Sie eine Funktion <code>durchschnitts_note</code>, die für einen Studenten seine Durchschnittsnote berechnet</p>
-</li>
-<li>
-<p>Lassen Sie sich für die ersten drei Studenten ihre Durchschnittsnote berechnen</p>
-</li>
-<li>
-<p>Lassen Sie sich nun den Studenten mit dem besten Durchschnitt und dem schlechtesten ausgeben.
-  Das geht folgendermaßen: Sie können allen vergleichenden Funktionen (min, max, sorted, ...)
-  Ein spezielles Keyword namens key mitgeben.
-  Nehmen Sie als key Ihre Durchschnittsnoten-Funktion</p>
-</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="n">bester_student</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">studenten</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">durchschnitts_note</span><span class="p">)</span>
-</pre>
-
-
-<p>Die Funktion min nimmt in diesem Fall die Durchschnittsnote als Vergleichswert, um das Minimum
-  zu bestimmen.</p>
-<ul>
-<li>
-<p>Sortieren Sie nun die Liste der Studenten nach Durchschnittsnote</p>
-</li>
-<li>
-<p>Schreiben Sie eine weitere Funktion, um mithilfe von key=... nach dem Nachnamen sortieren zu können</p>
-</li>
-<li>
-<p>Kreieren Sie eine Liste aller Vornamen und eine Liste aller Nachnamen. Zählen Sie die Häufigkeit
-  jedes Namens</p>
-</li>
-</ul>
-<h3>Vom eigenen Skript importieren</h3>
-<p><code>import</code> funktioniert nicht nur mit Modulen aus der Standardlibrary.
-Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.</p>
-<ul>
-<li>
-<p>Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion <code>meine_fkt</code> definieren 
-  (was die macht, ist Ihnen überlassen)</p>
-</li>
-<li>
-<p>Schreiben Sie dann eine zweite Datei <em>main.py</em> im selben Ordner wie library.py.
-  Importieren Sie in dieser ihr libary.py Skript mit</p>
-</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">library</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Versuchen Sie nun, Ihre Funktion aufzurufen</p>
-</li>
-<li>
-<p>Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
-  Führen Sie nun nochmal main.py aus</p>
-</li>
-</ul>
-<h2>Dictionaries</h2>
-<h3>if-else</h3>
-<p>Ihr Programmierkollege hat folgende Funktion geschrieben, die je nach User einen anderen String
-zurückgibt:</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">gib_user_etwas</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"Müller"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"Gehaltsabrechnung"</span>
-    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"Mayer"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"Steuerbescheid"</span>
-    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"Schmidt"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"Abmahnung"</span>
-    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"Huber"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"Gehaltserhöhung"</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
-</pre>
-
-
-<p>Schreiben Sie die Funktion neu, sodass sie statt if-elif-else ein Dictionary benutzt.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul class="pager hidden-print">
 <li class="previous">
                 <a href="../funktionen_dictionaries/" rel="prev" title="4 - Übungen - 10.11.17">Vorheriger Eintrag</a>
+            </li>
+            <li class="next">
+                <a href="../exceptions_uebungen/" rel="next" title="6 - Übungen - 24.11.17">Nächster Eintrag</a>
             </li>
         </ul></nav></aside></article><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         

@@ -69,76 +69,75 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/module_exceptions_uebungen/" class="u-url">5 - Übungen - 17.11.17</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/exceptions_uebungen/" class="u-url">6 - Übungen - 24.11.17</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe
             </span></p>
-            <p class="dateline"><a href="../uebungen/module_exceptions_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-11-16T00:00:00+01:00" title="2017-11-16 00:00">2017-11-16 00:00</time></a></p>
+            <p class="dateline"><a href="../uebungen/exceptions_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-11-23T00:00:00+01:00" title="2017-11-23 00:00">2017-11-23 00:00</time></a></p>
         </div>
     </header><div class="e-content entry-content">
     <div>
-<h2>Module</h2>
-<h3>time</h3>
-<p>Das time Modul bietet verschiedene Funktionen zur Zeitmessung an.</p>
-<p>Die Funktion time.time() gibt Ihnen die Anzahl Sekunden seit dem Jahr 1970 zurück.</p>
-<ul>
-<li>Schreiben Sie ein Programm, das als Stoppuhr fungiert. Wenn Sie das erste Mal eine Taste drücken,
-startet der Timer. Beim Zweiten Drücken wird die vergangene Zeit in Sekunden ausgegeben.</li>
-</ul>
-<p>Die Funktion time.sleep() erwartet als Parameter eine Zahl, die angibt, wieviel Sekunden "geschlafen"
-werden soll. In dieser Zeit tut das Programm nichts.</p>
-<ul>
-<li>Schreiben Sie ein Programm "echo", das auf Input vom User wartet, dann eine Sekunde schläft, und
-das Input wieder ausgibt.</li>
-</ul>
-<h3>random</h3>
-<p>Das Modul random bietet diverse Funktionen an, mit denen man Zufallszahlen generieren kann.</p>
-<h4>Würfel</h4>
-<p>Schreiben Sie ein Programm, das den Wurf einen sechsseitigen Würfels simuliert.
-Benutzen Sie dafür random.randrange.</p>
-<p>Berechnen Sie die durchschnittliche geworfene Augenzahl nach 1000 Spielen.</p>
-<h4>Lotto</h4>
-<p>Spielen Sie Lotto! (aber nur am Computer...) </p>
-<ul>
-<li>
-<p>Schreiben Sie eine Funktion <code>zieh_sechs</code>, die 6 Kugeln aus 49 zieht und das Ergebnis in einer Liste zurückgibt.
-  Benutzen Sie dafür die Funktion <code>random.choice</code>, mit der Sie zufällig eine Zahl aus einer Liste
-  auswählen können.</p>
-</li>
-<li>
-<p>Schreiben Sie nun ein Programm, das eine Million mal Lotto spielt.
-  Definieren Sie dafür zuerst eine Funktion <code>spiel_lotto</code>.
-  Diese erzeugt zwei Listen, indem sie <code>zieh_sechs</code> zweimal aufruft.
-  Dann werden beide Listen verglichen und die gemeinsamen Zahlen gezählt.
-  Der Rückgabewert ist die Anzahl der richtig gezogenen Zahlen.</p>
-</li>
-<li>
-<p>In wieviel Prozent der Fälle gibt es 1 (2, ..., 6) richtige Treffer?</p>
-</li>
-</ul>
-<h3>datetime</h3>
-<p>Das Modul datetime bietet viele verschiedene Möglichkeiten, mit Kalenderdaten umzugehen.
-Um es zu importieren, schreiben Sie</p>
-<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<h2>Mit Fehlern umgehen lernen</h2>
+<p>Wichtige Lektionen fürs Leben und für Python</p>
+<h3>Auf Exceptions reagieren</h3>
+<h4>Input - 1</h4>
+<p>Folgendes Programm ist gegeben:</p>
+<pre class="code literal-block"><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">zahl1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte eine Zahl eingeben: "</span><span class="p">)</span>
+    <span class="n">zahl2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte noch eine Zahl eingeben: "</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Die Summe ist"</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">zahl1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">zahl2</span><span class="p">))</span>
 </pre>
 
 
-<p>Mithilfe von <code>jetzt = datetime.now()</code> können Sie sich ein datetime-Objekt zurückgeben lassen mit der 
-aktuellen Zeit.
-Mittels <code>jetzt.day</code>, <code>jetzt.month</code> usw. können Sie sich Werte für Tag, Monat, Jahr etc. geben lassen.</p>
+<p>Dieses Programm funktioniert problemlos, solange sich der User an die Regeln hält und Zahlen
+eingibt. 
+Was passiert aber wenn die Eingabe etwas anderes ist?</p>
+<p>Um auf solche Probleme reagieren zu können, gibt es in Python sogenannte try-Except Blöcke.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">"text"</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">zahl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Das war keine Zahl!"</span><span class="p">)</span>
+</pre>
+
+
+<p>Schreiben Sie das erste Programm so um, dass es nicht mit einem Fehler abbricht, sondern sich nur
+beschwert, dass der Input des Users nicht korrekt war.</p>
+<h4>Input - 2</h4>
+<p>Dieses Programm ist ähnlich wie das erste, teilt aber die zwei Zahlen durcheinander:</p>
+<pre class="code literal-block"><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">zahl1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte eine Zahl eingeben: "</span><span class="p">)</span>
+    <span class="n">zahl2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte noch eine Zahl eingeben: "</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Die Summe ist"</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">zahl1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">zahl2</span><span class="p">))</span>
+</pre>
+
+
+<p>Gibt es eine Möglichkeit, das Programm zum Absturz zu bringen, auch wenn beide Inputs Zahlen sind?
+Schreiben Sie es so um, dass es nicht mehr abstürzen kann.</p>
+<h3>Eine Exception auslösen</h3>
+<p>Wir hatten die Fakultätsfunktion folgendermaßen geschrieben:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fak</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fak</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
+<p>Sie funktioniert problemlos, solange der User ganze Zahlen größer gleich Null eingibt, bei negativen
+Zahlen findet sie jedoch keinen Rekursionsanker und läuft daher immer weiter.</p>
+<p>Mittels <code>raise ...</code> können Sie selbst in Ihrem Code eine Exception auslösen.</p>
 <ul>
 <li>
-<p>Benutzen Sie am besten Jupyter oder IPython, um sich interaktiv Informationen über <em>jetzt</em> zu verschaffen</p>
+<p>Prüfen Sie, ob die Eingabe kleiner Null ist, und lösen Sie in diesem Fall einen ValueError aus!</p>
 </li>
 <li>
-<p>Kreieren Sie ein zweites datetime-Objekt <em>danach</em> mit datetime.now(). Bilden Sie die Differenz
-  der zwei datetime-Objekte und speichern Sie sie unter dem Namen <em>delta</em>. Welchen Typ hat <em>delta</em>?</p>
-</li>
-<li>
-<p>Benutzen Sie jetzt.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
-  Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
-  ausgibt.</p>
+<p>Prüfen Sie auch, ob es sich um einen Integer handelt, und lösen Sie ebenfalls einen ValueError aus,
+falls dies nicht der Fall ist.</p>
 </li>
 </ul>
 <h3>json</h3>
@@ -233,6 +232,80 @@ zurückgibt:</p>
 
 
 <p>Schreiben Sie die Funktion neu, sodass sie statt if-elif-else ein Dictionary benutzt.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../uebungen/module_exceptions_uebungen/" class="u-url">5 - Übungen - 17.11.17</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../uebungen/module_exceptions_uebungen/" rel="bookmark"><time class="published dt-published" datetime="2017-11-16T00:00:00+01:00" title="2017-11-16 00:00">2017-11-16 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Module</h2>
+<h3>time</h3>
+<p>Das time Modul bietet verschiedene Funktionen zur Zeitmessung an.</p>
+<p>Die Funktion time.time() gibt Ihnen die Anzahl Sekunden seit dem Jahr 1970 zurück.</p>
+<ul>
+<li>Schreiben Sie ein Programm, das als Stoppuhr fungiert. Wenn Sie das erste Mal eine Taste drücken,
+startet der Timer. Beim Zweiten Drücken wird die vergangene Zeit in Sekunden ausgegeben.</li>
+</ul>
+<p>Die Funktion time.sleep() erwartet als Parameter eine Zahl, die angibt, wieviel Sekunden "geschlafen"
+werden soll. In dieser Zeit tut das Programm nichts.</p>
+<ul>
+<li>Schreiben Sie ein Programm "echo", das auf Input vom User wartet, dann eine Sekunde schläft, und
+das Input wieder ausgibt.</li>
+</ul>
+<h3>random</h3>
+<p>Das Modul random bietet diverse Funktionen an, mit denen man Zufallszahlen generieren kann.</p>
+<h4>Würfel</h4>
+<p>Schreiben Sie ein Programm, das den Wurf einen sechsseitigen Würfels simuliert.
+Benutzen Sie dafür random.randrange.</p>
+<p>Berechnen Sie die durchschnittliche geworfene Augenzahl nach 1000 Spielen.</p>
+<h4>Lotto</h4>
+<p>Spielen Sie Lotto! (aber nur am Computer...) </p>
+<ul>
+<li>
+<p>Schreiben Sie eine Funktion <code>zieh_sechs</code>, die 6 Kugeln aus 49 zieht und das Ergebnis in einer Liste zurückgibt.
+  Benutzen Sie dafür die Funktion <code>random.choice</code>, mit der Sie zufällig eine Zahl aus einer Liste
+  auswählen können.</p>
+</li>
+<li>
+<p>Schreiben Sie nun ein Programm, das eine Million mal Lotto spielt.
+  Definieren Sie dafür zuerst eine Funktion <code>spiel_lotto</code>.
+  Diese erzeugt zwei Listen, indem sie <code>zieh_sechs</code> zweimal aufruft.
+  Dann werden beide Listen verglichen und die gemeinsamen Zahlen gezählt.
+  Der Rückgabewert ist die Anzahl der richtig gezogenen Zahlen.</p>
+</li>
+<li>
+<p>In wieviel Prozent der Fälle gibt es 1 (2, ..., 6) richtige Treffer?</p>
+</li>
+</ul>
+<h3>datetime</h3>
+<p>Das Modul datetime bietet viele verschiedene Möglichkeiten, mit Kalenderdaten umzugehen.
+Um es zu importieren, schreiben Sie</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</pre>
+
+
+<p>Mithilfe von <code>jetzt = datetime.now()</code> können Sie sich ein datetime-Objekt zurückgeben lassen mit der 
+aktuellen Zeit.
+Mittels <code>jetzt.day</code>, <code>jetzt.month</code> usw. können Sie sich Werte für Tag, Monat, Jahr etc. geben lassen.</p>
+<ul>
+<li>
+<p>Benutzen Sie am besten Jupyter oder IPython, um sich interaktiv Informationen über <em>jetzt</em> zu verschaffen</p>
+</li>
+<li>
+<p>Kreieren Sie ein zweites datetime-Objekt <em>danach</em> mit datetime.now(). Bilden Sie die Differenz
+  der zwei datetime-Objekte und speichern Sie sie unter dem Namen <em>delta</em>. Welchen Typ hat <em>delta</em>?</p>
+</li>
+<li>
+<p>Benutzen Sie jetzt.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
+  Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
+  ausgibt.</p>
+</li>
+</ul>
 </div>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../notebooks/listenoperationen/" class="u-url">Listenoperationen</a></h1>
@@ -1981,7 +2054,6 @@ Produkt ausgibt.</p>
 </pre>
 
 
-<p>Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        </p>
 <h2>Dictionaries</h2>
 <p>Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
 Zu jedem Schlüssel gibt es einen Wert, auf den man zugreifen kann wenn man den Schlüssel hat.</p>
@@ -2040,7 +2112,7 @@ z -&gt; d
 <pre class="code literal-block"><span></span><span class="n">dict_verschlüsselt</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">buchstabe</span><span class="p">,</span> <span class="n">buchstabe_verschlüsselt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">alphabet_verschoben</span><span class="p">):</span>
-    <span class="n">dict_verschlüsselt</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="n">char_verschlüsselt</span>
+    <span class="n">dict_verschlüsselt</span><span class="p">[</span><span class="n">buchstabe</span><span class="p">]</span> <span class="o">=</span> <span class="n">buchstabe_verschlüsselt</span>
 </pre>
 
 
@@ -3493,7 +3565,7 @@ virtualenv virtualenvs/pythonkurs
 <h2>Exceptions</h2>
 <p>Bisher gingen wir immer davon aus, dass unsere Programme fehlerfrei laufen, oder haben Fehlermeldungen erstmal ignoriert.. Hier wird nun gezeigt, wie man seinen Code so schreiben kann, dass er auf Fehler direkt reagiert.</p>
 <p>Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+<pre class="code literal-block"><span></span><span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
 </pre>
 
 
@@ -3506,7 +3578,7 @@ virtualenv virtualenvs/pythonkurs
 <p>Nun möchten wir aber gerne ein anderes Verhalten unseres Codes. Wir möchten, dass er den User so lange nach einer Zahl fragt, bis er sie bekommt. Die Lösung könnte so aussehen:</p>
 <pre class="code literal-block"><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="n">zahl</span><span class="p">)</span>
         <span class="k">break</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
@@ -3518,7 +3590,7 @@ virtualenv virtualenvs/pythonkurs
 <p>Also fangen wir auch den ab:</p>
 <pre class="code literal-block"><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="n">zahl</span><span class="p">)</span>
         <span class="k">break</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
@@ -3541,125 +3613,6 @@ virtualenv virtualenvs/pythonkurs
 
 <p>Diese Funktion beschwert sich beispielsweise lautstark mit einem ValueError, sobald wir ihr ein Argument liefern, das kein Integer ist.
 Die Wahl der Exception ist dabei uns überlassen</p>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/funktionen_klassen_objekte/" class="u-url">3 - Funktionen, Klassen und Objekte</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Gabriel Kabbe
-            </span></p>
-            <p class="dateline"><a href="../vorlesungen/funktionen_klassen_objekte/" rel="bookmark"><time class="published dt-published" datetime="2017-05-11T00:00:00+01:00" title="2017-05-11 00:00">2017-05-11 00:00</time></a></p>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Funktionen</h2>
-<p>Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.</p>
-<h3>Grundlagen</h3>
-<p>Um eine Funktion zu erstellen wird das Keyword <strong>def</strong> benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-</pre>
-
-
-<p>In dem oberen Beispiel hat die Funktion einen Rückgabewert (gekennzeichnet durch das <strong>return</strong> Statement).
-Das bedeutet, dass die Funktion beim Aufruf einen Wert zurückgibt.</p>
-<p>Das muss aber auch nicht zwingend sein:
-Die folgende Funktion <em>hello_world</em> z.B. gibt nur "Hello World" aus, hat aber kein return Statement.</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
-</pre>
-
-
-<p>Nachdem eine Funktion erstellt wurde, muss sie aufgerufen werden, damit überhaupt etwas passiert:</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-
-<span class="n">zahl</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">quadrat_der_zahl</span> <span class="o">=</span> <span class="n">quadrat</span><span class="p">(</span><span class="n">zahl</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="s2">"zum Quadrat ist"</span><span class="p">,</span> <span class="n">quadrat_der_zahl</span><span class="p">)</span>
-</pre>
-
-
-<p>Man kann den Funktionsargumenten Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">())</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>0
-</pre>
-
-
-<p>Es ginge aber z.B. auch:</p>
-<pre class="code literal-block"><span></span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># a und b werden auf 1 und 2 gesetzt, c hat den Defaultwert 0</span>
-
-<span class="n">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># a wird auf 100 gesetzt, b und c haben den Defaultwert 0</span>
-
-<span class="n">summe</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">99.912</span><span class="p">)</span> <span class="c1"># a wird auf 3 und c auf 99.912 gesetzt, b hat den Defaultwert 0</span>
-</pre>
-
-
-<p>Darüberhinaus ist es möglich, eine Funktion zu schreiben, die beliebig viele Argumente akzeptiert:</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
-    <span class="k">return</span> <span class="n">total</span>
-
-
-<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-</pre>
-
-
-<p>Ausgabe:</p>
-<pre class="code literal-block"><span></span>1
-6
-55
-</pre>
-
-
-<p>Alle Argumente, die <em>summe</em> übergeben werden, werden in einem Tupel namens <em>args</em> gespeichert.
-Über diesen können wir dann iterieren.</p>
-<h3>Rekursive Funktionen</h3>
-<p>Rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal (mit anderen Parametern) aufrufen.</p>
-<p>Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
-Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
-einer natürlichen Zahl n definiert als:</p>
-<p>\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\)</p>
-<p>Obige Formel können wir aber auch folgendermaßen schreiben:</p>
-<p>\(n! = n \cdot (n-1)!\)</p>
-<p>In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.</p>
-<p>In Python übersetzt sieht die Formel so aus:</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-</pre>
-
-
-<p>Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
-Fehlt dieser Anker, wird die Funktion sich immer wieder selbst aufrufen, bis irgendwann folgende Fehlermeldung erscheint:</p>
-<pre class="code literal-block"><span></span><span class="n">RecursionError</span><span class="o">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
-</pre>
-
-
-<p>Bei der Fakultät können wir ausnutzen, dass \(0! = 1\).</p>
-<p>Als Programm geschrieben, sieht das ganze dann so aus:</p>
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre>
-
-
-<p>Hundertprozentig sicher ist diese Funktion allerdings noch nicht. 
-Denn wenn \(n &lt; 0\), findet die Funktion wieder kein Abbruchkriterium.</p>
-<p>Hier könnte man nun noch mit einer weiteren if-Abfrage prüfen, ob \(n &lt; 0\), und in dem Fall
-z.B. <code>None</code> ausgeben.</p>
 </div>
     </div>
     </article>

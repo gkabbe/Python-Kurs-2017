@@ -69,7 +69,126 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/2.5-doityourself/" class="u-url">2.5 - Python Selbsthilfekurs</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/funktionen_klassen_objekte/" class="u-url">3 - Funktionen, Klassen und Objekte</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../vorlesungen/funktionen_klassen_objekte/" rel="bookmark"><time class="published dt-published" datetime="2017-05-11T00:00:00+01:00" title="2017-05-11 00:00">2017-05-11 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Funktionen</h2>
+<p>Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.</p>
+<h3>Grundlagen</h3>
+<p>Um eine Funktion zu erstellen wird das Keyword <strong>def</strong> benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</pre>
+
+
+<p>In dem oberen Beispiel hat die Funktion einen Rückgabewert (gekennzeichnet durch das <strong>return</strong> Statement).
+Das bedeutet, dass die Funktion beim Aufruf einen Wert zurückgibt.</p>
+<p>Das muss aber auch nicht zwingend sein:
+Die folgende Funktion <em>hello_world</em> z.B. gibt nur "Hello World" aus, hat aber kein return Statement.</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
+</pre>
+
+
+<p>Nachdem eine Funktion erstellt wurde, muss sie aufgerufen werden, damit überhaupt etwas passiert:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">quadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="n">zahl</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">quadrat_der_zahl</span> <span class="o">=</span> <span class="n">quadrat</span><span class="p">(</span><span class="n">zahl</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="s2">"zum Quadrat ist"</span><span class="p">,</span> <span class="n">quadrat_der_zahl</span><span class="p">)</span>
+</pre>
+
+
+<p>Man kann den Funktionsargumenten Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">())</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>0
+</pre>
+
+
+<p>Es ginge aber z.B. auch:</p>
+<pre class="code literal-block"><span></span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># a und b werden auf 1 und 2 gesetzt, c hat den Defaultwert 0</span>
+
+<span class="n">summe</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># a wird auf 100 gesetzt, b und c haben den Defaultwert 0</span>
+
+<span class="n">summe</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">99.912</span><span class="p">)</span> <span class="c1"># a wird auf 3 und c auf 99.912 gesetzt, b hat den Defaultwert 0</span>
+</pre>
+
+
+<p>Darüberhinaus ist es möglich, eine Funktion zu schreiben, die beliebig viele Argumente akzeptiert:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">summe</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">summe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>1
+6
+55
+</pre>
+
+
+<p>Alle Argumente, die <em>summe</em> übergeben werden, werden in einem Tupel namens <em>args</em> gespeichert.
+Über diesen können wir dann iterieren.</p>
+<h3>Rekursive Funktionen</h3>
+<p>Rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal (mit anderen Parametern) aufrufen.</p>
+<p>Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
+Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
+einer natürlichen Zahl n definiert als:</p>
+<p>\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\)</p>
+<p>Obige Formel können wir aber auch folgendermaßen schreiben:</p>
+<p>\(n! = n \cdot (n-1)!\)</p>
+<p>In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.</p>
+<p>In Python übersetzt sieht die Formel so aus:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
+<p>Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
+Fehlt dieser Anker, wird die Funktion sich immer wieder selbst aufrufen, bis irgendwann folgende Fehlermeldung erscheint:</p>
+<pre class="code literal-block"><span></span><span class="n">RecursionError</span><span class="o">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
+</pre>
+
+
+<p>Bei der Fakultät können wir ausnutzen, dass \(0! = 1\).</p>
+<p>Als Programm geschrieben, sieht das ganze dann so aus:</p>
+<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">fakultät</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakultät</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre>
+
+
+<p>Hundertprozentig sicher ist diese Funktion allerdings noch nicht. 
+Denn wenn \(n &lt; 0\), findet die Funktion wieder kein Abbruchkriterium.</p>
+<p>Hier könnte man nun noch mit einer weiteren if-Abfrage prüfen, ob \(n &lt; 0\), und in dem Fall
+z.B. <code>None</code> ausgeben.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/2.5-doityourself/" class="u-url">2.5 - Python Selbsthilfekurs</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe
@@ -1247,7 +1366,9 @@ Hier müssen einige der Pythonpakete, die wir später verwenden werden, allerdin
 
         <nav class="postindexpager clearfix"><a href="." class="btn btn-secondary float-left" rel="prev">Neuere Einträge</a>
         
-        </nav><!--End of body content--><footer id="footer">
+        </nav><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script><!--End of body content--><footer id="footer">
             Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>

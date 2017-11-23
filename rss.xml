@@ -1,65 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Thu, 16 Nov 2017 16:31:54 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>5 - Übungen - 17.11.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Module&lt;/h2&gt;
-&lt;h3&gt;time&lt;/h3&gt;
-&lt;p&gt;Das time Modul bietet verschiedene Funktionen zur Zeitmessung an.&lt;/p&gt;
-&lt;p&gt;Die Funktion time.time() gibt Ihnen die Anzahl Sekunden seit dem Jahr 1970 zurück.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Schreiben Sie ein Programm, das als Stoppuhr fungiert. Wenn Sie das erste Mal eine Taste drücken,
-startet der Timer. Beim Zweiten Drücken wird die vergangene Zeit in Sekunden ausgegeben.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Die Funktion time.sleep() erwartet als Parameter eine Zahl, die angibt, wieviel Sekunden "geschlafen"
-werden soll. In dieser Zeit tut das Programm nichts.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Schreiben Sie ein Programm "echo", das auf Input vom User wartet, dann eine Sekunde schläft, und
-das Input wieder ausgibt.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;random&lt;/h3&gt;
-&lt;p&gt;Das Modul random bietet diverse Funktionen an, mit denen man Zufallszahlen generieren kann.&lt;/p&gt;
-&lt;h4&gt;Würfel&lt;/h4&gt;
-&lt;p&gt;Schreiben Sie ein Programm, das den Wurf einen sechsseitigen Würfels simuliert.
-Benutzen Sie dafür random.randrange.&lt;/p&gt;
-&lt;p&gt;Berechnen Sie die durchschnittliche geworfene Augenzahl nach 1000 Spielen.&lt;/p&gt;
-&lt;h4&gt;Lotto&lt;/h4&gt;
-&lt;p&gt;Spielen Sie Lotto! (aber nur am Computer...) &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie eine Funktion &lt;code&gt;zieh_sechs&lt;/code&gt;, die 6 Kugeln aus 49 zieht und das Ergebnis in einer Liste zurückgibt.
-  Benutzen Sie dafür die Funktion &lt;code&gt;random.choice&lt;/code&gt;, mit der Sie zufällig eine Zahl aus einer Liste
-  auswählen können.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie nun ein Programm, das eine Million mal Lotto spielt.
-  Definieren Sie dafür zuerst eine Funktion &lt;code&gt;spiel_lotto&lt;/code&gt;.
-  Diese erzeugt zwei Listen, indem sie &lt;code&gt;zieh_sechs&lt;/code&gt; zweimal aufruft.
-  Dann werden beide Listen verglichen und die gemeinsamen Zahlen gezählt.
-  Der Rückgabewert ist die Anzahl der richtig gezogenen Zahlen.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In wieviel Prozent der Fälle gibt es 1 (2, ..., 6) richtige Treffer?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;datetime&lt;/h3&gt;
-&lt;p&gt;Das Modul datetime bietet viele verschiedene Möglichkeiten, mit Kalenderdaten umzugehen.
-Um es zu importieren, schreiben Sie&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self"></atom:link><language>de</language><lastBuildDate>Thu, 23 Nov 2017 15:26:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>6 - Übungen - 24.11.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/exceptions_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Mit Fehlern umgehen lernen&lt;/h2&gt;
+&lt;p&gt;Wichtige Lektionen fürs Leben und für Python&lt;/p&gt;
+&lt;h3&gt;Auf Exceptions reagieren&lt;/h3&gt;
+&lt;h4&gt;Input - 1&lt;/h4&gt;
+&lt;p&gt;Folgendes Programm ist gegeben:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;zahl1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte eine Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;zahl2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte noch eine Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Die Summe ist"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;
 
 
-&lt;p&gt;Mithilfe von &lt;code&gt;jetzt = datetime.now()&lt;/code&gt; können Sie sich ein datetime-Objekt zurückgeben lassen mit der 
-aktuellen Zeit.
-Mittels &lt;code&gt;jetzt.day&lt;/code&gt;, &lt;code&gt;jetzt.month&lt;/code&gt; usw. können Sie sich Werte für Tag, Monat, Jahr etc. geben lassen.&lt;/p&gt;
+&lt;p&gt;Dieses Programm funktioniert problemlos, solange sich der User an die Regeln hält und Zahlen
+eingibt. 
+Was passiert aber wenn die Eingabe etwas anderes ist?&lt;/p&gt;
+&lt;p&gt;Um auf solche Probleme reagieren zu können, gibt es in Python sogenannte try-Except Blöcke.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"text"&lt;/span&gt;
+
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Das war keine Zahl!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Schreiben Sie das erste Programm so um, dass es nicht mit einem Fehler abbricht, sondern sich nur
+beschwert, dass der Input des Users nicht korrekt war.&lt;/p&gt;
+&lt;h4&gt;Input - 2&lt;/h4&gt;
+&lt;p&gt;Dieses Programm ist ähnlich wie das erste, teilt aber die zwei Zahlen durcheinander:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;zahl1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte eine Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;zahl2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte noch eine Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Die Summe ist"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Gibt es eine Möglichkeit, das Programm zum Absturz zu bringen, auch wenn beide Inputs Zahlen sind?
+Schreiben Sie es so um, dass es nicht mehr abstürzen kann.&lt;/p&gt;
+&lt;h3&gt;Eine Exception auslösen&lt;/h3&gt;
+&lt;p&gt;Wir hatten die Fakultätsfunktion folgendermaßen geschrieben:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fak&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;fak&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Sie funktioniert problemlos, solange der User ganze Zahlen größer gleich Null eingibt, bei negativen
+Zahlen findet sie jedoch keinen Rekursionsanker und läuft daher immer weiter.&lt;/p&gt;
+&lt;p&gt;Mittels &lt;code&gt;raise ...&lt;/code&gt; können Sie selbst in Ihrem Code eine Exception auslösen.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Benutzen Sie am besten Jupyter oder IPython, um sich interaktiv Informationen über &lt;em&gt;jetzt&lt;/em&gt; zu verschaffen&lt;/p&gt;
+&lt;p&gt;Prüfen Sie, ob die Eingabe kleiner Null ist, und lösen Sie in diesem Fall einen ValueError aus!&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Kreieren Sie ein zweites datetime-Objekt &lt;em&gt;danach&lt;/em&gt; mit datetime.now(). Bilden Sie die Differenz
-  der zwei datetime-Objekte und speichern Sie sie unter dem Namen &lt;em&gt;delta&lt;/em&gt;. Welchen Typ hat &lt;em&gt;delta&lt;/em&gt;?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Benutzen Sie jetzt.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
-  Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
-  ausgibt.&lt;/p&gt;
+&lt;p&gt;Prüfen Sie auch, ob es sich um einen Integer handelt, und lösen Sie ebenfalls einen ValueError aus,
+falls dies nicht der Fall ist.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;json&lt;/h3&gt;
@@ -153,7 +152,69 @@ zurückgibt:&lt;/p&gt;
 &lt;/pre&gt;
 
 
-&lt;p&gt;Schreiben Sie die Funktion neu, sodass sie statt if-elif-else ein Dictionary benutzt.&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</guid><pubDate>Wed, 15 Nov 2017 23:00:00 GMT</pubDate></item><item><title>Listenoperationen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+&lt;p&gt;Schreiben Sie die Funktion neu, sodass sie statt if-elif-else ein Dictionary benutzt.&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/exceptions_uebungen/</guid><pubDate>Wed, 22 Nov 2017 23:00:00 GMT</pubDate></item><item><title>5 - Übungen - 17.11.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Module&lt;/h2&gt;
+&lt;h3&gt;time&lt;/h3&gt;
+&lt;p&gt;Das time Modul bietet verschiedene Funktionen zur Zeitmessung an.&lt;/p&gt;
+&lt;p&gt;Die Funktion time.time() gibt Ihnen die Anzahl Sekunden seit dem Jahr 1970 zurück.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Schreiben Sie ein Programm, das als Stoppuhr fungiert. Wenn Sie das erste Mal eine Taste drücken,
+startet der Timer. Beim Zweiten Drücken wird die vergangene Zeit in Sekunden ausgegeben.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Die Funktion time.sleep() erwartet als Parameter eine Zahl, die angibt, wieviel Sekunden "geschlafen"
+werden soll. In dieser Zeit tut das Programm nichts.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Schreiben Sie ein Programm "echo", das auf Input vom User wartet, dann eine Sekunde schläft, und
+das Input wieder ausgibt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;random&lt;/h3&gt;
+&lt;p&gt;Das Modul random bietet diverse Funktionen an, mit denen man Zufallszahlen generieren kann.&lt;/p&gt;
+&lt;h4&gt;Würfel&lt;/h4&gt;
+&lt;p&gt;Schreiben Sie ein Programm, das den Wurf einen sechsseitigen Würfels simuliert.
+Benutzen Sie dafür random.randrange.&lt;/p&gt;
+&lt;p&gt;Berechnen Sie die durchschnittliche geworfene Augenzahl nach 1000 Spielen.&lt;/p&gt;
+&lt;h4&gt;Lotto&lt;/h4&gt;
+&lt;p&gt;Spielen Sie Lotto! (aber nur am Computer...) &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie eine Funktion &lt;code&gt;zieh_sechs&lt;/code&gt;, die 6 Kugeln aus 49 zieht und das Ergebnis in einer Liste zurückgibt.
+  Benutzen Sie dafür die Funktion &lt;code&gt;random.choice&lt;/code&gt;, mit der Sie zufällig eine Zahl aus einer Liste
+  auswählen können.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie nun ein Programm, das eine Million mal Lotto spielt.
+  Definieren Sie dafür zuerst eine Funktion &lt;code&gt;spiel_lotto&lt;/code&gt;.
+  Diese erzeugt zwei Listen, indem sie &lt;code&gt;zieh_sechs&lt;/code&gt; zweimal aufruft.
+  Dann werden beide Listen verglichen und die gemeinsamen Zahlen gezählt.
+  Der Rückgabewert ist die Anzahl der richtig gezogenen Zahlen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In wieviel Prozent der Fälle gibt es 1 (2, ..., 6) richtige Treffer?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;datetime&lt;/h3&gt;
+&lt;p&gt;Das Modul datetime bietet viele verschiedene Möglichkeiten, mit Kalenderdaten umzugehen.
+Um es zu importieren, schreiben Sie&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Mithilfe von &lt;code&gt;jetzt = datetime.now()&lt;/code&gt; können Sie sich ein datetime-Objekt zurückgeben lassen mit der 
+aktuellen Zeit.
+Mittels &lt;code&gt;jetzt.day&lt;/code&gt;, &lt;code&gt;jetzt.month&lt;/code&gt; usw. können Sie sich Werte für Tag, Monat, Jahr etc. geben lassen.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Benutzen Sie am besten Jupyter oder IPython, um sich interaktiv Informationen über &lt;em&gt;jetzt&lt;/em&gt; zu verschaffen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kreieren Sie ein zweites datetime-Objekt &lt;em&gt;danach&lt;/em&gt; mit datetime.now(). Bilden Sie die Differenz
+  der zwei datetime-Objekte und speichern Sie sie unter dem Namen &lt;em&gt;delta&lt;/em&gt;. Welchen Typ hat &lt;em&gt;delta&lt;/em&gt;?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Benutzen Sie jetzt.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
+  Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
+  ausgibt.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</guid><pubDate>Wed, 15 Nov 2017 23:00:00 GMT</pubDate></item><item><title>Listenoperationen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -1854,7 +1915,6 @@ Produkt ausgibt.&lt;/p&gt;
 &lt;/pre&gt;
 
 
-&lt;p&gt;Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        &lt;/p&gt;
 &lt;h2&gt;Dictionaries&lt;/h2&gt;
 &lt;p&gt;Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
 Zu jedem Schlüssel gibt es einen Wert, auf den man zugreifen kann wenn man den Schlüssel hat.&lt;/p&gt;
@@ -1913,7 +1973,7 @@ z -&amp;gt; d
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;dict_verschlüsselt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
 
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;buchstabe&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;buchstabe_verschlüsselt&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;alphabet&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alphabet_verschoben&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;dict_verschlüsselt&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;char&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;char_verschlüsselt&lt;/span&gt;
+    &lt;span class="n"&gt;dict_verschlüsselt&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;buchstabe&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;buchstabe_verschlüsselt&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -3304,7 +3364,7 @@ virtualenv virtualenvs/pythonkurs
 &lt;h2&gt;Exceptions&lt;/h2&gt;
 &lt;p&gt;Bisher gingen wir immer davon aus, dass unsere Programme fehlerfrei laufen, oder haben Fehlermeldungen erstmal ignoriert.. Hier wird nun gezeigt, wie man seinen Code so schreiben kann, dass er auf Fehler direkt reagiert.&lt;/p&gt;
 &lt;p&gt;Beispiel:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -3317,7 +3377,7 @@ virtualenv virtualenvs/pythonkurs
 &lt;p&gt;Nun möchten wir aber gerne ein anderes Verhalten unseres Codes. Wir möchten, dass er den User so lange nach einer Zahl fragt, bis er sie bekommt. Die Lösung könnte so aussehen:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;zahl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="k"&gt;break&lt;/span&gt;
     &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -3329,7 +3389,7 @@ virtualenv virtualenvs/pythonkurs
 &lt;p&gt;Also fangen wir auch den ab:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;zahl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="k"&gt;break&lt;/span&gt;
     &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -3351,111 +3411,4 @@ virtualenv virtualenvs/pythonkurs
 
 
 &lt;p&gt;Diese Funktion beschwert sich beispielsweise lautstark mit einem ValueError, sobald wir ihr ein Argument liefern, das kein Integer ist.
-Die Wahl der Exception ist dabei uns überlassen&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/module_exceptions/</guid><pubDate>Fri, 16 Jun 2017 23:00:00 GMT</pubDate></item><item><title>3 - Funktionen, Klassen und Objekte</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Funktionen&lt;/h2&gt;
-&lt;p&gt;Funktionen sind ein wichtiger Baustein eines Computerprogramms. Sie erlauben eine bessere Gliederung des Codes und erleichtern die Wiederverwendung von Code-Stücken.&lt;/p&gt;
-&lt;h3&gt;Grundlagen&lt;/h3&gt;
-&lt;p&gt;Um eine Funktion zu erstellen wird das Keyword &lt;strong&gt;def&lt;/strong&gt; benötigt, anschließend kommt der Funktionsname, und dahinter eine Klammer, in die die Funktionsargumente geschrieben werden (falls die Funktion welche benötigt).&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;quadrat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;In dem oberen Beispiel hat die Funktion einen Rückgabewert (gekennzeichnet durch das &lt;strong&gt;return&lt;/strong&gt; Statement).
-Das bedeutet, dass die Funktion beim Aufruf einen Wert zurückgibt.&lt;/p&gt;
-&lt;p&gt;Das muss aber auch nicht zwingend sein:
-Die folgende Funktion &lt;em&gt;hello_world&lt;/em&gt; z.B. gibt nur "Hello World" aus, hat aber kein return Statement.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello_world&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Hello World"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Nachdem eine Funktion erstellt wurde, muss sie aufgerufen werden, damit überhaupt etwas passiert:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;quadrat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
-
-&lt;span class="n"&gt;zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;
-&lt;span class="n"&gt;quadrat_der_zahl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;quadrat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"zum Quadrat ist"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;quadrat_der_zahl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Man kann den Funktionsargumenten Defaultwerte geben, die benutzt werden, falls die Funktion ohne Parameter aufgerufen wird:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Ausgabe:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;0
-&lt;/pre&gt;
-
-
-&lt;p&gt;Es ginge aber z.B. auch:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# a und b werden auf 1 und 2 gesetzt, c hat den Defaultwert 0&lt;/span&gt;
-
-&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# a wird auf 100 gesetzt, b und c haben den Defaultwert 0&lt;/span&gt;
-
-&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;99.912&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# a wird auf 3 und c auf 99.912 gesetzt, b hat den Defaultwert 0&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Darüberhinaus ist es möglich, eine Funktion zu schreiben, die beliebig viele Argumente akzeptiert:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt;
-
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;summe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Ausgabe:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;1
-6
-55
-&lt;/pre&gt;
-
-
-&lt;p&gt;Alle Argumente, die &lt;em&gt;summe&lt;/em&gt; übergeben werden, werden in einem Tupel namens &lt;em&gt;args&lt;/em&gt; gespeichert.
-Über diesen können wir dann iterieren.&lt;/p&gt;
-&lt;h3&gt;Rekursive Funktionen&lt;/h3&gt;
-&lt;p&gt;Rekursive Funktionen sind Funktionen, die ein Problem lösen, indem sie sich selbst nochmal (mit anderen Parametern) aufrufen.&lt;/p&gt;
-&lt;p&gt;Das bekannsteste Beispiel ist vermutlich die Fakultätsfunktion:
-Wie die meisten vermutlich noch aus der Schulzeit (oder aus der Mathevorlesung) wissen, ist die Fakultät
-einer natürlichen Zahl n definiert als:&lt;/p&gt;
-&lt;p&gt;\(n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 1\)&lt;/p&gt;
-&lt;p&gt;Obige Formel können wir aber auch folgendermaßen schreiben:&lt;/p&gt;
-&lt;p&gt;\(n! = n \cdot (n-1)!\)&lt;/p&gt;
-&lt;p&gt;In dieser Schreibweise sagt uns die Formel also, dass die Fakultät von n einfach n mal die Fakultät der Vorgängerzahl von n ist.&lt;/p&gt;
-&lt;p&gt;In Python übersetzt sieht die Formel so aus:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fakultät&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;fakultät&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Hier fehlt allerdings noch eine Kleinigkeit: wir brauchen einen Rekursionsanker, der uns sagt, wann wir aufhören können zu rechnen. 
-Fehlt dieser Anker, wird die Funktion sich immer wieder selbst aufrufen, bis irgendwann folgende Fehlermeldung erscheint:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;RecursionError&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;maximum&lt;/span&gt; &lt;span class="n"&gt;recursion&lt;/span&gt; &lt;span class="n"&gt;depth&lt;/span&gt; &lt;span class="n"&gt;exceeded&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Bei der Fakultät können wir ausnutzen, dass \(0! = 1\).&lt;/p&gt;
-&lt;p&gt;Als Programm geschrieben, sieht das ganze dann so aus:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fakultät&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;fakultät&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Hundertprozentig sicher ist diese Funktion allerdings noch nicht. 
-Denn wenn \(n &amp;lt; 0\), findet die Funktion wieder kein Abbruchkriterium.&lt;/p&gt;
-&lt;p&gt;Hier könnte man nun noch mit einer weiteren if-Abfrage prüfen, ob \(n &amp;lt; 0\), und in dem Fall
-z.B. &lt;code&gt;None&lt;/code&gt; ausgeben.&lt;/p&gt;&lt;/div&gt;</description><category>mathjax</category><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/funktionen_klassen_objekte/</guid><pubDate>Wed, 10 May 2017 23:00:00 GMT</pubDate></item></channel></rss>
+Die Wahl der Exception ist dabei uns überlassen&lt;/p&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/module_exceptions/</guid><pubDate>Fri, 16 Jun 2017 23:00:00 GMT</pubDate></item></channel></rss>

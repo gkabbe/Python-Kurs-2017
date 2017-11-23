@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
 <link rel="prev" href="../funktionen_klassen_objekte_uebungen/" title="3 - Übungen - 3.11.17" type="text/html">
-<link rel="next" href="../module_exceptions_uebungen/" title="5 - Übungen - 17.11." type="text/html">
+<link rel="next" href="../module_exceptions_uebungen/" title="5 - Übungen - 17.11.17" type="text/html">
 <meta property="og:site_name" content="Python Kurs 2017">
 <meta property="og:title" content="4 - Übungen - 10.11.17">
 <meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/">
@@ -214,7 +214,6 @@ Produkt ausgibt.</p>
 </pre>
 
 
-<p>Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        </p>
 <h2>Dictionaries</h2>
 <p>Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
 Zu jedem Schlüssel gibt es einen Wert, auf den man zugreifen kann wenn man den Schlüssel hat.</p>
@@ -273,7 +272,7 @@ z -&gt; d
 <pre class="code literal-block"><span></span><span class="n">dict_verschlüsselt</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">buchstabe</span><span class="p">,</span> <span class="n">buchstabe_verschlüsselt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">alphabet_verschoben</span><span class="p">):</span>
-    <span class="n">dict_verschlüsselt</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="n">char_verschlüsselt</span>
+    <span class="n">dict_verschlüsselt</span><span class="p">[</span><span class="n">buchstabe</span><span class="p">]</span> <span class="o">=</span> <span class="n">buchstabe_verschlüsselt</span>
 </pre>
 
 
@@ -295,7 +294,7 @@ z(zeile, i) = z(zeile-1, i-1) + z(zeile-1, i).</p>
                 <a href="../funktionen_klassen_objekte_uebungen/" rel="prev" title="3 - Übungen - 3.11.17">Vorheriger Eintrag</a>
             </li>
             <li class="next">
-                <a href="../module_exceptions_uebungen/" rel="next" title="5 - Übungen - 17.11.">Nächster Eintrag</a>
+                <a href="../module_exceptions_uebungen/" rel="next" title="5 - Übungen - 17.11.17">Nächster Eintrag</a>
             </li>
         </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});

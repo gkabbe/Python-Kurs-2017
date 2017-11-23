@@ -408,7 +408,7 @@ virtualenv virtualenvs/pythonkurs
 <h2>Exceptions</h2>
 <p>Bisher gingen wir immer davon aus, dass unsere Programme fehlerfrei laufen, oder haben Fehlermeldungen erstmal ignoriert.. Hier wird nun gezeigt, wie man seinen Code so schreiben kann, dass er auf Fehler direkt reagiert.</p>
 <p>Beispiel:</p>
-<pre class="code literal-block"><span></span><span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+<pre class="code literal-block"><span></span><span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
 </pre>
 
 
@@ -421,7 +421,7 @@ virtualenv virtualenvs/pythonkurs
 <p>Nun möchten wir aber gerne ein anderes Verhalten unseres Codes. Wir möchten, dass er den User so lange nach einer Zahl fragt, bis er sie bekommt. Die Lösung könnte so aussehen:</p>
 <pre class="code literal-block"><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="n">zahl</span><span class="p">)</span>
         <span class="k">break</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
@@ -433,7 +433,7 @@ virtualenv virtualenvs/pythonkurs
 <p>Also fangen wir auch den ab:</p>
 <pre class="code literal-block"><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="n">zahl</span><span class="p">)</span>
         <span class="k">break</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>

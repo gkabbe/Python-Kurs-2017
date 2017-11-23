@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/archive.html</loc>
-  <lastmod>2017-11-16T11:51:00Z</lastmod>
+  <lastmod>2017-11-23T12:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/</loc>
@@ -27,7 +27,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/index-1.html</loc>
-  <lastmod>2017-11-16T11:51:00Z</lastmod>
+  <lastmod>2017-11-23T12:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/categories/</loc>
@@ -63,7 +63,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/</loc>
-  <lastmod>2017-11-09T09:50:00Z</lastmod>
+  <lastmod>2017-11-23T12:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</loc>
@@ -72,6 +72,10 @@
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</loc>
   <lastmod>2017-05-09T09:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/exceptions_uebungen/</loc>
+  <lastmod>2017-11-23T12:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/funktionen_dictionaries/</loc>
