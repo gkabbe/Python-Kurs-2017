@@ -428,7 +428,7 @@ Bisher gingen wir immer davon aus, dass unsere Programme fehlerfrei laufen, oder
 Beispiel:
 
 ```python
-zahl = float(raw_input("Bitte Zahl eingeben: "))
+zahl = float(input("Bitte Zahl eingeben: "))
 ```
 Führen wir dieses Zahl aus und geben brav eine Zahl ein, kommt es zu keinen Problemen. Hat der Anwender jedoch nicht aufgepasst und gibt z.B. "Hallo" ein, wird er von folgender Meldung überrascht:
 
@@ -443,7 +443,7 @@ Nun möchten wir aber gerne ein anderes Verhalten unseres Codes. Wir möchten, d
 ```python
 while True:
     try:
-        zahl = float(raw_input("Bitte Zahl eingeben: "))
+        zahl = float(input("Bitte Zahl eingeben: "))
         print(5 / zahl)
         break
     except ValueError:
@@ -457,7 +457,7 @@ Also fangen wir auch den ab:
 ```python
 while True:
     try:
-        zahl = float(raw_input("Bitte Zahl eingeben: "))
+        zahl = float(input("Bitte Zahl eingeben: "))
         print(5 / zahl)
         break
     except ValueError:

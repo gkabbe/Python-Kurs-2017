@@ -160,8 +160,6 @@ mat = [[1, 0, 0],
 ```
 
 
-Versuchen Sie, die Resultate der einzelnen Code-Fragmente zu erklären!        
-
 # Dictionaries
 
 Dictionaries sind eine Datenstruktur, die Wertepaare speichert.
