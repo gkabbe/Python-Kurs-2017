@@ -161,6 +161,32 @@ Mittels <code>jetzt.day</code>, <code>jetzt.month</code> usw. können Sie sich W
   ausgibt.</p>
 </li>
 </ul>
+<h3>Vom eigenen Skript importieren</h3>
+<p><code>import</code> funktioniert nicht nur mit Modulen aus der Standardlibrary.
+Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.</p>
+<ul>
+<li>
+<p>Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion <code>meine_fkt</code> definieren 
+  (was die macht, ist Ihnen überlassen)</p>
+</li>
+<li>
+<p>Schreiben Sie dann eine zweite Datei <em>main.py</em> im selben Ordner wie library.py.
+  Importieren Sie in dieser ihr libary.py Skript mit</p>
+</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">library</span>
+</pre>
+
+
+<ul>
+<li>
+<p>Versuchen Sie nun, Ihre Funktion aufzurufen</p>
+</li>
+<li>
+<p>Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
+  Führen Sie nun nochmal main.py aus</p>
+</li>
+</ul>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul class="pager hidden-print">

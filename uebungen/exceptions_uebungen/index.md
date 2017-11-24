@@ -82,11 +82,21 @@ Sie funktioniert problemlos, solange der User ganze Zahlen größer gleich Null 
 Zahlen findet sie jedoch keinen Rekursionsanker und läuft daher immer weiter.
 
 Mittels ```raise ...``` können Sie selbst in Ihrem Code eine Exception auslösen.
+(Eine Übersicht aller Exceptions finden Sie [hier](https://docs.python.org/3/library/exceptions.html#bltin-exceptions))
 
 * Prüfen Sie, ob die Eingabe kleiner Null ist, und lösen Sie in diesem Fall einen ValueError aus!
 
 * Prüfen Sie auch, ob es sich um einen Integer handelt, und lösen Sie ebenfalls einen ValueError aus,
 falls dies nicht der Fall ist.
+
+
+
+# Dictionaries
+
+## Studenten-Konstruktor
+
+Schreiben Sie eine Funktion ```create_student```, die drei Parameter vorname, name und notenliste
+erwartet, und ein Dictionary zurückgibt.
 
 
 ## json
@@ -133,31 +143,6 @@ bester_student = min(studenten, key=durchschnitts_note)
 
 * Kreieren Sie eine Liste aller Vornamen und eine Liste aller Nachnamen. Zählen Sie die Häufigkeit
   jedes Namens
-
-
-## Vom eigenen Skript importieren
-
-```import``` funktioniert nicht nur mit Modulen aus der Standardlibrary.
-Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.
-
-
-* Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion ```meine_fkt``` definieren 
-  (was die macht, ist Ihnen überlassen)
-
-* Schreiben Sie dann eine zweite Datei *main.py* im selben Ordner wie library.py.
-  Importieren Sie in dieser ihr libary.py Skript mit
-
-```python
-import library
-```
-
-* Versuchen Sie nun, Ihre Funktion aufzurufen
-
-* Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
-  Führen Sie nun nochmal main.py aus
-
-
-# Dictionaries
 
 ## if-else
 

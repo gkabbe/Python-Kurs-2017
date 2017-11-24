@@ -130,7 +130,8 @@ Schreiben Sie es so um, dass es nicht mehr abstürzen kann.</p>
 
 <p>Sie funktioniert problemlos, solange der User ganze Zahlen größer gleich Null eingibt, bei negativen
 Zahlen findet sie jedoch keinen Rekursionsanker und läuft daher immer weiter.</p>
-<p>Mittels <code>raise ...</code> können Sie selbst in Ihrem Code eine Exception auslösen.</p>
+<p>Mittels <code>raise ...</code> können Sie selbst in Ihrem Code eine Exception auslösen.
+(Eine Übersicht aller Exceptions finden Sie <a href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">hier</a>)</p>
 <ul>
 <li>
 <p>Prüfen Sie, ob die Eingabe kleiner Null ist, und lösen Sie in diesem Fall einen ValueError aus!</p>
@@ -140,6 +141,10 @@ Zahlen findet sie jedoch keinen Rekursionsanker und läuft daher immer weiter.</
 falls dies nicht der Fall ist.</p>
 </li>
 </ul>
+<h2>Dictionaries</h2>
+<h3>Studenten-Konstruktor</h3>
+<p>Schreiben Sie eine Funktion <code>create_student</code>, die drei Parameter vorname, name und notenliste
+erwartet, und ein Dictionary zurückgibt.</p>
 <h3>json</h3>
 <p>Mit json können Sie Datenstrukturen aus Python (Listen, Dictionaries, Listen von Dictionaries etc.)
 in lesbarem Format in Dateien speichern, und daraus wieder lesen.</p>
@@ -187,33 +192,6 @@ auf Ihrem Rechner</p>
   jedes Namens</p>
 </li>
 </ul>
-<h3>Vom eigenen Skript importieren</h3>
-<p><code>import</code> funktioniert nicht nur mit Modulen aus der Standardlibrary.
-Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.</p>
-<ul>
-<li>
-<p>Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion <code>meine_fkt</code> definieren 
-  (was die macht, ist Ihnen überlassen)</p>
-</li>
-<li>
-<p>Schreiben Sie dann eine zweite Datei <em>main.py</em> im selben Ordner wie library.py.
-  Importieren Sie in dieser ihr libary.py Skript mit</p>
-</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">library</span>
-</pre>
-
-
-<ul>
-<li>
-<p>Versuchen Sie nun, Ihre Funktion aufzurufen</p>
-</li>
-<li>
-<p>Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
-  Führen Sie nun nochmal main.py aus</p>
-</li>
-</ul>
-<h2>Dictionaries</h2>
 <h3>if-else</h3>
 <p>Ihr Programmierkollege hat folgende Funktion geschrieben, die je nach User einen anderen String
 zurückgibt:</p>
@@ -304,6 +282,32 @@ Mittels <code>jetzt.day</code>, <code>jetzt.month</code> usw. können Sie sich W
 <p>Benutzen Sie jetzt.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
   Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
   ausgibt.</p>
+</li>
+</ul>
+<h3>Vom eigenen Skript importieren</h3>
+<p><code>import</code> funktioniert nicht nur mit Modulen aus der Standardlibrary.
+Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.</p>
+<ul>
+<li>
+<p>Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion <code>meine_fkt</code> definieren 
+  (was die macht, ist Ihnen überlassen)</p>
+</li>
+<li>
+<p>Schreiben Sie dann eine zweite Datei <em>main.py</em> im selben Ordner wie library.py.
+  Importieren Sie in dieser ihr libary.py Skript mit</p>
+</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">library</span>
+</pre>
+
+
+<ul>
+<li>
+<p>Versuchen Sie nun, Ihre Funktion aufzurufen</p>
+</li>
+<li>
+<p>Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
+  Führen Sie nun nochmal main.py aus</p>
 </li>
 </ul>
 </div>

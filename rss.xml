@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self"></atom:link><language>de</language><lastBuildDate>Thu, 23 Nov 2017 15:26:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>6 - Übungen - 24.11.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/exceptions_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Mit Fehlern umgehen lernen&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Fri, 24 Nov 2017 11:53:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>6 - Übungen - 24.11.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/exceptions_uebungen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Mit Fehlern umgehen lernen&lt;/h2&gt;
 &lt;p&gt;Wichtige Lektionen fürs Leben und für Python&lt;/p&gt;
 &lt;h3&gt;Auf Exceptions reagieren&lt;/h3&gt;
 &lt;h4&gt;Input - 1&lt;/h4&gt;
@@ -51,7 +51,8 @@ Schreiben Sie es so um, dass es nicht mehr abstürzen kann.&lt;/p&gt;
 
 &lt;p&gt;Sie funktioniert problemlos, solange der User ganze Zahlen größer gleich Null eingibt, bei negativen
 Zahlen findet sie jedoch keinen Rekursionsanker und läuft daher immer weiter.&lt;/p&gt;
-&lt;p&gt;Mittels &lt;code&gt;raise ...&lt;/code&gt; können Sie selbst in Ihrem Code eine Exception auslösen.&lt;/p&gt;
+&lt;p&gt;Mittels &lt;code&gt;raise ...&lt;/code&gt; können Sie selbst in Ihrem Code eine Exception auslösen.
+(Eine Übersicht aller Exceptions finden Sie &lt;a href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions"&gt;hier&lt;/a&gt;)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Prüfen Sie, ob die Eingabe kleiner Null ist, und lösen Sie in diesem Fall einen ValueError aus!&lt;/p&gt;
@@ -61,6 +62,10 @@ Zahlen findet sie jedoch keinen Rekursionsanker und läuft daher immer weiter.&l
 falls dies nicht der Fall ist.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;Dictionaries&lt;/h2&gt;
+&lt;h3&gt;Studenten-Konstruktor&lt;/h3&gt;
+&lt;p&gt;Schreiben Sie eine Funktion &lt;code&gt;create_student&lt;/code&gt;, die drei Parameter vorname, name und notenliste
+erwartet, und ein Dictionary zurückgibt.&lt;/p&gt;
 &lt;h3&gt;json&lt;/h3&gt;
 &lt;p&gt;Mit json können Sie Datenstrukturen aus Python (Listen, Dictionaries, Listen von Dictionaries etc.)
 in lesbarem Format in Dateien speichern, und daraus wieder lesen.&lt;/p&gt;
@@ -108,33 +113,6 @@ auf Ihrem Rechner&lt;/p&gt;
   jedes Namens&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Vom eigenen Skript importieren&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;import&lt;/code&gt; funktioniert nicht nur mit Modulen aus der Standardlibrary.
-Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion &lt;code&gt;meine_fkt&lt;/code&gt; definieren 
-  (was die macht, ist Ihnen überlassen)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie dann eine zweite Datei &lt;em&gt;main.py&lt;/em&gt; im selben Ordner wie library.py.
-  Importieren Sie in dieser ihr libary.py Skript mit&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;library&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Versuchen Sie nun, Ihre Funktion aufzurufen&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
-  Führen Sie nun nochmal main.py aus&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Dictionaries&lt;/h2&gt;
 &lt;h3&gt;if-else&lt;/h3&gt;
 &lt;p&gt;Ihr Programmierkollege hat folgende Funktion geschrieben, die je nach User einen anderen String
 zurückgibt:&lt;/p&gt;
@@ -213,6 +191,32 @@ Mittels &lt;code&gt;jetzt.day&lt;/code&gt;, &lt;code&gt;jetzt.month&lt;/code&gt;
 &lt;p&gt;Benutzen Sie jetzt.weekday(), um sich den aktuellen Wochentag ausgeben zu lassen. Die Ausgabe ist eine
   Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
   ausgibt.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Vom eigenen Skript importieren&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;import&lt;/code&gt; funktioniert nicht nur mit Modulen aus der Standardlibrary.
+Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion &lt;code&gt;meine_fkt&lt;/code&gt; definieren 
+  (was die macht, ist Ihnen überlassen)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie dann eine zweite Datei &lt;em&gt;main.py&lt;/em&gt; im selben Ordner wie library.py.
+  Importieren Sie in dieser ihr libary.py Skript mit&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;library&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Versuchen Sie nun, Ihre Funktion aufzurufen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
+  Führen Sie nun nochmal main.py aus&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;</description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</guid><pubDate>Wed, 15 Nov 2017 23:00:00 GMT</pubDate></item><item><title>Listenoperationen</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
