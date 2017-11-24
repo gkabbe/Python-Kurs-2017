@@ -78,6 +78,26 @@ Mittels ```jetzt.day```, ```jetzt.month``` usw. können Sie sich Werte für Tag,
   Zahl zwischen 0 und 6. Schreiben Sie eine Funktion, die statt der Zahl den Wochentag als String
   ausgibt.
 
+## Vom eigenen Skript importieren
+
+```import``` funktioniert nicht nur mit Modulen aus der Standardlibrary.
+Sie können damit auch einfach eigene Objekte aus ihren eigenen Skripten laden.
+
+
+* Schreiben Sie als erstes eine Python-Datei library.py, in der sie eine Funktion ```meine_fkt``` definieren 
+  (was die macht, ist Ihnen überlassen)
+
+* Schreiben Sie dann eine zweite Datei *main.py* im selben Ordner wie library.py.
+  Importieren Sie in dieser ihr libary.py Skript mit
+
+```python
+import library
+```
+
+* Versuchen Sie nun, Ihre Funktion aufzurufen
+
+* Schreiben Sie in library.py in eine Zeile (außerhalb der Funktion) einen print-Befehl. 
+  Führen Sie nun nochmal main.py aus
 
 
 

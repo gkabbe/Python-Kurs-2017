@@ -48,3 +48,20 @@ Soll heißen, Vorschläge der Studenten werden gerne angenommen.
 
 
 {{% post-list sections=uebungen sort=date template=future_list.tmpl %}}{{% /post-list %}}
+
+
+# Mögliche Projekte
+
+* Webseite
+
+* Spiel
+
+* Datenanalyse
+
+* Web-Scraping (Automatisiert Daten von Internetseiten holen)
+
+* Chat-Bot (XMPP, Telegram, Twitter, E-Mail)
+
+* Fachspezifisches
+
+
