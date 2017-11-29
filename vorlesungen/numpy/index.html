@@ -315,13 +315,13 @@ Wollen wir stattdessen das Skalarprodukt berechnen, müssen wir auf die Funktion
 </pre>
 
 
-<p>Dafür geben wir der mean-Methode noch den zusätzlichen Parameter <em>axis</em> mit. In diesem Fall wäre das die 0. Dimension. Numpy mittelt dann über alle Zeilen des Arrays</p>
+<p>Dafür geben wir der mean-Methode noch den zusätzlichen Parameter <em>axis</em> mit. In diesem Fall wäre das die 0. Dimension. Numpy mittelt dann über alle Zeilen des Arrays.</p>
 <pre class="code literal-block"><span></span><span class="n">geometric_center</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">geometric_center</span><span class="p">)</span>
 </pre>
 
 
-<p>Damit erhalten wir aus dem Array atoms mit der shape (4, 3) einen neuen eindimensionalen Array der shape (3,).</p>
+<p>Damit erhalten wir aus dem Array atoms mit der shape (4, 3) einen neuen eindimensionalen Array der shape (3,), die nullte Dimension geht also verloren!</p>
 <pre class="code literal-block"><span></span>array([ 4.25,  6.  ,  6.  ])
 </pre>
 

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Telegram-Bots | Python Kurs 2017</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/notebooks/telegram_bots/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
+<link rel="prev" href="../listenoperationen/" title="Listenoperationen" type="text/html">
+<meta property="og:site_name" content="Python Kurs 2017">
+<meta property="og:title" content="Telegram-Bots">
+<meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/notebooks/telegram_bots/">
+<meta property="og:description" content="Einen Telegram Bot schreiben¶Hier soll möglichst knapp erklärt werden, wie man einen Telegram-Bot in Python schreibt.
+Ein Bot ist ein Programm, das Nachrichten von Telegram empfangen kann, und Nachric">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-11-29T00:00:00+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Springe zum Hauptinhalt</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse static-top mb-4"><div class="container">
+<!-- This keeps the margins nice -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="https://gkabbe.github.io/Python-Kurs-2017/">
+
+            <span id="blog-title">Python Kurs 2017</span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../verlaufsplan" class="nav-link">Verlaufsplan</a>
+                </li>
+<li class="nav-item">
+<a href="../../vorlesungen" class="nav-link">Vorlesungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../uebungen" class="nav-link">Übungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../notebooks" class="nav-link">Notebooks</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/" class="nav-link">Tags</a>
+                </li>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS-Feed</a>
+                </li>
+<li class="nav-item">
+<a href="../../about" class="nav-link">Impressum</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Telegram-Bots</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-11-29T00:00:00+01:00" itemprop="datePublished" title="2017-11-29 00:00">2017-11-29 00:00</time></a></p>
+            
+        <p class="sourceline"><a href="index.ipynb" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Einen-Telegram-Bot-schreiben">Einen Telegram Bot schreiben<a class="anchor-link" href="#Einen-Telegram-Bot-schreiben">¶</a>
+</h2>
+<p>Hier soll möglichst knapp erklärt werden, wie man einen Telegram-Bot in Python schreibt.</p>
+<p>Ein Bot ist ein Programm, das Nachrichten von Telegram empfangen kann, und Nachrichten
+versenden kann.</p>
+<h3 id="Schritt-1:-Telegram-Bot-in-Telegram-registrieren">Schritt 1: Telegram Bot in Telegram registrieren<a class="anchor-link" href="#Schritt-1:-Telegram-Bot-in-Telegram-registrieren">¶</a>
+</h3>
+<p>Um einen Telegram-Bot schreiben zu können, müssen wir ihn erstmal registrieren.</p>
+<p>Dafür müssen wir in Telegram in dem Suchfeld nach @BotFather suchen.</p>
+<p>Das ist ein von Telegram bereitgestellter Bot, über den man eigene Bots
+erstellen kann.</p>
+<p>Nachdem wir den BotFather per</p>
+
+<pre><code>/start</code></pre>
+<p>aktiviert haben, können wir per</p>
+
+<pre><code>/newbot</code></pre>
+<p>einen Dialog starten, um einen eigenen Bot zu erstellen.</p>
+<p>Nachdem wir Namen und Usernamen festgelegt haben, bekommen
+wir einen Token.</p>
+<p>Das ist das Passwort, das wir immer angeben
+müssen, um Nachrichten zu empfangen oder zu versenden.</p>
+<h3 id="Schritt-2:-Unseren-Bot-in-Telegram-anschreiben">Schritt 2: Unseren Bot in Telegram anschreiben<a class="anchor-link" href="#Schritt-2:-Unseren-Bot-in-Telegram-anschreiben">¶</a>
+</h3>
+<p>Um Nachrichten von unserem Bot empfangen zu können, müssen wir den
+ersten Schritt machen und ihn in Telegram per</p>
+
+<pre><code>/start</code></pre>
+<p>aktivieren.</p>
+<p>Wenn wir das nicht machen, kann er uns keine Nachrichten
+senden!</p>
+<p>Danach schreiben wir ihm eine kurze Nachricht.</p>
+<p>Um ihn zu finden, suchen wir in dem Suchfeld in Telegram nach seinem Namen.</p>
+<h3 id="Schritt-3:-Nachrichten-an-den-Bot-empfangen-(im-Browser)">Schritt 3: Nachrichten an den Bot empfangen (im Browser)<a class="anchor-link" href="#Schritt-3:-Nachrichten-an-den-Bot-empfangen-(im-Browser)">¶</a>
+</h3>
+<p>Um Nachrichten zu empfangen, die an unseren Bot gesendet wurden,
+müssen wir nur den Browser öffnen und folgende URL eingeben:</p>
+
+<pre><code>https://api.telegram.org/bot{token}/getUpdates?limit=1</code></pre>
+<p>{token} muss mit dem Token ersetzt werden, den wir zuvor erhalten haben.</p>
+<p>limit=1 begrenzt die erhaltenen Nachrichten auf die letzte, die gesendet wurde.</p>
+<p>Danach sollte sich eine Seite öffnen, in der die Nachricht steht, die wir
+dem Bot gesendet haben.</p>
+<p>Unter anderem sollte es ein Feld "id" geben, mit einer Nummer.</p>
+<p>Diese brauchen wir für Schritt 4, um als Bot eine Nachricht zu senden!</p>
+<h3 id="Schritt-4:-Nachricht-senden-(im-Browser)">Schritt 4: Nachricht senden (im Browser)<a class="anchor-link" href="#Schritt-4:-Nachricht-senden-(im-Browser)">¶</a>
+</h3>
+<p>Eine Nachricht mit unserem Bot zu schreiben ist ganz einfach.</p>
+<p>Alles, was wir tun müssen, ist in einem Browser folgenden Link
+zu öffnen:</p>
+
+<pre><code>https://api.telegram.org/bot{token}/sendMessage?chat_id={id}&amp;text={message}</code></pre>
+<p>Dabei ersetzen wir {token} mit dem Token, den wir zuvor erhalten haben, und
+{id} mit der id aus Schritt 3.</p>
+<p>Statt {text} können wir eine beliebige Nachricht schreiben.</p>
+<h3 id="Schritt-5:-Nachrichten-in-Python-senden-und-empfangen">Schritt 5: Nachrichten in Python senden und empfangen<a class="anchor-link" href="#Schritt-5:-Nachrichten-in-Python-senden-und-empfangen">¶</a>
+</h3>
+<p>Jetzt wo wir wissen, dass wir Nachrichten senden und empfangen können, indem
+wir einfach bestimmte URLs öffnen, müssen wir nur noch herausfinden, wie wir
+das in Python machen können.</p>
+<p>Am einfachsten funktioniert das mit requests:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">req</span>
+
+<span class="c1"># Wenn hier der Token eingeben wird, wird</span>
+<span class="c1"># er automatisch in der unteren URL eingesetzt.</span>
+<span class="n">token</span> <span class="o">=</span> <span class="s2">""</span>
+
+<span class="n">antwort</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s2">"https://api.telegram.org/bot</span><span class="si">{token}</span><span class="s2">/getUpdates?limit=1"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">antwort</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wir sehen, dass die erhaltene Antwort so aussieht wie im Browser.</p>
+<p>Um mit den Daten einfach in Python arbeiten zu können, können wir sie in JSON umwandeln.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">antwort_json</span> <span class="o">=</span> <span class="n">antwort</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>antwort_json besteht aus geschachtelten Dictionaries.</p>
+<p>Die Informationen die uns interessieren, sind
+der Text und die Person, von der die Nachricht stammt.</p>
+<p><strong>Aufgabe</strong>: Extrahieren Sie Name und Text aus antwort_json!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wir können jetzt ein kleines Skript schreiben, das in regelmäßigen Abständen prüft,
+ob eine neue Nachricht eingetroffen ist, und in diesem Fall ein "Hallo" sendet.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">get_message</span><span class="p">():</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">user_message</span> <span class="o">=</span> <span class="n">get_message</span><span class="p">()</span>
+    <span class="n">send_message</span><span class="p">(</span><span class="s2">"Hallo"</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Der obige Code funktioniert so natürlich noch nicht.</p>
+<p>Schreiben Sie die Funktionen get_message und send_message, so dass 
+Ihr erster Bot funktioniert!</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../listenoperationen/" rel="prev" title="Listenoperationen">Vorheriger Eintrag</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2017         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("de");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

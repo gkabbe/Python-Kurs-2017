@@ -69,7 +69,972 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/funktionen_klassen_objekte/" class="u-url">3 - Funktionen, Klassen und Objekte</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/numpy/" class="u-url">5 - Numpy</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../vorlesungen/numpy/" rel="bookmark"><time class="published dt-published" datetime="2017-07-07T00:00:00+01:00" title="2017-07-07 00:00">2017-07-07 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Geht es um numerische Problemstellungen aller Art, ist das Modul Numpy in Python die erste Wahl.
+Es erlaubt Matrix- und Vektorberechnungen, und ist damit gerade bei größeren Datenmengen ein gutes Stück schneller als handgeschriebener Python-Code.</p>
+<h2>Erste Schritte</h2>
+<h3>Erstellen von Numpy-Arrays</h3>
+<p>Die meiste Zeit arbeitet man in Numpy mit den sogenannten Numpy-Arrays. Diese verhalten sich ähnlich wie Listen, es lassen sich aber nachträglich keine neuen Elemente hinzufügen.</p>
+<h4>Erzeugen eines Arrays aus einer Liste</h4>
+<p>Ein Numpy-Array lässt sich leicht aus einer Liste erstellen:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>numpy.ndarray
+</pre>
+
+
+<h4>Shape - Die Dimensionen eines Arrays</h4>
+<p>Wir haben im obigen Beispiel gesehen, dass das erzeugte Objekt vom Typ ndarray ist.
+Ein ndarray kann, wie gezeigt, eine Dimension haben (entspricht einer einfache Liste), durch Schachtelung von Listen können wir aber auch höherdimensionierte Arrays erhalten</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">arr_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+                   <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                   <span class="p">[</span><span class="mf">9.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span> <span class="c1"># Liste von Listen -&gt; 2 Dimensionen</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">arr_2d</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># </span>
+<span class="k">print</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"Anzahl Dimensionen:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dim_len</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Dimension"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">"hat Länge"</span><span class="p">,</span> <span class="n">dim_len</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>(3, 4)
+Anzahl Dimensionen: 2
+Dimension 0 hat Länge 3
+Dimension 1 hat Länge 4
+</pre>
+
+
+<p>Der Tupel shape kann uns für ndarrays anzeigen, wieviele Dimensionen es gibt.</p>
+<p>Zu beachten ist übrigens immer, dass alle Listen einer Dimension die selbe Länge haben müssen!</p>
+<h4>Erzeugen eines mit Nullen gefüllten Arrays</h4>
+<p>Um einen mit Nullen gefüllten Array zu erstellen, benutzen wir die Funktion <em>zeros</em>:</p>
+<pre class="code literal-block"><span></span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">arr_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<h4>Erzeugen eines mit Einsen gefüllten Arrays</h4>
+<pre class="code literal-block"><span></span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">arr_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<h4>Erzeugen einer Zahlenreihe</h4>
+<p>Um einen Floatarray zu erzeugen, der zwischen Start- und Endpunkt Werte in regelmäßigen Abständen voneinander enthält, benutzt man <em>linspace</em>:</p>
+<pre class="code literal-block"><span></span><span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> 
+<span class="n">size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre>
+
+
+<h4>Erzeugen von zufälligen Arrays</h4>
+<p>Für Integers benutzt man:</p>
+<pre class="code literal-block"><span></span><span class="n">start</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># Achtung, end ist nicht enthalten!</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<p>Für Float:</p>
+<pre class="code literal-block"><span></span><span class="n">start</span> <span class="o">=</span> <span class="mf">3.7</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="c1"># nicht enthalten!</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
+</pre>
+
+
+<h3>Datentyp eines Arrays</h3>
+<p>Bisher haben wir Numpy-Arrays erzeugt, ohne uns Gedanken darüber zu machen, welchen Datentyp sie eigentlich besitzen.</p>
+<p>Den Datentyp können wir uns ansehen, wenn wir das Attribut <em>dtype</em> eines Arrays aufrufen</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr_2d</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr_zeros</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>int64
+float64
+float64
+</pre>
+
+
+<p>Der Grund für diese Ausgabe: im ersten Beispiel wurde ein Array aus einer Liste mit Integers erzeugt. Daher ist auch der resultierende Datentyp vom Typ Integer. 
+Im zweiten Beispiel enthält die zweite Liste am Anfang einen Float, daher bekommt der gesamte Array den Typ Float (die 64 steht dabei für 64 bit, 
+der Größe eines einzelnen Elements des Arrays). Und auch <em>zeros</em> erstellt standardmäßig einen Array vom Typen Float.</p>
+<p>Möchten wir dieses Verhalten beeinflussen, können wir einfach beim erstellen des Arrays das Keyword <em>dtype</em>=<gew datentyp> mitgeben:</gew></p>
+<pre class="code literal-block"><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre>
+
+
+<p>Ebenso funktioniert das bei den anderen Funktionen zur Erzeugung eines Arrays.</p>
+<h3>IO mit Numpy</h3>
+<p>Numpy macht es uns sehr einfach, numerische Daten einzulesen. In der Regel (bei gut formatierten Dateien) reicht die Funktion <em>loadtxt</em> aus:</p>
+<pre class="code literal-block"><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"dateiname"</span><span class="p">)</span>
+</pre>
+
+
+<p>Genauso kann man <em>savetxt</em> benutzen, um Daten auf die Fesplatte zu schreiben:</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">"random_data"</span><span class="p">,</span> <span class="n">arr1</span><span class="p">)</span>
+</pre>
+
+
+<h3>Rechnen mit Arrays</h3>
+<p>Wir fangen in einer Dimension an:</p>
+<h4>Addition</h4>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">+</span> <span class="n">arr2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span><span class="k">[ 5.  7.  9.]</span>
+<span class="na">float64</span>
+</pre>
+
+
+<p>Hier sehen wir, dass die Addition zweier Arrays zu einer elementweisen Addition führt. Da arr2 vom Type float64 ist, ist auch der Array <em>result</em> vom Typ float64.</p>
+<h4>Multiplikation</h4>
+<p>Was passiert wenn wir die beiden Arrays multiplizieren?</p>
+<pre class="code literal-block"><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">*</span> <span class="n">arr2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>[  4.  10.  18.]
+</pre>
+
+
+<p>Man sieht, dass auch hier wieder elementweise multipliziert wurde!
+Wollen wir stattdessen das Skalarprodukt berechnen, müssen wir auf die Funktion <em>dot</em> zurückgreifen:</p>
+<pre class="code literal-block"><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>32.0
+</pre>
+
+
+<h4>Boolsche Operationen mit Numpy-Arrays</h4>
+<p>Auch boolsche Operationen werden elementweise angewandt.</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">arr2</span> <span class="o">&gt;</span> <span class="n">arr1</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span><span class="k">[[ True  True  True]</span>
+ <span class="k">[False False False]</span>
+ <span class="k">[ True False False]]</span>
+</pre>
+
+
+<p>Das Ergebnis ist in diesem Beispiel also wieder ein zweidimensionaler Array.</p>
+<h4>Weitere elementweise Operationen</h4>
+<p>Alle bekannten Funktionen wie cos, sin, exp, ... lassen sich auch in Numpy elementweise auf einen Array anwenden:</p>
+<pre class="code literal-block"><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<p>viele Zahlen</p>
+<h4>Höhere Dimensionen</h4>
+<p>Arbeiten wir mit Arrays in höheren Dimensionen, funktioniert bei elementweisen Operationen alles wie in einer Dimension. </p>
+<p>Die Funktion <em>dot</em> ermöglicht für zwei Dimensionen Matrix-Multiplikation. Bei Kombination von 2D- und 1D-Arrays wird Matrix-Vektor-Multiplikation angewandt.</p>
+<h4>sum, mean und var</h4>
+<p>Numpy bringt eigene Methoden mit, um über Arrays zu summieren (sum), sie zu mitteln (mean), oder die Varianz auszurechnen (var).</p>
+<p>Einfachstes Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
+</pre>
+
+
+<p>mit der Ausgabe</p>
+<pre class="code literal-block"><span></span>6
+2.0
+0.666666666667
+</pre>
+
+
+<p>Liegt der Array in höheren Dimensionen vor, so wird standardmäßig über alle Elemente summiert/gemittelt/die Varianz gebildet. </p>
+<p>In manchen Fällen ist das jedoch nicht das, was wir möchten. Wenn wir beispielsweise einen Array mit mehreren 3D-Koordinaten haben, und davon den geometrischen Schwerpunkt berechnen wollen, so müssen wir die x-, y- und z-Koordinaten aller Atome separat mitteln.</p>
+<pre class="code literal-block"><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+</pre>
+
+
+<p>Dafür geben wir der mean-Methode noch den zusätzlichen Parameter <em>axis</em> mit. In diesem Fall wäre das die 0. Dimension. Numpy mittelt dann über alle Zeilen des Arrays.</p>
+<pre class="code literal-block"><span></span><span class="n">geometric_center</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">geometric_center</span><span class="p">)</span>
+</pre>
+
+
+<p>Damit erhalten wir aus dem Array atoms mit der shape (4, 3) einen neuen eindimensionalen Array der shape (3,), die nullte Dimension geht also verloren!</p>
+<pre class="code literal-block"><span></span>array([ 4.25,  6.  ,  6.  ])
+</pre>
+
+
+<p>Für axis=1 würde dementsprechend über alle Spalten jeder Zeile gemittelt:</p>
+<pre class="code literal-block"><span></span>array([ 6.        ,  8.        ,  2.33333333,  5.33333333])
+</pre>
+
+
+<h3>all und any</h3>
+<p>Ähnlich wie sum, mean und var, gibt es für boolsche Arrays die Methoden all und any.
+Dabei gibt all True zurück wenn alle Einträge des Arrays True sind.
+Any gibt True zurück, falls einer der Einträge True ist.</p>
+<p>Auch hier können wir wieder das keyword axis angeben, was zur Folge hat, dass in der angegebenen Dimension überprüft wird, ob alle Einträge/mindestens ein Eintrag True sind, und die Dimension dann auf True oder False reduziert wird.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">bool_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span> 
+                       <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span> 
+                       <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">]])</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">any</span><span class="p">())</span>  <span class="c1"># True, weil es Einträge im gesamten Array gibt, die True sind</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>  <span class="c1"># False, weil es Einträge gibt, die False sind</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># any wird auf jede Spalte angewendet</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># any wird auf jede Zeile angewendet</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># all wird auf jede Spalte angewendet</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_array</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># all wird auf jede Zeile angewendet</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>True
+False
+[ True  True  True]
+[ True  True False]
+[False False False]
+[False  True False]
+</pre>
+
+
+<h3><a href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">Broadcasting</a></h3>
+<p>Was passiert wenn wir versuchen, zwei Arrays unterschiedlicher Dimensionen miteinander zu addieren/multiplizieren?</p>
+<p>Der einfachste Fall ist, wenn ein Array nur ein einziges Element enthält:</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">arr1</span> <span class="o">*</span> <span class="n">arr2</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span><span class="k">[[ 2  4  6]</span>
+ <span class="k">[ 8 10 12]]</span>
+</pre>
+
+
+<p>Hier wird jedes Element von arr1 mit 2 multipliziert. Wir können uns vorstellen, dass arr2 auf die Dimension von arr1 vergrößert wurde, um dann schließlich eine Multiplikation zweier Arrays mit gleichen Dimensionen durchzuführen.</p>
+<p>arr2 kann aber auch eine komplexere shape haben:</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">*</span><span class="n">arr2</span><span class="p">)</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>(2, 3)
+(1, 3)
+[[ 3  8 15]
+ [12 20 30]]
+</pre>
+
+
+<p>Was ist hier passiert? Wir sehen, dass beide Arrays zwei Dimensionen haben, wobei die letzten Dimensionen beide die Länge 3 haben. Die nullten Dimensionen haben jedoch unterschiedliche Größen. Numpy kopiert nun einfach die nullte Dimension von arr2 einmal, so dass arr2 identisch ist zu</p>
+<pre class="code literal-block"><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
+          <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+</pre>
+
+
+<p>Nun kann wieder elementweise gerechnet werden.</p>
+<p>Hinweis:</p>
+<p>Wir haben arr2 schon direkt mit zwei Dimensionen (zwei geschachtelte Klammern) initialisiert:</p>
+<pre class="code literal-block"><span></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+</pre>
+
+
+<p>Tatsächlich wäre das gar nicht notwendig. Es reicht auch nur eine Dimension:</p>
+<pre class="code literal-block"><span></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre>
+
+
+<p>Numpy kann dann immer noch broadcasten. Es fügt einfach solange neue Dimensionen (der Länge 1) hinzu, bis die Anzahl der Dimensionen der beiden Arrays gleich ist. </p>
+<p><strong>Allgemein</strong>:
+Damit zwei Arrays gebroadcastet werden können, muss folgendes gelten (man fängt dabei an, die Dimensionen von hinten paarweise zu vergleichen): beide Dimensionen haben jeweils die selbe Länge oder eine davon hat die Länge 1.</p>
+<p>Beispiel</p>
+<p>arr1 hat shape (2, 3, 4, 1, 7, 5)
+arr2 hat shape (1, 3, 4, 8, 7, 1)</p>
+<p>Diese beiden Arrays können gebroadcastet werden. Der resultierende Array hat dann die Shape (2, 3, 4, 8, 7, 5).</p>
+<p>Folgendes Beispiel funktioniert aber nicht:</p>
+<p>arr1 hat shape (2, 3, 4, 1, 7, 5)
+arr2 hat shape (1, 3, 4, 8, 7, 3)</p>
+<p>da die letzten Dimensionen (3 und 5) nicht miteinander kompatibel sind.</p>
+<h4>Praktisches Beispiel</h4>
+<p>Eine Anwendung ist z.B. das dyadische Produkt (= Produkt aus Spalten- und Zeilenvektor, bei dem eine Matrix entsteht):</p>
+<pre class="code literal-block"><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="n">mat</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">*</span> <span class="n">arr2</span>
+</pre>
+
+
+<p>Was passiert genau? Schauen wir uns die shapes an:</p>
+<p>arr1.shape -&gt; (3, 1)</p>
+<p>arr2.shape -&gt; (4,)</p>
+<ol>
+<li>Numpy betrachtet die letzten Dimensionen der beiden Arrays. arr1 hat als letzte Dimensionsgröße 1, arr2 hat 4.
+   Numpy macht daraus:</li>
+</ol>
+<p>arr1: (3, 4) # kopiere die letzte Dimension 4 mal</p>
+<p>-&gt;  arr1 wird zu </p>
+<pre class="code literal-block"><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre>
+
+
+<ol>
+<li>Numpy betrachtet die nächste Dimension:
+   arr1 hat als vorletzte Dimensionsgröße 3, arr2 hat keine weitere Dimension.
+   -&gt; Numpy erweitert die shape von arr2 zu (1, 4)
+   Jetzt können die Werte wieder kopiert werden
+   -&gt; arr2 wird zu </li>
+</ol>
+<pre class="code literal-block"><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+          <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+          <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+</pre>
+
+
+<ol>
+<li>Jetzt wo beide Arrays die selbe shape haben, kann einfach elementweise multipliziert werden:</li>
+</ol>
+<pre class="code literal-block"><span></span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</pre>
+
+
+<h3>Neue Dimensionen zu einem Array hinzufügen</h3>
+<p>Wie wir gesehen haben, fügt Numpy beim Broadcasten oft neue Dimensionen ein, so dass elementweise Rechenoperationen ausgeführt werden können. In manchen Fällen müssen zusätzliche Dimensionen jedoch auch manuell eingefügt werden. Dazu folgendes Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="n">masses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
+</pre>
+
+
+<p>Wir haben einen Array, in dem zeilenweise die Koordinaten von 3 Atomen gespeichert sind, sowie einen Array, der ihre Massen speichert. Da wir den Schwerpunkt berechnen wollen, wollen wir erst jede Atomkoordinate mit dem jeweiligen Gewicht des Atoms multiplizieren und anschließend durch die Gesamtmasse teilen.
+Berechnen wir jetzt aber naiv atoms*masses, tut Numpy leider nicht das, was wir wollen. Es multipliziert nun die x-Koordinaten mit der Masse von Atom 1, die y-Koordinaten mit der Masse von Atom 2 und die z-Koordinaten mit der Masse von Atom 3. </p>
+<p>Der Grund: masses und atoms werden falsch gebroadcastet. </p>
+<p>Shape-Betrachtung:</p>
+<p>atoms:  (3, 3)</p>
+<p>masses: (3,)</p>
+<p>Daraus wird:</p>
+<p>atoms:  (3, 3)</p>
+<p>masses: (1, 3) # Numpy fügt eine Dimension am Anfang ein!</p>
+<p>Und nun wird der Inhalt der hinteren Dimension von masses dreimal kopiert:</p>
+<pre class="code literal-block"><span></span><span class="n">masses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]])</span>
+</pre>
+
+
+<p>Um das zu verhindern, machen wir folgendes: Wir fügen eine zusätzliche Dimension hinten an masses an:</p>
+<pre class="code literal-block"><span></span><span class="n">masses</span> <span class="o">=</span> <span class="n">masses</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> 
+<span class="k">print</span> <span class="n">masses</span>
+</pre>
+
+
+<p>masses sieht dann so aus:</p>
+<pre class="code literal-block"><span></span>array([[ 1. ],
+       [ 1.5],
+       [ 2.5]])
+</pre>
+
+
+<p>Wir haben einen Spaltenvektor daraus gemacht!</p>
+<p>Und diesmal broadcastet Numpy dann auch richtig: jede Atomkoordinate wird mit der entprechenden Atommasse multipliziert.</p>
+<h3>Indexing und Slicing</h3>
+<p>Indexing und Slicing funktioniert mit Numpy-Objekten ganz ähnlich wie mit Listen. Der Unterschied ist nun aber, dass auch höhere Dimensionen berücksichtigt werden müssen. </p>
+<h4>Indexing</h4>
+<pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre>
+
+
+<p>Hier wird also für jede Dimension ein Index angegeben.</p>
+<p>Alternativ kann man auch für jede Dimension eine Liste mit Indizes angeben:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+          <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span>[ 4  1 11]
+</pre>
+
+
+<p>Diese Operation könnten wir auch in mehreren einzelnen Schritten ausführen:</p>
+<pre class="code literal-block"><span></span><span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre>
+
+
+<p>Damit konstruieren wir einen neuen Array mit den Werten mat[0, -1], mat[0, 0] und mat[2, 2]</p>
+<h4>Slicing</h4>
+<pre class="code literal-block"><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># erste Spalte für jede Zeile</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># die ersten beiden Zeilen, und davon jeweils die ersten 3 Spalten</span>
+</pre>
+
+
+<p>Ausgabe:</p>
+<pre class="code literal-block"><span></span><span class="k">[1 5 9]</span>
+
+<span class="k">[[1 2 3]</span>
+ <span class="k">[5 6 7]]</span>
+</pre>
+
+
+<h3>Praktisches Beispiel: Bildbearbeitung</h3>
+<p>Das Modul PIL erlaubt uns, Bilder einzulesen, und als Numpy-Array zu bearbeiten.</p>
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume.JPG" alt="Blume" width="400" height="300"></p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">pic_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"blume.JPG"</span><span class="p">))</span> <span class="c1"># andere Dateiformate funktionieren auch</span>
+</pre>
+
+
+<p>pic_array ist ein Numpy-Array mit den Dimensionen (höhe, breite, farbkanäle). Bei einem Farbbild haben wir dann 3 Farbkanäle: rot, grün und blau.</p>
+<p>Als einfachstes Beispiel können wir nun aus einem Farbbild ein Schwarz-Weiß-Bild machen. Dazu mitteln wir die Werte der 3 Farbkanäle</p>
+<pre class="code literal-block"><span></span><span class="n">black_white</span> <span class="o">=</span> <span class="n">pic_array</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+
+
+<p>Da die Kanäle in der zweiten Dimension gespeichert sind, müssen wir das auch der mean-Methode über das axis keyword mitteilen.</p>
+<p>Um das neuerhaltene Schwarz-Weiß-Bild speichern zu können, machen wir folgendes:</p>
+<pre class="code literal-block"><span></span><span class="c1"># Um den Array umwandeln zu können, muss er den dtype uint8 haben</span>
+<span class="n">black_white</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">black_white</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">bw_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">black_white</span><span class="p">)</span>
+<span class="n">bw_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"bw_img.jpg"</span><span class="p">)</span>
+</pre>
+
+
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_bw.jpg" alt="Blume" width="400" height="300"></p>
+<p>Ein schöner Effekt kann auch erzielt werden, indem wir die Intensität jedes Farbwertes umdrehen.</p>
+<pre class="code literal-block"><span></span><span class="n">pic_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"blume.JPG"</span><span class="p">))</span>
+<span class="n">pic_array</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pic_array</span>
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">pic_array</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"komplementär.jpg"</span><span class="p">)</span>
+</pre>
+
+
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_kompl.jpg" alt="Blume" width="400" height="300"></p>
+<h3>Fortgeschrittenes Beispiel: Blume umfärben</h3>
+<p>In diesem etwas schwierigeren Beispiel wollen wir jetzt die Blume umfärben. Nämlich von gelb zu rot. Als erstes müssen wir dazu die gelben Stellen im Bild finden. Eine kurze \&lt;beliebige Suchmaschine&gt;-Suche wird uns zeigen, dass Gelb im RGB-Raum den Wert (255, 255, 0) hat. Wir bekommen also Gelb wenn wir Rot und Grün mischen. Es reicht nun aber nicht, den Bild-Array nur nach Pixeln zu durchsuchen, die hohe Rot- und Gelbwerte haben. Denn dann wäre auch Weiß dabei (255, 255, 255). </p>
+<p>Wir machen also folgendes: wir suchen nach all den Pixeln, deren Rot- und Gelbwerte über dem Durchschnitt liegen, deren Weißwerte aber unter dem Durchschnitt liegen.</p>
+<ol>
+<li>Array aus Bild erzeugen:</li>
+</ol>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+
+<span class="n">img_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"blume.JPG"</span><span class="p">))</span>
+</pre>
+
+
+<p>Unser Array hat die shape (600, 800, 3), denn das Bild ist 600 Pixel hoch und 800 Pixel breit, und jeder Pixel hat 3 Farbwerte.</p>
+<ol>
+<li>Durchschnitts-RGB-Werte berechnen:</li>
+</ol>
+<pre class="code literal-block"><span></span><span class="n">mean_rgb</span> <span class="o">=</span> <span class="n">img_arr</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre>
+
+
+<p>Hier mitteln wir die RGB-Werte über alle Bildpunkte, d.h. über die 0. und 1. Dimension. Das Resultat ist ein Array der shape (3,), der einen mittleren RGB-Wert des gesamten Bildes enthält.</p>
+<ol>
+<li>Alle Bildpunkte finden, deren Rot- und Grünwerte über den Durchschnittswerten liegen.</li>
+</ol>
+<p>Da wir nur an den Rot- und Grünwerten interessiert sind, müssen wir nur den Teilarray img_arr[:, :, :2] betrachten. D.h. in diesem Array fehlen die Blauwerte. </p>
+<p>Schreiben wir nun </p>
+<pre class="code literal-block"><span></span><span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mean_rgb</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+</pre>
+
+
+<p>bekommen wir einen Array mit boolschen Werten zurück (shape: (600, 800, 2)). Diese sind über all dort True, wo entweder der Rot- <strong>oder</strong> der Grünwert über dem Durchschnittswert liegen. Das ist aber nicht was wir wollen! Wir möchten alle Pixel finden, bei denen sowohl Rot- als auch Grünwert über dem Durchschnitt liegen. Anders gesagt suchen wir in dem oberen boolschen Array alle Pixel, bei denen in der letzten Dimension nur Trues vorkommen.</p>
+<p>Daher:</p>
+<pre class="code literal-block"><span></span><span class="n">where_is_yellow</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mean_rgb</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+
+
+<p>Der resultierende boolsche Array mit der Shape (600, 800) sagt uns, an welchen Stellen des Bildes die Rot- und Grünwerte über dem Mittel liegen. </p>
+<p>Darüberhinaus wollen wir aber auch nur die Stellen, bei denen der Blauwert nicht über dem Durchschnitt liegt.</p>
+<p>Das können wir so ausdrücken:</p>
+<pre class="code literal-block"><span></span><span class="n">only_little_blue</span> <span class="o">=</span> <span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mean_rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre>
+
+
+<p>Was uns jetzt noch fehlt ist eine komponentenweise <em>and</em> Verknüpfung, um nämlich einen Array zurückzubekommen, der uns für jeden Pixel sagt, ob es dort Gelb gibt <strong>und</strong> ob dort wenig blau vorkommt. </p>
+<p>Selbstverständlich gibt es diese Funktion in numpy. Sie heißt dort <em>logical_and</em>:</p>
+<pre class="code literal-block"><span></span><span class="n">yellow_and_little_blue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">where_is_yellow</span><span class="p">,</span> <span class="n">only_little_blue</span><span class="p">)</span>
+</pre>
+
+
+<p>Nun sind wir fast fertig. Mittels <em>np.where</em> lassen wir uns die Indizes des obigen Arrays ausgeben, wo True gespeichert ist.</p>
+<pre class="code literal-block"><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">yellow_and_little_blue</span><span class="p">)</span>
+</pre>
+
+
+<p>und ändern die RGB Werte an diesen Stellen zu [255, 0, 0] (was der Farbe Rot entspricht).</p>
+<pre class="code literal-block"><span></span><span class="n">img_arr</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre>
+
+
+<p>Schließlich speichern wir noch alles: </p>
+<pre class="code literal-block"><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img_arr</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"blume_rot.jpg"</span><span class="p">)</span>
+</pre>
+
+
+<p>Und das Ergebnis ist...</p>
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_halbrot.jpg" alt="Blume" width="400" height="300"></p>
+<p>... noch nicht ganz das, was wir uns erhofft hatten. Hier kommt nun ein bisschen Heuristik ins Spiel. Wenn wir die Zeile</p>
+<pre class="code literal-block"><span></span><span class="n">where_is_yellow</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mean_rgb</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+
+
+<p>umändern zu</p>
+<pre class="code literal-block"><span></span><span class="n">where_is_yellow</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">mean_rgb</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+
+
+<p>Sieht das Ergebnis...</p>
+<p><img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/numpy/blume_rot.jpg" alt="Blume" width="400" height="300"></p>
+<p>...schon wesentlich besser aus. Durch das Heruntersetzen des benötigten Gelbwertes werden nun zwar auch die Schatten rot gefärbt, aber das kann auch als Feature statt als Bug betrachtet werden...</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/module_exceptions/" class="u-url">4 - Module &amp; Exceptions</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="../vorlesungen/module_exceptions/" rel="bookmark"><time class="published dt-published" datetime="2017-06-17T00:00:00+01:00" title="2017-06-17 00:00">2017-06-17 00:00</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Module</h2>
+<p>Nachdem wir in der letzten Woche gelernt haben, wie man den selbstgeschriebenen Code besser organisieren kann durch Einsatz von Funktionen und Klassen, wird heute gezeigt, wie man nun Dateien mit Code als sogenannte Module speichern kann.</p>
+<h3>Importieren aus anderer Python-Datei</h3>
+<p>Um aus einer weiteren Pythondatei Klassen, Funktionen, oder Variablen zu laden benutzt man </p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="o">&lt;</span><span class="n">Dateiname</span> <span class="n">ohne</span> <span class="o">.</span><span class="n">py</span><span class="o">&gt;.&lt;</span><span class="n">Klassen</span><span class="o">/</span><span class="n">Funktions</span><span class="o">/</span><span class="n">Variablenname</span><span class="o">&gt;</span>
+</pre>
+
+
+<p>Wichtig: damit das funktioniert, muss der Python-Interpreter im selben Ordner gestartet worden sein wie die Datei aus der importiert wurde!</p>
+<h3>Importieren aus Ordnerstruktur</h3>
+<p>Um aus einer komplexeren Ordnerstruktur importieren zu können, geht man wie folgt vor:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="o">&lt;</span><span class="n">Ordner</span><span class="o">&gt;.&lt;</span><span class="n">Unterordner</span><span class="o">&gt;.&lt;</span><span class="n">Unterunterordner</span><span class="o">&gt;.&lt;...&gt;.&lt;</span><span class="n">Dateiname</span><span class="o">&gt;.&lt;</span><span class="n">Klassen</span><span class="o">/</span><span class="n">Funktions</span><span class="o">/</span><span class="n">Variablennamen</span><span class="o">&gt;</span>
+</pre>
+
+
+<h3>from ... import ...</h3>
+<p>Möchten wir etwas direkt in den aktuellen Namespace importieren, benutzen wir <em>from ... import</em> </p>
+<h3>import ... as ...</h3>
+<p>Mittels <em>import ... as ...</em> können wir dem importierten Modul einen anderen (oft gekürzten) Namen geben.</p>
+<h3>Beispiel</h3>
+<p>Die aus einer Übung bekannten Funktionen <em>write_file</em> und <em>read_file</em> haben wir in einer Datei <em>input_output_file.py</em> gespeichert, und sind so von ihnen überzeugt, dass wir sie in Zukunft öfters benutzen möchten.</p>
+<p>Sind wir im selben Ordner wie die Datei, ist es ganz einfach, von einer anderen Python-Datei aus auf den schon vorhandenen Code zuzugreifen: wir schreiben einfach</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">input_output_file</span> <span class="c1"># Achtung, die Endung .py wird weggelassen!</span>
+</pre>
+
+
+<p>und können dann folgendermaßen auf die Funktionen (sowie Klassen und Variablen), die in der Datei <em>input_output_file.py</em> geschrieben wurden, zugreifen:</p>
+<pre class="code literal-block"><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">input_output_file</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">"dateiname"</span><span class="p">)</span>
+</pre>
+
+
+<p>Wem es zu lästig ist, bei jedem Funktionsaufruf den Modulnamen zu schreiben, kann am Anfang folgendes tun:</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">input_output_file</span> <span class="kn">import</span> <span class="n">read_file</span><span class="p">,</span> <span class="n">write_file</span> <span class="c1"># , ...</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">read_file</span><span class="p">(</span><span class="s2">"dateiname"</span><span class="p">)</span>
+</pre>
+
+
+<p>Auf diese Weise werden aber auch nur die Funktionen importiert, die wir explizit nach import auflisten. Wir können sie dann aber benutzen, ohne <em>input_output_file.</em> voranzustellen.</p>
+<p>Es geht aber noch eine Stufe höher:
+Angenommen, wir haben nicht nur eine Datei für Input und Output, sondern noch eine weitere (z.B. für das Einlesen von komprimierten Daten wie Zip-Files zuständig sein). In diesem Fall bietet es sich an einen eigenen Ordner <em>input_output</em> anzulegen, und in diesen die beiden Python-Dateien zu legen.</p>
+<p>Ganz ähnlich wie zuvor wollen wir nun die Funktionen read_file und write_file importieren.
+Um das tun zu können, müssen wir es Python jedoch möglich machen, den Ordner <em>input_output</em> als Modul zu erkennen.
+Das tun wir, indem wir eine leere Datei mit dem Namen <em>__init__.py</em> im Ordner <em>input_output</em> anlegen. 
+Wir können unseren Code in beliebig tief geschachtelten Ordnerstrukturen vergraben, solange wir nur daran denken, in jedem Ordner eine <em>__init__.py</em> Datei anzulegen.</p>
+<p>Danach können wir, wenn wir uns außerhalb des Ordners befinden, per</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">input_output.input_output_file</span> <span class="kn">import</span> <span class="n">read_file</span><span class="p">,</span> <span class="n">write_file</span>
+</pre>
+
+
+<p>die Funktionen <em>read_file</em> und <em>write_file</em> wieder importieren.</p>
+<p>Alternativ:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">input_output.input_output_file</span>
+</pre>
+
+
+<p>Oft ist es ratsam, die Funktionen/Klassen/Variablen nicht direkt in den globalen Namespace zu laden, da es dann zu Konflikten mit schon bestehenden Namen kommen kann.</p>
+<p>Um in diesem Fall zu viel Schreibarbeit aufgrund langer Modulnamen zu vermeiden, lässt sich folgender Trick anwenden:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">input_output.input_output_file</span> <span class="kn">as</span> <span class="nn">iof</span> <span class="c1"># 'as' keyword gefolgt von Aliasnamen</span>
+</pre>
+
+
+<p>Im weiteren Verlauf lässt sich dann per </p>
+<pre class="code literal-block"><span></span>iof.read_file("bla")
+</pre>
+
+
+<p>auf die Funktionen zugreifen.</p>
+<h3>Selbstgeschriebene Module für den Python-Interpreter sichtbar machen</h3>
+<p>Haben wir nun ein selbsterstelltes Modul irgendwo auf unserer Festplatte liegen, müssen wir nun Python noch sagen, wo es sich befindet. Das machen wir, indem wir den Speicherort zum <em>Pythonpath</em> hinzufügen.</p>
+<p>Die einfachste Variante ist vermutlich, den Pythonpfad direkt im Code zu setzen:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"/Pfad/zum/Ordner/in/dem/das/Modul/liegt"</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">mein_modul</span> <span class="c1"># ersetze mein_modul durch gewünschten Modulnamen</span>
+</pre>
+
+
+<p>Möchte man den Pfad dauerhaft hinzufügen, tun Linux-User folgendes im Terminal:</p>
+<pre class="code literal-block"><span></span><span class="nb">cd</span> ~
+<span class="nb">echo</span> <span class="s1">'export PYTHONPATH="/Pfad/zu/meinem/Modul:$PYTHONPATH"'</span> &gt;&gt; .bashrc
+</pre>
+
+
+<p>Windows-User können folgendes ausprobieren:</p>
+<p>In die Datei autoexec.bat wird folgende Zeile geschrieben:</p>
+<pre class="code literal-block"><span></span>set PYTHONPATH=%PYTHONPATH%;C:\Pfad/zu/meinem/Modul
+</pre>
+
+
+<h3>Die Python Standard Library</h3>
+<p>Netterweise kommt Python schon mit einer Menge <a href="https://docs.python.org/3/library/index.html">eigener Module</a> daher. Die wichtigsten (persönliche Meinung des Dozenten) werden hier kurz vorgestellt:</p>
+<h4>sys</h4>
+<p>Das Modul <a href="https://docs.python.org/3/library/sys.html">sys</a> enthält vor allem Variablen, die vom Python-Interpreter benutzt werden oder mit ihm interagieren.</p>
+<p>Hilfreich sind vor allem</p>
+<h5><strong>sys.argv</strong></h5>
+<p>Diese Variable speichert die Kommandozeilenargumente, mit denen ein Programm aufgerufen wurde. </p>
+<p>Folgendes Programm sei unter dem Namen main.py gespeichert:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">"ich wurde aufgerufen mit den Argumenten:"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</pre>
+
+
+<p>Starten wir dieses Skript folgendermaßen:</p>
+<pre class="code literal-block"><span></span>python main.py hier ganz viele kommandozeilen argumente <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+</pre>
+
+
+<p>so ist die Ausgabe:</p>
+<pre class="code literal-block"><span></span>ich wurde aufgerufen mit den Argumenten: ['test.py', 'hier', 'ganz', 'viele', 'kommandozeilen', 'argumente', '1', '2', '3', '4', '5']
+</pre>
+
+
+<p>Alle Argumente werden also als Strings in einer Liste gespeichert.</p>
+<h5><strong>sys.path</strong></h5>
+<p>In dieser Variablen werden alle Pfade gespeichert, in denen der Interpreter nach nutzbaren Python-Modulen sucht. Möchte man einen weiteren Pfad hinzufügen, tut man das einfach per</p>
+<pre class="code literal-block"><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"/mein/neuer/pfad"</span><span class="p">)</span>
+</pre>
+
+
+<p>Der neu hinzugefügte Pfad verschwindet allerdings wieder aus sys.path wenn das Skript endet!</p>
+<h5><strong>sys.exit()</strong></h5>
+<p>Diese Funktion beendet das Skript sofort. </p>
+<h4><a href="https://docs.python.org/3/library/pickle.html">pickle</a></h4>
+<p>Erlaubt es, Python-Objekte zu serialisieren, d.h. sie als Datei zu speichern.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="k">class</span> <span class="nc">MeineKlasse</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">mk</span> <span class="o">=</span> <span class="n">MeineKlasse</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_klasse.pickle"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">mk</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre>
+
+
+<p>Das gespeicherte Objekt kann anschließend folgendermaßen geladen werden:</p>
+<pre class="code literal-block"><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"meine_klasse.pickle"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre>
+
+
+<h4><a href="https://docs.python.org/2/library/collections.html">collections</a></h4>
+<p>In diesem Modul sind diverse nützliche Container-Datentypen, die teilweise Erweiterungen der Standard-Container dict, list und tuple sind.</p>
+<h5><strong>Counter</strong></h5>
+<p>Damit lassen sich Elemente sehr einfach zählen. Beispiel mit dem Text aus der Übung <em>word_counter</em>:</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># gibt die 10 häufigsten Wörter in text aus</span>
+</pre>
+
+
+<h5><strong>deque</strong></h5>
+<p>Eine Art Liste, bei der sich effizient an beiden Enden Elemente hinzufügen oder entfernen lassen.</p>
+<h5><strong>defaultdict</strong></h5>
+<p>Ähnlich wie dict, aber legt für einen Key, der bisher nicht gespeichert war, automatisch einen entsprechenden Default-Value an.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+
+<span class="n">int_dict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">int_dict</span><span class="p">[</span><span class="s2">"blub"</span><span class="p">])</span> <span class="c1"># gibt den Defaultwert 0 aus</span>
+
+<span class="n">list_dict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list_dict</span><span class="p">[</span><span class="s2">"irgendwas"</span><span class="p">])</span> <span class="c1"># gibt eine leere Liste aus</span>
+</pre>
+
+
+<h5><strong>OrderedDict</strong></h5>
+<p>Ein Dictionary, das sich die Reihenfolge der eingefügten Elemente merkt</p>
+<h4><a href="https://docs.python.org/3/library/types.html">types</a></h4>
+<p>Hilfreiches Modul, falls man doch mal gezwungen ist, Datentypen zu prüfen.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">types</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.23</span>
+<span class="n">z</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">types</span><span class="o">.</span><span class="n">IntType</span> <span class="c1"># True)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="ow">is</span> <span class="n">types</span><span class="o">.</span><span class="n">FloatType</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="ow">is</span> <span class="n">types</span><span class="o">.</span><span class="n">BooleanType</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="ow">is</span> <span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">)</span>
+</pre>
+
+
+<h4><a href="https://docs.python.org/3/library/math.html">math</a></h4>
+<p>Dieses Modul enthält die wichtigsten mathematischen Operationen
+Für Berechnungen komplexer Zahlen, benutze man <a href="https://docs.python.org/3/library/cmath.html">cmath</a></p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">pi</span>
+
+<span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> 
+<span class="n">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># usw.</span>
+</pre>
+
+
+<h4><a href="https://docs.python.org/3/library/random.html">random</a></h4>
+<p>Modul zur Erzeugung von Zufallszahlen</p>
+<p>Die wichtigsten Funktionen im Überblick:</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span><span class="p">,</span> <span class="n">uniform</span><span class="p">,</span> <span class="n">randint</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">,</span> <span class="n">choice</span>
+
+<span class="n">random</span><span class="p">()</span> <span class="c1"># erzeugt eine gleichverteilte Pseudozufallszahl zwischen 0 und 1 (ohne die 1).</span>
+<span class="n">uniform</span><span class="p">(</span><span class="mf">3.4</span><span class="p">,</span> <span class="mf">7.8</span><span class="p">)</span> <span class="c1"># erzeugt eine gleichverteilte Pseudozufallszahl (float) zwischen den gegebenen Grenzen</span>
+
+<span class="k">def</span> <span class="nf">wuerfel</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># erzeugt zufällig (und gleichverteilt) einen Integer zwischen 1 und 6 (einschließlich 6)</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">shuffle</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="c1"># vertauscht die Elemente von l zufällig</span>
+<span class="n">choice</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="c1"># zieht zufällig ein Element aus l</span>
+</pre>
+
+
+<h4><a href="https://docs.python.org/3/library/time.html">time</a></h4>
+<p>Dieses Modul beinhaltet diverse Funktionen, die für Zeitmessungen benutzt werden können. </p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span> <span class="c1"># Gibt die Sekunden an, die seit dem 1. Januar 1970 vergangen sind</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># Das Programm stoppt für 5 Sekunden</span>
+</pre>
+
+
+<p>Für Datumsberechnungen ist darüberhinaus das Modul <a href="https://docs.python.org/3/library/datetime.html">datetime</a> hilfreich.</p>
+<h4><a href="https://docs.python.org/2/library/argparse.html">argparse</a></h4>
+<p>Möchte man ein Programm mit mehreren Parametern von der Kommandozeile aufrufen, wird es recht bald komplex, die Eingaben des Users auf Korrektheit zu prüfen und richtig zu parsen.</p>
+<p>Hier hilft das Modul argparse.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"argument"</span><span class="p">)</span> <span class="c1"># hier wird festgelegt, dass es genau ein notwendiges Argument gibt</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</pre>
+
+
+<p>Im obigen Beispiel haben wir festgelegt, dass das Programm mit genau einem Parameter aufgerufen werden muss. Nicht mer und nicht weniger ist möglich.</p>
+<p>Manchmal ist es aber auch hilfreich, optionale Parameter festzulegen. Das geht so:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--argument"</span><span class="p">)</span> <span class="c1"># hier wird festgelegt, dass es genau ein notwendiges Argument gibt</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">argument</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">argument</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Kein Argument angegeben"</span><span class="p">)</span>
+</pre>
+
+
+<p>Dieses Mal können wir das Programm entweder ohne jeglichen Parameter aufrufen, oder wir rufen es folgendermaßen auf (unter der Annahme, dass die Datei main.py heißt):</p>
+<pre class="code literal-block"><span></span>python main.py --argument irgendwas
+</pre>
+
+
+<h4><a href="https://docs.python.org/3/library/pdb.html">pdb</a></h4>
+<p>pdb ist der Python Debugger. Er ist ein sehr hilfreiches Tool, um Fehler im eigenen Python-Code zu finden.</p>
+<p>Typischerweise ruft man den Debugger auf, indem man an der Stelle seines Codes, an der man etwas inspizieren will, folgende Zeile schreibt:</p>
+<pre class="code literal-block"><span></span><span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+</pre>
+
+
+<p>An dieser Stelle hält der Debugger das Programm an und wechselt in den interaktiven Modus, in dem man sich die Werte aller Variablen anschauen kann, aber auch neue Variablen definieren oder Funktionen ausführen kann.</p>
+<p>Mit folgenden Befehlen kann man weiter durch den Code navigieren:</p>
+<ul>
+<li>
+<p><em>next</em> führt die nächste Zeile des Programms aus und pausiert dann wieder. Enthält die nächste Zeile einen Funktionsaufruf, wird die komplette Funktion ausgeführt, ohne dass in ihr gestoppt wird</p>
+</li>
+<li>
+<p><em>step</em> ist wie <em>next</em>, "betritt" aber auch Funktionen wenn sie aufgerufen werden</p>
+</li>
+<li>
+<p>Befindet man sich in einer Funktion, sorgt <em>return</em> dafür, dass das Programm erst wieder angehalten wird, wenn das return statement der Funktion erreicht wird.</p>
+</li>
+<li>
+<p><em>until</em> führt den Code weiter aus, bis die angegebene Zeilennummer erreicht wird</p>
+</li>
+<li>
+<p><em>jump</em> erlaubt schließlich noch das direkte Springen zu einer beliebigen Zeilennummer</p>
+</li>
+</ul>
+<h3>Weitere Module installieren</h3>
+<p>Es gibt noch unzählige weitere Module für Python, die sich leicht nachinstallieren lassen. </p>
+<p>Ubuntu- und Debian-User mit Administratorrechten finden viele Pakete in ihrem Paketmanager, z.B. python-numpy, python-scipy, ...</p>
+<p>Alternativ ist es möglich eine sogenannte virtualenv zu benutzen. Diese kopiert den Python-Interpreter, der oftmals in einem geschützten Pfad liegt, in das Home-Verzeichnis des Benutzers. Das erleichtert die Modul-Installation deutlich.</p>
+<p>Alle mit Linux können folgendes tun:</p>
+<pre class="code literal-block"><span></span><span class="nb">cd</span> ~
+mkdir virtualenvs
+virtualenv virtualenvs/pythonkurs
+<span class="nb">source</span> virtualenvs/pythonkurs/bin/activate
+</pre>
+
+
+<p>Nach diesen vier Schritten wird der Python-Interpreter benutzt der im Verzeichnis ~/virtualenvs/pythonkurs/bin/ liegt, benutzt.</p>
+<p>Nun kann man Module mittels <em>pip</em> installieren:</p>
+<pre class="code literal-block"><span></span>pip install &lt;Modulname&gt;
+</pre>
+
+
+<h2>Exceptions</h2>
+<p>Bisher gingen wir immer davon aus, dass unsere Programme fehlerfrei laufen, oder haben Fehlermeldungen erstmal ignoriert.. Hier wird nun gezeigt, wie man seinen Code so schreiben kann, dass er auf Fehler direkt reagiert.</p>
+<p>Beispiel:</p>
+<pre class="code literal-block"><span></span><span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+</pre>
+
+
+<p>Führen wir dieses Zahl aus und geben brav eine Zahl ein, kommt es zu keinen Problemen. Hat der Anwender jedoch nicht aufgepasst und gibt z.B. "Hallo" ein, wird er von folgender Meldung überrascht:</p>
+<pre class="code literal-block"><span></span><span class="n">ValueError</span><span class="o">:</span> <span class="n">could</span> <span class="n">not</span> <span class="n">convert</span> <span class="n">string</span> <span class="n">to</span> <span class="n">float</span><span class="o">:</span> <span class="n">Hallo</span>
+</pre>
+
+
+<p>Ganz logisch, float() kann den String "Hallo" nicht in eine Zahl umwandeln, daher erscheint ein sogenannter ValueError.</p>
+<p>Nun möchten wir aber gerne ein anderes Verhalten unseres Codes. Wir möchten, dass er den User so lange nach einer Zahl fragt, bis er sie bekommt. Die Lösung könnte so aussehen:</p>
+<pre class="code literal-block"><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="n">zahl</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Hey, das war gar keine Zahl!"</span><span class="p">)</span>
+</pre>
+
+
+<p>Damit hätten wir schonmal das Problem der falschen Benutzereingabe gelöst. Allerdings gibt es immer noch eine Möglichkeit, das Programm zum Absturz zu bringen: Gibt der User 0 ein, grüßt ihn der <strong>ZeroDivisionError</strong>!</p>
+<p>Also fangen wir auch den ab:</p>
+<pre class="code literal-block"><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">zahl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte Zahl eingeben: "</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="n">zahl</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Hey, das war gar keine Zahl!"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Null ist keine gute Idee..."</span><span class="p">)</span>
+</pre>
+
+
+<p>Damit haben wir uns erstmal gegen alle Gefahren abgesichert. Eine Liste der möglichen Exceptions gibt es <a href="https://docs.python.org/3/library/exceptions.html">hier</a>.</p>
+<p>Doch damit nicht genug, wir können auch selbst Exceptions "raisen", d.h. Code auf Probleme mit einer Exception reagieren lassen:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">types</span>
+<span class="k">def</span> <span class="nf">add_integers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">!=</span> <span class="n">types</span><span class="o">.</span><span class="n">IntType</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">!=</span> <span class="n">types</span><span class="o">.</span><span class="n">IntType</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Bitte nur Integers!"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre>
+
+
+<p>Diese Funktion beschwert sich beispielsweise lautstark mit einem ValueError, sobald wir ihr ein Argument liefern, das kein Integer ist.
+Die Wahl der Exception ist dabei uns überlassen</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../vorlesungen/funktionen_klassen_objekte/" class="u-url">3 - Funktionen, Klassen und Objekte</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Gabriel Kabbe

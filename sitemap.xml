@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/archive.html</loc>
-  <lastmod>2017-11-23T12:23:00Z</lastmod>
+  <lastmod>2017-11-29T12:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/</loc>
@@ -27,7 +27,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/index-1.html</loc>
-  <lastmod>2017-11-23T12:23:00Z</lastmod>
+  <lastmod>2017-11-29T12:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/categories/</loc>
@@ -51,11 +51,15 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/</loc>
-  <lastmod>2017-11-11T13:08:00Z</lastmod>
+  <lastmod>2017-11-29T10:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/listenoperationen/</loc>
   <lastmod>2017-11-11T13:08:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/telegram_bots/</loc>
+  <lastmod>2017-11-29T10:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/notebooks/zusf_datenstr_funk/</loc>
@@ -63,7 +67,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/</loc>
-  <lastmod>2017-11-23T12:22:00Z</lastmod>
+  <lastmod>2017-11-29T11:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</loc>
@@ -88,6 +92,10 @@
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/module_exceptions_uebungen/</loc>
   <lastmod>2017-11-16T11:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy/</loc>
+  <lastmod>2017-11-29T11:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/verlaufsplan/</loc>

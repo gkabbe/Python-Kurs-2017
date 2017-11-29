@@ -293,14 +293,14 @@ atoms = np.array([[5, 9, 4],
                   [1, 7, 8]])
 ```
 
-Dafür geben wir der mean-Methode noch den zusätzlichen Parameter _axis_ mit. In diesem Fall wäre das die 0. Dimension. Numpy mittelt dann über alle Zeilen des Arrays
+Dafür geben wir der mean-Methode noch den zusätzlichen Parameter _axis_ mit. In diesem Fall wäre das die 0. Dimension. Numpy mittelt dann über alle Zeilen des Arrays.
 
 ```python
 geometric_center = atoms.mean(axis=0)
 print(geometric_center)
 ```
 
-Damit erhalten wir aus dem Array atoms mit der shape (4, 3) einen neuen eindimensionalen Array der shape (3,).
+Damit erhalten wir aus dem Array atoms mit der shape (4, 3) einen neuen eindimensionalen Array der shape (3,), die nullte Dimension geht also verloren!
 
 ```
 array([ 4.25,  6.  ,  6.  ])
