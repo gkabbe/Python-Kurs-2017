@@ -1,13 +1,25 @@
 <!-- 
-.. title: 5 - Numpy - Übung
+.. title: 8 - Übungen - 1.12.17
 .. slug: numpy_uebungen
-.. date: 2017-12-01 00:00:00 UTC+01:00
+.. date: 2018-11-29 00:00:00 UTC+01:00
 .. tags: mathjax
 .. category: 
 .. link: 
 .. description: 
 .. type: text
 -->
+
+
+## Vektoriell rechnen
+
+Gegeben sind zwei Arrays
+
+```python
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([5, 6, 7])
+```
+
+
 
 
 
@@ -78,6 +90,8 @@ Wandeln Sie den Array folgendermaßen um:
 Speichern Sie den Ergebnisarray als Bild
 
 ```python
+from PIL import Image
+
 Image.fromarray(riddle).save("solution.png")
 ```
 
