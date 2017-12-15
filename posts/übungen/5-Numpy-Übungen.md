@@ -132,7 +132,7 @@ imag = np.linspace(-1, 1, 50) * 1j
   * Mit folgendem Befehl machen Sie aus dem imag Array einen Spaltenvektor:
     
 ```python
-imag = imag[:, np.newaxis]
+imag = imag.reshape((-1, 1))
 ```
 
     Addieren Sie nun die beiden Vektoren, und Sie sollten einen zweidimensionalen Array erhalten, der Punkte der komplexen Ebene zwischen -2-1j und 2+2j enthält.
