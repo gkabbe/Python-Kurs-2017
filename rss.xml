@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link type="application/rss+xml" rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml"></atom:link><language>de</language><lastBuildDate>Wed, 29 Nov 2017 13:15:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>7 - Übungen - 1.12.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Python Kurs 2017</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description>Alle Informationen zum Python Kurs</description><atom:link href="https://gkabbe.github.io/Python-Kurs-2017/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>de</language><lastBuildDate>Fri, 15 Dec 2017 11:58:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>7 - Übungen - 1.12.17</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -427,6 +427,92 @@ Anschließend wird der resultierende Vektor durch die Gesamtmasse geteilt.&lt;/p
 &lt;/div&gt;
 
 &lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Monte-Carlo"&gt;Monte Carlo&lt;a class="anchor-link" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy/#Monte-Carlo"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif" alt="PI_Berechnung"&gt;&lt;/p&gt;
+&lt;p&gt;Quelle: &lt;a href="https://en.wikipedia.org/wiki/Monte_Carlo_method"&gt;https://en.wikipedia.org/wiki/Monte_Carlo_method&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Bestimmen Sie die Kreiszahl \(\pi\), indem Sie zufällig Punkte in einem Koordinatensystem der Länge 1 und Höhe 1 verteilen. 
+Wenn Sie einen Kreis ziehen, dessen Zentrum im Ursprung des Koordinatensystems liegt, ist ein Viertel davon in dem Koordinatensystemausschnitt zu sehen.
+Einige der zufällig gewählten Punkte werden nun innerhalb des Viertelkreises liegen, andere außerhalb. 
+Bestimmen Sie über das Verhältnis \(\frac{\text{Anzahl der Punkte im Kreis}}{\text{Gesamtanzahl der Punkte}}\) die Zahl \(\pi\).&lt;/p&gt;
+&lt;p&gt;Hinweis: 
+Mittels&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;können Sie einen Array mit Zufallszahlen im Intervall [0, 1) erzeugen.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Apfel-Männchen"&gt;Apfel-Männchen&lt;a class="anchor-link" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy/#Apfel-M%C3%A4nnchen"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Gegeben ist eine rekursive Folge für komplexe Zahlen&lt;/p&gt;
+&lt;p&gt;\(z_{i+1} = z_i^2 + c \)&lt;/p&gt;
+&lt;p&gt;mit \(z_0 = 0\)&lt;/p&gt;
+&lt;p&gt;Je nachdem wie man c wählt, bleibt diese Folge beschränkt (d.h. der Betrag der komplexen Zahl (np.abs) bleibt unter einer gewissen Grenze), oder sie divergiert.&lt;/p&gt;
+&lt;p&gt;1) Erstellen Sie einen komplexen 2D-Array c, der die komplexe Ebene darstellen soll. Der Realteil soll dabei von -2 bis 2 verlaufen, der Imaginärteil von -i bis i.
+ Dies erreichen Sie durch folgende Schritte:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Erstellen Sie einen Float-Array für den Realteil und einen für den Imaginärteil:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;real&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;imag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1j&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Mit folgendem Befehl machen Sie aus dem imag Array einen Spaltenvektor:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;imag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;imag&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;newaxis&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;Addieren Sie nun die beiden Vektoren, und Sie sollten einen zweidimensionalen Array erhalten, der Punkte der komplexen Ebene zwischen -2-1j und 2+2j enthält.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2) Erstellen Sie einen komplexen Array z, sowie einen Integer-Array counter, die beide die selbe shape wie c haben&lt;/p&gt;
+&lt;p&gt;3) Nun beginnt die Hauptschleife: berechnen Sie in 100 Schritten die Werte z_1 bis z_100, indem Sie ihren Array z immer wieder neu berechnen. Überprüfen Sie nach jeder Rechnung, welche Elemente des z-Arrays noch einen Betrag (np.abs) kleiner 10 haben (-&amp;gt; den resultierenden Boolschen Array können Sie zu counter hinzuaddieren. True wird dann als Wert 1, und False als Wert 0 aufgefasst).&lt;/p&gt;
+&lt;p&gt;4) Zum Schluss können Sie sich ein Bild des Counters ausgeben lassen. Dazu müssen Sie zu Beginn des Skripts folgendes Paket importieren:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;anschließend können Sie mit folgenden 3 Zeilen ein Bild speichern:
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;100.&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uint8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;img&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fromarray&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"mandelbrot.png"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;5) Experimentieren Sie auch mit anderen Grenzen des Arrays c. Sie können so weiter in das Apfelmännchen "zoomen".&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 </description><guid>https://gkabbe.github.io/Python-Kurs-2017/uebungen/numpy/</guid><pubDate>Tue, 28 Nov 2017 23:00:00 GMT</pubDate></item><item><title>Telegram-Bots</title><link>https://gkabbe.github.io/Python-Kurs-2017/notebooks/telegram_bots/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
@@ -636,7 +722,7 @@ beschwert, dass der Input des Users nicht korrekt war.&lt;/p&gt;
     &lt;span class="n"&gt;zahl1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte eine Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;zahl2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Bitte noch eine Zahl eingeben: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Die Summe ist"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Der Quotient ist"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zahl2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;
 
 

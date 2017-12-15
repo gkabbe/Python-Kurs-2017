@@ -59,7 +59,7 @@ while True:
     zahl1 = input("Bitte eine Zahl eingeben: ")
     zahl2 = input("Bitte noch eine Zahl eingeben: ")
     
-    print("Die Summe ist", float(zahl1) / float(zahl2))
+    print("Der Quotient ist", float(zahl1) / float(zahl2))
 ```
 
 Gibt es eine Möglichkeit, das Programm zum Absturz zu bringen, auch wenn beide Inputs Zahlen sind?
