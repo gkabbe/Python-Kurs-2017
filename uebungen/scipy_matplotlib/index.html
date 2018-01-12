@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8 - Scipy &amp; Matplotlib - Übungen | Python Kurs 2017</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/uebungen/scipy_matplotlib/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
+<link rel="prev" href="../numpy/" title="7 - Übungen - 1.12.17" type="text/html">
+<meta property="og:site_name" content="Python Kurs 2017">
+<meta property="og:title" content="8 - Scipy &amp; Matplotlib - Übungen">
+<meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/uebungen/scipy_matplotlib/">
+<meta property="og:description" content="Viele Beispiele zu Matplotlib finden Sie auch hier.
+2-Dimensionale Histogramme
+
+
+Erzeugen Sie mithilfe von Numpy normalverteilte Punkte im zweidimensionalen Raum.
+  Die Punkteverteilung soll ihr Zentr">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-01-11T00:00:00+01:00">
+<meta property="article:tag" content="mathjax">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Springe zum Hauptinhalt</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse static-top mb-4"><div class="container">
+<!-- This keeps the margins nice -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="https://gkabbe.github.io/Python-Kurs-2017/">
+
+            <span id="blog-title">Python Kurs 2017</span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../verlaufsplan" class="nav-link">Verlaufsplan</a>
+                </li>
+<li class="nav-item">
+<a href="../../vorlesungen" class="nav-link">Vorlesungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../uebungen" class="nav-link">Übungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../notebooks" class="nav-link">Notebooks</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/" class="nav-link">Tags</a>
+                </li>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS-Feed</a>
+                </li>
+<li class="nav-item">
+<a href="../../about" class="nav-link">Impressum</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.md" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">8 - Scipy &amp; Matplotlib - Übungen</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2018-01-11T00:00:00+01:00" itemprop="datePublished" title="2018-01-11 00:00">2018-01-11 00:00</time></a></p>
+            
+        <p class="sourceline"><a href="index.md" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Viele Beispiele zu Matplotlib finden Sie auch <a href="http://matplotlib.org/gallery.html">hier</a>.</p>
+<h2>2-Dimensionale Histogramme</h2>
+<ul>
+<li>
+<p>Erzeugen Sie mithilfe von Numpy normalverteilte Punkte im zweidimensionalen Raum.
+  Die Punkteverteilung soll ihr Zentrum bei (130, 270) haben und eine Standardabweichung von 10 in x-Richtung, und von 50 in y-Richtung</p>
+</li>
+<li>
+<p>Benutzen Sie dazu</p>
+</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=...</span><span class="p">,</span> <span class="n">scale</span><span class="o">=...</span><span class="p">,</span> <span class="n">size</span><span class="o">=...</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre>
+
+
+<h2>Mehrdimensionale Funktionen plotten</h2>
+<p>Gegeben sei eine Funktion f(x, y), z.B.</p>
+<p>\(f(x, y) = exp(-x^2) * sin(y)\)</p>
+<ul>
+<li>
+<p>Schreiben Sie die Funktion \(f\) Numpy-kompatibel in Python</p>
+</li>
+<li>
+<p>Kreieren Sie nun einen Array mit den x-Koordinaten und y-Koordinaten, an denen \(f\) ausgewertet werden soll.
+  Hierfür bietet sich np.linspace(start, end, length) an.</p>
+</li>
+<li>
+<p>Um aus den zwei eindimensionalen Arrays ein zweidimensionales Gitter zu machen, benutzen Sie</p>
+</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre>
+
+
+<p>Wenn x die Länge len_x, und y die Länge len_y hat, erzeugt np.meshgrid zwei 2D-Arrays der shape (len_y, len_x).
+  Jeder Eintrag der Arrays entspricht einem Punkt auf dem Gitter, was durch x und y aufgespannt wird.
+  X enthält alle x-Werte auf der jeweiligen Gitter-Position, Y die entsprechenden y-Werte.</p>
+<ul>
+<li>Werten Sie nun Z = f(X, Y) aus.</li>
+</ul>
+<p>Mittels</p>
+<pre class="code literal-block"><span></span><span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+
+
+<p>können Sie f(X, Y) zweidimensional grafisch darstellen.</p>
+<h2>Güte eines Fits</h2>
+<p>Haben wir eine Funktion an unsere Messdaten gefittet, ist die nächste wichtige Frage, die wir uns stellen müssen, wie gut unsere Fit-Funktion eigentlich die Daten beschreibt.</p>
+<h3>Bestimmtheitsmaß</h3>
+<p>Das <a href="https://de.wikipedia.org/wiki/Bestimmtheitsma%C3%9F">Bestimmheitsmaß</a> ist definiert als:</p>
+<p>R² = 1 - (Summe der quadratischen Abweichungen des Fits von den Messwerten) / (Varianz der Messwerte)</p>
+<p>Falls der Fit keine Abweichung von den Messwerten zeigt, ist R² = 1.
+Im anderen Extremfall ist die Abweichung des Fits von den Messwerten so groß wie die Varianz der Messwerte selbst. In diesem Fall besteht kein linearer Zusammenhang und R² = 0.</p>
+<ul>
+<li>Gegeben seien</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>  <span class="mf">0.52691411</span><span class="p">,</span>   <span class="mf">0.15337663</span><span class="p">,</span>   <span class="mf">1.43856168</span><span class="p">,</span>   <span class="mf">2.40676542</span><span class="p">,</span>
+                <span class="mf">3.39139498</span><span class="p">,</span>   <span class="mf">3.45232301</span><span class="p">,</span>   <span class="mf">4.37507344</span><span class="p">,</span>   <span class="mf">3.42645346</span><span class="p">,</span>
+                <span class="mf">4.04379333</span><span class="p">,</span>   <span class="mf">5.39198639</span><span class="p">,</span>   <span class="mf">6.99364368</span><span class="p">,</span>   <span class="mf">7.50859895</span><span class="p">,</span>
+                <span class="mf">7.69962232</span><span class="p">,</span>   <span class="mf">8.30130309</span><span class="p">,</span>   <span class="mf">8.27225713</span><span class="p">,</span>   <span class="mf">9.15863628</span><span class="p">,</span>
+                <span class="mf">9.39810611</span><span class="p">,</span>  <span class="mf">11.0523773</span> <span class="p">,</span>  <span class="mf">10.46304528</span><span class="p">,</span>  <span class="mf">12.20255932</span><span class="p">,</span>
+               <span class="mf">11.70786975</span><span class="p">,</span>  <span class="mf">12.23490009</span><span class="p">,</span>  <span class="mf">13.2744774</span> <span class="p">,</span>  <span class="mf">14.46828046</span><span class="p">,</span>
+               <span class="mf">14.67572454</span><span class="p">,</span>  <span class="mf">15.88850194</span><span class="p">,</span>  <span class="mf">15.03465002</span><span class="p">,</span>  <span class="mf">16.63086629</span><span class="p">,</span>
+               <span class="mf">16.35790349</span><span class="p">,</span>  <span class="mf">17.79372946</span><span class="p">,</span>  <span class="mf">18.81870178</span><span class="p">,</span>  <span class="mf">18.53822878</span><span class="p">,</span>
+               <span class="mf">19.42759411</span><span class="p">,</span>  <span class="mf">20.00532161</span><span class="p">,</span>  <span class="mf">21.03680116</span><span class="p">,</span>  <span class="mf">20.0965816</span> <span class="p">,</span>
+               <span class="mf">21.61260744</span><span class="p">,</span>  <span class="mf">21.63133823</span><span class="p">,</span>  <span class="mf">22.8952802</span> <span class="p">,</span>  <span class="mf">24.07572217</span><span class="p">,</span>
+               <span class="mf">23.94384869</span><span class="p">,</span>  <span class="mf">24.94396931</span><span class="p">,</span>  <span class="mf">25.81434391</span><span class="p">,</span>  <span class="mf">26.41242246</span><span class="p">,</span>
+               <span class="mf">25.413351</span>  <span class="p">,</span>  <span class="mf">27.44888064</span><span class="p">,</span>  <span class="mf">28.09184088</span><span class="p">,</span>  <span class="mf">27.54036923</span><span class="p">,</span>
+               <span class="mf">29.35779925</span><span class="p">,</span>  <span class="mf">28.6853119</span> <span class="p">,</span>  <span class="mf">29.61227889</span><span class="p">])</span>
+</pre>
+
+
+<p>Fitten Sie eine lineare Funktion an die Messdaten und bestimmen Sie R².</p>
+<ul>
+<li>Wiederholen Sie das Prozedere für</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.90295774</span><span class="p">,</span>  <span class="mf">0.13220468</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01083773</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.71269602</span><span class="p">,</span>  <span class="mf">1.20154739</span><span class="p">,</span>
+              <span class="o">-</span><span class="mf">1.14519411</span><span class="p">,</span>  <span class="mf">0.62495417</span><span class="p">,</span>  <span class="mf">0.58180219</span><span class="p">,</span>  <span class="mf">0.91674602</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.99448903</span><span class="p">,</span>
+              <span class="o">-</span><span class="mf">0.64488626</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15963476</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.11970351</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.74662734</span><span class="p">,</span>  <span class="mf">0.44611458</span><span class="p">,</span>
+               <span class="mf">0.47010857</span><span class="p">,</span>  <span class="mf">1.0741637</span> <span class="p">,</span>  <span class="mf">0.07617371</span><span class="p">,</span>  <span class="mf">0.66626109</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.31254391</span><span class="p">,</span>
+               <span class="mf">1.19615032</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.21362221</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.94589967</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.32260225</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.17339299</span><span class="p">,</span>
+              <span class="o">-</span><span class="mf">1.89316188</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.49097431</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.17783081</span><span class="p">,</span>  <span class="mf">1.01988436</span><span class="p">,</span>  <span class="mf">1.12720555</span><span class="p">,</span>
+              <span class="o">-</span><span class="mf">0.76142478</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.49120147</span><span class="p">,</span>  <span class="mf">1.95458002</span><span class="p">,</span>  <span class="mf">1.17177714</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.41571477</span><span class="p">,</span>
+               <span class="mf">0.59663724</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0334638</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.46439517</span><span class="p">,</span>  <span class="mf">0.00567392</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.87581851</span><span class="p">,</span>
+               <span class="mf">0.65681717</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.65358466</span><span class="p">,</span>  <span class="mf">2.25401457</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12853615</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10993498</span><span class="p">,</span>
+               <span class="mf">1.11431949</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.78214815</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.33849923</span><span class="p">,</span>  <span class="mf">1.44143436</span><span class="p">,</span>  <span class="mf">1.5750663</span> <span class="p">,</span>
+               <span class="mf">1.06671372</span><span class="p">])</span>
+</pre>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags"></ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../numpy/" rel="prev" title="7 - Übungen - 1.12.17">Vorheriger Eintrag</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2018         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("de");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
