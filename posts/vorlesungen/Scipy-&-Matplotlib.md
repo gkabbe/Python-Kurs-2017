@@ -1,11 +1,11 @@
-<!-- 
-.. title: Scipy & Matplotlib
+<!--
+.. title: 6 - Scipy & Matplotlib
 .. slug: scipy_matplotlib
-.. date: 2018-05-12 00:00:00 UTC+01:00
-.. tags: 
-.. category: 
-.. link: 
-.. description: 
+.. date: 2018-01-11 00:00:00 UTC+01:00
+.. tags: mathjax
+.. category:
+.. link:
+.. description:
 .. type: text
 -->
 
@@ -46,13 +46,13 @@ Das letzte Argument ist der Formatstring. Mit diesem können wir Farbe, Punkt- u
 
 Aufgabe:
 
-Benutzen Sie 
+Benutzen Sie
 
-```
+```python
 help(plt.plot)
 ```
 
-um mehr über die möglichen Formatoptionen zu erfahren. 
+um mehr über die möglichen Formatoptionen zu erfahren.
 Zeichnen Sie das obige Beispiel mit
 
 * einer grünen gestrichelten Linie
@@ -60,11 +60,11 @@ Zeichnen Sie das obige Beispiel mit
 * einer gelben durchgezogenen Line und Dreiecken für die Datenpunkte
 
 
-### Funktionen plotten ###
+### Funktionen plotten
 
 Numpy macht es uns einfach, mathematische Funktionen zu plotten.
 Zuerst überlegen wir uns, in welchem x-Bereich wir plotten wollen.
-Wir nehmen hier als Beispiel den Bereich von -2*pi bis 2*pi.
+Wir nehmen hier als Beispiel den Bereich von \\(-2 \pi\\) bis \\(2 \pi\\)
 Mithilfe von np.linspace können wir nun einen Array mit oben genannten Grenzen erstellen:
 
 ```python
@@ -73,7 +73,7 @@ x = np.linspace(-2*np.pi, 2*np.pi)
 
 Per Default erzeugt linspace einen Array mit 50 Datenpunkten. Wir können aber als drittes Argument auch eine andere Zahl von Datenpunkten festlegen.
 
-Dank Numpys vektorisierbaren Funktionen, können wir die gewünschte mathematische Funktion, z.B. einen Sinus, einfach auf den x-Array anwenden und erhalten so die zugehörigen y-Punkte:
+Dank Numpys vektorisierbaren Funktionen, können wir die gewünschte mathematische Funktion, z.B. einen Sinus, einfach auf den x-Array anwenden und erhalten so die zugehörigen y-Werte:
 
 ```python
 y = np.sin(x)
@@ -90,9 +90,7 @@ Das Ergebnis ist ein Sinus mit zwei Perioden:
 
 <img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/matplotlib/sinus.png" alt="Linie" width="600" height="450"/>
 
-### Achsen beschriften ###
-
-Da uns der Professor in regelmäßigen Abständen schon das Protokoll um die Ohren gehauen hat wenn die Achsenbeschriftung fehlte, wollen wir diesmal besonders ordentlich sein.
+### Achsen beschriften
 
 Achsenbeschriftungen fügen wir hinzu mittels:
 
@@ -103,9 +101,9 @@ plt.plot(x, y)
 plt.show()
 ```
 
-Wer Latex beherrscht, kann Latex-Formeln einbinden, indem er/sie sie zwischen zwei Dollar-Zeichen schreibt.
+Latex-Formeln können übrigens eingebunden werden, indem man sie zwischen zwei Dollar-Zeichen schreibt.
 
-### Subplots ###
+### Subplots
 
 Manchmal kann es hilfreich sein, ein paar Schaubilder gleich in einem Plot unterzubringen.
 Wenn wir uns z.B. die Schwingung eines Pendels anschauen, ist es hilfreich, ein Schaubild für die momentane Position des Pendels, und ein weiteres für seine Geschwindigkeit zu plotten.
@@ -119,7 +117,10 @@ time = np.linspace(0, 2*np.pi)
 amplitude = np.sin(time)
 velocity = np.cos(time)
 
-plt.subplot(2, 1, 1) 
+# Erster Parameter: Anzahl der Zeilen der "Plot-Matrix"
+# Zweiter Parameter: Anzahl der Spalten der "Plot-Matrix"
+# Dritter Parameter: Nummer des Plots
+plt.subplot(2, 1, 1)
 plt.plot(time, amplitude)
 plt.xlabel("time / seconds")
 plt.ylabel("amplitude / meters")
@@ -144,7 +145,7 @@ Aufgabe:
 
 * kreieren Sie drei Subplots in einer Zeile
 
-### Histogramme ###
+### Histogramme
 
 Auch Histogramme lassen sich sehr komfortabel in matplotlib erstellen.
 Als Beispiel machen wir mal wieder etwas Buchstaben-Statistik:
@@ -170,7 +171,7 @@ mit dem Ergebnis
 
 Wir sehen also, dass 8 Buchstaben nur ein einziges Mal im Text auftauchen, und es nur einen einzigen Buchstaben gibt, der 12 Mal im Text erscheint.
 
-### Text in Schaubilder einfügen ###
+### Text in Schaubilder einfügen
 
 Möchten wir im obigen Beispiel z.B. kenntlich machen, dass der einzelne Buchstabe, der im gesamten Text zwölfmal vorkommt, der Buchstabe "e" ist, können wir das folgendermaßen machen.
 
@@ -178,7 +179,7 @@ Vor plt.show() schreiben wir noch:
 
 
 ```python
-plt.text(12, .5, "e", fontdict=dict(color="red", fontsize=25)) 
+plt.text(12, .5, "e", fontdict=dict(color="red", fontsize=25))
 ```
 
 Mit dem Ergebnis
@@ -192,14 +193,14 @@ Damit wird an die Koordinate 12, 2 in unserem Schaubild der Buchstabe "e" geschr
 Möchten wir einen Pfeil benutzen, um auf den zugehörigen Balken zu zeigen benutzen wir statt plt.text plt.annotate:
 
 ```python
-plt.annotate("Buchstabe 'e'", xy=(12, 1), xytext=(10, 3.5), 
+plt.annotate("Buchstabe 'e'", xy=(12, 1), xytext=(10, 3.5),
              arrowprops=dict(facecolor='black', shrink=0.05))
 ```
 
 
 <img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/matplotlib/histo_arrow.png" alt="Linie" width="600" height="450"/>
 
-### Logarithmische Achsen ###
+### Logarithmische Achsen
 
 Beim Plotten von exponentiellen Funktionen, sind halblogarithmische Darstellungen sehr hilfreich. In matplotlib lässt sich das mithilfe von xscale oder yscale einstellen.
 
@@ -215,7 +216,7 @@ plt.show()
 
 <img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/matplotlib/halblog.png" alt="Linie" width="600" height="450"/>
 
-### Fehlerbalken ###
+### Fehlerbalken
 
 Haben wir Datenpunkte mit Fehlerintervallen, können wir diese mittels plt.errorbars plotten:
 
@@ -234,20 +235,21 @@ Ergebnis:
 y_err darf auch ein Array mit der gleichen Länge wie x und y sein.
 
 
-### 3D Plots ###
+### 3D Plots
 
 http://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 
-# Numerik mit Numpy & Scipy #
+# Numerik mit Numpy & Scipy
 
-## Optimierungsprobleme ##
+## Optimierungsprobleme
 
-Unter scipy.optimize finden 
+Unter scipy.optimize finden sich diverse Funktionen, mit denen man Maxima/Minima von mehrdimensionalen Funktionen bestimmen kann
 
-### Least-Squares-Fitting ###
+### Least-Squares-Fitting
 
 Das vermutlich häufigste Optimierungsproblem ist das Fitten einer Funktion an Messpunkte.
+Dabei sucht man für eine gegebene Funktion die Parameter, die die Abweichung der Funktion zu den Messwerten minimiert.
 
 Scipy bietet dafür die Funktion _curve_fit_ an.
 
@@ -262,10 +264,11 @@ from scipy.optimize import curve_fit
 
 
 x = np.linspace(0, 10)
-y = 3*x + np.random.uniform(-3, 3, size=x.shape) 
 # wir simulieren uns unsere eigenen Messwerte, indem wir eine lineare Funktion mit leichtem Rauschen versehen
+y = 3*x + np.random.uniform(-3, 3, size=x.shape)
 
 
+# Unsere Fit-Funktion ist eine Gerade mit Steigung m und y-Achenabschnitt y_0
 def fit_function(x, m, y_0):
     return m*x + y_0
 
@@ -318,11 +321,9 @@ Wenn wir aber der curve_fit Funktion mittels _p0_ noch bessere Startparameter mi
 (a, omega), _ = curve_fit(fit_func, x, y, p0=[3.0, 1.3])
 ```
 
-schafft es der Algorithmus besser, das Minimum der Summe der Fehlerquadrate zu finden, und wir erhalten die Parameter a = 3.54570144344 und omega = 1.6905459317.
+schafft es der Algorithmus besser, das Minimum der Summe der Fehlerquadrate zu finden, und wir erhalten die Parameter ```a = 3.54570144344``` und ```omega = 1.6905459317```.
 
 <img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/matplotlib/curve_fit_nonlinear_better.png" alt="Linie" width="600" height="450"/>
 
 
-Ein Blick in die [Dokumentation](http://docs.scipy.org/doc/scipy/reference/):
-
-
+Ein Blick in die [Dokumentation](http://docs.scipy.org/doc/scipy/reference/)
