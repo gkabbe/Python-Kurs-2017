@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7 - Pandas | Python Kurs 2017</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/pandas/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Gabriel Kabbe">
+<link rel="prev" href="../scipy_matplotlib/" title="6 - Scipy &amp; Matplotlib" type="text/html">
+<meta property="og:site_name" content="Python Kurs 2017">
+<meta property="og:title" content="7 - Pandas">
+<meta property="og:url" content="https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/pandas/">
+<meta property="og:description" content="Pandas¶Werkzeug zur Datenanalyse
+http://pandas.pydata.org/pandas-docs/stable/
+
+
+
+
+
+
+In [1]:
+
+    
+import pandas as pd
+import requests as req
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+
+
+
+
+
+
+">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-01-18T00:00:00+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Springe zum Hauptinhalt</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse static-top mb-4"><div class="container">
+<!-- This keeps the margins nice -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="https://gkabbe.github.io/Python-Kurs-2017/">
+
+            <span id="blog-title">Python Kurs 2017</span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../verlaufsplan" class="nav-link">Verlaufsplan</a>
+                </li>
+<li class="nav-item">
+<a href="../../vorlesungen" class="nav-link">Vorlesungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../uebungen" class="nav-link">Übungen</a>
+                </li>
+<li class="nav-item">
+<a href="../../notebooks" class="nav-link">Notebooks</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/" class="nav-link">Tags</a>
+                </li>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS-Feed</a>
+                </li>
+<li class="nav-item">
+<a href="../../about" class="nav-link">Impressum</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">7 - Pandas</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Gabriel Kabbe
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2018-01-18T00:00:00+01:00" itemprop="datePublished" title="2018-01-18 00:00">2018-01-18 00:00</time></a></p>
+            
+        <p class="sourceline"><a href="index.ipynb" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Pandas">Pandas<a class="anchor-link" href="#Pandas">¶</a>
+</h2>
+<p>Werkzeug zur Datenanalyse
+<a href="http://pandas.pydata.org/pandas-docs/stable/">http://pandas.pydata.org/pandas-docs/stable/</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">req</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Datenstrukturen-in-Pandas">Datenstrukturen in Pandas<a class="anchor-link" href="#Datenstrukturen-in-Pandas">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Series">Series<a class="anchor-link" href="#Series">¶</a>
+</h4>
+<p>Eine Art eindimensionaler Array</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0    a
+1    b
+2    c
+3    d
+4    e
+dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wie man sieht, ist automatisch ein Index dabei, der die Werte durchnummeriert.
+Man kann auch einen eigenen Index angeben</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">"Eins"</span><span class="p">,</span> <span class="s2">"Zwo"</span><span class="p">,</span> <span class="s2">"Drei"</span><span class="p">,</span> <span class="s2">"Vier"</span><span class="p">,</span> <span class="s2">"Fünf"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Eins    1
+Zwo     2
+Drei    3
+Vier    4
+Fünf    5
+dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ansonsten funktioniert Series ziemlich ähnlich wie ein Numpy-Array</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[</span><span class="n">ser</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Drei    3
+Vier    4
+Fünf    5
+dtype: int64
+Eins    1
+Zwo     2
+Drei    3
+dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Eine Series lässt sich auch mit einem Numpy-Array initialisieren, und kann direkt geplottet werden:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="n">sin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span>
+<span class="n">sin</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/scratch/kabbe/programs/anaconda3/lib/python3.6/site-packages/matplotlib/figure.py:1743: UserWarning: This figure includes Axes that are not compatible with tight_layout, so its results might be incorrect.
+  warnings.warn("This figure includes Axes that are not "
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wir können einer Series auch einen Namen geben:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"x-Werte"</span><span class="p">)</span>
+<span class="n">sin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"y-Werte"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>  <span class="c1"># Zeige die ersten Werte</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0    0.000000
+1    0.128228
+2    0.256457
+3    0.384685
+4    0.512913
+Name: x-Werte, dtype: float64
+0    0.000000
+1    0.127877
+2    0.253655
+3    0.375267
+4    0.490718
+Name: y-Werte, dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="DataFrame">DataFrame<a class="anchor-link" href="#DataFrame">¶</a>
+</h4>
+<p>~ zweidimensionaler Array, bzw. Tabelle</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wetter</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"Niederschlag (mm/h)"</span><span class="p">:</span> <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">],</span>
+                       <span class="s2">"Temperatur"</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.3</span><span class="p">,</span> <span class="mf">8.3</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]})</span>
+<span class="n">wetter</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Niederschlag (mm/h)</th>
+      <th>Temperatur</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>5.0</td>
+      <td>10.3</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1.3</td>
+      <td>8.3</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>2.3</td>
+      <td>2.2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>4.4</td>
+      <td>1.0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Auf eine einzelne Spalte kann man folgendermaßen zugreifen:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wetter</span><span class="p">[</span><span class="s2">"Niederschlag (mm/h)"</span><span class="p">])</span>  <span class="c1"># so..</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wetter</span><span class="o">.</span><span class="n">Temperatur</span><span class="p">)</span>  <span class="c1"># oder so</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0    5.0
+1    1.3
+2    2.3
+3    4.4
+Name: Niederschlag (mm/h), dtype: float64
+0    10.3
+1     8.3
+2     2.2
+3     1.0
+Name: Temperatur, dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dabei ist allerdings zu beachten, dass die Punktnotation nur funktioniert, solange keine
+Leerzeichen im Spaltennamen enthalten sind</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wir können auch neue Spalten hinzufügen...</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wetter</span><span class="p">[</span><span class="s2">"Niederschlagsdauer (h)"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
+<span class="n">wetter</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Niederschlag (mm/h)</th>
+      <th>Temperatur</th>
+      <th>Niederschlagsdauer (h)</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>5.0</td>
+      <td>10.3</td>
+      <td>0.4</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1.3</td>
+      <td>8.3</td>
+      <td>1.5</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>2.3</td>
+      <td>2.2</td>
+      <td>3.2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>4.4</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>.. und wieder entfernen</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">wetter</span><span class="p">[</span><span class="s2">"Niederschlagsdauer (h)"</span><span class="p">]</span>
+<span class="n">wetter</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Niederschlag (mm/h)</th>
+      <th>Temperatur</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>5.0</td>
+      <td>10.3</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1.3</td>
+      <td>8.3</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>2.3</td>
+      <td>2.2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>4.4</td>
+      <td>1.0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wenn wir eine neue Spalte an einer bestimmten Stelle einfügen wollen:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wetter</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"Niederschlagsdauer (h)"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">wetter</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Niederschlag (mm/h)</th>
+      <th>Niederschlagsdauer (h)</th>
+      <th>Temperatur</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>5.0</td>
+      <td>1</td>
+      <td>10.3</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1.3</td>
+      <td>2</td>
+      <td>8.3</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>2.3</td>
+      <td>3</td>
+      <td>2.2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>4.4</td>
+      <td>4</td>
+      <td>1.0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ebenso können wir neue Spalten erstellen, die sich aus bestehenden Spalten ableiten:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wetter</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Niederschlag_total</span> <span class="o">=</span> <span class="n">wetter</span><span class="p">[</span><span class="s2">"Niederschlag (mm/h)"</span><span class="p">]</span> <span class="o">*</span> <span class="n">wetter</span><span class="p">[</span><span class="s2">"Niederschlagsdauer (h)"</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Niederschlag (mm/h)</th>
+      <th>Niederschlagsdauer (h)</th>
+      <th>Temperatur</th>
+      <th>Niederschlag_total</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>5.0</td>
+      <td>1</td>
+      <td>10.3</td>
+      <td>5.0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1.3</td>
+      <td>2</td>
+      <td>8.3</td>
+      <td>2.6</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>2.3</td>
+      <td>3</td>
+      <td>2.2</td>
+      <td>6.9</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>4.4</td>
+      <td>4</td>
+      <td>1.0</td>
+      <td>17.6</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">celsius_to_kelvin</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Temperatur</span> <span class="o">+</span> <span class="mf">273.15</span>
+
+<span class="n">wetter</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">temp_kelvin</span> <span class="o">=</span> <span class="n">celsius_to_kelvin</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Niederschlag (mm/h)</th>
+      <th>Niederschlagsdauer (h)</th>
+      <th>Temperatur</th>
+      <th>temp_kelvin</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>5.0</td>
+      <td>1</td>
+      <td>10.3</td>
+      <td>283.45</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1.3</td>
+      <td>2</td>
+      <td>8.3</td>
+      <td>281.45</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>2.3</td>
+      <td>3</td>
+      <td>2.2</td>
+      <td>275.35</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>4.4</td>
+      <td>4</td>
+      <td>1.0</td>
+      <td>274.15</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dabei ändert sich der ursprüngliche Dataframe allerdings nicht!
+Jede Änderung müssen wir daher wieder in einer Variablen speichern, sonst geht sie verloren</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wetter</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Niederschlag (mm/h)</th>
+      <th>Niederschlagsdauer (h)</th>
+      <th>Temperatur</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>5.0</td>
+      <td>1</td>
+      <td>10.3</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1.3</td>
+      <td>2</td>
+      <td>8.3</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>2.3</td>
+      <td>3</td>
+      <td>2.2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>4.4</td>
+      <td>4</td>
+      <td>1.0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GroupBy">GroupBy<a class="anchor-link" href="#GroupBy">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"Spalte 1"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>
+                   <span class="s2">"Spalte 2"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>
+                   <span class="s2">"Spalte 3"</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="s2">"abc"</span><span class="p">)})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Spalte 1</th>
+      <th>Spalte 2</th>
+      <th>Spalte 3</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>15</td>
+      <td>0.009180</td>
+      <td>a</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>10</td>
+      <td>0.064741</td>
+      <td>b</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>19</td>
+      <td>0.597941</td>
+      <td>c</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>7</td>
+      <td>0.854147</td>
+      <td>a</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>14</td>
+      <td>0.245169</td>
+      <td>b</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Spalte 3 gibt für jede Zeile eine Kategorie an, die a, b, oder c ist.
+Mithilfe von groupby ist es nun möglich, die Daten nach diesen drei Kategorien zu sortieren und zusammenzufassen.</p>
+<p>Beispiel: wir gruppieren die Tabelle nach den Kategorien in Spalte 3 und lassen uns Durchschnittswerte jeder Kategorie 
+          ausgeben</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Spalte 3"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th>Spalte 1</th>
+      <th>Spalte 2</th>
+    </tr>
+<tr>
+<th>Spalte 3</th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>a</th>
+      <td>11.6</td>
+      <td>0.399782</td>
+    </tr>
+<tr>
+<th>b</th>
+      <td>10.2</td>
+      <td>0.478534</td>
+    </tr>
+<tr>
+<th>c</th>
+      <td>11.8</td>
+      <td>0.447932</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../scipy_matplotlib/" rel="prev" title="6 - Scipy &amp; Matplotlib">Vorheriger Eintrag</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2018         <a href="mailto:gabriel.kabbe@chemie.uni-halle.de">Gabriel Kabbe</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-de.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("de");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

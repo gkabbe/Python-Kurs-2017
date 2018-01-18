@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml"></atom:link><language>de</language><lastBuildDate>Thu, 11 Jan 2018 12:13:59 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>6 - Scipy &amp; Matplotlib</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/scipy_matplotlib/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Plotten mit Matplotlib&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Kurs 2017 (Einträge über mathjax)</title><link>https://gkabbe.github.io/Python-Kurs-2017/</link><description></description><atom:link type="application/rss+xml" href="https://gkabbe.github.io/Python-Kurs-2017/categories/mathjax.xml" rel="self"></atom:link><language>de</language><lastBuildDate>Thu, 18 Jan 2018 13:58:47 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>6 - Scipy &amp; Matplotlib</title><link>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/scipy_matplotlib/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;h2&gt;Plotten mit Matplotlib&lt;/h2&gt;
 &lt;h3&gt;1D-Plots&lt;/h3&gt;
 &lt;p&gt;Siehe auch &lt;a href="http://matplotlib.org/users/pyplot_tutorial.html#pyplot-tutorial"&gt;offizielles Tutorial von der matplotlib-Seite&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Simples Beispiel&lt;/h4&gt;
@@ -238,6 +238,8 @@ In diesem Beispiel erzeugen wir leicht verrauschte Sinus-Pseudomessdaten und ver
 &lt;p&gt;schafft es der Algorithmus besser, das Minimum der Summe der Fehlerquadrate zu finden, und wir erhalten die Parameter &lt;code&gt;a = 3.54570144344&lt;/code&gt; und &lt;code&gt;omega = 1.6905459317&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://raw.githubusercontent.com/gkabbe/Python-Kurs2015/master/images/matplotlib/curve_fit_nonlinear_better.png" alt="Linie" width="600" height="450"&gt;&lt;/p&gt;
 &lt;p&gt;Ein Blick in die &lt;a href="http://docs.scipy.org/doc/scipy/reference/"&gt;Dokumentation&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>mathjax</category><guid>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/scipy_matplotlib/</guid><pubDate>Wed, 10 Jan 2018 23:00:00 GMT</pubDate></item><item><title>8 - Scipy &amp; Matplotlib - Übungen</title><link>https://gkabbe.github.io/Python-Kurs-2017/uebungen/scipy_matplotlib/</link><dc:creator>Gabriel Kabbe</dc:creator><description>&lt;div&gt;&lt;p&gt;Viele Beispiele zu Matplotlib finden Sie auch &lt;a href="http://matplotlib.org/gallery.html"&gt;hier&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;1-Dimensionale Plots&lt;/h2&gt;
+&lt;p&gt;Plotten Sie&lt;/p&gt;
 &lt;h2&gt;2-Dimensionale Histogramme&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -248,7 +250,7 @@ In diesem Beispiel erzeugen wir leicht verrauschte Sinus-Pseudomessdaten und ver
 &lt;p&gt;Benutzen Sie dazu&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pylab&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 
 

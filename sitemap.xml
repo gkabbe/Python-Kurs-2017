@@ -23,7 +23,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/archive.html</loc>
-  <lastmod>2018-01-11T16:20:00Z</lastmod>
+  <lastmod>2018-01-18T15:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/</loc>
@@ -35,7 +35,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/blog/index-2.html</loc>
-  <lastmod>2018-01-11T16:20:00Z</lastmod>
+  <lastmod>2018-01-18T15:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/categories/</loc>
@@ -79,7 +79,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/</loc>
-  <lastmod>2018-01-11T10:12:00Z</lastmod>
+  <lastmod>2018-01-18T15:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</loc>
@@ -88,6 +88,14 @@
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/2-datenstrukturen-ubungen/</loc>
   <lastmod>2017-05-09T09:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/7.1-pandas-%C3%BC/</loc>
+  <lastmod>2018-01-18T14:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/7.2-pandas-%C3%BC/</loc>
+  <lastmod>2018-01-18T15:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/exceptions_uebungen/</loc>
@@ -119,7 +127,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/</loc>
-  <lastmod>2017-10-23T13:14:00Z</lastmod>
+  <lastmod>2018-01-18T14:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/2.5-doityourself/</loc>
@@ -152,6 +160,14 @@
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/numpy/</loc>
   <lastmod>2017-07-06T10:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/numpy_matplotlib/</loc>
+  <lastmod>2018-01-18T14:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/pandas/</loc>
+  <lastmod>2018-01-18T14:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/scipy_matplotlib/</loc>
