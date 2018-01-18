@@ -11,6 +11,11 @@
 
 Viele Beispiele zu Matplotlib finden Sie auch [hier](http://matplotlib.org/gallery.html).
 
+
+# 1-Dimensionale Plots
+
+Plotten Sie
+
 # 2-Dimensionale Histogramme
 
 * Erzeugen Sie mithilfe von Numpy normalverteilte Punkte im zweidimensionalen Raum.
@@ -19,7 +24,7 @@ Viele Beispiele zu Matplotlib finden Sie auch [hier](http://matplotlib.org/galle
 * Benutzen Sie dazu
 
 ```python
-import matplotlib.pylab as plt
+import matplotlib.pyplot as plt
 import numpy as np
 
 
