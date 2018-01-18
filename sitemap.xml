@@ -79,7 +79,7 @@
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/</loc>
-  <lastmod>2018-01-18T15:03:00Z</lastmod>
+  <lastmod>2018-01-18T16:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/1-grundlagen-uebung/</loc>
@@ -96,6 +96,14 @@
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/7.2-pandas-%C3%BC/</loc>
   <lastmod>2018-01-18T15:03:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/9.1-pandas-%C3%BCbungen/</loc>
+  <lastmod>2018-01-18T16:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/9.2-pandas-%C3%BCbungen/</loc>
+  <lastmod>2018-01-18T16:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/uebungen/exceptions_uebungen/</loc>
@@ -162,12 +170,8 @@
   <lastmod>2017-07-06T10:47:00Z</lastmod>
  </url>
  <url>
-  <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/numpy_matplotlib/</loc>
-  <lastmod>2018-01-18T14:01:00Z</lastmod>
- </url>
- <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/pandas/</loc>
-  <lastmod>2018-01-18T14:01:00Z</lastmod>
+  <lastmod>2018-01-18T16:54:00Z</lastmod>
  </url>
  <url>
   <loc>https://gkabbe.github.io/Python-Kurs-2017/vorlesungen/scipy_matplotlib/</loc>
